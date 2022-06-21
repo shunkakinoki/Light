@@ -38,7 +38,10 @@
     "postpublish": "pinst --enable",
     "release": "changeset publish",
     "restore": "git restore . --recurse-submodules",
-    "version-packages": "changeset version && pnpm run fix"
+    "version-packages": "changeset version && pnpm run fix",
+    "vercel:cp": "pnpm run vercel:cp:api && pnpm run vercel:cp:home",
+    "vercel:cp:api": "cp vercel.sh apps/api/vercel.sh",
+    "vercel:cp:home": "cp vercel.sh apps/home/vercel.sh"
   },
   "npmpackagejsonlint": {
     "extends": "npm-package-json-lint-config-default"

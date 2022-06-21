@@ -20,3 +20,16 @@ jobs:
           git fetch --quiet && git merge --ff-only origin/main && git push || true
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+  submodule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v2
+      - name: run action
+        uses: releasehub-com/github-action-create-pr-parent-submodule@v1
+        with:
+          github_token: ${{ secrets.BOT_TOKEN }}
+          parent_repository: "LightDotSo/LightDotSo"
+          checkout_branch: "main"
+          pr_against_branch: "main"
+          owner: "LightDotSo"

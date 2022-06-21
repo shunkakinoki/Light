@@ -142,7 +142,7 @@ module.exports = {
           "apps/*/tsconfig.json",
           "components/*/tsconfig.json",
           "configurations/*/tsconfig.json",
-          "packages/*/tsconfig.json"
+          "packages/*/tsconfig.json",
         ],
       },
     },

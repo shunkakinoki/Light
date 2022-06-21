@@ -1,0 +1,29 @@
+name: Contracts
+on:
+  push:
+    branches:
+      - alpha
+      - beta
+      - main
+  pull_request:
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          token: ${{ secrets.BOT_TOKEN }}
+      - uses: ./.github/actions/pnpm
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+      - working-directory: packages/contracts
+        run: |
+          pnpm run build
+      - working-directory: packages/contracts
+        run: |
+          forge test -vvv --gas-report

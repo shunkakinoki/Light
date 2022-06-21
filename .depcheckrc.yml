@@ -15,6 +15,7 @@ ignores:
   - git-cz
   - html-webpack-plugin
   - lint-staged
+  - next
   - npm-package-json-lint-config-default
   - prettier-plugin-packagejson
   - prettier-plugin-solidity

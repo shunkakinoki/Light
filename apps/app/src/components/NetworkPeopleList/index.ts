@@ -1,0 +1,1 @@
+export { NetworkPeopleList } from "./NetworkPeopleList";

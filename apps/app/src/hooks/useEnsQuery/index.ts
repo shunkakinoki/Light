@@ -1,0 +1,1 @@
+export { useEnsQuery } from "./useEnsQuery";

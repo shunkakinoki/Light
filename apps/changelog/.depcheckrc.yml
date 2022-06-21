@@ -1,0 +1,7 @@
+ignores:
+  - "@lightdotso/changelog"
+  - "@lightdotso/styles"
+  - "@lightdotso/tsconfig"
+  - "@tailwindcss/*"
+  - critters
+  - next-themes

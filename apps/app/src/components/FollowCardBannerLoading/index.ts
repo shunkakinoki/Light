@@ -1,0 +1,1 @@
+export { FollowCardBannerLoading } from "./FollowCardBannerLoading";

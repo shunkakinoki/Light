@@ -1,0 +1,1 @@
+export { ModalShare } from "./ModalShare";

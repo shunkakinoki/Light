@@ -1,0 +1,8 @@
+.next
+artifacts
+cache
+dist
+node_modules
+typechain
+zod
+pnpm-lock.yaml

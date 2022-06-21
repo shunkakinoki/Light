@@ -1,0 +1,6 @@
+[submodule "apps/home"]
+	path = apps/home
+	url = https://github.com/LightDotSo/home
+[submodule "apps/api"]
+	path = apps/api
+	url = https://github.com/LightDotSo/api

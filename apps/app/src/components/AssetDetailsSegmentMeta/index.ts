@@ -1,0 +1,1 @@
+export { AssetDetailsSegmentMeta } from "./AssetDetailsSegmentMeta";

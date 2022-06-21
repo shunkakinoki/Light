@@ -1,0 +1,1 @@
+export { ProfileBoardItemLoading } from "./ProfileBoardItemLoading";

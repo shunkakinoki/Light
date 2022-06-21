@@ -1,0 +1,1 @@
+export { ProfileBoardItemNFT } from "./ProfileBoardItemNFT";

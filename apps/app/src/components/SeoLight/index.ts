@@ -1,0 +1,1 @@
+export { SeoLight } from "./SeoLight";

@@ -1,0 +1,5 @@
+prisma/.env
+prisma/zod
+
+.sentryclirc
+.vercel

@@ -1,0 +1,2 @@
+export const NETWORK_STACK_NUMBER = 6;
+export const MAXIMUM_NETWORK_STACK_NUMBER = 99;

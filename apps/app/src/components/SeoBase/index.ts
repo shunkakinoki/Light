@@ -1,0 +1,1 @@
+export { SeoBase } from "./SeoBase";

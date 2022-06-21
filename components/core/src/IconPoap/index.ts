@@ -1,0 +1,1 @@
+export { IconPoap } from "./IconPoap";

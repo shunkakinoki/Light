@@ -1,0 +1,1 @@
+export { useQueueAddress } from "./useQueueAddress";

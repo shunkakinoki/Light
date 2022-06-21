@@ -1,0 +1,38 @@
+{
+  "name": "@lightdotso/subgraph",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://github.com/lightdotso/lightdotso",
+  "bugs": {
+    "url": "https://github.com/lightdotso/lightdotso/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lightdotso/lightdotso.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Light, Inc.",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run build:codegen && pnpm run build:graph",
+    "build:codegen": "graph codegen subgraph*.yaml",
+    "build:graph": "graph build subgraph*.yaml",
+    "deploy:matic": "graph deploy --node https://api.thegraph.com/deploy/ lightdotso/nft subgraph-matic.yaml",
+    "deploy:mumbai": "graph deploy --node https://api.thegraph.com/deploy/ lightdotso/nft-testnet subgraph-mumbai.yaml"
+  },
+  "dependencies": {
+    "@lightdotso/tsconfig": "workspace:*"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "0.30.4",
+    "@graphprotocol/graph-ts": "0.27.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

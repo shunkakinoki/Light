@@ -1,0 +1,19 @@
+{
+  "index": {
+    "title": "Introduction",
+    "type": "page",
+    "hidden": true
+  },
+  "protocol": {
+    "title": "Protocol",
+    "type": "page"
+  },
+  "tokenomics": {
+    "title": "Tokenomics",
+    "type": "page"
+  },
+  "home": {
+    "title": "Home",
+    "type": "page"
+  }
+}

@@ -1,0 +1,5 @@
+ignores:
+  - "@lightdotso/og"
+  - "@lightdotso/styles"
+  - "@tailwindcss/*"
+  - critters

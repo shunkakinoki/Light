@@ -1,0 +1,1 @@
+export { NetworkPeopleListPoap } from "./NetworkPeopleListPoap";

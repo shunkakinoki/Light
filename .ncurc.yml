@@ -1,0 +1,7 @@
+upgrade: true
+reject:
+  - "@cyberlab/social-verifier"
+  - solc
+  - rimraf
+  - ts-node
+  - wagmi

@@ -1,0 +1,8 @@
+export const HEADER_QUERY_NUMBER = 9;
+export const FOLLOW_GRID_NUMBER = 9;
+export const FOLLOW_RECOMMENDATIONS_NUMBER = 3;
+export const FOLLOW_POPULAR_NUMBER = 6;
+export const FOLLOW_RANKINGS_NUMBER = 3;
+export const FOLLOW_QUERY_NUMBER = 10;
+export const NETWORK_PEOPLE_QUERY_NUMBER = 10;
+export const MAX_FOLLOW_SNAP_NUMBER = 10;

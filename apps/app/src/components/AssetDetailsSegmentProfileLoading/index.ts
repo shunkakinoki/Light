@@ -1,0 +1,1 @@
+export { AssetDetailsSegmentProfileLoading } from "./AssetDetailsSegmentProfileLoading";

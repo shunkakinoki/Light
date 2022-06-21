@@ -1,0 +1,9 @@
+@tailwind base;
+@import "@lightdotso/styles/base.css";
+
+@tailwind components;
+
+@tailwind utilities;
+
+@import "nprogress/nprogress.css";
+@import "./nprogress.css";

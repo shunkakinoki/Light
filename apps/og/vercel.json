@@ -1,0 +1,9 @@
+{
+  "functions": {
+    "pages/api/image.js": {
+      "maxDuration": 60,
+      "memory": 3008
+    }
+  },
+  "public": false
+}

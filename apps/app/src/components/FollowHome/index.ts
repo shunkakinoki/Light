@@ -1,0 +1,1 @@
+export { FollowHome } from "./FollowHome";

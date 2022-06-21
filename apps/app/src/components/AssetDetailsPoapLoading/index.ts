@@ -1,0 +1,1 @@
+export { AssetDetailsPoapLoading } from "./AssetDetailsPoapLoading";

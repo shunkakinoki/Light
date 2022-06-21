@@ -1,0 +1,4 @@
+ignores:
+  - "@prisma/client"
+  - zod
+  - zod-prisma

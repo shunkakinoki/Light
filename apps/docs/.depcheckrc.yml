@@ -1,0 +1,5 @@
+ignores:
+  - "@lightdotso/docs"
+  - "@lightdotso/tsconfig"
+  - "@tailwindcss/*"
+  - critters

@@ -1,0 +1,79 @@
+.container {
+  @apply max-w-2xl py-6 leading-relaxed;
+}
+
+.container h1 {
+  @apply my-8 text-4xl font-extrabold text-contrast-higher;
+}
+
+.container h2 {
+  @apply my-6 text-2xl font-bold text-contrast-higher;
+}
+
+.container h3 {
+  @apply my-3 text-xl text-contrast-high;
+}
+
+.container p {
+  @apply text-contrast-medium;
+}
+
+.container img {
+  @apply h-auto w-full rounded-md;
+}
+
+.container figure {
+  @apply mx-0;
+}
+
+.container figcaption {
+  @apply opacity-60;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.code {
+  @apply rounded-md bg-bg-lighter px-1.5 py-1 font-mono;
+}
+
+.link {
+  @apply text-primary hover:text-primary-light hover:underline;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.pre {
+  @apply mx-10 overflow-auto rounded-md bg-bg-lighter px-1 py-1.5;
+}
+
+.code_block {
+  @apply flex flex-wrap px-1 py-1.5 font-mono;
+}
+
+.file {
+  @apply px-2 py-3;
+}
+
+.file a {
+  color: inherit;
+}
+
+.file:hover {
+  @apply cursor-pointer rounded-md bg-bg-darker;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.underline {
+  text-decoration: underline;
+}

@@ -1,0 +1,1 @@
+export { ProfileBoardItemPoap } from "./ProfileBoardItemPoap";

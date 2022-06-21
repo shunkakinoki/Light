@@ -1,0 +1,1 @@
+export { AssetDetailsSegmentHeroLoading } from "./AssetDetailsSegmentHeroLoading";

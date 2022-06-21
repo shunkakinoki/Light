@@ -1,0 +1,8 @@
+ignores:
+  - "@lightdotso/app"
+  - "@lightdotso/styles"
+  - "@lightdotso/tsconfig"
+  - "@tailwindcss/*"
+  - critters
+  - next-themes
+  - zod-prisma

@@ -1,0 +1,1 @@
+export { AssetFooter } from "./AssetFooter";

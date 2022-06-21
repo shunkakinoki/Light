@@ -1,0 +1,32 @@
+.root {
+  @apply inline-flex items-center text-center leading-7;
+}
+
+.root .dot {
+  @apply h-2 w-2 rounded-full bg-emphasis-medium;
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  margin: 0 2px;
+}
+
+.root .dot:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.root .dot:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}

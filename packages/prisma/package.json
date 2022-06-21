@@ -1,0 +1,43 @@
+{
+  "name": "@lightdotso/prisma",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://github.com/lightdotso/lightdotso",
+  "bugs": {
+    "url": "https://github.com/lightdotso/lightdotso/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lightdotso/lightdotso.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Light, Inc.",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run generate && pnpm run compile",
+    "clean": "rimraf -rf ./dist",
+    "compile": "tsc",
+    "env:pull": "doppler secrets download --no-file --format env > .env",
+    "fix": "cd ../.. && pnpm run fix",
+    "generate": "pnpm run prisma:generate",
+    "prisma:cp": "pnpm run prisma:cp:api && pnpm run prisma:cp:app",
+    "prisma:cp:api": "cp schema.prisma ../../apps/api/prisma/schema.prisma",
+    "prisma:cp:app": "cp schema.prisma ../../apps/app/prisma/schema.prisma",
+    "prisma:generate": "prisma generate",
+    "prisma:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.15.2",
+    "prisma": "^3.15.2",
+    "zod": "^3.17.3",
+    "zod-prisma": "^0.5.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

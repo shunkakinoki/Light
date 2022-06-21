@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": false,
+    "outDir": "./dist",
+    "paths": {
+      "@lightdotso/core/*": ["./src/*"]
+    }
+  },
+  "extends": "@lightdotso/tsconfig/next.json",
+  "include": ["."]
+}

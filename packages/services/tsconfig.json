@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "lib": ["es2021", "dom"],
+    "outDir": "./dist"
+  },
+  "exclude": ["dist", "build", "node_modules"],
+  "extends": "@lightdotso/tsconfig/node.json",
+  "include": ["."]
+}

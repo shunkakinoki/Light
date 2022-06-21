@@ -1,0 +1,3 @@
+@openzeppelin/contracts/=packages/contracts/node_modules/@openzeppelin/contracts/
+forge-std/=packages/contracts/node_modules/forge-std/
+ds-test/=packages/contracts/node_modules/ds-test/

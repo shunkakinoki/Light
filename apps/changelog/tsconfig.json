@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@lightdotso/changelog/*": ["./src/*"],
+      "@lightdotso/changelog/public/*": ["./public/*"]
+    }
+  },
+  "extends": "@lightdotso/tsconfig/next.json",
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+}

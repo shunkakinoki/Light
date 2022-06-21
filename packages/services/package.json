@@ -1,0 +1,43 @@
+{
+  "name": "@lightdotso/services",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://github.com/lightdotso/lightdotso",
+  "bugs": {
+    "url": "https://github.com/lightdotso/lightdotso/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lightdotso/lightdotso.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Light, Inc.",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run compile",
+    "clean": "rimraf -rf ./dist",
+    "compile": "tsc",
+    "prepublishOnly": "pnpm run build",
+    "test": "pnpm run build"
+  },
+  "dependencies": {
+    "@lightdotso/const": "workspace:*",
+    "@lightdotso/queries": "workspace:*",
+    "@lightdotso/tsconfig": "workspace:*",
+    "@lightdotso/types": "workspace:*",
+    "ethers": "^5.6.9",
+    "graphql": "^16.5.0",
+    "graphql-request": "^4.3.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "baseBranch": "origin/main",
+  "globalDependencies": ["tsconfig.json", ".env.*"],
+  "pipeline": {
+    "@lightdotso/app#build": {
+      "dependsOn": [
+        "^build",
+        "$NEXT_PUBLIC_ALCHEMY_ID",
+        "$NEXT_PUBLIC_ETHERSCAN_API_KEY",
+        "$NEXT_PUBLIC_INFURA_ID",
+        "$NEXT_PUBLIC_SENTRY_DSN",
+        "$NEXT_PUBLIC_VERCEL_ENV",
+        "$NEXT_PUBLIC_ZERION_API_KEY",
+        "$SENTRY_DSN",
+        "$VERCEL_ENV"
+      ],
+      "outputs": [".next/**"]
+    },
+    "@lightdotso/contracts#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["abi/**", "artifacts/**", "dist/**", "typechain/**"]
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["artifacts/**", "dist/**", ".next/**"]
+    },
+    "clean": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false
+    },
+    "test": {
+      "dependsOn": ["build"]
+    }
+  }
+}

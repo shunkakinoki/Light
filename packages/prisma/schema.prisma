@@ -1,0 +1,137 @@
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+generator zod {
+  provider = "zod-prisma"
+  output   = "./zod"
+
+  modelCase     = "camelCase"
+  modelSuffix   = "Schema"
+  relationModel = false
+}
+
+enum AddressType {
+  CONTRACT
+  EOA
+  SAFE
+}
+
+enum CategoryType {
+  DAO
+  DEFI
+  NFT
+  SOCIAL
+  OTHER
+  NONE
+}
+
+enum DataType {
+  ALCHEMY
+  COVALENT
+  POAP
+  PORTAL
+  SNAPSHOT
+  OPENSEA
+}
+
+enum NetworkType {
+  CYBERCONNECT
+  DAO
+  POAP
+  NFT
+  SELF
+}
+
+enum UserType {
+  ADMIN
+  USER
+}
+
+model User {
+  id           String   @id @default(cuid())
+  address      String   @unique @db.VarChar(42)
+  domain       String
+  lastIssuedAt DateTime
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  role         UserType @default(USER)
+
+  addresses Address[]
+  sessions  Session[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  issuedAt  DateTime
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([issuedAt, userId])
+}
+
+model Activity {
+  id        String        @id
+  address   String        @db.VarChar(42)
+  category  CategoryType?
+  chainId   Int
+  createdAt DateTime
+  updatedAt DateTime      @updatedAt
+  type      DataType
+
+  timeline Timeline[]
+  @@unique([id, chainId, type])
+}
+
+model Address {
+  id      String      @id @db.VarChar(42)
+  chainId Int
+  name    String?
+  user    User?       @relation(fields: [userId], references: [id])
+  userId  String?
+  score   Int         @default(0)
+  type    AddressType
+
+  networks Network[]
+  @@unique([id, chainId, type])
+}
+
+model Network {
+  id        String      @id @default(cuid())
+  key       String
+  updatedAt DateTime    @updatedAt
+  type      NetworkType
+  name      String?
+  image_url String?
+  count     Int         @default(0)
+  score     Int         @default(0)
+
+  addresses Address[]
+  timeline  Timeline[]
+
+  @@unique([key, type])
+}
+
+model Timeline {
+  id        String
+  activity  Activity     @relation(fields: [id, address, createdAt, chainId, type], references: [id, address, createdAt, chainId, type])
+  address   String
+  category  CategoryType
+  createdAt DateTime
+  chainId   Int
+  score     Int          @default(0)
+  type      DataType
+
+  network   Network @relation(fields: [networkId], references: [id])
+  networkId String
+
+  @@unique([id, chainId, type, networkId])
+}

@@ -1,0 +1,1 @@
+export { NotionImage } from "./NotionImage";

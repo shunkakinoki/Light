@@ -9,13 +9,13 @@ runs:
   steps:
     - if: github.event_name == 'push'
       uses: actions/checkout@v3
-      repository: LightDotSo/LightDotSo
       with:
+        repository: LightDotSo/LightDotSo
         token: ${{ inputs.token }}
     - if: github.event_name == 'pull_request'
       uses: actions/checkout@v3
-      repository: LightDotSo/LightDotSo
       with:
+        repository: LightDotSo/LightDotSo
         ref: ${{ github.event.pull_request.head.ref }}
         token: ${{ inputs.token }}
     - id: nvm

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "strict": true,
+    "target": "es5"
+  },
+  "exclude": ["node_modules"],
+  "extends": "./base.json",
+  "include": [
+    "./abi/**/*.json",
+    "./deploy",
+    "./deployments/**/*.json",
+    "./scripts",
+    "./src",
+    "./tasks",
+    "./tests",
+    "./typechain",
+    "./hardhat.config.ts"
+  ]
+}

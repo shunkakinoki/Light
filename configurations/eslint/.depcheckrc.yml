@@ -1,0 +1,4 @@
+ignores:
+  - "@typescript-eslint/*"
+  - eslint
+  - eslint-*

@@ -1,0 +1,30 @@
+{
+  "name": "@lightdotso/prettier",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://github.com/LightDotSo/LightDotSo",
+  "bugs": {
+    "url": "https://github.com/LightDotSo/LightDotSo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LightDotSo/LightDotSo.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Light, Inc.",
+  "main": "src/index.js",
+  "files": [
+    "src/index.js"
+  ],
+  "dependencies": {
+    "prettier": "^2.7.1",
+    "prettier-plugin-packagejson": "^2.2.18",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "prettier-plugin-sort-json": "^0.0.2",
+    "prettier-plugin-tailwindcss": "^0.1.11"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

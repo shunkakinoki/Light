@@ -257,7 +257,7 @@ importers:
       critters: ^0.0.16
       cypress: ^10.1.0
       ethers: ^5.6.9
-      framer-motion: ^6.3.11
+      framer-motion: ^6.3.12
       javascript-time-ago: ^2.5.4
       jsonwebtoken: ^8.5.1
       lodash: ^4.17.21
@@ -304,7 +304,7 @@ importers:
       copy-to-clipboard: 3.3.1
       critters: 0.0.16
       ethers: 5.6.9
-      framer-motion: 6.3.11_biqbaboplfbrettd7655fr4n2y
+      framer-motion: 6.3.12_biqbaboplfbrettd7655fr4n2y
       javascript-time-ago: 2.5.4
       jsonwebtoken: 8.5.1
       lodash: 4.17.21
@@ -749,13 +749,13 @@ importers:
 
   packages/subgraph:
     specifiers:
-      '@graphprotocol/graph-cli': 0.30.4
+      '@graphprotocol/graph-cli': 0.31.0
       '@graphprotocol/graph-ts': 0.27.0
       '@lightdotso/tsconfig': workspace:*
     dependencies:
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
     devDependencies:
-      '@graphprotocol/graph-cli': 0.30.4
+      '@graphprotocol/graph-cli': 0.31.0
       '@graphprotocol/graph-ts': 0.27.0
 
   packages/types:
@@ -1998,24 +1998,24 @@ packages:
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
     dev: true
 
-  /@graphprotocol/graph-cli/0.30.4:
-    resolution: {integrity: sha512-BZNnkSJBgGIVvSx/cxlep1ytKhvGM1ZUZU/73Lu4yH+lpGQN3UtKjlUzcasHqPEwqyp47OifMHlHxDBm4+CVoQ==}
+  /@graphprotocol/graph-cli/0.31.0:
+    resolution: {integrity: sha512-U8G3tPXch+KUlcTC4Wct5u/+G7555Vebo2WjV5mlvVTa0r5JfdY+NUcVot0kt2MZ0a/T+ksLhGT/jgJ1QDt86A==}
     hasBin: true
     dependencies:
       assemblyscript: 0.19.10
-      binary-install-raw: 0.0.13_debug@4.1.1
+      binary-install-raw: 0.0.13_debug@4.3.1
       chalk: 3.0.0
       chokidar: 3.5.1
-      debug: 4.1.1
+      debug: 4.3.1
       docker-compose: 0.23.4
       dockerode: 2.5.8
       fs-extra: 9.0.0
       glob: 7.1.6
-      gluegun: github.com/edgeandnode/gluegun/b34b9003d7bf556836da41b57ef36eb21570620a_debug@4.1.1
+      gluegun: github.com/edgeandnode/gluegun/b34b9003d7bf556836da41b57ef36eb21570620a_debug@4.3.1
       graphql: 15.5.0
       immutable: 3.8.2
       ipfs-http-client: 34.0.0
-      jayson: 3.2.0
+      jayson: 3.6.6
       js-yaml: 3.13.1
       node-fetch: 2.6.0
       pkginfo: 0.4.1
@@ -2028,7 +2028,10 @@ packages:
       which: 2.0.2
       yaml: 1.9.2
     transitivePeerDependencies:
+      - bufferutil
+      - encoding
       - supports-color
+      - utf-8-validate
     dev: true
 
   /@graphprotocol/graph-ts/0.27.0:
@@ -3937,7 +3940,7 @@ packages:
   /@types/concat-stream/1.6.1:
     resolution: {integrity: sha512-eHE4cQPoj6ngxBZMvVf6Hw7Mh4jMW4U9lpGmS5GBPB9RYxlFg+CHaVN7ErNY4W9XfLIEn20b4VDYaIrbq0q4uA==}
     dependencies:
-      '@types/node': 8.10.66
+      '@types/node': 18.0.0
 
   /@types/connect-history-api-fallback/1.3.5:
     resolution: {integrity: sha512-h8QJa8xSb1WD4fpKBDcATDNGXghFj6/3GRWG6dhmRcu0RX1Ubasur2Uvx5aeEwlf0MwblEC2bMzzMQntxnw/Cw==}
@@ -3949,7 +3952,7 @@ packages:
   /@types/connect/3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
-      '@types/node': 12.20.55
+      '@types/node': 18.0.0
     dev: true
 
   /@types/cookie/0.4.1:
@@ -4009,7 +4012,7 @@ packages:
   /@types/form-data/0.0.33:
     resolution: {integrity: sha512-8BSvG1kGm83cyJITQMZSulnl6QV8jqAGreJsc5tPu1Jq0vTSOiY/k24Wx82JRpWwZSqrala6sd5rWi6aNXvqcw==}
     dependencies:
-      '@types/node': 8.10.66
+      '@types/node': 18.0.0
 
   /@types/glob/7.2.0:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
@@ -4279,6 +4282,12 @@ packages:
       '@types/bn.js': 5.1.0
       '@types/underscore': 1.11.4
     dev: false
+
+  /@types/ws/7.4.7:
+    resolution: {integrity: sha512-JQbbmxZTZehdc2iszGKs5oC3NFnjeay7mtAWrdt7qNtAVK0g19muApzAy4bm9byz79xa2ZnO/BOBC2R8RC5Lww==}
+    dependencies:
+      '@types/node': 18.0.0
+    dev: true
 
   /@types/ws/8.5.3:
     resolution: {integrity: sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==}
@@ -5314,10 +5323,10 @@ packages:
     resolution: {integrity: sha512-2OALKUe82NLVPe4NTooom8NykWIa2D7YxO7jG1pgnYWnkfhTUriXpITmLvVD8k8TzDfa9G5O4y8rPe2/uUB1Bg==}
     dev: false
 
-  /apisauce/1.1.5_debug@4.1.1:
+  /apisauce/1.1.5_debug@4.3.1:
     resolution: {integrity: sha512-gKC8qb/bDJsPsnEXLZnXJ7gVx7dh87CEVNeIwv1dvaffnXoh5GHwac5pWR1P2broLiVj/fqFMQvLDDt/RhjiqA==}
     dependencies:
-      axios: 0.21.4_debug@4.1.1
+      axios: 0.21.4_debug@4.3.1
       ramda: 0.25.0
     transitivePeerDependencies:
       - debug
@@ -5627,10 +5636,10 @@ packages:
     transitivePeerDependencies:
       - debug
 
-  /axios/0.21.4_debug@4.1.1:
+  /axios/0.21.4_debug@4.3.1:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
     dependencies:
-      follow-redirects: 1.15.1_debug@4.1.1
+      follow-redirects: 1.15.1_debug@4.3.1
     transitivePeerDependencies:
       - debug
     dev: true
@@ -6215,11 +6224,11 @@ packages:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
 
-  /binary-install-raw/0.0.13_debug@4.1.1:
+  /binary-install-raw/0.0.13_debug@4.3.1:
     resolution: {integrity: sha512-v7ms6N/H7iciuk6QInon3/n2mu7oRX+6knJ9xFPsJ3rQePgAqcR3CRTwUheFd8SLbiq4LL7Z4G/44L9zscdt9A==}
     engines: {node: '>=10'}
     dependencies:
-      axios: 0.21.4_debug@4.1.1
+      axios: 0.21.4_debug@4.3.1
       rimraf: 3.0.2
       tar: 6.1.11
     transitivePeerDependencies:
@@ -6275,7 +6284,6 @@ packages:
       buffer: 5.7.1
       inherits: 2.0.4
       readable-stream: 3.6.0
-    dev: true
 
   /blakejs/1.2.1:
     resolution: {integrity: sha512-QXUSXI3QVc/gJME0dBpXrag1kbzOqCjCX8/b54ntNyW6sjtoqxqRk3LTmXzaJoh71zMsDCjM+47jS7XiwN/+fQ==}
@@ -7586,7 +7594,7 @@ packages:
       import-fresh: 3.3.0
       parse-json: 5.2.0
       path-type: 4.0.0
-      yaml: 1.9.2
+      yaml: 1.10.2
     dev: true
 
   /cosmiconfig/7.0.1:
@@ -7907,16 +7915,16 @@ packages:
       supports-color: 8.1.1
     dev: true
 
-  /debug/4.1.1:
-    resolution: {integrity: sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==}
-    deprecated: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+  /debug/4.3.1:
+    resolution: {integrity: sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==}
+    engines: {node: '>=6.0'}
     peerDependencies:
       supports-color: '*'
     peerDependenciesMeta:
       supports-color:
         optional: true
     dependencies:
-      ms: 2.1.3
+      ms: 2.1.2
     dev: true
 
   /debug/4.3.3_supports-color@8.1.1:
@@ -8088,6 +8096,11 @@ packages:
 
   /defined/1.0.0:
     resolution: {integrity: sha512-Y2caI5+ZwS5c3RiNDJ6u53VhQHv+hHKwhkI1iHvceKUHw9Df6EK2zRLfjejRgMuCuxK7PfSWIMwWecceVvThjQ==}
+
+  /delay/5.0.0:
+    resolution: {integrity: sha512-ReEBKkIfe4ya47wlPYf/gu5ib6yUG0/Aez0JQZQz94kiWtRQvZIQbTiehsnwHvLSWJnQdhVeqYue7Id1dKr0qw==}
+    engines: {node: '>=10'}
+    dev: true
 
   /delayed-stream/1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
@@ -10352,7 +10365,7 @@ packages:
       debug:
         optional: true
 
-  /follow-redirects/1.15.1_debug@4.1.1:
+  /follow-redirects/1.15.1_debug@4.3.1:
     resolution: {integrity: sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==}
     engines: {node: '>=4.0'}
     peerDependencies:
@@ -10361,7 +10374,7 @@ packages:
       debug:
         optional: true
     dependencies:
-      debug: 4.1.1
+      debug: 4.3.1
     dev: true
 
   /for-each/0.3.3:
@@ -10466,8 +10479,8 @@ packages:
     dependencies:
       map-cache: 0.2.2
 
-  /framer-motion/6.3.11_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-xQLk+ZSklNs5QNCUmdWPpKMOuWiB8ZETsvcIOWw8xvri9K3TamuifgCI/B6XpaEDR0/V2ZQF2Wm+gUAZrXo+rw==}
+  /framer-motion/6.3.12_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-JfBNDeZX/0J2XtjuGpCf5klissAVw1N4tKrVu23SzQ2ksuL2xu1Jm/CE11sYq9RvFEiN0qkMp+CylFpYLarFoQ==}
     peerDependencies:
       react: '>=16.8 || ^17.0.0 || ^18.0.0'
       react-dom: '>=16.8 || ^17.0.0 || ^18.0.0'
@@ -10495,7 +10508,6 @@ packages:
 
   /fs-constants/1.0.0:
     resolution: {integrity: sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==}
-    dev: true
 
   /fs-extra/0.30.0:
     resolution: {integrity: sha512-UvSPKyhMn6LEd/WpUaV9C9t3zATuqoqfWc3QdPhPLb58prN9tqYPlPWi8Krxi44loBoUzlobqZ3+8tGpxxSzwA==}
@@ -11889,13 +11901,13 @@ packages:
       buffer: 5.7.1
       cids: 0.7.5
       concat-stream: github.com/hugomrdias/concat-stream/057bc7b5d6d8df26c8cf00a3f151b6721a0a8034
-      debug: 4.1.1
+      debug: 4.3.4
       detect-node: 2.1.0
       end-of-stream: 1.4.4
       err-code: 2.0.3
       explain-error: 1.0.4
       flatmap: 0.0.3
-      glob: 7.1.6
+      glob: 7.2.3
       ipfs-block: 0.8.1
       ipfs-utils: 0.0.4
       ipld-dag-cbor: 0.15.3
@@ -11933,6 +11945,7 @@ packages:
       tar-stream: 2.2.0
       through2: 3.0.2
     transitivePeerDependencies:
+      - encoding
       - supports-color
     dev: true
 
@@ -12452,6 +12465,14 @@ packages:
     resolution: {integrity: sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==}
     engines: {node: '>=0.10.0'}
 
+  /isomorphic-ws/4.0.1_ws@7.5.8:
+    resolution: {integrity: sha512-BhBvN2MBpWTaSHdWRb/bwdZJ1WaehQ2L1KngkCkfLUGF0mAWAT1sQUQacEmQ0jXkFw/czDXPNQSL5u2/Krsz1w==}
+    peerDependencies:
+      ws: '*'
+    dependencies:
+      ws: 7.5.8
+    dev: true
+
   /isstream/0.1.2:
     resolution: {integrity: sha512-Yljz7ffyPbrLpLngrMtZ7NduUgVvi6wG9RJ9IUcyCd59YQ911PBJphODUcbOVbqYfxe1wuYf/LJ8PauMRwsM/g==}
 
@@ -12495,21 +12516,29 @@ packages:
       relative-time-format: 1.1.4
     dev: false
 
-  /jayson/3.2.0:
-    resolution: {integrity: sha512-DZQnwA57GcStw4soSYB2VntWXFfoWvmSarlaWePDYOWhjxT72PBM4atEBomaTaS1uqk3jFC9UO9AyWjlujo3xw==}
+  /jayson/3.6.6:
+    resolution: {integrity: sha512-f71uvrAWTtrwoww6MKcl9phQTC+56AopLyEenWvKVAIMz+q0oVGj6tenLZ7Z6UiPBkJtKLj4kt0tACllFQruGQ==}
+    engines: {node: '>=8'}
     hasBin: true
     dependencies:
       '@types/connect': 3.4.35
       '@types/express-serve-static-core': 4.17.29
       '@types/lodash': 4.14.182
       '@types/node': 12.20.55
+      '@types/ws': 7.4.7
       commander: 2.20.3
+      delay: 5.0.0
       es6-promisify: 5.0.0
       eyes: 0.1.8
+      isomorphic-ws: 4.0.1_ws@7.5.8
       json-stringify-safe: 5.0.1
       JSONStream: 1.3.5
       lodash: 4.17.21
-      uuid: 3.4.0
+      uuid: 8.3.2
+      ws: 7.5.8
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
     dev: true
 
   /jest-worker/27.5.1:
@@ -12937,7 +12966,9 @@ packages:
     dependencies:
       abort-controller: 3.0.0
       ky: 0.11.2
-      node-fetch: 2.6.0
+      node-fetch: 2.6.7
+    transitivePeerDependencies:
+      - encoding
     dev: true
 
   /ky/0.11.2:
@@ -12949,6 +12980,8 @@ packages:
     resolution: {integrity: sha512-HqRPmEgtkTW4sCYDUjTEuTGkjCHuLvtZU8iM8GkhD7SpjW4AJJbBk86YU4K43sWGuW5Vmzp1lVCx4ab/kJsuBw==}
     engines: {node: '>= 8'}
     hasBin: true
+    dependencies:
+      tar-fs: 2.1.1
     dev: false
     bundledDependencies:
       - tar-fs
@@ -14643,6 +14676,10 @@ packages:
     resolution: {integrity: sha512-3KYa4m4Vlqx98GPdOHghxSdNtTvcP8E0kkaJ5Dlh+h2DRzF7zpuVVcA8B0QpKd11YJeP9QQ7ASkKzOeu195Wzw==}
     engines: {node: '>= 8.0.0'}
     dev: true
+
+  /mkdirp-classic/0.5.3:
+    resolution: {integrity: sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==}
+    dev: false
 
   /mkdirp-promise/5.0.1:
     resolution: {integrity: sha512-Hepn5kb1lJPtVW84RFT40YG1OddBNTOVUZR2bzQUHc+Z03en8/3uX0+060JDhcEzyO08HmipsN9DcnFMxhIL9w==}
@@ -18689,6 +18726,7 @@ packages:
 
   /stable/0.1.8:
     resolution: {integrity: sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w==}
+    deprecated: 'Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility'
     dev: true
 
   /stack-trace/0.0.10:
@@ -19233,6 +19271,15 @@ packages:
       tar-stream: 1.6.2
     dev: true
 
+  /tar-fs/2.1.1:
+    resolution: {integrity: sha512-V0r2Y9scmbDRLCNex/+hYzvp/zyYjvFbHPNgVTKfQvVrb6guiE/fxP+XblDNR011utopbkex2nM4dHNV6GDsng==}
+    dependencies:
+      chownr: 1.1.4
+      mkdirp-classic: 0.5.3
+      pump: 3.0.0
+      tar-stream: 2.2.0
+    dev: false
+
   /tar-stream/1.6.2:
     resolution: {integrity: sha512-rzS0heiNf8Xn7/mpdSVVSMAWAoy9bfb1WOTYC78Z0UQKeKa/CWS8FOq0lKGNa8DWKAn9gxjCvMLYc5PGXYlK2A==}
     engines: {node: '>= 0.8.0'}
@@ -19255,7 +19302,6 @@ packages:
       fs-constants: 1.0.0
       inherits: 2.0.4
       readable-stream: 3.6.0
-    dev: true
 
   /tar/4.4.19:
     resolution: {integrity: sha512-a20gEsvHnWe0ygBY8JbxoM4w3SJdhc7ZAuxkLqh+nvNQN2IOt0B5lLgM490X5Hl8FF0dl0tOf2ewFYAlIFgzVA==}
@@ -21447,7 +21493,6 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
-    dev: false
 
   /ws/8.3.0:
     resolution: {integrity: sha512-Gs5EZtpqZzLvmIM59w4igITU57lrtYVFneaa434VROv4thzJyV6UjIL3D42lslWlI+D4KzLYnxSwtfuiO79sNw==}
@@ -21765,14 +21810,14 @@ packages:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}
     dev: false
 
-  github.com/edgeandnode/gluegun/b34b9003d7bf556836da41b57ef36eb21570620a_debug@4.1.1:
+  github.com/edgeandnode/gluegun/b34b9003d7bf556836da41b57ef36eb21570620a_debug@4.3.1:
     resolution: {tarball: https://codeload.github.com/edgeandnode/gluegun/tar.gz/b34b9003d7bf556836da41b57ef36eb21570620a}
     id: github.com/edgeandnode/gluegun/b34b9003d7bf556836da41b57ef36eb21570620a
     name: gluegun
     version: 4.3.1
     hasBin: true
     dependencies:
-      apisauce: 1.1.5_debug@4.1.1
+      apisauce: 1.1.5_debug@4.3.1
       app-module-path: 2.2.0
       cli-table3: 0.5.1
       colors: 1.3.3
@@ -21800,7 +21845,7 @@ packages:
       ora: 4.1.1
       pluralize: 8.0.0
       ramdasauce: 2.1.3
-      semver: 7.3.5
+      semver: 7.3.7
       which: 2.0.2
       yargs-parser: 16.1.0
     transitivePeerDependencies:

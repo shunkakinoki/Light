@@ -70,40 +70,50 @@ export const ProfileHero: FC<ProfileHeroProps> = ({ active, address }) => {
 
   return (
     <div className="bg-bg-lighter px-3">
-      <div className="mx-auto flex max-w-container flex-col items-center py-8 md:flex-row">
-        <div className="flex flex-col items-center md:flex-row">
+      <div className="sm:mx-auto flex max-w-container flex-col sm:items-center py-2 sm:py-3 md:py-8 md:flex-row">
+        <div className="flex items-center flex-row space-x-3">
           {!profileAddress ? (
             <PlaceholderAvatar
               width={96}
               height={96}
               address={KAKI_WALLET_ADDRESS}
-              className="h-24 w-24 md:h-32 md:w-32"
+              className="h-24 w-24 shrink-0"
             />
           ) : (
             <PlaceholderAvatar
               width={96}
               height={96}
               address={profileAddress}
-              className="h-24 w-24 md:h-32 md:w-32"
+              className="h-24 w-24 shrink-0"
             />
           )}
-          <div className="mt-6 space-y-4 md:mt-0 md:space-y-6 md:pl-8">
+          <div className="sm:mt-6 space-y-4 md:mt-0 md:space-y-6 md:pl-8">
             {!profileAddress ? (
               <ProfileHeroAddressLoading />
             ) : (
               <ProfileHeroAddress address={profileAddress} ens={ens} />
             )}
-            <ProfileHeroCount
-              address={profileAddress}
-              isLoading={isLoading}
-              followingCount={identity?.followingCount}
-              followerCount={identity?.followerCount}
-            />
+            <div className="hidden sm:inline-flex">
+              <ProfileHeroCount
+                address={profileAddress}
+                isLoading={isLoading}
+                followingCount={identity?.followingCount}
+                followerCount={identity?.followerCount}
+              />
+            </div>
           </div>
         </div>
         <div className="flex-1" />
-        <div className="flex flex-col-reverse space-y-4 md:mt-0 md:flex-col md:space-y-14">
-          <div className="mt-4 flex justify-center space-x-4 md:justify-end">
+        <div className="inline-flex sm:hidden mt-4">
+          <ProfileHeroCount
+            address={profileAddress}
+            isLoading={isLoading}
+            followingCount={identity?.followingCount}
+            followerCount={identity?.followerCount}
+          />
+        </div>
+        <div className="flex flex-col-reverse md:flex-col space-y-4 md:mt-0 md:space-y-14">
+          <div className="mt-4 flex justify-start sm:justify-center space-x-4 md:justify-end">
             {identity && (
               <ProfileHeroTwitter
                 address={profileAddress}
@@ -111,9 +121,14 @@ export const ProfileHero: FC<ProfileHeroProps> = ({ active, address }) => {
               />
             )}
             <ProfileHeroShareButton address={profileAddress} />
+            <div className="hidden sm:inline-flex">
+              <FollowButton address={profileAddress} />
+            </div>
+          </div>
+          <div className="inline-flex sm:hidden w-full">
             <FollowButton address={profileAddress} />
           </div>
-          <div className="flex justify-center md:justify-end">
+          <div className="flex justify-start sm:justify-center md:justify-end overflow-hidden">
             <NetworkStack hidden useBlur={false} address={profileAddress} />
           </div>
         </div>

@@ -16,7 +16,7 @@ export const ProfileHeroAddress: FC<ProfileHeroAddressProps> = ({
   const [isCopied, copy] = useCopy();
 
   return (
-    <div className="mx-auto space-y-5 sm:mx-0 sm:max-w-xl sm:space-y-4">
+    <div className="space-y-5 sm:mx-0 sm:max-w-xl sm:space-y-4">
       <h2 className="flex justify-center overflow-hidden text-ellipsis text-2xl font-extrabold tracking-tight text-contrast-higher sm:text-3xl md:justify-start">
         {ens ?? splitAddress(address)}
       </h2>

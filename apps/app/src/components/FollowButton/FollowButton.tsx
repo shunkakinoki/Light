@@ -123,7 +123,7 @@ export const FollowButton: FC<FollowButtonProps> = ({
     <button
       ref={hoverRef}
       className={clsx(
-        "flex shrink items-center justify-center rounded-md py-2 px-10 text-sm ring-offset-bg focus:ring-2 focus:ring-primary focus:ring-offset-2",
+        "flex w-full shrink items-center justify-center rounded-md py-2 px-10 text-sm ring-offset-bg focus:ring-2 focus:ring-primary focus:ring-offset-2 md:max-w-[101px]",
         !walletAddress
           ? "bg-contrast-higher text-contrast-lower hover:bg-contrast-medium"
           : isLoading
@@ -131,7 +131,6 @@ export const FollowButton: FC<FollowButtonProps> = ({
           : isFollowing
           ? "hover:bg-error-dark/30 border bg-bg text-contrast-high hover:border-error hover:text-error-darker"
           : "bg-contrast-higher text-bg hover:bg-contrast-medium",
-        s["max-button-width"],
       )}
       onClick={event => {
         return onClick(event);

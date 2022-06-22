@@ -8,29 +8,13 @@ import { poapActionSchema } from "../poap";
 // eslint-disable-next-line no-restricted-imports
 import { snapshotVoteSchema } from "../snapshot";
 
-export const timelineItemSchema = z.union([
-  timelineSchema.omit({ category: true, type: true }).merge(
-    z.object({
-      data: snapshotVoteSchema,
-      category: z.enum(["DAO"]),
-      type: z.enum(["SNAPSHOT"]),
-    }),
-  ),
-  timelineSchema.omit({ category: true, type: true }).merge(
-    z.object({
-      data: openseaAssetEventSchema,
-      category: z.enum(["NFT"]),
-      type: z.enum(["OPENSEA"]),
-    }),
-  ),
-  timelineSchema.omit({ category: true, type: true }).merge(
-    z.object({
-      data: poapActionSchema,
-      category: z.enum(["SOCIAL"]),
-      type: z.enum(["POAP"]),
-    }),
-  ),
-]);
+export const timelineItemSchema = timelineSchema.merge(
+  z.object({
+    snapshot: snapshotVoteSchema.nullable(),
+    poap: poapActionSchema.nullable(),
+    opensea: openseaAssetEventSchema.nullable(),
+  }),
+);
 
 export const timelineDataSchema = z.object({
   timeline: z.array(timelineItemSchema),

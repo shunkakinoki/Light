@@ -7,9 +7,7 @@ import { BaseSnapshot } from "@lightdotso/app/components/BaseSnapshot";
 import type { TimelineListItemProps } from "@lightdotso/app/components/TimelineListItem";
 import { TimelineListItem } from "@lightdotso/app/components/TimelineListItem";
 
-export type TimelineListItemSnapshotProps = {
-  tokenId: string;
-} & TimelineListItemProps &
+export type TimelineListItemSnapshotProps = TimelineListItemProps &
   BaseSnapshotProps;
 
 export const TimelineListItemSnapshot: FC<TimelineListItemSnapshotProps> = ({

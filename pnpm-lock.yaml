@@ -278,7 +278,7 @@ importers:
       react-hot-toast: ^2.2.0
       react-icons: ^4.4.0
       react-time-ago: ^7.2.1
-      recoil: ^0.7.3
+      recoil: ^0.7.4
       siwe: ^1.1.6
       swr: ^1.3.0
       tailwindcss: ^3.0.24
@@ -323,7 +323,7 @@ importers:
       react-hot-toast: 2.2.0_biqbaboplfbrettd7655fr4n2y
       react-icons: 4.4.0_react@18.2.0
       react-time-ago: 7.2.1_famqk7farmfgwgndxhqdaslspq
-      recoil: 0.7.3_biqbaboplfbrettd7655fr4n2y
+      recoil: 0.7.4_biqbaboplfbrettd7655fr4n2y
       siwe: 1.1.6_ethers@5.6.9
       swr: 1.3.0_react@18.2.0
       vanilla-tilt: 1.7.2
@@ -525,7 +525,7 @@ importers:
       playwright-core: ^1.22.2
       react: ^18.2.0
       react-dom: ^18.2.0
-      recoil: ^0.7.3
+      recoil: ^0.7.4
     dependencies:
       '@lightdotso/styles': link:../../packages/styles
       '@sentry/integrations': 7.2.0
@@ -538,7 +538,7 @@ importers:
       playwright-core: 1.22.2
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      recoil: 0.7.3_biqbaboplfbrettd7655fr4n2y
+      recoil: 0.7.4_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@cypress/react': 6.0.0_2gpn2tlcopaedu6cv7uyrmcxi4
       '@lightdotso/tailwindcss': link:../../configurations/tailwindcss
@@ -17430,8 +17430,8 @@ packages:
     dependencies:
       resolve: 1.22.1
 
-  /recoil/0.7.3_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-WaPppk3Hz5/V9nOVmu1X/o3cJyf/rLXw/YsEENvMzEDk+LKqMiGfFgZ3Gg51TKWccpCZCyrSBXn2O4L1E2WDPQ==}
+  /recoil/0.7.4_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-sCXvQGMfSprkNU4ZRkJV4B0qFQSURJMgsICqY1952WRlg66NMwYqi6n67vhnhn0qw4zHU1gHXJuMvRDaiRNFZw==}
     peerDependencies:
       react: '>=16.13.1'
       react-dom: '*'

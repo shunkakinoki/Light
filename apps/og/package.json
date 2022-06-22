@@ -30,7 +30,7 @@
     "playwright-core": "^1.22.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "recoil": "^0.7.3"
+    "recoil": "^0.7.4"
   },
   "devDependencies": {
     "@cypress/react": "^6.0.0",

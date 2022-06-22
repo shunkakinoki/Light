@@ -110,7 +110,7 @@ const lastSaleSchema = z.object({
   auction_type: z.any().nullable(),
   total_price: z.string().nullable(),
   payment_token: paymentTokenSchema.nullable(),
-  transaction: transactionSchema,
+  transaction: transactionSchema.nullable(),
   created_date: z.string(),
   quantity: z.string(),
 });

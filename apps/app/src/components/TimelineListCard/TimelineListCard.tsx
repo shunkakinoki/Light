@@ -57,9 +57,9 @@ export const TimelineListCard: FC<TimelineListCardProps> = ({
       className="flex flex-col w-full rounded-lg border border-contrast-lower bg-bg-lighter p-3"
     >
       <div className="flex pb-1.5 items-center">
-        <div className="flex shrink-0">
+        <div className="flex shrink-0 pr-4">
           <Link passHref href={`/${slug}`}>
-            <a className="group relative pr-4">
+            <a className="group relative">
               <PlaceholderBlur />
               <PlaceholderAvatar
                 address={address}

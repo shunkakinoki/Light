@@ -1,3 +1,6 @@
+# Tmp
+tmp.*
+
 # Cypress
 **/cypress/screenshots
 **/cypress/videos

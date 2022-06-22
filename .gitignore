@@ -6,6 +6,9 @@ tmp.*
 **/cypress/videos
 **/zod/**
 
+# Vercel
+**/.vercel/**
+
 # Logs
 logs
 *.log

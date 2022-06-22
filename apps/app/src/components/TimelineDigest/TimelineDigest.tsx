@@ -38,10 +38,10 @@ export const TimelineDigest: FC<TimelineDigestProps> = ({ category }) => {
   });
 
   return (
-    <div className="flex pt-3">
+    <div className="flex pt-3 md:pt-4">
       <div
         className={clsx(
-          "flex rounded-full px-2.5 py-1.5 items-center",
+          "flex rounded-full px-2.5 py-1 items-center text-sm md:text-base",
           category === "NFT" && "bg-[#DB61A2] bg-opacity-[0.15]",
           category === "DAO" && "bg-[#FFC328] bg-opacity-[0.15]",
           category === "SOCIAL" && "bg-[#4D7FFF] bg-opacity-[0.15]",

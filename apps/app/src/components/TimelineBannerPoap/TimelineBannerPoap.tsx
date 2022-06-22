@@ -7,9 +7,9 @@ export const TimelineBannerPoap: FC = () => {
     <>
       <NextImage
         layout="fixed"
-        width={14}
-        height={14}
-        className="h-3.5 w-3.5 rounded-sm"
+        width={13}
+        height={13}
+        className="h-[13px] w-[13px] rounded-lg"
         src={"https://poap.gallery/icons/poap_dark.png"}
         loading="lazy"
       />

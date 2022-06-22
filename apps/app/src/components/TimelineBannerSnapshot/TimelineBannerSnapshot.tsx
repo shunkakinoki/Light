@@ -16,14 +16,14 @@ export const TimelineBannerSnapshot: FC<TimelineBannerSnapshotProps> = ({
   return (
     <>
       <Link passHref href={`/dao/${data?.space?.name}`}>
-        <a className="group">
+        <a className="group flex-wrap items-center">
           {data?.space?.avatar && (
             <>
               <NextImage
                 layout="fixed"
-                className="h-3.5 w-3.5 object-cover"
-                width={14}
-                height={14}
+                width={13}
+                height={13}
+                className="h-[13px] w-[13px] rounded-lg object-cover"
                 src={ipfsAddress(data?.space?.avatar.substring(7))}
                 alt={data?.space?.name}
                 loading="lazy"

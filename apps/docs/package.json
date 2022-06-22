@@ -38,7 +38,7 @@
     "@lightdotso/tsconfig": "workspace:*",
     "@testing-library/cypress": "^8.0.3",
     "@types/react": "^18.0.14",
-    "cypress": "^10.1.0"
+    "cypress": "^10.2.0"
   },
   "publishConfig": {
     "access": "public",

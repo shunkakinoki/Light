@@ -6,4 +6,4 @@ import { isProduction } from "@lightdotso/app/utils/isProduction";
 // TODO: change to production url
 export const LIGHT_API_URL = isProduction
   ? ApiLinks.API
-  : "https://api-9l9th9xue-lightdotso.vercel.app";
+  : "https://api-91k3jznwz-lightdotso.vercel.app";

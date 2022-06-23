@@ -11,7 +11,7 @@ export type TimelineActionPoapProps = {
 export const TimelineActionPoap: FC<TimelineActionPoapProps> = ({ data }) => {
   return (
     <>
-      Attended &nbsp;
+      Attended&nbsp;
       <Link passHref href={`/poap/${data?.event?.id}`}>
         <a className="overflow-hidden text-sm font-normal text-contrast-high hover:underline text-ellipsis break-all">
           {data?.event?.name}

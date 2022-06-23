@@ -1,3 +1,3 @@
 # LightDotSo
 
-🌘 - The Open Souce Blockchain Explorer
+🌘 - The Social Blockchain Explorer for Ethereum

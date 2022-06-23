@@ -16,7 +16,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <ThemeScript />
-      <ThemeProvider>
+      <ThemeProvider defaultTheme="dark" forcedTheme="dark">
         <Analytics>
           <Seo />
           {getLayout(<Component {...pageProps} />)}

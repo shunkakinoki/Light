@@ -3,7 +3,7 @@
 import type { FC } from "react";
 
 import { FooterList } from "../FooterList";
-import { FooterModeSelect } from "../FooterModeSelect";
+// import { FooterModeSelect } from "../FooterModeSelect";
 import { FooterSocial } from "../FooterSocial";
 
 export const Footer: FC = () => {
@@ -21,7 +21,7 @@ export const Footer: FC = () => {
           <p className="text-base xl:text-center text-contrast-medium">
             &copy; {new Date().getFullYear()} Light, Inc. All rights reserved.
           </p>
-          <FooterModeSelect />
+          {/* <FooterModeSelect /> */}
         </div>
       </div>
     </footer>

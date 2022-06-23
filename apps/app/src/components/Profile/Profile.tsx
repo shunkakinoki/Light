@@ -51,7 +51,7 @@ export const Profile: FC<ProfileProps> = ({ active, follow, address }) => {
         {active && <ProfileHero active={active} address={address} />}
         {follow && <ProfileFollowHero address={address} follow={follow} />}
         {active === "Board" && (
-          <div className="py-12 mx-auto space-y-6 lg:max-w-container">
+          <div className="py-5 md:py-12 mx-auto space-y-6 lg:max-w-container">
             <ProfileBoardSectionNFT address={address} />
             <ProfileBoardSectionPoap address={address} />
             <ProfileBoardSectionTokens address={address} />

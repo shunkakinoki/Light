@@ -28,7 +28,7 @@ export type ProfileBoardSectionProps = {
 const ProfileBoardSectionGridLayout: FC = ({ children }) => {
   return (
     <div className="grid">
-      <div className="grid grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4 lg:gap-6 p-3">
+      <div className="grid grid-cols-3 md:grid-cols-6 gap-2 sm:gap-3 md:gap-4 lg:gap-6 p-3">
         {children}
       </div>
     </div>

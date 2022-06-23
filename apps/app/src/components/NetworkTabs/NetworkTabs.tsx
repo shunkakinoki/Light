@@ -38,9 +38,9 @@ export const NetworkTabs: FC<NetworkTabsProps> = ({
   ];
 
   return (
-    <div className="overflow-y-hidden overflow-x-scroll border-b border-contrast-lower">
+    <div className="overflow-x-scroll overflow-y-hidden border-b border-contrast-lower">
       <nav
-        className="-mb-px flex justify-center space-x-8 lg:justify-start"
+        className="flex justify-center lg:justify-start -mb-px space-x-8"
         aria-label="Tabs"
       >
         {tabs.map(tab => {
@@ -49,10 +49,10 @@ export const NetworkTabs: FC<NetworkTabsProps> = ({
               <a
                 className={clsx(
                   tab.active === active
-                    ? "border-contrast-high text-contrast-higher"
-                    : "border-transparent text-contrast-medium hover:border-contrast-medium hover:text-contrast-higher",
+                    ? "text-contrast-higher border-contrast-high"
+                    : "text-contrast-medium hover:text-contrast-higher border-transparent hover:border-contrast-medium",
                   !id && "pointer-events-none",
-                  "group inline-flex items-center border-b-4 py-4 px-3 text-sm font-medium",
+                  "group inline-flex items-center py-4 px-3 text-sm font-medium border-b-4",
                 )}
                 aria-current={tab.active === active ? "page" : undefined}
               >
@@ -61,7 +61,7 @@ export const NetworkTabs: FC<NetworkTabsProps> = ({
                     tab.active === active
                       ? "text-contrast-higher"
                       : "text-contrast-medium group-hover:text-contrast-high",
-                    "mr-2 -ml-0.5 h-5 w-5",
+                    "mr-2 -ml-0.5 w-5 h-5",
                   )}
                   aria-hidden="true"
                 />

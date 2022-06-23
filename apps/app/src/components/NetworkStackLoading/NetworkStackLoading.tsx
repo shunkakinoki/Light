@@ -13,7 +13,7 @@ export const NetworkStackLoading: FC<NetworkStackLoadingProps> = ({
   return (
     <div
       className={clsx(
-        "flex h-14 w-full shrink-0 animate-pulse items-center -space-x-0.5 overflow-hidden rounded-full bg-emphasis-medium py-1 pl-2",
+        "flex overflow-hidden shrink-0 items-center py-1 pl-2 -space-x-0.5 w-full h-14 bg-emphasis-medium rounded-full animate-pulse",
         className,
       )}
     >

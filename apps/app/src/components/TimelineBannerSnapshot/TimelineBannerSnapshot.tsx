@@ -16,14 +16,14 @@ export const TimelineBannerSnapshot: FC<TimelineBannerSnapshotProps> = ({
   return (
     <>
       <Link passHref href={`/dao/${data?.space?.name}`}>
-        <a className="group">
+        <a className="group flex-wrap items-center">
           {data?.space?.avatar && (
             <>
               <NextImage
                 layout="fixed"
-                className="h-3.5 w-3.5 object-cover"
-                width={14}
-                height={14}
+                width={13}
+                height={13}
+                className="object-cover w-[13px] h-[13px] rounded-lg"
                 src={ipfsAddress(data?.space?.avatar.substring(7))}
                 alt={data?.space?.name}
                 loading="lazy"
@@ -37,7 +37,7 @@ export const TimelineBannerSnapshot: FC<TimelineBannerSnapshotProps> = ({
       </Link>
       {data?.space?.skin === "verified" && (
         <span className="inline-block">
-          <BadgeCheckIcon className="h-3 w-3 fill-primary" />
+          <BadgeCheckIcon className="w-3 h-3 fill-primary" />
         </span>
       )}
     </>

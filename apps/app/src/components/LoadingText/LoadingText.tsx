@@ -10,7 +10,7 @@ export const LoadingText: FC<LoadingTextProps> = ({
   return (
     <span
       className={clsx(
-        "animate-pulse rounded-full bg-emphasis-medium",
+        "bg-emphasis-medium rounded-full animate-pulse",
         className,
       )}
     />

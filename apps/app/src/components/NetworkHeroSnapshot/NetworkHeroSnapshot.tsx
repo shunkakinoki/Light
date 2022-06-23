@@ -23,10 +23,10 @@ export const NetworkHeroSnapshot: FC<NetworkHeroProps> = ({ spaceId }) => {
       avatar={
         <>
           {!space?.avatar ? (
-            <PlaceholderAvatarLoading className="h-24 w-24 md:h-32 md:w-32" />
+            <PlaceholderAvatarLoading className="w-24 md:w-32 h-24 md:h-32" />
           ) : (
             <NetworkAvatar
-              className="h-24 w-24 md:h-32 md:w-32"
+              className="w-24 md:w-32 h-24 md:h-32"
               avatar={space?.avatar}
               name={space?.name}
               id={spaceId}

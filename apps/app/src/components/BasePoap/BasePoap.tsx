@@ -15,7 +15,7 @@ export const BasePoap: FC<BasePoapProps> = ({
   return (
     <NextImage
       layout="fill"
-      className="h-full w-full object-cover"
+      className="object-cover w-full h-full"
       src={image_url ?? poapImage(id)}
       alt={name}
       loading="lazy"

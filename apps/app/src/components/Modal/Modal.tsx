@@ -14,7 +14,7 @@ export const Modal: FC<ModalProps> = ({ children, show, onClose }) => {
   return (
     <Transition appear show={show} as={Fragment}>
       <Dialog as="div" className={s.root} onClose={onClose}>
-        <div className="flex min-h-screen items-center justify-center px-3">
+        <div className="flex justify-center items-center px-3 min-h-screen">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -41,7 +41,7 @@ export const Modal: FC<ModalProps> = ({ children, show, onClose }) => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="relative inline-block w-full overflow-hidden rounded-xl border border-contrast-lower bg-bg shadow-xl transition-all focus:outline-none">
+            <div className="inline-block overflow-hidden relative w-full bg-bg rounded-xl border border-contrast-lower focus:outline-none shadow-xl transition-all">
               <div className="w-full max-w-xl">{children}</div>
             </div>
           </Transition.Child>

@@ -29,7 +29,7 @@ export const TimelineListCard: FC<TimelineListCardProps> = ({
   address,
   date,
   ens: initialEns,
-  item: { category, type, data },
+  item: { category, type, opensea, snapshot, poap },
 }) => {
   const router = useRouter();
   const [hoverRef, isHovered] = useHover<HTMLDivElement>();
@@ -54,16 +54,16 @@ export const TimelineListCard: FC<TimelineListCardProps> = ({
   return (
     <div
       ref={hoverRef}
-      className="flex flex-col w-full rounded-lg border border-contrast-lower bg-bg-lighter p-3"
+      className="flex flex-col p-3 md:p-4 w-full bg-bg-lighter rounded-lg border border-contrast-lower"
     >
-      <div className="flex pb-1.5 items-center">
-        <div className="flex shrink-0">
+      <div className="flex items-center pb-1.5">
+        <div className="flex shrink-0 pr-4">
           <Link passHref href={`/${slug}`}>
-            <a className="group relative pr-4">
+            <a className="group relative">
               <PlaceholderBlur />
               <PlaceholderAvatar
                 address={address}
-                className="relative h-12 w-12 opacity-100"
+                className="relative w-12 h-12 opacity-100"
               />
             </a>
           </Link>
@@ -72,77 +72,36 @@ export const TimelineListCard: FC<TimelineListCardProps> = ({
           address={address}
           banner={
             <>
-              {type === "OPENSEA" && //@ts-ignore data.asset && //@ts-ignore
-                data.event_type && (
-                  <TimelineBannerNFT
-                    //@ts-ignore
-                    data={data}
-                  />
-                )}
-              {type === "POAP" && (
-                <TimelineBannerPoap
-                  //@ts-ignore
-                  data={data}
-                />
+              {type === "OPENSEA" && opensea && (
+                <TimelineBannerNFT data={opensea} />
               )}
-              {type === "SNAPSHOT" && (
-                <TimelineBannerSnapshot
-                  //@ts-ignore
-                  data={data}
-                />
+              {type === "POAP" && <TimelineBannerPoap />}
+              {type === "SNAPSHOT" && snapshot && (
+                <TimelineBannerSnapshot data={snapshot} />
               )}
             </>
           }
           date={date}
           ens={ens}
         >
-          {
-            //@ts-ignore
-            type === "OPENSEA" && data?.asset && data?.event_type && (
-              <TimelineActionNFT
-                address={address}
-                //@ts-ignore
-                data={data}
-              />
-            )
-          }
-          {
-            //@ts-ignore
-            type === "POAP" && data?.event && data?.tokenId && (
-              //@ts-ignore
-              <TimelineActionPoap data={data} />
-            )
-          }
-          {
-            //@ts-ignore
-            type === "SNAPSHOT" && data?.proposal && (
-              //@ts-ignore
-              <TimelineActionSnapshot data={data} />
-            )
-          }
+          {type === "OPENSEA" && opensea && (
+            <TimelineActionNFT data={opensea} />
+          )}
+          {type === "POAP" && poap && <TimelineActionPoap data={poap} />}
+          {type === "SNAPSHOT" && snapshot && (
+            <TimelineActionSnapshot data={snapshot} />
+          )}
         </TimelineBanner>
       </div>
-      {
-        //@ts-ignore
-        type === "OPENSEA" && data?.asset && (
-          //@ts-ignore
-          <TimelineListItemNFT asset={data.asset} />
-        )
-      }
-      {
-        //@ts-ignore
-        type === "POAP" && data?.event && (
-          //@ts-ignore
-          <TimelineListItemPoap event={data.event} tokenId={data.tokenId} />
-        )
-      }
-      {
-        //@ts-ignore
-        type === "SNAPSHOT" && data?.space && (
-          //@ts-ignore
-          <TimelineListItemSnapshot vote={data} />
-        )
-      }
+      {type === "OPENSEA" && opensea && (
+        <TimelineListItemNFT asset={opensea.asset} />
+      )}
+      {type === "POAP" && poap && (
+        <TimelineListItemPoap event={poap?.event} tokenId={poap?.tokenId} />
+      )}
+      {type === "SNAPSHOT" && snapshot && (
+        <TimelineListItemSnapshot vote={snapshot} />
+      )}
       <TimelineDigest category={category} />
     </div>
   );

@@ -6,12 +6,12 @@ import { PlaceholderAvatarLoading } from "@lightdotso/app/components/Placeholder
 
 export const FollowListCardLoading: FC = () => {
   return (
-    <div className="flex w-full cursor-pointer items-center rounded-lg border border-contrast-lower bg-bg-lighter p-4 hover:bg-bg-light">
-      <div className="group relative mr-6 shrink-0">
+    <div className="flex items-center p-4 w-full bg-bg-lighter hover:bg-bg-light rounded-lg border border-contrast-lower cursor-pointer">
+      <div className="group relative shrink-0 mr-6">
         <PlaceholderAvatarLoading />
       </div>
       <FollowBannerLoading />
-      <div className="relative hidden shrink-0 px-6 py-1 md:inline-flex" />
+      <div className="hidden md:inline-flex relative shrink-0 py-1 px-6" />
       <div className="shrink-0 text-contrast-medium">
         <FollowButtonLoading />
       </div>

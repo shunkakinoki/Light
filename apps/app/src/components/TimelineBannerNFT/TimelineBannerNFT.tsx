@@ -17,15 +17,15 @@ export const TimelineBannerNFT: FC<TimelineBannerNFTProps> = ({ data }) => {
 
   return (
     <>
-      <Link passHref href={`/nft/${contractAddress}`}>
-        <a className="group">
+      <Link passHref href={`/${contractAddress}`}>
+        <a className="group text-center">
           {image_url && (
             <>
               <NextImage
                 layout="fixed"
-                width={14}
-                height={14}
-                className="h-3.5 w-3.5 rounded-sm"
+                width={13}
+                height={13}
+                className="w-[13px] h-[13px] rounded-lg"
                 src={image_url}
                 loading="lazy"
               />
@@ -38,7 +38,7 @@ export const TimelineBannerNFT: FC<TimelineBannerNFTProps> = ({ data }) => {
       </Link>
       {safelist_request_status === "verified" && (
         <span className="inline-block">
-          <BadgeCheckIcon className="h-3 w-3 fill-primary" />
+          <BadgeCheckIcon className="w-3 h-3 fill-primary" />
         </span>
       )}
     </>

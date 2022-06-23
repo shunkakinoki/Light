@@ -21,15 +21,15 @@ export const FollowBanner: FC<FollowBannerProps> = ({
   const slug = isEnsLoading ? truncatedAddress : ens ?? truncatedAddress;
 
   return (
-    <div className="flex grow flex-col justify-start">
+    <div className="flex flex-col grow justify-start">
       <div className="flex items-center space-x-3">
         <Link passHref href={`/${ens ?? address}`}>
-          <a className="overflow-hidden text-ellipsis break-all text-sm font-medium text-contrast-high line-clamp-1 hover:underline">
+          <a className="overflow-hidden text-sm font-medium text-contrast-high hover:underline text-ellipsis break-all line-clamp-1">
             {slug}
           </a>
         </Link>
       </div>
-      <div className="mt-1 flex items-center truncate text-sm text-contrast-medium">
+      <div className="flex items-center mt-1 text-sm text-contrast-medium truncate">
         {identity?.followerCount === undefined && (
           <>
             <LoadingText />

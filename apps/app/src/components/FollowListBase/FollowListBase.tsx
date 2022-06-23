@@ -19,13 +19,13 @@ export const FollowListBase: FC<FollowListBaseProps> = ({
 }) => {
   return (
     <>
-      <div className="mx-auto py-8 px-4 lg:max-w-5xl">
-        <div className="flex w-full flex-col space-y-2 overflow-visible">
+      <div className="py-8 px-4 mx-auto lg:max-w-5xl">
+        <div className="flex overflow-visible flex-col space-y-2 w-full">
           {isLoadingInitial && <FollowListLoading />}
           {children}
         </div>
         {!isEnd && (
-          <div className="mx-auto mt-12 flex lg:max-w-xl">
+          <div className="flex mx-auto mt-12 lg:max-w-xl">
             <MoreButton
               disabled={isLoadingMore || isEnd}
               className="w-full disabled:cursor-not-allowed"

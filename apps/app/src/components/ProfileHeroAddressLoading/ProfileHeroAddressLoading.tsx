@@ -5,14 +5,14 @@ import { LoadingText } from "@lightdotso/app/components/LoadingText";
 
 export const ProfileHeroAddressLoading: FC = () => {
   return (
-    <div className="mx-auto space-y-5 sm:mx-0 sm:max-w-xl sm:space-y-4">
-      <h2 className="flex justify-center overflow-hidden text-ellipsis text-2xl font-extrabold tracking-tight text-contrast-higher sm:text-3xl md:justify-start">
-        <LoadingText className="h-4 w-36" />
+    <div className="mx-auto sm:mx-0 space-y-5 sm:space-y-4 sm:max-w-xl">
+      <h2 className="flex overflow-hidden justify-center md:justify-start text-2xl sm:text-3xl font-extrabold tracking-tight text-contrast-higher text-ellipsis">
+        <LoadingText className="w-36 h-4" />
       </h2>
-      <div className="mx-auto flex flex-row justify-center space-x-3 md:justify-start">
-        <div className="flex items-center rounded-md bg-bg-dark px-3 py-1.5">
-          <LoadingText className="mr-2 h-4 w-24" />
-          <DuplicateIcon className="h-6 w-6 text-contrast-low hover:text-contrast-medium" />
+      <div className="flex flex-row justify-center md:justify-start mx-auto space-x-3">
+        <div className="flex items-center py-1.5 px-3 bg-bg-dark rounded-md">
+          <LoadingText className="mr-2 w-24 h-4" />
+          <DuplicateIcon className="w-6 h-6 text-contrast-low hover:text-contrast-medium" />
         </div>
       </div>
     </div>

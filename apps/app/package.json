@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@cyberlab/cyberconnect": "^4.5.0",
-    "@cyberlab/social-verifier": "^1.1.0",
+    "@cyberlab/social-verifier": "^2.0.1",
     "@headlessui/react": "^1.6.5",
     "@heroicons/react": "^1.0.6",
     "@lightdotso/const": "workspace:*",
@@ -46,7 +46,7 @@
     "copy-to-clipboard": "^3.3.1",
     "critters": "^0.0.16",
     "ethers": "^5.6.9",
-    "framer-motion": "^6.3.12",
+    "framer-motion": "^6.3.13",
     "javascript-time-ago": "^2.5.4",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",

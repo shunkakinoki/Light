@@ -47,11 +47,11 @@ export const Profile: FC<ProfileProps> = ({ active, follow, address }) => {
     <>
       {!address && <SeoBase base="Profile" />}
       {ens && <SeoLight ogpName={ens ?? address} />}
-      <div className="mx-auto pb-12 text-center lg:pb-16">
+      <div className="pb-12 lg:pb-16 mx-auto text-center">
         {active && <ProfileHero active={active} address={address} />}
         {follow && <ProfileFollowHero address={address} follow={follow} />}
         {active === "Board" && (
-          <div className="mx-auto space-y-6 py-12 lg:max-w-container">
+          <div className="py-5 md:py-12 mx-auto space-y-6 lg:max-w-container">
             <ProfileBoardSectionNFT address={address} />
             <ProfileBoardSectionPoap address={address} />
             <ProfileBoardSectionTokens address={address} />

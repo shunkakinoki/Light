@@ -6,7 +6,7 @@ import s from "./Center.module.css";
 export const Center: FC = ({ children }) => {
   return (
     <div className="w-full">
-      <div className={clsx("flex flex-col items-center justify-center", s.fit)}>
+      <div className={clsx("flex flex-col justify-center items-center", s.fit)}>
         {children}
       </div>
     </div>

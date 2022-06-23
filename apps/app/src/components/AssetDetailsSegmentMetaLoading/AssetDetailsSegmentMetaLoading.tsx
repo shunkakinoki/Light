@@ -8,15 +8,15 @@ export const AssetDetailsSegmentMetaLoading: FC = () => {
       <div className="text-sm font-normal leading-5 text-contrast-high">
         Owned by
       </div>
-      <LoadingText className="mt-2 flex h-6 w-32" />
+      <LoadingText className="flex mt-2 w-32 h-6" />
       <div className="mt-4 text-sm font-normal leading-5 text-contrast-high">
         Created by
       </div>
-      <LoadingText className="mt-2 flex h-6 w-32" />
+      <LoadingText className="flex mt-2 w-32 h-6" />
       <div className="mt-4 text-sm font-normal leading-5 text-contrast-high">
         Token ID
       </div>
-      <LoadingText className="mt-2 flex h-6 w-24" />
+      <LoadingText className="flex mt-2 w-24 h-6" />
     </div>
   );
 };

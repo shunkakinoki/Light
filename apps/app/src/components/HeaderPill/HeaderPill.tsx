@@ -16,7 +16,7 @@ export const HeaderPill: FC = () => {
   const { openModalWallet } = useModalWallet();
 
   return (
-    <Menu as="div" className="relative ml-4 shrink-0">
+    <Menu as="div" className="relative shrink-0 ml-4">
       <div className="group relative">
         <PlaceholderBlur />
         {address ? (

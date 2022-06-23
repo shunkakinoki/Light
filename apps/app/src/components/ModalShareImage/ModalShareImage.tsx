@@ -26,7 +26,7 @@ export const ModalShareImage: FC<ModalShareImageProps> = ({
           width={1200}
           useBlur={false}
           src={`${ApiLinks.OGP}=${slug}`}
-          className="aspect-[630/1200] h-52 w-full rounded-md shadow-md sm:h-64"
+          className="aspect-[630/1200] w-full h-52 sm:h-64 rounded-md shadow-md"
           alt="Share"
         />
       </div>

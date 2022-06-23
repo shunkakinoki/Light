@@ -48,7 +48,7 @@ module.exports = {
           </defs>
         </svg>
       </span>
-      <span className="text-gray-400 font-normal">Whitepaper</span>
+      <span className="font-normal text-gray-400">Whitepaper</span>
     </>
   ),
 };

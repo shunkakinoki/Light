@@ -8,9 +8,9 @@ export const FollowCardProof: FC<FollowCardProofProps> = ({
   recommendationReason,
 }) => {
   return (
-    <div className="-mt-px flex items-center">
-      <UserIcon className="mr-2 h-5 w-5 text-contrast-low" />
-      <p className="truncate text-sm text-contrast-low">
+    <div className="flex items-center -mt-px">
+      <UserIcon className="mr-2 w-5 h-5 text-contrast-low" />
+      <p className="text-sm text-contrast-low truncate">
         {recommendationReason}
       </p>
     </div>

@@ -11,7 +11,7 @@ export const ModalNetworkList: FC<ModalNetworkListProps> = ({ address }) => {
   const { networks } = useNetworks(address);
 
   return (
-    <ul className="mt-4 h-96 w-full divide-y divide-bg-dark overflow-y-scroll rounded-xl border border-contrast-lower">
+    <ul className="overflow-y-scroll mt-4 w-full h-96 rounded-xl border border-contrast-lower divide-y divide-bg-dark">
       {networks &&
         typeof networks[0] !== "undefined" &&
         networks.map((network, id) => {

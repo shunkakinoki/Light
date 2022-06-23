@@ -16,17 +16,17 @@ export const WalletBar: FC<WalletBarProps> = ({
   return (
     <button
       className={clsx(
-        "group relative flex items-center space-x-3 rounded-lg border border-contrast-lower py-4 px-6 shadow-sm hover:border-contrast-low hover:bg-contrast-lower focus:border-transparent focus:ring-2 focus:ring-primary-light focus:ring-offset-2",
-        disabled && "cursor-not-allowed opacity-30",
+        "group flex relative items-center py-4 px-6 space-x-3 hover:bg-contrast-lower rounded-lg border border-contrast-lower hover:border-contrast-low focus:border-transparent focus:ring-2 focus:ring-primary-light focus:ring-offset-2 shadow-sm",
+        disabled && "opacity-30 cursor-not-allowed",
       )}
       disabled={disabled}
       onClick={onClick}
     >
-      <div className="mr-3 shrink-0 group-hover:animate-pulse">{children}</div>
-      <div className="min-w-0 flex-1">
+      <div className="shrink-0 mr-3 group-hover:animate-pulse">{children}</div>
+      <div className="flex-1 min-w-0">
         <div className="focus:outline-none">
           <span className="absolute inset-0" aria-hidden="true" />
-          <p className="text-left text-base font-medium leading-6 text-contrast-high">
+          <p className="text-base font-medium leading-6 text-left text-contrast-high">
             {name}
           </p>
         </div>

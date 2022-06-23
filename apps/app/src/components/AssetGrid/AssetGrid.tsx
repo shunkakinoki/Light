@@ -9,8 +9,8 @@ export type AssetGridProps = { base: ReactNode };
 
 const AssetGridLayout: FC = ({ children }) => {
   return (
-    <div className="grid h-full w-full max-w-container grid-flow-col p-6 sm:p-10 md:p-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 md:gap-x-24 lg:gap-x-36">
+    <div className="grid grid-flow-col p-6 sm:p-10 md:p-16 w-full max-w-container h-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-24 lg:gap-x-36 gap-y-8">
         {children}
       </div>
     </div>
@@ -38,12 +38,12 @@ export const AssetGrid: FC<AssetGridProps> = ({ base, children }) => {
       >
         <AssetGridLayout>
           {/* <div className="col-span-2 hidden w-[9999px] md:block" /> */}
-          <div className="col-span-1 flex p-12 sm:p-16 md:p-12">
-            <div className="aspect-w-1 aspect-h-1 col-span-1 w-full sm:my-auto">
+          <div className="flex col-span-1 p-12 sm:p-16 md:p-12">
+            <div className="col-span-1 sm:my-auto w-full aspect-w-1 aspect-h-1">
               {base}
             </div>
           </div>
-          <div className="col-span-1 flex">{children}</div>
+          <div className="flex col-span-1">{children}</div>
         </AssetGridLayout>
       </Transition>
     </Center>

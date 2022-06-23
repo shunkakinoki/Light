@@ -26,7 +26,7 @@ export const Wallet: FC<WalletProps> = ({ onClose }) => {
   ] = useConnect();
 
   return (
-    <div className="flex w-full max-w-xl flex-col">
+    <div className="flex flex-col w-full max-w-xl">
       <div className="flex items-center">
         <h2 className="grow text-2xl font-extrabold tracking-tight text-contrast-higher">
           Connect your wallet
@@ -53,7 +53,7 @@ export const Wallet: FC<WalletProps> = ({ onClose }) => {
           Privacy Policy
         </a>
       </p>
-      <div className="mt-8 grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-4 mt-8">
         {connectors.map(connector => {
           return (
             <WalletBar
@@ -78,13 +78,13 @@ export const Wallet: FC<WalletProps> = ({ onClose }) => {
               }}
             >
               {connector.id === "injected" && (
-                <Metamask className="h-5 w-5 rounded-full" />
+                <Metamask className="w-5 h-5 rounded-full" />
               )}
               {connector.id === "walletConnect" && (
-                <WalletConnect className="h-5 w-5 rounded-full" />
+                <WalletConnect className="w-5 h-5 rounded-full" />
               )}
               {connector.id === "walletLink" && (
-                <Coinbase className="h-5 w-5 rounded-full" />
+                <Coinbase className="w-5 h-5 rounded-full" />
               )}
             </WalletBar>
           );

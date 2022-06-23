@@ -3,9 +3,9 @@ import type { FC } from "react";
 
 export const FollowCardProofLoading: FC = () => {
   return (
-    <div className="-mt-px flex items-center">
-      <UserIcon className="mr-2 h-5 w-5 text-contrast-low" />
-      <div className="h-3 w-32 overflow-hidden rounded-md bg-emphasis-medium" />
+    <div className="flex items-center -mt-px">
+      <UserIcon className="mr-2 w-5 h-5 text-contrast-low" />
+      <div className="overflow-hidden w-32 h-3 bg-emphasis-medium rounded-md" />
     </div>
   );
 };

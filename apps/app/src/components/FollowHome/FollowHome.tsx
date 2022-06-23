@@ -23,7 +23,7 @@ export const FollowHome: FC = () => {
       <FollowContainer small={!!address}>
         {address && <BannerProfile />}
         <div className="sm:text-center lg:text-left">
-          <h1 className="text-xl font-extrabold tracking-tight text-contrast-higher md:text-2xl">
+          <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-contrast-higher">
             <span className="block xl:inline">Timeline coming soon!</span>
           </h1>
           <div className="mt-3">
@@ -45,12 +45,12 @@ export const FollowHome: FC = () => {
               Follow us on Twitter
             </a>
           </div>
-          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-contrast-higher md:mt-8 md:text-4xl">
+          <h1 className="mt-4 md:mt-8 text-3xl md:text-4xl font-extrabold tracking-tight text-contrast-higher">
             <span className="block xl:inline">
               Follow the best people in the metaverse.
             </span>
           </h1>
-          <p className="mt-3 text-base text-contrast-low sm:mx-auto sm:max-w-xl sm:text-lg md:text-xl lg:mx-0">
+          <p className="sm:mx-auto lg:mx-0 mt-3 sm:max-w-xl text-base sm:text-lg md:text-xl text-contrast-low">
             Check out the Explore page to find the best people in Light.
           </p>
         </div>

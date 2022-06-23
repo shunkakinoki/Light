@@ -1,7 +1,13 @@
+# Tmp
+tmp.*
+
 # Cypress
 **/cypress/screenshots
 **/cypress/videos
 **/zod/**
+
+# Vercel
+**/.vercel/**
 
 # Logs
 logs

@@ -55,21 +55,21 @@ export const ModalShareButton: FC<ModalShareButtonProps> = ({
 
   return (
     <>
-      <div className="mt-4 flex w-full space-x-4">
+      <div className="flex mt-4 space-x-4 w-full">
         <div className="inline-flex flex-1 rounded-md shadow">
           <button
-            className="inline-flex w-full items-center justify-center rounded-md border border-contrast-medium py-3 text-base font-medium text-contrast-medium hover:bg-contrast-lower hover:text-contrast-higher"
+            className="inline-flex justify-center items-center py-3 w-full text-base font-medium text-contrast-medium hover:text-contrast-higher hover:bg-contrast-lower rounded-md border border-contrast-medium"
             onClick={() => {
               return copy(lightUrl);
             }}
           >
             {!isCopied ? (
               <ClipboardIcon
-                className="-ml-1 mr-2 h-5 w-5"
+                className="mr-2 -ml-1 w-5 h-5"
                 aria-hidden="true"
               />
             ) : (
-              <ClipboardCheckIcon className="-ml-1 mr-2 h-5 w-5" />
+              <ClipboardCheckIcon className="mr-2 -ml-1 w-5 h-5" />
             )}
             {!isCopied ? "Copy Link" : "Copied!"}
           </button>
@@ -79,9 +79,9 @@ export const ModalShareButton: FC<ModalShareButtonProps> = ({
             href={shareTextLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-contrast-higher py-3 text-base font-medium text-contrast-lower hover:bg-contrast-medium"
+            className="inline-flex justify-center items-center py-3 w-full text-base font-medium text-contrast-lower bg-contrast-higher hover:bg-contrast-medium rounded-md border border-transparent"
           >
-            <FaTwitter className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+            <FaTwitter className="mr-2 -ml-1 w-5 h-5" aria-hidden="true" />
             Share on Twitter
           </a>
         </div>

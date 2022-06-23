@@ -30,7 +30,7 @@ export const PlaceholderAvatar: FC<PlaceholderAvatarProps> = ({
         alt={`ENS Avatar for ${ens ?? address}`}
         //TODO: refactor placeholder avatar css
         className={clsx(
-          "inline-block shrink-0 overflow-hidden rounded-full",
+          "inline-block overflow-hidden shrink-0 rounded-full",
           className,
         )}
         onError={({ currentTarget }) => {

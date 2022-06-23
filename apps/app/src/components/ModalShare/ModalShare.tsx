@@ -8,7 +8,7 @@ export const ModalShare = () => {
 
   return (
     <Modal show={modalShareState?.open} onClose={closeModalShare}>
-      <div className="max-w-sm p-3 sm:max-w-lg">
+      <div className="p-3 max-w-sm sm:max-w-lg">
         <div className="block w-[9999px]" />
         <ModalShareImage
           address={modalShareState?.address}

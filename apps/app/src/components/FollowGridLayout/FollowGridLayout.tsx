@@ -9,7 +9,7 @@ export const FollowGridLayout: FC<FollowGridLayoutProps> = ({
 }) => {
   return (
     <>
-      <ul className={clsx(className, "grid grid-cols-1 gap-6 lg:grid-cols-3")}>
+      <ul className={clsx(className, "grid grid-cols-1 lg:grid-cols-3 gap-6")}>
         {children}
       </ul>
     </>

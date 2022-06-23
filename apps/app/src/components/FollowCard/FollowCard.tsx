@@ -17,9 +17,9 @@ export const FollowCard: FC<FollowCardProps> = ({
   id,
 }) => {
   return (
-    <li className="col-span-1 rounded-lg border border-contrast-lower bg-bg-lighter p-4 shadow">
+    <li className="col-span-1 p-4 bg-bg-lighter rounded-lg border border-contrast-lower shadow">
       <FollowCardBanner address={address} />
-      <div className="flex items-center space-x-2 overflow-y-visible overflow-x-scroll py-4">
+      <div className="flex overflow-x-scroll overflow-y-visible items-center py-4 space-x-2">
         <NetworkStack max address={address} id={id} />
       </div>
       <FollowCardProof recommendationReason={recommendationReason} />

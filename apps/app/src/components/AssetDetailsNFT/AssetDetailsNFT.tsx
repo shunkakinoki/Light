@@ -15,6 +15,7 @@ export type AssetDetailsNFTProps = PlaceholderProfileProps & {
 
 export const AssetDetailsNFT: FC<AssetDetailsNFTProps> = ({
   asset: {
+    asset_contract: { address: contractAddress },
     name,
     permalink,
     creator,
@@ -33,7 +34,7 @@ export const AssetDetailsNFT: FC<AssetDetailsNFTProps> = ({
       />
       <AssetDetailsSegmentMeta
         address={ownerAddress}
-        contractAddress={creator?.address ?? DEAD_ADDRESS}
+        contractAddress={contractAddress ?? creator?.address ?? DEAD_ADDRESS}
         tokenId={tokenId}
       />
       {permalink && (

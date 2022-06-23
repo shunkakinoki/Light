@@ -10,7 +10,7 @@ export const ModalNetwork = () => {
 
   return (
     <Modal show={modalNetworkState.open} onClose={closeModalNetwork}>
-      <div className="max-w-sm bg-bg p-6 sm:max-w-lg md:max-w-xl">
+      <div className="p-6 max-w-sm sm:max-w-lg md:max-w-xl bg-bg">
         <div className="block w-[9999px]" />
         <ModalClose onClick={closeModalNetwork} />
         <FollowCardBanner address={modalNetworkState.address} />

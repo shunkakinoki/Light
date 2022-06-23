@@ -66,12 +66,12 @@
     "hardhat-preprocessor": "^0.1.4",
     "hardhat-spdx-license-identifier": "^2.0.3",
     "hardhat-watcher": "^2.3.0",
-    "solc": "^0.8.13"
+    "solc": "^0.8.15"
   },
   "devDependencies": {
     "dotenv": "^16.0.1",
     "ethereum-waffle": "^3.4.4",
-    "ts-node": "^10.5.0",
+    "ts-node": "^10.8.1",
     "tsconfig-paths": "^4.0.0",
     "typechain": "^8.1.0"
   }

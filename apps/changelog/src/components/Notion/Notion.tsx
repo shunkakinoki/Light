@@ -178,7 +178,7 @@ export const Notion = ({ page, blocks }) => {
           images: [{ url: page.cover.external.url }],
         }}
       />
-      <div className="mx-auto max-w-2xl py-16 px-3">
+      <div className="py-16 px-3 mx-auto max-w-2xl">
         <Link href="/">
           <a className="text-contrast-medium hover:underline">
             ← Go back to changelog
@@ -187,7 +187,7 @@ export const Notion = ({ page, blocks }) => {
         <h1 className="my-5 text-4xl font-extrabold text-contrast-higher">
           <Text text={page.properties.Name.title} />
         </h1>
-        <div className="mt-3 flex w-full justify-between">
+        <div className="flex justify-between mt-3 w-full">
           <h3 className="text-lg font-bold text-contrast-medium">
             Changelog #{leftNumberPad(page.properties.Number.number)}
           </h3>

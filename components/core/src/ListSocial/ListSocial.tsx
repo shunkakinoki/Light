@@ -42,7 +42,7 @@ export const ListSocial: FC = () => {
             className="text-contrast-medium hover:text-contrast-high"
           >
             <span className="sr-only">{item.name}</span>
-            <item.icon className="h-6 w-6" aria-hidden="true" />
+            <item.icon className="w-6 h-6" aria-hidden="true" />
           </a>
         );
       })}

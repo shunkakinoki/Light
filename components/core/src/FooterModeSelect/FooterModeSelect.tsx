@@ -9,7 +9,7 @@ export const FooterModeSelect: FC = () => {
       <select
         id="mode"
         name="mode"
-        className="mt-1 w-full cursor-pointer rounded-md border-contrast-low bg-inherit py-2 pr-10 pl-3 text-base text-contrast-medium focus:border-primary-light focus:outline-none focus:ring-primary-lighter sm:block sm:text-sm"
+        className="sm:block py-2 pr-10 pl-3 mt-1 w-full text-base sm:text-sm text-contrast-medium bg-inherit rounded-md border-contrast-low focus:border-primary-light focus:outline-none focus:ring-primary-lighter cursor-pointer"
         value={theme}
         onBlur={() => {}}
         onChange={e => {

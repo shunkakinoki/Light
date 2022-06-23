@@ -24,11 +24,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     forwardedRef,
   ) => {
     return (
-      <div className="relative flex w-full items-center">
+      <div className="flex relative items-center w-full">
         <select
           ref={forwardedRef}
           className={clsx(
-            "h-9 w-full appearance-none rounded border bg-contrast-higher py-1 pr-8 pl-3 text-contrast-lower",
+            "py-1 pr-8 pl-3 w-full h-9 text-contrast-lower bg-contrast-higher rounded border appearance-none",
             error ? "border-red-500 hover:border-red-500" : "",
             className,
           )}

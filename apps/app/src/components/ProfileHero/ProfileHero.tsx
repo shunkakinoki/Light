@@ -70,7 +70,7 @@ export const ProfileHero: FC<ProfileHeroProps> = ({ active, address }) => {
 
   return (
     <div className="px-3 bg-bg-lighter">
-      <div className="flex flex-col md:flex-row sm:items-center py-2 sm:py-3 md:py-8 sm:mx-auto max-w-container">
+      <div className="flex flex-col md:flex-row sm:items-center py-3 sm:py-4 md:py-8 sm:mx-auto max-w-container">
         <div className="flex flex-row items-center space-x-5">
           {!profileAddress ? (
             <PlaceholderAvatar

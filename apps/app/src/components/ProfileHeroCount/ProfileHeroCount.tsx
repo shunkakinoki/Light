@@ -28,14 +28,14 @@ export const ProfileHeroCount: FC<ProfileHeroCountProps> = ({
   }, [address, ens, walletAddress]);
 
   return (
-    <div className="sm:mx-auto flex justify-center md:justify-start">
+    <div className="flex justify-center md:justify-start sm:mx-auto">
       <Link passHref href={`/${slug}/following`}>
-        <a className="group flex items-center border-0 border-r border-contrast-low pr-2">
+        <a className="group flex items-center pr-2 border-0 border-r border-contrast-low">
           {isLoading && <LoadingText />}
           <span className="mr-1 font-extrabold text-contrast-higher group-hover:text-contrast-high">
             {followingCount?.toLocaleString()}
           </span>
-          <p className="text-sm font-medium leading-6 text-contrast-low group-hover:underline sm:text-base">
+          <p className="text-sm sm:text-base font-medium leading-6 text-contrast-low group-hover:underline">
             Following
           </p>
         </a>
@@ -46,7 +46,7 @@ export const ProfileHeroCount: FC<ProfileHeroCountProps> = ({
           <span className="mr-1 font-extrabold text-contrast-higher group-hover:text-contrast-high">
             {followerCount?.toLocaleString()}
           </span>
-          <p className="text-sm font-medium leading-6 text-contrast-low group-hover:underline sm:text-base">
+          <p className="text-sm sm:text-base font-medium leading-6 text-contrast-low group-hover:underline">
             Followers
           </p>
         </a>

@@ -21,7 +21,7 @@ export const ModalNetworkTabs = () => {
         <select
           id="tabs"
           name="tabs"
-          className="block w-full rounded-md border-contrast-medium bg-bg text-contrast-high"
+          className="block w-full text-contrast-high bg-bg rounded-md border-contrast-medium"
           defaultValue={
             tabs.find(tab => {
               return networkType === tab.type;
@@ -41,7 +41,7 @@ export const ModalNetworkTabs = () => {
         </select>
       </div>
       <div className="hidden sm:block">
-        <nav className="group relative z-0 flex divide-x divide-contrast-medium rounded-lg border border-contrast-medium shadow">
+        <nav className="group flex relative z-0 rounded-lg border border-contrast-medium divide-x divide-contrast-medium shadow">
           {tabs.map((tab, index) => {
             return (
               <button
@@ -54,7 +54,7 @@ export const ModalNetworkTabs = () => {
                     : "text-contrast-medium hover:text-contrast-high",
                   index === 0 && "rounded-l-lg",
                   index === tabs.length - 1 ? "rounded-r-lg" : "",
-                  "group relative min-w-0 flex-1 overflow-hidden px-4 py-3 text-center text-sm font-medium hover:bg-emphasis-medium focus:z-10 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary",
+                  "group overflow-hidden relative focus:z-10 flex-1 py-3 px-4 min-w-0 text-sm font-medium text-center hover:bg-emphasis-medium focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary",
                 )}
                 aria-current={networkType === tab.type ? "page" : undefined}
                 onClick={() => {

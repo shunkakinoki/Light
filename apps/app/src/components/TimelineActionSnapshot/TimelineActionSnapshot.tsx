@@ -14,7 +14,7 @@ export const TimelineActionSnapshot: FC<TimelineActionSnapshotProps> = ({
     <>
       voted &nbsp;
       <a
-        className="text-sm font-normal text-contrast-high overflow-hidden break-all text-ellipsis hover:underline"
+        className="overflow-hidden text-sm font-normal text-contrast-high hover:underline text-ellipsis break-all"
         target="_blank"
         rel="noopener noreferrer"
         href={data?.proposal?.link}

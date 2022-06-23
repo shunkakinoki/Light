@@ -27,16 +27,16 @@ export const TimelineNavigation: FC = () => {
     useTimelineCategory();
 
   return (
-    <nav className="space-y-1 sticky top-4" aria-label="Sidebar">
+    <nav className="sticky top-4 space-y-1" aria-label="Sidebar">
       {navigation.map(item => {
         return (
           <button
             key={item.name}
             className={clsx(
               timelineCategoryState.category === item.category
-                ? "bg-emphasis-high text-contrast-higher"
-                : "text-contrast-medium hover:bg-emphasis-medium hover:text-contrast-high",
-              "group w-full flex items-center rounded-md px-3 py-2 text-sm font-medium",
+                ? "text-contrast-higher bg-emphasis-high"
+                : "text-contrast-medium hover:text-contrast-high hover:bg-emphasis-medium",
+              "group flex items-center py-2 px-3 w-full text-sm font-medium rounded-md",
             )}
             aria-current={
               timelineCategoryState.category === item.category
@@ -51,8 +51,8 @@ export const TimelineNavigation: FC = () => {
               className={clsx(
                 timelineCategoryState.category === item.category
                   ? "text-contrast-higher fill-contrast-higher"
-                  : "fill-contrast-high text-contrast-high group-hover:text-contrast-higher",
-                "-ml-1 mr-3 h-6 w-6 shrink-0",
+                  : "text-contrast-high group-hover:text-contrast-higher fill-contrast-high",
+                "shrink-0 mr-3 -ml-1 w-6 h-6",
               )}
               aria-hidden="true"
             />

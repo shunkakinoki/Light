@@ -16,12 +16,12 @@ export const ProfileHeroAddress: FC<ProfileHeroAddressProps> = ({
   const [isCopied, copy] = useCopy();
 
   return (
-    <div className="space-y-5 sm:mx-0 sm:max-w-xl sm:space-y-4">
-      <h2 className="flex overflow-hidden text-ellipsis text-2xl text-left font-extrabold tracking-tight text-contrast-higher sm:text-3xl justify-start">
+    <div className="sm:mx-0 space-y-5 sm:space-y-4 sm:max-w-xl">
+      <h2 className="flex overflow-hidden justify-start text-2xl sm:text-3xl font-extrabold tracking-tight text-left text-contrast-higher text-ellipsis">
         {ens ?? splitAddress(address)}
       </h2>
-      <div className="mx-auto flex flex-row justify-center space-x-3 sm:justify-start">
-        <div className="flex rounded-md bg-bg-dark px-3 py-1.5">
+      <div className="flex flex-row justify-center sm:justify-start mx-auto space-x-3">
+        <div className="flex py-1.5 px-3 bg-bg-dark rounded-md">
           <p className="mr-2 text-base text-contrast-low">
             {splitAddress(address)}
           </p>
@@ -31,9 +31,9 @@ export const ProfileHeroAddress: FC<ProfileHeroAddressProps> = ({
             }}
           >
             {!isCopied ? (
-              <DuplicateIcon className="h-6 w-6 text-contrast-low hover:text-contrast-medium" />
+              <DuplicateIcon className="w-6 h-6 text-contrast-low hover:text-contrast-medium" />
             ) : (
-              <ClipboardCheckIcon className="h-6 w-6 text-contrast-low hover:text-contrast-medium" />
+              <ClipboardCheckIcon className="w-6 h-6 text-contrast-low hover:text-contrast-medium" />
             )}
           </button>
         </div>

@@ -49,9 +49,9 @@ export const MobileNavigation: FC = () => {
   const { asPath } = useRouter();
 
   return (
-    <div className="relative w-full sm:hidden">
-      <section className="fixed inset-x-0 bottom-0 z-10 block shadow">
-        <span className="relative z-0 flex justify-between rounded-md bg-bg px-4 pt-2.5 pb-2 shadow-sm">
+    <div className="sm:hidden relative w-full">
+      <section className="block fixed inset-x-0 bottom-0 z-10 shadow">
+        <span className="flex relative z-0 justify-between px-4 pt-2.5 pb-2 bg-bg rounded-md shadow-sm">
           {tabs.map(tab => {
             return (
               <Link key={tab.name} passHref href={tab.href}>
@@ -60,7 +60,7 @@ export const MobileNavigation: FC = () => {
                     tab.href === asPath
                       ? "text-contrast-higher"
                       : "text-contrast-medium hover:text-contrast-higher",
-                    "group inline-flex flex-col items-center justify-center text-sm font-medium",
+                    "group inline-flex flex-col justify-center items-center text-sm font-medium",
                   )}
                   aria-current={tab.href === asPath ? "page" : undefined}
                 >
@@ -69,7 +69,7 @@ export const MobileNavigation: FC = () => {
                       tab.href === asPath
                         ? "text-contrast-higher"
                         : "text-contrast-medium group-hover:text-contrast-high",
-                      "h-5 w-5",
+                      "w-5 h-5",
                     )}
                     aria-hidden="true"
                   />

@@ -91,7 +91,7 @@ export const ModalTwitterVerify = () => {
       show={modalTwitterVerifyState.open}
       onClose={closeModalTwitterVerify}
     >
-      <div className="max-w-xl bg-bg p-6">
+      <div className="p-6 max-w-xl bg-bg">
         <div className="block w-[9999px]" />
         <h1 className="text-2xl font-extrabold leading-8 text-contrast-higher">
           {!modalTwitterVerifyState.sig
@@ -112,7 +112,7 @@ export const ModalTwitterVerify = () => {
             Enter your twitter handle to verify the tweet.
           </p>
         )}
-        <div className="mt-4 flex items-center justify-between rounded-md bg-bg-lighter p-4">
+        <div className="flex justify-between items-center p-4 mt-4 bg-bg-lighter rounded-md">
           <div className="flex items-center">
             <PlaceholderProfile address={address} />
             <h3 className="ml-4 text-lg font-semibold text-contrast-higher">
@@ -123,16 +123,16 @@ export const ModalTwitterVerify = () => {
         </div>
         {modalTwitterVerifyState.sig &&
           (!modalTwitterVerifyState.hasTweeted ? (
-            <p className="mt-4 flex w-full break-all bg-bg-lighter p-4 text-contrast-higher">
+            <p className="flex p-4 mt-4 w-full text-contrast-higher break-all bg-bg-lighter">
               {verifyText}
             </p>
           ) : (
             <div className="relative mt-1 rounded-md shadow-sm">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <span className="text-contrast-higher sm:text-lg">@</span>
+              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <span className="sm:text-lg text-contrast-higher">@</span>
               </div>
               <input
-                className="mt-4 block w-full rounded-md border-contrast-medium p-4 pl-7 pr-12 text-contrast-higher focus:border-primary focus:ring-primary sm:text-lg"
+                className="block p-4 pr-12 pl-7 mt-4 w-full sm:text-lg text-contrast-higher rounded-md border-contrast-medium focus:border-primary focus:ring-primary"
                 placeholder="shunkakinoki"
                 onChange={e => {
                   setTwitterHandle(e.target.value);
@@ -141,7 +141,7 @@ export const ModalTwitterVerify = () => {
             </div>
           ))}
         <button
-          className="mt-4 w-full rounded-md bg-contrast-higher p-3 text-contrast-lower hover:bg-contrast-high"
+          className="p-3 mt-4 w-full text-contrast-lower bg-contrast-higher hover:bg-contrast-high rounded-md"
           onClick={onClickTwitterVerify}
         >
           {!modalTwitterVerifyState.sig

@@ -11,9 +11,9 @@ export const AssetHeader: FC = () => {
   }, [finishAssetTransition]);
 
   return (
-    <div className="flex h-20 items-center px-4 md:px-8">
+    <div className="flex items-center px-4 md:px-8 h-20">
       <button
-        className="cursor-pointer text-sm uppercase text-contrast-medium hover:text-contrast-high"
+        className="text-sm text-contrast-medium hover:text-contrast-high uppercase cursor-pointer"
         onClick={onClick}
       >
         ← Back to Light

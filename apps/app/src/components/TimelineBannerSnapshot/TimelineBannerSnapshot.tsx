@@ -23,7 +23,7 @@ export const TimelineBannerSnapshot: FC<TimelineBannerSnapshotProps> = ({
                 layout="fixed"
                 width={13}
                 height={13}
-                className="h-[13px] w-[13px] rounded-lg object-cover"
+                className="object-cover w-[13px] h-[13px] rounded-lg"
                 src={ipfsAddress(data?.space?.avatar.substring(7))}
                 alt={data?.space?.name}
                 loading="lazy"
@@ -37,7 +37,7 @@ export const TimelineBannerSnapshot: FC<TimelineBannerSnapshotProps> = ({
       </Link>
       {data?.space?.skin === "verified" && (
         <span className="inline-block">
-          <BadgeCheckIcon className="h-3 w-3 fill-primary" />
+          <BadgeCheckIcon className="w-3 h-3 fill-primary" />
         </span>
       )}
     </>

@@ -41,7 +41,7 @@ export const NetworkItemExtra: FC<NetworkItemExtraProps> = ({
       onMouseEnter={onMouseEnter}
     >
       <button
-        className="mr-1.5 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-bg-darker bg-bg-lighter text-base font-extrabold text-contrast-high hover:bg-bg-light hover:text-contrast-higher"
+        className="flex justify-center items-center mr-1.5 w-12 h-12 text-base font-extrabold text-contrast-high hover:text-contrast-higher bg-bg-lighter hover:bg-bg-light rounded-full border-2 border-bg-darker cursor-pointer"
         onClick={e => {
           e.stopPropagation();
           setModalNetworkState({ address: address, open: true });

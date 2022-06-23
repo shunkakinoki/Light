@@ -10,10 +10,10 @@ export const ModalCloseButton: FC<ModalCloseButtonProps> = ({ onClick }) => {
   return (
     <button
       aria-label="Close panel"
-      className="transition duration-150 ease-in-out focus:outline-none"
+      className="focus:outline-none transition duration-150 ease-in-out"
       onClick={onClick}
     >
-      <XIcon className="h-6 w-6 text-contrast-high hover:text-contrast-medium" />
+      <XIcon className="w-6 h-6 text-contrast-high hover:text-contrast-medium" />
     </button>
   );
 };

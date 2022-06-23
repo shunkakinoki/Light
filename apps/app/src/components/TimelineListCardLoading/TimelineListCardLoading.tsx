@@ -12,13 +12,13 @@ export const TimelineListCardLoading: FC<TimelineListCardLoadingProps> = ({
   type,
 }) => {
   return (
-    <div className="flex flex-col w-full cursor-pointer rounded-xl border border-contrast-lower bg-bg-lighter p-3 hover:bg-bg-light">
-      <div className="flex pb-3 items-center">
-        <div className="group relative mr-4 shrink-0">
+    <div className="flex flex-col p-3 md:p-4 w-full bg-bg-lighter hover:bg-bg-light rounded-xl border border-contrast-lower cursor-pointer">
+      <div className="flex items-center pb-3">
+        <div className="group relative shrink-0 mr-4">
           <PlaceholderAvatarLoading />
         </div>
         <FollowBannerLoading />
-        <div className="relative hidden shrink-0 px-6 py-1 md:inline-flex" />
+        <div className="hidden md:inline-flex relative shrink-0 py-1 px-6" />
         <div className="shrink-0 text-contrast-medium" />
       </div>
       <TimelineListItemLoading type={type} />

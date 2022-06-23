@@ -13,17 +13,17 @@ export const NetworkHeroDescription: FC<NetworkHeroDescriptionProps> = ({
 }) => {
   return (
     <div className="mt-4 lg:mt-8 text-center lg:text-left">
-      <div className="text-2xl font-bold text-contrast-higher md:text-3xl">
+      <div className="text-2xl md:text-3xl font-bold text-contrast-higher">
         {title}
       </div>
-      <p className="mt-4 text-lg font-semibold leading-7 text-contrast-medium sm:text-base md:mt-5">
+      <p className="mt-4 md:mt-5 text-lg sm:text-base font-semibold leading-7 text-contrast-medium">
         <span className="mr-1 font-extrabold text-contrast-high">
           {people?.toLocaleString()}
         </span>
         People
       </p>
       {description && (
-        <p className="mt-4 overflow-hidden text-ellipsis break-words text-base leading-6 text-contrast-medium line-clamp-6 md:pr-6">
+        <p className="overflow-hidden md:pr-6 mt-4 text-base leading-6 text-contrast-medium text-ellipsis break-words line-clamp-6">
           {description}
         </p>
       )}

@@ -4,8 +4,6 @@ import { usePlausible } from "next-plausible";
 import type { FC, ButtonHTMLAttributes, MouseEvent } from "react";
 import { useEffect, useState, useCallback } from "react";
 
-import s from "./FollowButton.module.css";
-
 import { LoadingDots } from "@lightdotso/app/components/LoadingDots";
 import { useCyberConnectIdentity } from "@lightdotso/app/hooks/useCyberConnectIdentity";
 import { useCyberConnectStatus } from "@lightdotso/app/hooks/useCyberConnectStatus";
@@ -123,14 +121,14 @@ export const FollowButton: FC<FollowButtonProps> = ({
     <button
       ref={hoverRef}
       className={clsx(
-        "flex w-full shrink items-center justify-center rounded-md py-2 px-10 text-sm ring-offset-bg focus:ring-2 focus:ring-primary focus:ring-offset-2 md:max-w-[101px]",
+        "flex shrink justify-center items-center py-2 px-10 w-full md:max-w-[101px] text-sm rounded-md focus:ring-2 focus:ring-primary focus:ring-offset-2 ring-offset-bg",
         !walletAddress
-          ? "bg-contrast-higher text-contrast-lower hover:bg-contrast-medium"
+          ? "text-contrast-lower bg-contrast-higher hover:bg-contrast-medium"
           : isLoading
-          ? "animate-pulse bg-contrast-lower text-contrast-medium"
+          ? "text-contrast-medium bg-contrast-lower animate-pulse"
           : isFollowing
-          ? "hover:bg-error-dark/30 border bg-bg text-contrast-high hover:border-error hover:text-error-darker"
-          : "bg-contrast-higher text-bg hover:bg-contrast-medium",
+          ? "text-contrast-high hover:text-error-darker bg-bg hover:bg-error-dark/30 border hover:border-error"
+          : "text-bg bg-contrast-higher hover:bg-contrast-medium",
       )}
       onClick={event => {
         return onClick(event);

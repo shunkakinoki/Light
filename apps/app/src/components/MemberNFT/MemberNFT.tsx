@@ -1,9 +1,10 @@
-import CardImage from "@lightdotso/app/public/card.png";
 import { SocialLinks } from "@lightdotso/const";
 import Image from "next/image";
 import type { FC } from "react";
 import { useEffect, useRef } from "react";
 import Tilt from "vanilla-tilt";
+
+import CardImage from "@lightdotso/app/public/card.png";
 
 export const MemberNFT: FC = () => {
   const ticketRef = useRef<HTMLDivElement>(null);
@@ -23,7 +24,7 @@ export const MemberNFT: FC = () => {
   return (
     <div
       ref={ticketRef}
-      className="relative aspect-[1200/630] w-full rounded-2xl hover:animate-pulse"
+      className="aspect-[1200/630] relative w-full rounded-2xl hover:animate-pulse"
     >
       <a
         className="rounded-xl"

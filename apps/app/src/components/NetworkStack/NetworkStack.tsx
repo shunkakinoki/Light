@@ -76,7 +76,7 @@ export const NetworkStack: FC<NetworkStackProps> = ({
   return (
     <div
       className={clsx(
-        "flex flex-row rounded-full bg-bg-dark",
+        "flex flex-row bg-bg-dark rounded-full",
         networks?.length ? "py-1 pr-3 pl-2" : hidden ? "hidden" : "",
         max && "w-full",
       )}

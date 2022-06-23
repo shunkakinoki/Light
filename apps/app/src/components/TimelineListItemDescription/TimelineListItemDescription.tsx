@@ -14,22 +14,22 @@ export const TimelineListItemDescription: FC<
 > = ({ children, className, title, description }) => {
   return (
     <>
-      <div className="flex items-center space-x-3 border-contrast-medium bg-emphasis-high rounded-md px-3 md:px-4 py-2">
+      <div className="flex items-center py-2 px-3 md:px-4 space-x-3 bg-emphasis-high rounded-md border-contrast-medium">
         <div className="basis-1/5 shrink-0 md:p-2">
           <TimelineListItem
             className={clsx(
               className,
-              "bg-transparent h-full w-full hover:opacity-80",
+              "w-full h-full bg-transparent hover:opacity-80",
             )}
           >
             {children}
           </TimelineListItem>
         </div>
-        <div className="flex flex-col basis-4/5 text-contrast-medium overflow-hidden text-left max-w-full">
-          <h3 className="text-contrast-high font-semibold text-base md:text-lg line-clamp-1">
+        <div className="flex overflow-hidden basis-4/5 flex-col max-w-full text-left text-contrast-medium">
+          <h3 className="text-base md:text-lg font-semibold text-contrast-high line-clamp-1">
             {title}
           </h3>
-          <p className="pt-1 line-clamp-2 break-all text-xs md:text-sm">
+          <p className="pt-1 text-xs md:text-sm break-all line-clamp-2">
             {description}
           </p>
         </div>

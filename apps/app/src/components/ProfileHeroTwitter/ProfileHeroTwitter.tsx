@@ -23,14 +23,14 @@ export const ProfileHeroTwitter: FC<ProfileHeroTwitterProps> = ({
     return (
       <button
         className={clsx(
-          "inline-flex cursor-pointer overflow-hidden items-center rounded-full border border-blue-500 py-1 px-6 text-sm text-blue-500 shadow-sm ring-offset-bg hover:bg-blue-300/10 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-4 transition-all",
+          "inline-flex overflow-hidden items-center py-1 px-6 text-sm text-blue-500 hover:bg-blue-300/10 rounded-full border border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-4 ring-offset-bg shadow-sm transition-all cursor-pointer",
           s.transitionfix,
         )}
         onClick={() => {
           return setModalTwitterVerifyState({ open: true });
         }}
       >
-        <FaTwitter className="mr-3 -ml-1 h-4 w-4" aria-hidden="true" />
+        <FaTwitter className="mr-3 -ml-1 w-4 h-4" aria-hidden="true" />
         Verify Twitter
       </button>
     );
@@ -44,11 +44,11 @@ export const ProfileHeroTwitter: FC<ProfileHeroTwitterProps> = ({
         rel="noreferrer"
         type="button"
         className={clsx(
-          "inline-flex cursor-pointer overflow-hidden items-center rounded-full border border-blue-500 py-1 px-6 text-sm text-blue-500 shadow-sm ring-offset-bg hover:bg-blue-300/10 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-4 transition-all",
+          "inline-flex overflow-hidden items-center py-1 px-6 text-sm text-blue-500 hover:bg-blue-300/10 rounded-full border border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-4 ring-offset-bg shadow-sm transition-all cursor-pointer",
           s.transitionfix,
         )}
       >
-        <FaTwitter className="mr-3 -ml-1 h-4 w-4" aria-hidden="true" />
+        <FaTwitter className="mr-3 -ml-1 w-4 h-4" aria-hidden="true" />
         {username}
       </a>
     );

@@ -35,10 +35,10 @@ export const NextImage: FC<NextImageProps> = ({
       loader={cloudflareLoader}
       className={clsx(
         "grayscale duration-300 ease-in-out",
-        isLoading && "animate-pulse bg-emphasis-medium",
+        isLoading && "bg-emphasis-medium animate-pulse",
         useBlur && isLoading
-          ? "scale-110 blur-2xl grayscale"
-          : "scale-100 blur-0 grayscale-0",
+          ? "blur-2xl grayscale scale-110"
+          : "blur-0 grayscale-0 scale-100",
         className,
       )}
       src={src}

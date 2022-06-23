@@ -11,5 +11,5 @@ export const TimelineListItemLoading: FC<TimelineListItemLoadingProps> = ({
     return <div className="flex w-full h-24 bg-emphasis-medium rounded-md" />;
   }
 
-  return <div className="flex w-full aspect-1 bg-emphasis-medium rounded-md" />;
+  return <div className="aspect-1 flex w-full bg-emphasis-medium rounded-md" />;
 };

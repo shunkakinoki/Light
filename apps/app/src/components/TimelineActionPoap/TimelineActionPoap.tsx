@@ -13,14 +13,14 @@ export const TimelineActionPoap: FC<TimelineActionPoapProps> = ({ data }) => {
     <>
       Attended &nbsp;
       <Link passHref href={`/poap/${data?.event?.id}`}>
-        <a className="text-sm font-normal text-contrast-high overflow-hidden break-all text-ellipsis hover:underline">
+        <a className="overflow-hidden text-sm font-normal text-contrast-high hover:underline text-ellipsis break-all">
           {data?.event?.name}
         </a>
       </Link>
       &nbsp;
       {data?.event?.city && (
         <>
-          <span className="text-contrast-low text-sm">at</span>
+          <span className="text-sm text-contrast-low">at</span>
           &nbsp;
           {data?.event?.city}
         </>

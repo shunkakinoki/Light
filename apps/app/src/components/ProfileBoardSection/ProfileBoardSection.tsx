@@ -28,7 +28,7 @@ export type ProfileBoardSectionProps = {
 const ProfileBoardSectionGridLayout: FC = ({ children }) => {
   return (
     <div className="grid">
-      <div className="grid grid-cols-3 gap-2 p-3 sm:gap-3 md:gap-4 lg:grid-cols-6 lg:gap-6">
+      <div className="grid grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4 lg:gap-6 p-3">
         {children}
       </div>
     </div>
@@ -37,9 +37,9 @@ const ProfileBoardSectionGridLayout: FC = ({ children }) => {
 
 const ProfileBoardTokenTableLayout: FC = ({ children }) => {
   return (
-    <div className="relative overflow-auto rounded-md">
+    <div className="overflow-auto relative rounded-md">
       <div className="overflow-hidden shadow-sm">
-        <table className="w-full table-fixed border-collapse border-contrast-lower text-left text-sm">
+        <table className="w-full text-sm text-left border-contrast-lower border-collapse table-fixed">
           {children}
         </table>
       </div>
@@ -63,7 +63,7 @@ export const ProfileBoardSection: FC<ProfileBoardSectionProps> = ({
   }, [type]);
 
   return (
-    <div className="w-full px-3 py-2 sm:py-3 md:py-4 lg:px-0">
+    <div className="py-2 sm:py-3 md:py-4 px-3 lg:px-0 w-full">
       <Disclosure defaultOpen={defaultOpen}>
         {({ open }) => {
           return (
@@ -71,11 +71,11 @@ export const ProfileBoardSection: FC<ProfileBoardSectionProps> = ({
               <Disclosure.Button
                 disabled={disabled}
                 className={clsx(
-                  "group mb-8 flex w-full items-center justify-between border-b border-contrast-lower p-4 text-left text-sm font-medium transition duration-300 hover:border-contrast-low",
+                  "group flex justify-between items-center p-4 mb-8 w-full text-sm font-medium text-left border-b border-contrast-lower hover:border-contrast-low transition duration-300",
                   !disabled && "hover:bg-emphasis-medium",
                 )}
               >
-                <h1 className="flex items-center text-lg font-extrabold leading-relaxed text-contrast-high group-hover:text-contrast-higher md:text-3xl">
+                <h1 className="flex items-center text-lg md:text-3xl font-extrabold leading-relaxed text-contrast-high group-hover:text-contrast-higher">
                   {type === "nft" && (
                     <IconNFT className="mr-2 fill-contrast-high group-hover:fill-contrast-higher" />
                   )}
@@ -90,7 +90,7 @@ export const ProfileBoardSection: FC<ProfileBoardSectionProps> = ({
                 {!disabled && (
                   <ChevronUpIcon
                     className={clsx(
-                      "h-5 w-5 text-contrast-medium group-hover:text-contrast-higher",
+                      "w-5 h-5 text-contrast-medium group-hover:text-contrast-higher",
                       open && "rotate-180",
                     )}
                   />
@@ -106,13 +106,13 @@ export const ProfileBoardSection: FC<ProfileBoardSectionProps> = ({
                   <>
                     <thead>
                       <tr className="flex w-full">
-                        <th className="grow pl-4 pb-3 font-medium text-contrast-high">
+                        <th className="grow pb-3 pl-4 font-medium text-contrast-high">
                           Token
                         </th>
                         <th className="shrink-0 pb-3 font-medium text-contrast-high">
                           Balance
                         </th>
-                        <th className="flex w-1/4 flex-initial shrink-0 justify-end pr-4 pb-3 font-medium text-contrast-high sm:w-1/5 md:w-1/6">
+                        <th className="flex flex-initial shrink-0 justify-end pr-4 pb-3 w-1/4 sm:w-1/5 md:w-1/6 font-medium text-contrast-high">
                           Value
                         </th>
                       </tr>

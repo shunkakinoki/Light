@@ -14,7 +14,7 @@ export const BaseSnapshot: FC<BaseSnapshotProps> = ({
   return (
     <NextImage
       layout="fill"
-      className="h-full w-full object-cover"
+      className="object-cover w-full h-full"
       src={ipfsAddress(avatar.substring(7))}
       alt={name}
       loading="lazy"

@@ -39,7 +39,7 @@ export const ModalTwitterVerify = () => {
   const onClickTwitterVerify = useCallback(async () => {
     if (!modalTwitterVerifyState.sig) {
       const provider = context.state.connector?.getProvider();
-      const sig = await twitterAuthorize(provider, address);
+      const sig = await twitterAuthorize(provider, address, twitterHandle);
       setModalTwitterVerifyState({ ...modalTwitterVerifyState, sig: sig });
       return;
     }
@@ -64,7 +64,7 @@ export const ModalTwitterVerify = () => {
         error("Twitter Handle Empty!");
         return;
       }
-      await twitterVerify(address, twitterHandle);
+      await twitterVerify(address, twitterHandle, "Light");
       success("Twitter Successfully Verified!");
       closeModalTwitterVerify();
       mutateIdentity(
@@ -133,7 +133,7 @@ export const ModalTwitterVerify = () => {
               </div>
               <input
                 className="block p-4 pr-12 pl-7 mt-4 w-full sm:text-lg text-contrast-higher rounded-md border-contrast-medium focus:border-primary focus:ring-primary"
-                placeholder="shunkakinoki"
+                placeholder="Your Twitter Handle"
                 onChange={e => {
                   setTwitterHandle(e.target.value);
                 }}

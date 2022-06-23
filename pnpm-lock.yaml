@@ -36,7 +36,7 @@ importers:
       husky: ^8.0.1
       lint-staged: ^13.0.2
       next: ^12.1.6
-      npm-check-updates: ^14.0.1
+      npm-check-updates: ^14.0.2
       npm-package-json-lint: ^6.3.0
       npm-package-json-lint-config-default: ^5.0.0
       prettier: ^2.7.1
@@ -84,7 +84,7 @@ importers:
       html-webpack-plugin: 5.5.0
       husky: 8.0.1
       lint-staged: 13.0.2
-      npm-check-updates: 14.0.1
+      npm-check-updates: 14.0.2
       npm-package-json-lint: 6.3.0
       npm-package-json-lint-config-default: 5.0.0_5bj2o3dcjliztyiwap3x4pk5tu
       prettier: 2.7.1
@@ -155,7 +155,7 @@ importers:
       reflect-metadata: ^0.1.13
       rxjs: ^7.5.5
       supertest: ^6.2.3
-      ts-loader: ^9.3.0
+      ts-loader: ^9.3.1
       tsconfig-paths-webpack-plugin: ^3.5.2
       webpack: ^5.73.0
       webpack-cli: ^4.10.0
@@ -224,7 +224,7 @@ importers:
       cypress: 10.2.0
       miniflare: 2.5.1
       supertest: 6.2.3
-      ts-loader: 9.3.0_webpack@5.73.0
+      ts-loader: 9.3.1_webpack@5.73.0
       tsconfig-paths-webpack-plugin: 3.5.2
       webpack: 5.73.0_webpack-cli@4.10.0
       webpack-cli: 4.10.0_webpack@5.73.0
@@ -232,7 +232,7 @@ importers:
   apps/app:
     specifiers:
       '@cyberlab/cyberconnect': ^4.5.0
-      '@cyberlab/social-verifier': ^1.1.0
+      '@cyberlab/social-verifier': ^2.0.1
       '@cypress/react': ^6.0.0
       '@headlessui/react': ^1.6.5
       '@heroicons/react': ^1.0.6
@@ -259,7 +259,7 @@ importers:
       critters: ^0.0.16
       cypress: ^10.2.0
       ethers: ^5.6.9
-      framer-motion: ^6.3.12
+      framer-motion: ^6.3.13
       javascript-time-ago: ^2.5.4
       jsonwebtoken: ^8.5.1
       lodash: ^4.17.21
@@ -288,7 +288,7 @@ importers:
       zod-prisma: ^0.5.4
     dependencies:
       '@cyberlab/cyberconnect': 4.5.0
-      '@cyberlab/social-verifier': 1.1.0
+      '@cyberlab/social-verifier': 2.0.1
       '@headlessui/react': 1.6.5_biqbaboplfbrettd7655fr4n2y
       '@heroicons/react': 1.0.6_react@18.2.0
       '@lightdotso/const': link:../../packages/const
@@ -306,7 +306,7 @@ importers:
       copy-to-clipboard: 3.3.1
       critters: 0.0.16
       ethers: 5.6.9
-      framer-motion: 6.3.12_biqbaboplfbrettd7655fr4n2y
+      framer-motion: 6.3.13_biqbaboplfbrettd7655fr4n2y
       javascript-time-ago: 2.5.4
       jsonwebtoken: 8.5.1
       lodash: 4.17.21
@@ -1433,10 +1433,14 @@ packages:
       idb: 7.0.2
     dev: false
 
-  /@cyberlab/social-verifier/1.1.0:
-    resolution: {integrity: sha512-lhTnge+jEJ4DLkfBQAoJ1Pq+oWle/UiOV2qAs046W4xzw5vh7dy20lJxd1pmeMGUTJYfP4/vJF8S5qF3N1pftw==}
-    deprecated: Version no longer supported. Please upgrade to @latest
+  /@cyberlab/social-verifier/2.0.1:
+    resolution: {integrity: sha512-tKbRCcrfZDVMre4K+t2ISFHkGWf+EZ3yShrh00fpaY6OeAEL37hObT69Br97uY53qiiPRnsEtesdwowKmwcPsA==}
     hasBin: true
+    dependencies:
+      graphql: 16.5.0
+      graphql-request: 4.3.0_graphql@16.5.0
+    transitivePeerDependencies:
+      - encoding
     dev: false
 
   /@cypress/react/6.0.0_2gpn2tlcopaedu6cv7uyrmcxi4:
@@ -4059,7 +4063,7 @@ packages:
   /@types/keyv/3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
-      '@types/node': 12.20.55
+      '@types/node': 18.0.0
 
   /@types/level-errors/3.0.0:
     resolution: {integrity: sha512-/lMtoq/Cf/2DVOm6zE6ORyOM+3ZVm/BvzEZVxUhf6bgh8ZHglXlBqxbxSlJeVp8FCbD3IVvk/VbsaNmDjrQvqQ==}
@@ -4201,7 +4205,7 @@ packages:
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 12.20.55
+      '@types/node': 18.0.0
 
   /@types/retry/0.12.0:
     resolution: {integrity: sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==}
@@ -10481,8 +10485,8 @@ packages:
     dependencies:
       map-cache: 0.2.2
 
-  /framer-motion/6.3.12_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-JfBNDeZX/0J2XtjuGpCf5klissAVw1N4tKrVu23SzQ2ksuL2xu1Jm/CE11sYq9RvFEiN0qkMp+CylFpYLarFoQ==}
+  /framer-motion/6.3.13_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-z6UIxENuqa9bh/xE1fit7IUT+07TKSp81TE+C0DDBe9ly4bdEafpZUbcDZxNiN6UBU5hYdEY7rKhk+X1JlIkhg==}
     peerDependencies:
       react: '>=16.8 || ^17.0.0 || ^18.0.0'
       react-dom: '>=16.8 || ^17.0.0 || ^18.0.0'
@@ -15552,8 +15556,8 @@ packages:
       npm-normalize-package-bin: 1.0.1
     dev: true
 
-  /npm-check-updates/14.0.1:
-    resolution: {integrity: sha512-CjHKxcJur/OiVc2GKBagUrzDsXL8JJC71rNVv2mC7eNA6w/ebe3POx9x46ay4p3woSxJOa7hYWNn1UwL7jgHug==}
+  /npm-check-updates/14.0.2:
+    resolution: {integrity: sha512-rVetP51QHbbbcDhTBkQv+h+EEZbLx1ehPgqT6F9MH3Z23O8tS2Jb7PWusIWCM04qhp2IXu6D3u1sjagG0H7SLw==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
@@ -19718,8 +19722,8 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /ts-loader/9.3.0_webpack@5.73.0:
-    resolution: {integrity: sha512-2kLLAdAD+FCKijvGKi9sS0OzoqxLCF3CxHpok7rVgCZ5UldRzH0TkbwG9XECKjBzHsAewntC5oDaI/FwKzEUog==}
+  /ts-loader/9.3.1_webpack@5.73.0:
+    resolution: {integrity: sha512-OkyShkcZTsTwyS3Kt7a4rsT/t2qvEVQuKCTg4LJmpj9fhFR7ukGdZwV6Qq3tRUkqcXtfGpPR7+hFKHCG/0d3Lw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       typescript: '*'

@@ -56,14 +56,14 @@ export const TimelineNavigation: FC = () => {
               .filter(item => {
                 return item.category !== timelineCategoryState.category;
               })
-              .map((item, i) => {
+              .map(item => {
                 return (
                   <Menu.Item key={item.name}>
                     {({ active }) => {
                       return (
                         <button
                           className={clsx(
-                            "flex justify-center items-center p-3 my-2.5 mx-8 w-14 h-14 bg-bg-lighter hover:bg-bg-light rounded-full border border-contrast-lower",
+                            "flex justify-center items-center p-3 my-2 mx-8 w-14 h-14 bg-bg-lighter hover:bg-bg-light rounded-full border border-contrast-lower",
                             active && "text-contrast-higher",
                           )}
                           onClick={() => {

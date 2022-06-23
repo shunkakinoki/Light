@@ -14,7 +14,7 @@ export const TimelineListItemDescription: FC<
 > = ({ children, className, title, description }) => {
   return (
     <>
-      <div className="flex items-center py-2 px-3 md:px-4 space-x-3 bg-emphasis-high rounded-md border-contrast-medium">
+      <div className="flex items-center py-2 px-3 md:px-4 space-x-3 bg-emphasis-high rounded-sm border-contrast-medium">
         <div className="basis-1/5 shrink-0 md:p-2">
           <TimelineListItem
             className={clsx(

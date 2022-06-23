@@ -35,7 +35,7 @@ export const TimelineListBase: FC<TimelineListBaseProps> = ({
         isCenter && "mx-auto",
       )}
     >
-      <div className="basis-1/6 md:basis-1/3 shrink py-8 px-3">
+      <div className="basis-1/6 md:basis-1/3 shrink md:py-8 px-3">
         <TimelineNavigation />
       </div>
       <div className="flex px-4 w-full">

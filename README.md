@@ -6,7 +6,7 @@
   <p align="center">
     The Social Blockchain Explorer.
     <br />
-    <a href="https://light.so"><strong>Learn more >></strong></a>
+    <a href="https://light.so"><strong>Learn more ></strong></a>
     <br />
     <br />
     <a href="https://light.so/discord">Discord</a>

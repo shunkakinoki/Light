@@ -64,7 +64,8 @@ export const TimelineNavigation: FC = () => {
                         <button
                           className={clsx(
                             "flex justify-center items-center p-3 my-2 mx-8 w-14 h-14 bg-bg-lighter hover:bg-bg-light rounded-full border border-contrast-lower",
-                            active && "text-contrast-higher",
+                            active &&
+                              "absolute -inset-px text-contrast-higher bg-primary opacity-100 blur transition duration-1000",
                           )}
                           onClick={() => {
                             return setTimelineCategoryState({

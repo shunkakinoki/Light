@@ -23,9 +23,6 @@ export const FollowHome: FC = () => {
       <FollowContainer small={!!address}>
         {address && <BannerProfile />}
         <div className="sm:text-center lg:text-left">
-          <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-contrast-higher">
-            <span className="block xl:inline">Timeline coming soon!</span>
-          </h1>
           <div className="mt-3">
             <a
               className="text-primary hover:underline"

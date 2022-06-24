@@ -48,7 +48,7 @@ export const NetworkAvatar: FC<NetworkAvatarProps> = ({
     return (
       <span
         className={clsx(
-          "flex justify-center items-center text-3xl md:text-5xl font-semibold leading-none text-contrast-low rounded-full border-2 border-contrast-lower",
+          "flex justify-start items-center text-3xl md:text-5xl font-semibold leading-none text-contrast-low rounded-full border-2 border-contrast-lower",
           className,
         )}
       >

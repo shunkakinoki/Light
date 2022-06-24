@@ -108,7 +108,7 @@ export const IndexPage = ({
           },
         }}
       >
-        <Header />
+        <Header border={false} />
         <Network
           active="Timeline"
           type="POAP"

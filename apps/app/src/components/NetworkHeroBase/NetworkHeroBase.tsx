@@ -19,11 +19,11 @@ export const NetworkHeroBase: FC<NetworkHeroBaseProps> = ({
   button,
 }) => {
   return (
-    <div className="mx-auto">
-      <div className="flex justify-center lg:justify-start">{avatar}</div>
+    <div className="lg:sticky lg:top-4 mx-auto">
+      <div className="flex justify-start">{avatar}</div>
       {children}
       {!isLoading && (
-        <div className="flex justify-center lg:justify-start items-center mt-6 md:mt-6 space-x-3 md:space-x-4 w-full">
+        <div className="flex justify-start items-center mt-6 md:mt-6 space-x-3 md:space-x-4 w-full">
           <div className="shrink-0">
             <NetworkHeroShareButton id={id} type={type} />
           </div>

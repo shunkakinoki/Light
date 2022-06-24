@@ -1,13 +1,15 @@
 {
-  "name": "@lightdotso/contracts",
+  "name": "@lightdotso/const",
   "version": "1.0.0",
   "private": false,
   "homepage": "https://github.com/LightDotSo/LightDotSo",
   "bugs": {
     "url": "https://github.com/LightDotSo/LightDotSo/issues"
   },
-  "repository": "https://github.com/LightDotSo/LightDotSo",
-  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LightDotSo/LightDotSo.git"
+  },
   "author": "Light, Inc.",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",

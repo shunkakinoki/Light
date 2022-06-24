@@ -12,6 +12,9 @@ jobs:
       - uses: ./.github/actions/pnpm
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
       - run: |
           pnpm run build
         env:

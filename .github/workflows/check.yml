@@ -19,6 +19,9 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
       - run: |
           pnpm run lint
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+          TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       - if: failure()
         run: |
           pnpm run fix

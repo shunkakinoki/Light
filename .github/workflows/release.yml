@@ -18,6 +18,7 @@ jobs:
       - run: |
           pnpm run build
         env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       - uses: changesets/action@v1

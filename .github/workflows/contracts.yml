@@ -21,7 +21,6 @@ jobs:
       - run: |
           pnpx turbo run build --scope=@lightdotso/contracts --include-dependencies --no-deps
         env:
-          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       - working-directory: packages/contracts

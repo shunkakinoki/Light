@@ -1,7 +1,7 @@
 {
   "name": "@lightdotso/queries",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "homepage": "https://github.com/lightdotso/lightdotso",
   "bugs": {
     "url": "https://github.com/lightdotso/lightdotso/issues"

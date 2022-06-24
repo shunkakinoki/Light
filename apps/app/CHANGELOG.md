@@ -1,5 +1,11 @@
 # @lightdotso/app
 
+## 1.1.0
+
+### Minor Changes
+
+- 0a9807d: Release timeline
+
 ## 1.0.1
 
 ### Patch Changes

@@ -54,7 +54,7 @@ export const TimelineListCard: FC<TimelineListCardProps> = ({
   return (
     <div
       ref={hoverRef}
-      className="flex flex-col p-3 md:p-4 w-full bg-bg-lighter rounded-lg border border-contrast-lower"
+      className="flex flex-col p-3 md:p-4 w-full lg:max-w-lg bg-bg-lighter rounded-lg border border-contrast-lower"
     >
       <div className="flex items-center pb-1.5">
         <div className="flex shrink-0 pr-4">

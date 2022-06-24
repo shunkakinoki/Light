@@ -38,7 +38,7 @@ export const TimelineListBase: FC<TimelineListBaseProps> = ({
       <div className="basis-1/6 md:basis-1/3 shrink md:py-8 px-3">
         <TimelineNavigation />
       </div>
-      <div className="flex px-4 w-full">
+      <div className="flex px-3 w-full">
         <div className="flex overflow-visible flex-col justify-center py-8 space-y-3.5 w-full">
           {isLoadingInitial && <TimelineListLoading />}
           {isEmpty && <TimelineEmpty />}

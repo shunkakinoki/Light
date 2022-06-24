@@ -18,7 +18,7 @@ export const NetworkPeopleListBase: FC<NetworkPeopleListBaseProps> = ({
   onClick,
 }) => {
   return (
-    <div className="py-8">
+    <div className="py-8 px-3">
       <ul className="flex overflow-visible flex-col space-y-2.5 w-full">
         {isLoadingInitial && <NetworkPeopleListLoading />} {children}
       </ul>

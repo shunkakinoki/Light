@@ -10,16 +10,27 @@ import { HeaderLogo } from "@lightdotso/app/components/HeaderLogo";
 import { HeaderPill } from "@lightdotso/app/components/HeaderPill";
 import { HeaderSearchBar } from "@lightdotso/app/components/HeaderSearchBar";
 
-export type HeaderProps = { border?: boolean } & HeaderActionsProps;
+export type HeaderProps = {
+  border?: boolean;
+  adaptive?: boolean;
+} & HeaderActionsProps;
 
-export const Header: FC<HeaderProps> = ({ active, border = true }) => {
+export const Header: FC<HeaderProps> = ({
+  active,
+  adaptive = false,
+  border = true,
+}) => {
   const [isHeaderPanelOpen, setHeaderPanelOpen] = useState(false);
   return (
     <div>
       <div
         className={clsx(
           "px-1.5 md:px-4 lg:px-8 mx-auto bg-bg-lighter lg:divide-y lg:divide-contrast-lower",
-          border && "border-y border-contrast-lower",
+          border
+            ? "border-y border-contrast-lower"
+            : adaptive
+            ? "md:border-y md:border-contrast-lower"
+            : "",
         )}
       >
         <div className="flex relative justify-between h-16 sm:h-20">

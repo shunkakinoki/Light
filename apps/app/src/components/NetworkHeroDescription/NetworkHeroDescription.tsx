@@ -12,7 +12,7 @@ export const NetworkHeroDescription: FC<NetworkHeroDescriptionProps> = ({
   people,
 }) => {
   return (
-    <div className="mt-4 lg:mt-8 text-center lg:text-left">
+    <div className="mt-4 lg:mt-8 text-left">
       <div className="text-2xl md:text-3xl font-bold text-contrast-higher">
         {title}
       </div>
@@ -23,7 +23,7 @@ export const NetworkHeroDescription: FC<NetworkHeroDescriptionProps> = ({
         People
       </p>
       {description && (
-        <p className="overflow-hidden md:pr-6 mt-4 text-base leading-6 text-contrast-medium text-ellipsis break-words line-clamp-6">
+        <p className="overflow-hidden md:pr-6 mt-4 text-base leading-6 text-contrast-medium text-ellipsis break-words line-clamp-3">
           {description}
         </p>
       )}

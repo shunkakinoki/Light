@@ -5,10 +5,10 @@ import { LoadingText } from "@lightdotso/app/components/LoadingText";
 export const NetworkHeroDescriptionLoading: FC = () => {
   return (
     <div className="mt-8 text-center lg:text-left">
-      <div className="flex justify-center md:justify-start w-full">
+      <div className="flex justify-start w-full">
         <LoadingText className="flex w-40 h-6" />
       </div>
-      <p className="flex justify-center md:justify-start items-center mt-6 md:mt-5 text-lg md:text-base font-semibold leading-7 text-contrast-medium">
+      <p className="flex justify-start items-center mt-6 md:mt-5 text-lg md:text-base font-semibold leading-7 text-contrast-medium">
         <span className="mr-1 font-extrabold text-primary-lighter">
           <LoadingText className="flex w-8 h-4" />
         </span>

@@ -85,7 +85,7 @@ export const TimelinePage = ({
           },
         }}
       >
-        <Header />
+        <Header adaptive border={false} />
         <Network active="Timeline" type="DAO" id={spaceId} />
         <Footer />
       </SWRConfig>

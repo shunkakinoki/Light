@@ -38,7 +38,7 @@ export const NetworkTabs: FC<NetworkTabsProps> = ({
   ];
 
   return (
-    <div className="overflow-x-scroll overflow-y-hidden border-b border-contrast-lower">
+    <div className="overflow-x-scroll overflow-y-hidden bg-bg-lighter lg:bg-bg border-b border-contrast-lower">
       <nav
         className="flex justify-center lg:justify-start -mb-px space-x-8"
         aria-label="Tabs"

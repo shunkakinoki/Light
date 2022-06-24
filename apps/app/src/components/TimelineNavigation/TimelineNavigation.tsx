@@ -8,6 +8,7 @@ import type { CategoryType } from "@prisma/client";
 import clsx from "clsx";
 import type { FC, SVGProps } from "react";
 
+import { PlaceholderBlur } from "@lightdotso/app/components/PlaceholderBlur";
 import { useTimelineCategory } from "@lightdotso/app/hooks/useTimelineCategory";
 
 const navigation: Array<{
@@ -31,27 +32,32 @@ export const TimelineNavigation: FC = () => {
     <>
       <div className="flex md:hidden">
         <Menu>
-          <Menu.Button className="flex fixed -right-6 bottom-10 visible z-30 justify-center items-center p-3 m-8 w-14 h-14 text-contrast-high bg-bg-light hover:bg-bg-lighter rounded-full border border-contrast-lower">
-            {navigation
-              .filter(item => {
-                return item.category === timelineCategoryState.category;
-              })
-              .map(item => {
-                return (
-                  <item.icon
-                    key={item.name}
-                    className={clsx(
-                      timelineCategoryState.category === item.category
-                        ? "text-contrast-higher fill-contrast-higher"
-                        : "text-contrast-high group-hover:text-contrast-higher fill-contrast-high",
-                      "shrink-0 w-6 h-6",
-                    )}
-                    aria-hidden="true"
-                  />
-                );
-              })}
-          </Menu.Button>
-          <Menu.Items className="flex fixed -right-6 bottom-36 z-30 flex-col">
+          <div className="flex fixed -right-6 md:right-48 bottom-10 z-30">
+            <div className="group relative mr-8 mb-8">
+              <PlaceholderBlur />
+              <Menu.Button className="flex relative visible justify-center items-center p-3 w-14 h-14 text-contrast-high bg-bg-light hover:bg-bg-lighter rounded-full border border-contrast-lower">
+                {navigation
+                  .filter(item => {
+                    return item.category === timelineCategoryState.category;
+                  })
+                  .map(item => {
+                    return (
+                      <item.icon
+                        key={item.name}
+                        className={clsx(
+                          timelineCategoryState.category === item.category
+                            ? "text-primary fill-primary"
+                            : "text-contrast-high group-hover:text-contrast-higher fill-contrast-high",
+                          "shrink-0 w-6 h-6",
+                        )}
+                        aria-hidden="true"
+                      />
+                    );
+                  })}
+              </Menu.Button>
+            </div>
+          </div>
+          <Menu.Items className="flex fixed -right-6 md:right-48 bottom-36 z-30 flex-col">
             {navigation
               .filter(item => {
                 return item.category !== timelineCategoryState.category;
@@ -61,27 +67,30 @@ export const TimelineNavigation: FC = () => {
                   <Menu.Item key={item.name}>
                     {({ active }) => {
                       return (
-                        <button
-                          className={clsx(
-                            "flex justify-center items-center p-3 my-2 mx-8 w-14 h-14 bg-bg-lighter hover:bg-bg-light rounded-full border border-contrast-lower",
-                            active && "text-contrast-higher",
-                          )}
-                          onClick={() => {
-                            return setTimelineCategoryState({
-                              category: item.category,
-                            });
-                          }}
-                        >
-                          <item.icon
+                        <div className="group relative my-2 mr-8">
+                          <PlaceholderBlur />
+                          <button
                             className={clsx(
-                              timelineCategoryState.category === item.category
-                                ? "text-contrast-higher fill-contrast-higher"
-                                : "text-contrast-high group-hover:text-contrast-higher fill-contrast-high",
-                              "shrink-0 w-6 h-6",
+                              "flex relative justify-center items-center py-3 w-14 h-14 bg-bg-lighter hover:bg-bg-light rounded-full border border-contrast-lower",
+                              active && "text-contrast-higher",
                             )}
-                            aria-hidden="true"
-                          />
-                        </button>
+                            onClick={() => {
+                              return setTimelineCategoryState({
+                                category: item.category,
+                              });
+                            }}
+                          >
+                            <item.icon
+                              className={clsx(
+                                timelineCategoryState.category === item.category
+                                  ? "text-contrast-higher fill-contrast-higher"
+                                  : "text-contrast-high group-hover:text-contrast-higher fill-contrast-high",
+                                "shrink-0 w-6 h-6",
+                              )}
+                              aria-hidden="true"
+                            />
+                          </button>
+                        </div>
                       );
                     }}
                   </Menu.Item>

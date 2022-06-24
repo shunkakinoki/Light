@@ -17,7 +17,7 @@ export const NetworkHeroShareButton: FC<NetworkHeroShareButtonProps> = ({
   return (
     <button
       type="button"
-      className="inline-flex items-center p-2.5 text-contrast-higher hover:text-contrast-medium bg-bg-lighter hover:bg-bg rounded-full border border-contrast-lower focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ring-offset-bg-light shadow-sm"
+      className="inline-flex items-center p-2.5 text-contrast-higher hover:text-contrast-medium bg-bg-lighter hover:bg-bg lg:bg-bg rounded-full border border-contrast-lower focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ring-offset-bg-light shadow-sm"
       onClick={() => {
         setModalShareState({
           name: id,

@@ -108,7 +108,7 @@ export const IndexPage = ({
           },
         }}
       >
-        <Header border={false} />
+        <Header adaptive border={false} />
         <Network active="People" type="POAP" id={eventId} name={event?.name} />
         <Footer />
       </SWRConfig>

@@ -107,7 +107,7 @@ export const IndexPage = ({
           },
         }}
       >
-        <Header border={false} />
+        <Header adaptive border={false} />
         <Network active="People" type="DAO" id={spaceId} />
         <Footer />
       </SWRConfig>

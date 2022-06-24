@@ -1,5 +1,15 @@
 # @lightdotso/changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- 0473481: Release: github
+- Updated dependencies [0473481]
+  - @lightdotso/core@1.0.1
+  - @lightdotso/tailwindcss@1.0.1
+  - @lightdotso/const@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

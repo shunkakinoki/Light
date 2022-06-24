@@ -416,6 +416,7 @@ importers:
       next: ^12.1.6
       next-compose-plugins: ^2.2.1
       next-plausible: ^3.2.0
+      next-themes: ^0.2.0
       next-transpile-modules: ^9.0.0
       nextra: 2.0.0-alpha.44
       nextra-theme-docs: 2.0.0-alpha.44
@@ -430,6 +431,7 @@ importers:
       next: 12.1.6_biqbaboplfbrettd7655fr4n2y
       next-compose-plugins: 2.2.1
       next-plausible: 3.2.0_2nrpme5s5xmpdgccbbbdwhosda
+      next-themes: 0.2.0_2nrpme5s5xmpdgccbbbdwhosda
       next-transpile-modules: 9.0.0
       nextra: 2.0.0-alpha.44_react@18.2.0
       nextra-theme-docs: 2.0.0-alpha.44_2nrpme5s5xmpdgccbbbdwhosda

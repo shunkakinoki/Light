@@ -19,7 +19,7 @@ jobs:
         with:
           version: nightly
       - run: |
-          pnpm run build --scope=@lightdotso/contracts --include-dependencies --no-deps
+          pnpx turbo run build --scope=@lightdotso/contracts --include-dependencies --no-deps
         env:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}

@@ -1,10 +1,8 @@
 ---
-"@lightdotso/api": major
 "@lightdotso/app": major
 "@lightdotso/eslint-config": major
 "@lightdotso/changelog": major
 "@lightdotso/docs": major
-"@lightdotso/home": major
 "@lightdotso/og": major
 "@lightdotso/core": major
 "@lightdotso/prettier": major

@@ -114,7 +114,7 @@ export const ProfileHero: FC<ProfileHeroProps> = ({ active, address }) => {
         </div>
         <div className="flex flex-col-reverse md:flex-col md:mt-0 space-y-4 md:space-y-14">
           <div className="inline-flex sm:hidden mt-4 w-full">
-            <FollowButton address={profileAddress} />
+            <FollowButton full address={profileAddress} />
           </div>
           <div className="flex justify-start sm:justify-center md:justify-end space-x-4">
             {identity && (

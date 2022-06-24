@@ -16,11 +16,13 @@ import { error } from "@lightdotso/app/libs/toast/error";
 
 export type FollowButtonProps = {
   address: string;
+  full?: boolean;
   initialStatus?: CyberConnectStatus;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const FollowButton: FC<FollowButtonProps> = ({
   address,
+  full,
   initialStatus,
   ...rest
 }) => {
@@ -121,7 +123,8 @@ export const FollowButton: FC<FollowButtonProps> = ({
     <button
       ref={hoverRef}
       className={clsx(
-        "flex shrink justify-center items-center py-2 px-10 w-full md:max-w-[101px] text-sm rounded-md focus:ring-2 focus:ring-primary focus:ring-offset-2 ring-offset-bg",
+        "flex shrink justify-center items-center py-2 px-10 w-full text-sm rounded-md focus:ring-2 focus:ring-primary focus:ring-offset-2 ring-offset-bg",
+        full ? "md:max-w-[101px]" : "max-w-[101px]",
         !walletAddress
           ? "text-contrast-lower bg-contrast-higher hover:bg-contrast-medium"
           : isLoading

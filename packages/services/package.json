@@ -33,11 +33,11 @@
     "graphql": "^16.5.0",
     "graphql-request": "^4.3.0"
   },
+  "devDependencies": {
+    "@types/node": "^18.0.0"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  },
-  "devDependencies": {
-    "@types/node": "^18.0.0"
   }
 }

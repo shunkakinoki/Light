@@ -37,6 +37,10 @@ export const ModalTwitterVerify = () => {
   }, [address, ens, modalTwitterVerifyState.sig]);
 
   const onClickTwitterVerify = useCallback(async () => {
+    if (!twitterHandle) {
+      error("Twitter Handle Empty!");
+      return;
+    }
     if (!modalTwitterVerifyState.sig) {
       const provider = context.state.connector?.getProvider();
       const sig = await twitterAuthorize(provider, address, twitterHandle);
@@ -60,10 +64,6 @@ export const ModalTwitterVerify = () => {
       return;
     }
     try {
-      if (!twitterHandle) {
-        error("Twitter Handle Empty!");
-        return;
-      }
       await twitterVerify(address, twitterHandle, "Light");
       success("Twitter Successfully Verified!");
       closeModalTwitterVerify();
@@ -121,25 +121,24 @@ export const ModalTwitterVerify = () => {
           </div>
           <div className="text-sm text-warning">Unverified</div>
         </div>
-        {modalTwitterVerifyState.sig &&
-          (!modalTwitterVerifyState.hasTweeted ? (
-            <p className="flex p-4 mt-4 w-full text-contrast-higher break-all bg-bg-lighter">
-              {verifyText}
-            </p>
-          ) : (
-            <div className="relative mt-1 rounded-md shadow-sm">
-              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                <span className="sm:text-lg text-contrast-higher">@</span>
-              </div>
-              <input
-                className="block p-4 pr-12 pl-7 mt-4 w-full sm:text-lg text-contrast-higher rounded-md border-contrast-medium focus:border-primary focus:ring-primary"
-                placeholder="Your Twitter Handle"
-                onChange={e => {
-                  setTwitterHandle(e.target.value);
-                }}
-              />
+        {!modalTwitterVerifyState.sig ? (
+          <div className="relative mt-1 rounded-md shadow-sm">
+            <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+              <span className="sm:text-lg text-contrast-higher">@</span>
             </div>
-          ))}
+            <input
+              className="block p-4 pr-12 pl-7 mt-4 w-full sm:text-lg text-contrast-higher rounded-md border-contrast-medium focus:border-primary focus:ring-primary"
+              placeholder="Your Twitter Handle"
+              onChange={e => {
+                setTwitterHandle(e.target.value);
+              }}
+            />
+          </div>
+        ) : !modalTwitterVerifyState.hasTweeted ? (
+          <p className="flex p-4 mt-4 w-full text-contrast-higher break-all bg-bg-lighter">
+            {verifyText}
+          </p>
+        ) : null}
         <button
           className="p-3 mt-4 w-full text-contrast-lower bg-contrast-higher hover:bg-contrast-high rounded-md"
           onClick={onClickTwitterVerify}

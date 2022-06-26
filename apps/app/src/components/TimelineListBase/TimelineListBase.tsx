@@ -44,10 +44,10 @@ export const TimelineListBase: FC<TimelineListBaseProps> = ({
           {isEmpty && <TimelineEmpty />}
           {children}
           {!isEnd && (
-            <div className="pt-8 mx-auto w-full">
+            <div className="pt-8 w-full lg:max-w-lg">
               <MoreButton
                 disabled={isLoadingMore || isEnd}
-                className="w-full lg:max-w-lg disabled:cursor-not-allowed"
+                className="w-full disabled:cursor-not-allowed"
                 onClick={onClick}
               >
                 {isLoadingMore ? "Loading..." : "Load more"}

@@ -94,6 +94,16 @@ export const BaseNFT: FC<BaseNFTProps> = ({
     );
   }
 
+  if (!name) {
+    return (
+      <div className="flex justify-center items-center h-full bg-emphasis-high duration-[3000ms] animate-pulse">
+        <h1 className="text-xl font-semibold text-center text-contrast-medium">
+          Unknown
+        </h1>
+      </div>
+    );
+  }
+
   return (
     <div className="flex justify-center items-center h-full">
       <h1 className="text-xl font-semibold text-center text-contrast-medium">

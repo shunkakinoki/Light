@@ -6,5 +6,9 @@
   "solidity.solhintRules": {
     "avoid-sha3": "warn"
   },
-  "solidity.defaultCompiler": "remote"
+  "solidity.defaultCompiler": "remote",
+  "thunder-client.saveToWorkspace": true,
+  "thunder-client.showActivityFromCollection": true,
+  "thunder-client.workspaceRelativePath": "apps/api",
+  "thunder-client.headersCaseSensitive": true
 }

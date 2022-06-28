@@ -6,6 +6,9 @@ tmp.*
 **/cypress/videos
 **/zod/**
 
+# Prisma
+**/prisma/.env
+
 # Vercel
 **/.vercel/**
 

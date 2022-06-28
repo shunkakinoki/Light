@@ -7,7 +7,6 @@ describe("Settings", () => {
         username: Cypress.env("username"),
         password: Cypress.env("password"),
       },
-      timeout: 30000,
     });
   });
 });

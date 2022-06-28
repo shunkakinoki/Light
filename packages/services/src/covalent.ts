@@ -23,7 +23,7 @@ export const fetchCovalentTransactions = (
       networkId ?? 1
     }${ADDRESS}/${address}${TRANSACTIONS}/?page-number=${
       pageNumber ?? 0
-    }&page-size=${pageSize ?? 100}`,
+    }&page-size=${pageSize ?? 30}`,
     {
       headers: covalentHeaders,
     },

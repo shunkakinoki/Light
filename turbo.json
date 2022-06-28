@@ -1,6 +1,6 @@
 {
   "baseBranch": "origin/main",
-  "globalDependencies": ["tsconfig.json", ".env.*"],
+  "globalDependencies": ["pnpm-workspace.yaml", "tsconfig.json", ".env.*"],
   "pipeline": {
     "@lightdotso/app#build": {
       "dependsOn": [
@@ -32,6 +32,20 @@
     },
     "test": {
       "dependsOn": ["build"]
+    },
+    "//#lint": {
+      "dependsOn": [],
+      "outputs": [],
+      "inputs": [
+        "apps/**/src/**/*.ts",
+        "apps/**/src/**/*.tsx",
+        "components/**/src/**/*.ts",
+        "components/**/src/**/*.tsx",
+        "configurations/**/src/**/*.ts",
+        "configurations/**/src/**/*.tsx",
+        "packages/**/src/**/*.ts",
+        "packages/**/src/**/*.tsx"
+      ]
     }
   }
 }

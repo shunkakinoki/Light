@@ -1,6 +1,6 @@
 {
   "baseBranch": "origin/main",
-  "globalDependencies": ["pnpm-workspace.yaml", "tsconfig.json", ".env.*"],
+  "globalDependencies": ["pnpm-workspace.yaml", "tsconfig.json", "turbo.json"],
   "pipeline": {
     "@lightdotso/app#build": {
       "dependsOn": [

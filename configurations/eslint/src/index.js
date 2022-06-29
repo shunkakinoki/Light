@@ -12,6 +12,7 @@ module.exports = {
     "plugin:import/typescript",
     "plugin:import/warnings",
     "plugin:prettier/recommended",
+    "plugin:jsonc/recommended-with-jsonc",
     "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -36,6 +37,21 @@ module.exports = {
     {
       files: ["*.js", "*.jsx"],
       rules: {},
+    },
+    {
+      files: ["*.json", "*.json5", "*.jsonc"],
+      parser: "jsonc-eslint-parser",
+      rules: {
+        "prettier/prettier": "off",
+        "jsonc/indent": ["error", 2, {}],
+        "jsonc/object-curly-newline": [
+          "error",
+          {
+            consistent: true,
+          },
+        ],
+        "jsonc/object-property-newline": "error",
+      },
     },
     {
       files: ["*.stories.tsx"],

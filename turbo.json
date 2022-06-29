@@ -74,6 +74,11 @@
       ],
       "outputs": [".next/**"]
     },
+    "@lightdotso/prisma#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["schema.prisma"],
+      "outputs": ["dist/**", "zod/**"]
+    },
     "@lightdotso/og#build": {
       "dependsOn": ["^build"],
       "inputs": [

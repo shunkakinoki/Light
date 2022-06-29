@@ -7,6 +7,13 @@
     "avoid-sha3": "warn"
   },
   "solidity.defaultCompiler": "remote",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "json5"
+  ],
   "thunder-client.saveToWorkspace": true,
   "thunder-client.showActivityFromCollection": true,
   "thunder-client.workspaceRelativePath": "apps/api",

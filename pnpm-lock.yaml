@@ -26,6 +26,7 @@ importers:
       eslint-import-resolver-typescript: ^3.1.1
       eslint-plugin-cypress: ^2.12.1
       eslint-plugin-import: ^2.26.0
+      eslint-plugin-jsonc: ^2.3.0
       eslint-plugin-jsx-a11y: ^6.6.0
       eslint-plugin-prettier: ^4.1.0
       eslint-plugin-react: ^7.30.1
@@ -75,6 +76,7 @@ importers:
       eslint-import-resolver-typescript: 3.1.1_srrmf5la5dmnsfe2mpg6sboreu
       eslint-plugin-cypress: 2.12.1_eslint@8.18.0
       eslint-plugin-import: 2.26.0_r2y4cm4v4rieihycxdg5iubhl4
+      eslint-plugin-jsonc: 2.3.0_eslint@8.18.0
       eslint-plugin-jsx-a11y: 6.6.0_eslint@8.18.0
       eslint-plugin-prettier: 4.1.0_xu6ewijrtliw5q5lksq5uixwby
       eslint-plugin-react: 7.30.1_eslint@8.18.0
@@ -590,6 +592,7 @@ importers:
       eslint-plugin-cypress: ^2.12.1
       eslint-plugin-editorconfig: ^3.2.0
       eslint-plugin-import: ^2.26.0
+      eslint-plugin-jsonc: ^2.3.0
       eslint-plugin-jsx-a11y: ^6.6.0
       eslint-plugin-prettier: ^4.1.0
       eslint-plugin-react: ^7.30.1
@@ -606,6 +609,7 @@ importers:
       eslint-plugin-cypress: 2.12.1_eslint@8.18.0
       eslint-plugin-editorconfig: 3.2.0_kblatlwciu47kzahor4dimwgju
       eslint-plugin-import: 2.26.0_r2y4cm4v4rieihycxdg5iubhl4
+      eslint-plugin-jsonc: 2.3.0_eslint@8.18.0
       eslint-plugin-jsx-a11y: 6.6.0_eslint@8.18.0
       eslint-plugin-prettier: 4.1.0_ohknqdiadpdc4n44qqsbqlxxwa
       eslint-plugin-react: 7.30.1_eslint@8.18.0
@@ -9148,6 +9152,17 @@ packages:
       - eslint-import-resolver-webpack
       - supports-color
 
+  /eslint-plugin-jsonc/2.3.0_eslint@8.18.0:
+    resolution: {integrity: sha512-QqHj7Chw8vsALsCOhFxecRIepxpbcpmMon9yA1+GaYk1Am0GanHAwnTkeVX+/ysAb4QTkeGMZ+ZPK4TKrZ/VSw==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: '>=6.0.0'
+    dependencies:
+      eslint: 8.18.0
+      eslint-utils: 3.0.0_eslint@8.18.0
+      jsonc-eslint-parser: 2.1.0
+      natural-compare: 1.4.0
+
   /eslint-plugin-jsx-a11y/6.6.0_eslint@8.18.0:
     resolution: {integrity: sha512-kTeLuIzpNhXL2CwLlc8AHI0aFRwWHcg483yepO9VQiHzM9bZwJdzTkzBszbuPrbgGmq2rlX/FaT2fJQsjUSHsw==}
     engines: {node: '>=4.0'}
@@ -12831,6 +12846,15 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
     dev: true
+
+  /jsonc-eslint-parser/2.1.0:
+    resolution: {integrity: sha512-qCRJWlbP2v6HbmKW7R3lFbeiVWHo+oMJ0j+MizwvauqnCV/EvtAeEeuCgoc/ErtsuoKgYB8U4Ih8AxJbXoE6/g==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dependencies:
+      acorn: 8.7.1
+      eslint-visitor-keys: 3.3.0
+      espree: 9.3.2
+      semver: 7.3.7
 
   /jsonc-parser/3.0.0:
     resolution: {integrity: sha512-fQzRfAbIBnR0IQvftw9FJveWiHp72Fg20giDrHz6TdfB12UH/uue0D3hm57UB5KgAVuniLMCaS8P1IMj9NR7cA==}

@@ -19,7 +19,7 @@ export const BaseNFT: FC<BaseNFTProps> = ({
     animation_url?.endsWith(".glb")
   ) {
     return (
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center w-full h-full">
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script
           type="module"

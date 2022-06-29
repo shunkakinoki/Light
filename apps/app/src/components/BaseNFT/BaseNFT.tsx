@@ -15,6 +15,28 @@ export const BaseNFT: FC<BaseNFTProps> = ({
   },
 }) => {
   if (
+    animation_original_url?.endsWith(".glb") ||
+    animation_url?.endsWith(".glb")
+  ) {
+    return (
+      <div className="flex justify-center items-center">
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script
+          type="module"
+          src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+        />
+        {/* @ts-ignore */}
+        <model-viewer
+          auto-rotate
+          camera-controls
+          className="w-full h-full"
+          src={animation_url ?? animation_original_url}
+        />
+      </div>
+    );
+  }
+
+  if (
     animation_original_url?.endsWith(".mp3") ||
     animation_original_url?.endsWith(".wav") ||
     animation_url?.endsWith(".mp3") ||

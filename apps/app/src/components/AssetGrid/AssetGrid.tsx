@@ -37,7 +37,7 @@ export const AssetGrid: FC<AssetGridProps> = ({ base, children }) => {
         leaveTo="transform scale-95 opacity-0"
       >
         <AssetGridLayout>
-          {/* <div className="col-span-2 hidden w-[9999px] md:block" /> */}
+          <div className="hidden md:block col-span-2 w-[9999px]" />
           <div className="flex col-span-1 p-12 sm:p-16 md:p-12">
             <div className="col-span-1 sm:my-auto w-full aspect-w-1 aspect-h-1">
               {base}

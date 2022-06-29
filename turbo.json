@@ -1,9 +1,15 @@
 {
   "baseBranch": "origin/main",
-  "globalDependencies": ["pnpm-workspace.yaml", "tsconfig.json", "turbo.json"],
+  "globalDependencies": [
+    "pnpm-workspace.yaml",
+    "tsconfig.json",
+    "turbo.json"
+  ],
   "pipeline": {
     "@lightdotso/api#build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "inputs": [
         "cypress/**",
         "prisma/**",
@@ -12,7 +18,10 @@
         "next.config.js",
         "package.json"
       ],
-      "outputs": [".next/**", "dist/**"]
+      "outputs": [
+        ".next/**",
+        "dist/**"
+      ]
     },
     "@lightdotso/app#build": {
       "dependsOn": [
@@ -34,10 +43,15 @@
         "next.config.js",
         "package.json"
       ],
-      "outputs": [".next/**"]
+      "outputs": [
+        ".next/**"
+      ]
     },
     "@lightdotso/changelog#build": {
-      "dependsOn": ["^build", "$NOTION_API_KEY"],
+      "dependsOn": [
+        "^build",
+        "$NOTION_API_KEY"
+      ],
       "inputs": [
         "cypress/**",
         "public/**",
@@ -45,15 +59,30 @@
         "next.config.js",
         "package.json"
       ],
-      "outputs": [".next/**"]
+      "outputs": [
+        ".next/**"
+      ]
     },
     "@lightdotso/contracts#build": {
-      "dependsOn": ["^build"],
-      "inputs": ["contracts/**", "src/**", "hardhat.config.ts"],
-      "outputs": ["abi/**", "artifacts/**", "dist/**", "typechain/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "contracts/**",
+        "src/**",
+        "hardhat.config.ts"
+      ],
+      "outputs": [
+        "abi/**",
+        "artifacts/**",
+        "dist/**",
+        "typechain/**"
+      ]
     },
     "@lightdotso/docs#build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "inputs": [
         "cypress/**",
         "public/**",
@@ -61,10 +90,14 @@
         "next.config.js",
         "package.json"
       ],
-      "outputs": [".next/**"]
+      "outputs": [
+        ".next/**"
+      ]
     },
     "@lightdotso/home#build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "inputs": [
         "cypress/**",
         "public/**",
@@ -72,15 +105,26 @@
         "next.config.js",
         "package.json"
       ],
-      "outputs": [".next/**"]
+      "outputs": [
+        ".next/**"
+      ]
     },
     "@lightdotso/prisma#build": {
-      "dependsOn": ["^build"],
-      "inputs": ["schema.prisma"],
-      "outputs": ["dist/**", "zod/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "schema.prisma"
+      ],
+      "outputs": [
+        "dist/**",
+        "zod/**"
+      ]
     },
     "@lightdotso/og#build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "inputs": [
         "cypress/**",
         "public/**",
@@ -88,11 +132,19 @@
         "next.config.js",
         "package.json"
       ],
-      "outputs": [".next/**"]
+      "outputs": [
+        ".next/**"
+      ]
     },
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["artifacts/**", "dist/**", ".next/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "artifacts/**",
+        "dist/**",
+        ".next/**"
+      ]
     },
     "clean": {
       "cache": false
@@ -101,7 +153,9 @@
       "cache": false
     },
     "test": {
-      "dependsOn": ["build"]
+      "dependsOn": [
+        "build"
+      ]
     },
     "//#lint": {
       "dependsOn": [],

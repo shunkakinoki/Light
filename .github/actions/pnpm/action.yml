@@ -34,4 +34,10 @@ runs:
           pnpm-${{ steps.nvm.outputs.NVMRC }}-${{ runner.os }}-
     - uses: pnpm/action-setup@v2
       with:
-        run_install: true
+        run_install: false
+    - if: ${{ github.repository }} == 'LightDotSo/LightDotSo'
+      run: |
+        pnpm install --frozen-lockfile
+    - if: ${{ github.repository }} != 'LightDotSo/LightDotSo'
+      run: |
+        pnpm install --fix-lockfile

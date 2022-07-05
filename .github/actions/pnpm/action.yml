@@ -24,22 +24,16 @@ runs:
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ steps.nvm.outputs.NVMRC }}
-    # - uses: actions/cache@v2
-    #   with:
-    #     path: |
-    #       ~/.pnpm-store
-    #     key: |
-    #       pnpm-${{ steps.nvm.outputs.NVMRC }}-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-    #     restore-keys: |
-    #       pnpm-${{ steps.nvm.outputs.NVMRC }}-${{ runner.os }}-
     - uses: pnpm/action-setup@v2
       with:
         run_install: false
     - if: ${{ github.repository }} == 'LightDotSo/LightDotSo'
       shell: bash
       run: |
-        pnpm install
+        echo 'monorepo'
+        pnpm install --frozen-lockfile
     - if: ${{ github.repository }} != 'LightDotSo/LightDotSo'
       shell: bash
       run: |
+        echo 'not monorepo'
         pnpm install --fix-lockfile

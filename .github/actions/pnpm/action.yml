@@ -39,7 +39,7 @@ runs:
     - if: ${{ github.repository }} == 'LightDotSo/LightDotSo'
       shell: bash
       run: |
-        pnpm install --frozen-lockfile
+        pnpm install
     - if: ${{ github.repository }} != 'LightDotSo/LightDotSo'
       shell: bash
       run: |

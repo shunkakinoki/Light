@@ -35,5 +35,6 @@ runs:
     - if: ${{ github.repository }} != 'LightDotSo/LightDotSo'
       shell: bash
       run: |
+        echo ${{ github.repository }}
         echo 'not monorepo'
         pnpm install --fix-lockfile

@@ -37,9 +37,9 @@ runs:
         run_install: false
         version: 7.5.0
     - if: ${{ github.repository }} == 'LightDotSo/LightDotSo'
-      uses: pnpm/action-setup@v2
-      with:
-        run_install: true
+      shell: bash
+      run: |
+        pnpm install
     - if: ${{ github.repository }} != 'LightDotSo/LightDotSo'
       shell: bash
       run: |

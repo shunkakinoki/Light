@@ -18,9 +18,9 @@ runs:
         repository: LightDotSo/LightDotSo
         token: ${{ inputs.token }}
     - id: nvm
+      shell: bash
       run: |
         echo ::set-output name=NVMRC::$(cat .nvmrc)
-      shell: bash
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ steps.nvm.outputs.NVMRC }}
@@ -34,4 +34,13 @@ runs:
           pnpm-${{ steps.nvm.outputs.NVMRC }}-${{ runner.os }}-
     - uses: pnpm/action-setup@v2
       with:
-        run_install: true
+        run_install: false
+        version: 7.5.0
+    - if: ${{ github.repository }} == 'LightDotSo/LightDotSo'
+      shell: bash
+      run: |
+        pnpm install --frozen-lockfile
+    - if: ${{ github.repository }} != 'LightDotSo/LightDotSo'
+      shell: bash
+      run: |
+        pnpm install --fix-lockfile

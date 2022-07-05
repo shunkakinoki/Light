@@ -4,4 +4,3 @@ ignores:
   - "@openzeppelin/contracts"
   - "@openzeppelin/contracts-upgradeable"
   - solc
-  - ts-node

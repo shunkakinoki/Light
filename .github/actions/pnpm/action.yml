@@ -35,6 +35,7 @@ runs:
     - uses: pnpm/action-setup@v2
       with:
         run_install: false
+        version: 7.5.0
     - if: ${{ github.repository }} == 'LightDotSo/LightDotSo'
       shell: bash
       run: |

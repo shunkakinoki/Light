@@ -19,6 +19,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@lightdotso/core": "workspace:*",
     "@lightdotso/styles": "workspace:*",
     "@sentry/integrations": "^7.5.1",
     "@sentry/nextjs": "^7.5.1",

@@ -11,7 +11,7 @@ export const ThemeProvider: FC = ({ children }) => {
     : "dark";
 
   return (
-    <NextThemeProvider defaultTheme={defaultTheme}>
+    <NextThemeProvider defaultTheme={defaultTheme} forcedTheme="dark">
       {children}
     </NextThemeProvider>
   );

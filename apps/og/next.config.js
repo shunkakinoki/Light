@@ -1,7 +1,12 @@
+const withPlugins = require("next-compose-plugins");
+const withTM = require("next-transpile-modules")(["@lightdotso/core"]);
+
+const plugins = [withTM];
+
 /**
  * @type {import('next').NextConfig}
  */
-module.exports = {
+const config = {
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -15,3 +20,5 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = withPlugins(plugins, config);

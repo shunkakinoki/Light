@@ -11,7 +11,7 @@ export const ToastWarning: FC<ToastWarningProps> = ({ show, children }) => {
     <ToastBase
       icon={
         <ExclamationCircleIcon
-          className="w-5 h-5 text-warning"
+          className="h-5 w-5 text-warning"
           aria-hidden="true"
         />
       }

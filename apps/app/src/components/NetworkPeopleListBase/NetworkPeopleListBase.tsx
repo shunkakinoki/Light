@@ -19,11 +19,11 @@ export const NetworkPeopleListBase: FC<NetworkPeopleListBaseProps> = ({
 }) => {
   return (
     <div className="py-8 px-3">
-      <ul className="flex overflow-visible flex-col space-y-2.5 w-full">
+      <ul className="flex w-full flex-col space-y-2.5 overflow-visible">
         {isLoadingInitial && <NetworkPeopleListLoading />} {children}
       </ul>
       {!isEnd && (
-        <ul className="grid grid-cols-1 lg:grid-cols-7 gap-6 mt-8">
+        <ul className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-7">
           <li className="col-span-2" />
           <MoreButton
             disabled={isLoadingMore || isEnd}

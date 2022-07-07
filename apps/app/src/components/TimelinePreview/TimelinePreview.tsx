@@ -5,11 +5,11 @@ import { TwitterNotice } from "@lightdotso/app/components/TwitterNotice";
 
 export const TimelinePreview: FC = () => {
   return (
-    <div className="flex flex-col md:flex-row py-12 mx-auto space-y-6 w-full lg:max-w-container">
-      <div className="px-3 w-full md:w-1/4">
+    <div className="mx-auto flex w-full flex-col space-y-6 py-12 md:flex-row lg:max-w-container">
+      <div className="w-full px-3 md:w-1/4">
         <TimelineNavigation />
       </div>
-      <div className="flex justify-center pt-12 md:pt-20 w-full md:w-3/4">
+      <div className="flex w-full justify-center pt-12 md:w-3/4 md:pt-20">
         <TwitterNotice />
       </div>
     </div>

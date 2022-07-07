@@ -65,7 +65,7 @@ export const NetworkItem: FC<NetworkItemProps> = ({
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions  */}
         <a
           className={clsx(
-            "flex overflow-hidden justify-center items-center w-12 h-12 text-3xl bg-bg-lighter hover:bg-contrast-lower rounded-full border-2 border-bg-darker cursor-pointer",
+            "flex h-12 w-12 cursor-pointer items-center justify-center overflow-hidden rounded-full border-2 border-bg-darker bg-bg-lighter text-3xl hover:bg-contrast-lower",
             s.transitionfix,
           )}
           onClick={e => {

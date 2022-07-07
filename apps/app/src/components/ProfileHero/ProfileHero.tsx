@@ -69,25 +69,25 @@ export const ProfileHero: FC<ProfileHeroProps> = ({ active, address }) => {
   }
 
   return (
-    <div className="px-3 bg-bg-lighter">
-      <div className="flex flex-col md:flex-row sm:items-center py-6 lg:py-9 sm:mx-auto max-w-container">
+    <div className="bg-bg-lighter px-3">
+      <div className="flex max-w-container flex-col py-6 sm:mx-auto sm:items-center md:flex-row lg:py-9">
         <div className="flex flex-row items-center space-x-5">
           {!profileAddress ? (
             <PlaceholderAvatar
               width={96}
               height={96}
               address={KAKI_WALLET_ADDRESS}
-              className="shrink-0 w-24 h-24"
+              className="h-24 w-24 shrink-0"
             />
           ) : (
             <PlaceholderAvatar
               width={96}
               height={96}
               address={profileAddress}
-              className="shrink-0 w-24 h-24"
+              className="h-24 w-24 shrink-0"
             />
           )}
-          <div className="md:pl-8 sm:mt-6 md:mt-0 space-y-4 md:space-y-6">
+          <div className="space-y-4 sm:mt-6 md:mt-0 md:space-y-6 md:pl-8">
             {!profileAddress ? (
               <ProfileHeroAddressLoading />
             ) : (
@@ -104,7 +104,7 @@ export const ProfileHero: FC<ProfileHeroProps> = ({ active, address }) => {
           </div>
         </div>
         <div className="flex-1" />
-        <div className="inline-flex sm:hidden mt-4">
+        <div className="mt-4 inline-flex sm:hidden">
           <ProfileHeroCount
             address={profileAddress}
             isLoading={isLoading}
@@ -112,11 +112,11 @@ export const ProfileHero: FC<ProfileHeroProps> = ({ active, address }) => {
             followerCount={identity?.followerCount}
           />
         </div>
-        <div className="flex flex-col-reverse md:flex-col md:mt-0 space-y-4 md:space-y-14">
-          <div className="inline-flex sm:hidden mt-4 w-full">
+        <div className="flex flex-col-reverse space-y-4 md:mt-0 md:flex-col md:space-y-14">
+          <div className="mt-4 inline-flex w-full sm:hidden">
             <FollowButton full address={profileAddress} />
           </div>
-          <div className="flex justify-start sm:justify-center md:justify-end space-x-4">
+          <div className="flex justify-start space-x-4 sm:justify-center md:justify-end">
             {identity && (
               <ProfileHeroTwitter
                 address={profileAddress}
@@ -128,7 +128,7 @@ export const ProfileHero: FC<ProfileHeroProps> = ({ active, address }) => {
               <FollowButton address={profileAddress} />
             </div>
           </div>
-          <div className="flex overflow-hidden justify-start sm:justify-center md:justify-end">
+          <div className="flex justify-start overflow-hidden sm:justify-center md:justify-end">
             <NetworkStack hidden useBlur={false} address={profileAddress} />
           </div>
         </div>

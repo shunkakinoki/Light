@@ -17,7 +17,7 @@ export const NetworkHeroExternalButton: FC<NetworkHeroExternalButtonProps> = ({
       rel="noopener noreferrer"
       className={clsx(
         className,
-        "md:p-3 py-2 px-3 text-base font-medium text-contrast-higher bg-bg-lighter hover:bg-bg-light lg:bg-bg rounded border border-contrast-lower focus:ring-2 focus:ring-primary focus:ring-offset-2 ring-offset-bg",
+        "rounded border border-contrast-lower bg-bg-lighter py-2 px-3 text-base font-medium text-contrast-higher ring-offset-bg hover:bg-bg-light focus:ring-2 focus:ring-primary focus:ring-offset-2 md:p-3 lg:bg-bg",
       )}
       {...rest}
     >

@@ -59,7 +59,7 @@ export const Viewer: FC = () => {
           height={1080}
           width={2048}
           className={clsx(
-            "bg-emphasis-medium rounded-md",
+            "rounded-md bg-emphasis-medium",
             !isLoaded && "blur-sm",
           )}
           src={debouncedImageURL}
@@ -69,7 +69,7 @@ export const Viewer: FC = () => {
           }}
         />
       </div>
-      <div className="flex justify-end mt-12 space-x-2">
+      <div className="mt-12 flex justify-end space-x-2">
         <button
           className={className}
           onClick={(): void => {

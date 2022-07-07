@@ -24,7 +24,7 @@ export const MemberNFT: FC = () => {
   return (
     <div
       ref={ticketRef}
-      className="aspect-[1200/630] relative w-full rounded-2xl hover:animate-pulse"
+      className="relative aspect-[1200/630] w-full rounded-2xl hover:animate-pulse"
     >
       <a
         className="rounded-xl"

@@ -70,6 +70,7 @@ module.exports = {
     "arrow-body-style": ["error", "always"],
     "import/newline-after-import": "error",
     "import/no-anonymous-default-export": "error",
+    "import/no-named-as-default": "off",
     "import/order": [
       "error",
       {

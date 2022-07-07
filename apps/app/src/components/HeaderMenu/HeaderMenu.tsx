@@ -23,15 +23,15 @@ export const HeaderMenu: FC<HeaderMenuProps> = () => {
       leaveFrom="transform opacity-100 scale-100"
       leaveTo="transform opacity-0 scale-95"
     >
-      <Menu.Items className="absolute right-0 mt-2 w-48 bg-bg rounded-md border border-contrast-low divide-contrast-low focus:outline-none shadow-lg origin-top-right">
-        <div className="p-1 space-y-1">
+      <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right divide-contrast-low rounded-md border border-contrast-low bg-bg shadow-lg focus:outline-none">
+        <div className="space-y-1 p-1">
           <Menu.Item>
             <HeaderMenuLink
               href="/profile"
-              className="group flex items-center py-2 px-4 w-full text-sm text-contrast-medium hover:bg-emphasis-medium rounded-md focus:ring-2 focus:ring-primary"
+              className="group flex w-full items-center rounded-md py-2 px-4 text-sm text-contrast-medium hover:bg-emphasis-medium focus:ring-2 focus:ring-primary"
             >
               <UserCircleIcon
-                className="mr-4 w-5 h-5 group-hover:text-contrast-higher"
+                className="mr-4 h-5 w-5 group-hover:text-contrast-higher"
                 aria-hidden="true"
               />
               <span className="group-hover:text-contrast-higher">Profile</span>
@@ -40,10 +40,10 @@ export const HeaderMenu: FC<HeaderMenuProps> = () => {
           <Menu.Item>
             <HeaderMenuLink
               href="/settings"
-              className="group flex items-center py-2 px-4 w-full text-sm text-contrast-medium hover:bg-emphasis-medium rounded-md focus:ring-2 focus:ring-primary"
+              className="group flex w-full items-center rounded-md py-2 px-4 text-sm text-contrast-medium hover:bg-emphasis-medium focus:ring-2 focus:ring-primary"
             >
               <CogIcon
-                className="mr-4 w-5 h-5 group-hover:text-contrast-higher"
+                className="mr-4 h-5 w-5 group-hover:text-contrast-higher"
                 aria-hidden="true"
               />
               <span className="group-hover:text-contrast-higher">Settings</span>
@@ -54,12 +54,12 @@ export const HeaderMenu: FC<HeaderMenuProps> = () => {
         <div className="p-1">
           <Menu.Item>
             <button
-              className="group flex items-center py-2 px-4 w-full text-sm text-contrast-medium hover:bg-emphasis-medium rounded-md focus:ring-2 focus:ring-primary"
+              className="group flex w-full items-center rounded-md py-2 px-4 text-sm text-contrast-medium hover:bg-emphasis-medium focus:ring-2 focus:ring-primary"
               disabled={!address}
               onClick={disconnect}
             >
               <LogoutIcon
-                className="mr-4 w-5 h-5 group-hover:text-contrast-higher"
+                className="mr-4 h-5 w-5 group-hover:text-contrast-higher"
                 aria-hidden="true"
               />
               <span className="group-hover:text-contrast-higher">

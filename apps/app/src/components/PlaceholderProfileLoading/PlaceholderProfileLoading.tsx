@@ -12,7 +12,7 @@ export const PlaceholderProfileLoading: FC<PlaceholderProfileLoadingProps> = ({
     <div
       className={clsx(
         className,
-        "shrink-0 bg-emphasis-medium rounded-full opacity-100",
+        "shrink-0 rounded-full bg-emphasis-medium opacity-100",
       )}
     />
   );

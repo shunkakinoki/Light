@@ -30,27 +30,27 @@ export const HeaderPanel: FC<HeaderPanelProps> = ({ show, onClick }) => {
       leaveTo="opacity-0 scale-95"
     >
       <div
-        className="lg:hidden fixed inset-x-0 top-0 z-10 p-3 transition origin-top-right"
+        className="fixed inset-x-0 top-0 z-10 origin-top-right p-3 transition lg:hidden"
         aria-label="Global"
       >
-        <div className="bg-bg rounded-md border border-contrast-lower">
-          <div className="flex justify-between items-center px-4 pt-4">
+        <div className="rounded-md border border-contrast-lower bg-bg">
+          <div className="flex items-center justify-between px-4 pt-4">
             <div>
               <Logo />
             </div>
             <div className="-mr-2">
               <button
-                className="inline-flex justify-center items-center p-2 text-contrast-medium hover:text-contrast-higher hover:bg-bg-light rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+                className="inline-flex items-center justify-center rounded-md p-2 text-contrast-medium hover:bg-bg-light hover:text-contrast-higher focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
                 onClick={onClick}
               >
                 <span className="sr-only">Close menu</span>
-                <XIcon className="w-6 h-6" aria-hidden="true" />
+                <XIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
           </div>
-          <div className="grid grid-cols-2 p-6 mt-4">
+          <div className="mt-4 grid grid-cols-2 p-6">
             <div className="space-y-4">
-              <h3 className="text-sm font-semibold tracking-wider text-contrast-low uppercase">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-contrast-low">
                 Company
               </h3>
               <ul className="space-y-4">
@@ -68,7 +68,7 @@ export const HeaderPanel: FC<HeaderPanelProps> = ({ show, onClick }) => {
               </ul>
             </div>
             <div className="space-y-4">
-              <h3 className="text-sm font-semibold tracking-wider text-contrast-low uppercase">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-contrast-low">
                 Resources
               </h3>
               <ul className="space-y-4">
@@ -86,7 +86,7 @@ export const HeaderPanel: FC<HeaderPanelProps> = ({ show, onClick }) => {
               </ul>
             </div>
             <div className="mt-4 space-y-4">
-              <h3 className="text-sm font-semibold tracking-wider text-contrast-low uppercase">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-contrast-low">
                 Legal
               </h3>
               <ul className="space-y-4">
@@ -104,18 +104,18 @@ export const HeaderPanel: FC<HeaderPanelProps> = ({ show, onClick }) => {
               </ul>
             </div>
           </div>
-          <div className="flex justify-center px-6 mt-6">
+          <div className="mt-6 flex justify-center px-6">
             <Link passHref href="/explore">
-              <a className="inline-flex justify-center items-center py-3 w-full text-base font-medium text-contrast-lower bg-contrast-higher hover:bg-contrast-low rounded-md">
+              <a className="inline-flex w-full items-center justify-center rounded-md bg-contrast-higher py-3 text-base font-medium text-contrast-lower hover:bg-contrast-low">
                 <GlobeAltIcon
-                  className="mr-2 -ml-0.5 w-4 h-4"
+                  className="mr-2 -ml-0.5 h-4 w-4"
                   aria-hidden="true"
                 />
                 Explore now
               </a>
             </Link>
           </div>
-          <div className="flex justify-center mt-6 text-contrast-medium">
+          <div className="mt-6 flex justify-center text-contrast-medium">
             Join our community&nbsp;
             <a
               href={SocialLinks.Discord}
@@ -126,7 +126,7 @@ export const HeaderPanel: FC<HeaderPanelProps> = ({ show, onClick }) => {
               Discord
             </a>
           </div>
-          <div className="flex justify-center my-6">
+          <div className="my-6 flex justify-center">
             <ListSocial />
           </div>
         </div>

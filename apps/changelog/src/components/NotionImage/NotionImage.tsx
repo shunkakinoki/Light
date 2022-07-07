@@ -16,10 +16,10 @@ export const NotionImage: FC<ImgHTMLAttributes<HTMLImageElement>> = ({
         layout="fill"
         objectFit="cover"
         className={clsx(
-          "flex w-full h-full rounded-md grayscale duration-700 ease-in-out",
+          "flex h-full w-full rounded-md grayscale duration-700 ease-in-out",
           isLoading
-            ? "blur-2xl grayscale scale-110"
-            : "blur-0 grayscale-0 scale-100",
+            ? "scale-110 blur-2xl grayscale"
+            : "scale-100 blur-0 grayscale-0",
         )}
         src={src}
         alt={alt}

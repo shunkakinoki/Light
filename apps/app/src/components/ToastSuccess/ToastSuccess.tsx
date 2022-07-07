@@ -10,7 +10,7 @@ export const ToastSuccess: FC<ToastSuccessProps> = ({ show, children }) => {
   return (
     <ToastBase
       icon={
-        <CheckCircleIcon className="w-5 h-5 text-success" aria-hidden="true" />
+        <CheckCircleIcon className="h-5 w-5 text-success" aria-hidden="true" />
       }
       show={show}
     >

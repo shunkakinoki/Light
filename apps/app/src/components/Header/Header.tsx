@@ -25,7 +25,7 @@ export const Header: FC<HeaderProps> = ({
     <div>
       <div
         className={clsx(
-          "px-1.5 md:px-4 lg:px-8 mx-auto bg-bg-lighter lg:divide-y lg:divide-contrast-lower",
+          "mx-auto bg-bg-lighter px-1.5 md:px-4 lg:divide-y lg:divide-contrast-lower lg:px-8",
           border
             ? "border-y border-contrast-lower"
             : adaptive
@@ -33,10 +33,10 @@ export const Header: FC<HeaderProps> = ({
             : "",
         )}
       >
-        <div className="flex relative justify-between h-16 sm:h-20">
+        <div className="relative flex h-16 justify-between sm:h-20">
           <HeaderLogo />
           <HeaderSearchBar />
-          <div className="flex lg:hidden relative z-10 items-center">
+          <div className="relative z-10 flex items-center lg:hidden">
             <HeaderButton
               open={isHeaderPanelOpen}
               onClick={() => {
@@ -44,7 +44,7 @@ export const Header: FC<HeaderProps> = ({
               }}
             />
           </div>
-          <div className="hidden lg:flex lg:relative lg:z-10 lg:items-center lg:ml-4">
+          <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
             <HeaderActions active={active} />
             <HeaderPill />
           </div>

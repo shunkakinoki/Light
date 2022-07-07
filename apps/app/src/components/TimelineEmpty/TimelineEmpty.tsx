@@ -5,17 +5,17 @@ import { LogoIcon } from "@lightdotso/app/components/LogoIcon";
 export const TimelineEmpty: FC = () => {
   return (
     <div className="flex">
-      <div className="flex justify-center pt-12 md:pt-20 w-full">
-        <div className="w-full h-48">
-          <div className="flex flex-col justify-center items-center">
+      <div className="flex w-full justify-center pt-12 md:pt-20">
+        <div className="h-48 w-full">
+          <div className="flex flex-col items-center justify-center">
             <h1 className="text-2xl font-bold leading-7 text-contrast-higher">
               No activity yet
             </h1>
             <h2 className="mt-4 text-lg text-contrast-medium">
               Comeback later to get updates..!
             </h2>
-            <div className="inline-flex items-center p-3 mt-4 text-sm text-contrast-higher hover:text-contrast-medium rounded-full">
-              <LogoIcon className="w-14 h-14" aria-hidden="true" />
+            <div className="mt-4 inline-flex items-center rounded-full p-3 text-sm text-contrast-higher hover:text-contrast-medium">
+              <LogoIcon className="h-14 w-14" aria-hidden="true" />
             </div>
           </div>
         </div>

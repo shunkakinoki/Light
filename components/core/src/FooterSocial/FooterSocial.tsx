@@ -7,9 +7,9 @@ import { Logo } from "../Logo";
 
 export const FooterSocial: FC = () => {
   return (
-    <div className="xl:col-span-1 space-y-8">
+    <div className="space-y-8 xl:col-span-1">
       <a className="inline-flex items-center pb-3">
-        <Logo className="block w-auto h-10" />
+        <Logo className="block h-10 w-auto" />
       </a>
       <ListSocial />
     </div>

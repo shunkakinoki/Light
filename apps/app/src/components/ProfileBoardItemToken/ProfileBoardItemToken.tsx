@@ -12,19 +12,19 @@ export const ProfileBoardItemToken: FC<ProfileBoardItemTokenProps> = ({
 }) => {
   return (
     <tr className="flex w-full">
-      <td className="flex grow items-center py-3 pl-4 border-b border-contrast-lower">
+      <td className="flex grow items-center border-b border-contrast-lower py-3 pl-4">
         {icon_url ? (
           <NextImage
             width={32}
             height={32}
             useBlur={false}
             src={icon_url}
-            className="w-8 h-8 rounded-full border border-contrast-lower"
+            className="h-8 w-8 rounded-full border border-contrast-lower"
             alt={name}
           />
         ) : (
-          <span className="inline-flex justify-center items-center w-8 h-8 bg-bg-light rounded-full border border-contrast-lower">
-            <span className="overflow-hidden text-xs leading-none text-contrast-low text-ellipsis">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-contrast-lower bg-bg-light">
+            <span className="overflow-hidden text-ellipsis text-xs leading-none text-contrast-low">
               {shortenName(name)}
             </span>
           </span>
@@ -34,7 +34,7 @@ export const ProfileBoardItemToken: FC<ProfileBoardItemTokenProps> = ({
           <span className="font-normal text-contrast-low">({symbol})</span>
         </p>
       </td>
-      <td className="flex shrink-0 items-center py-3 text-contrast-medium border-b border-contrast-lower">
+      <td className="flex shrink-0 items-center border-b border-contrast-lower py-3 text-contrast-medium">
         <p className="overflow-hidden text-ellipsis ">
           <span className="font-semibold">
             {separateFloat(Number(amount.toFixed(2)))}
@@ -42,7 +42,7 @@ export const ProfileBoardItemToken: FC<ProfileBoardItemTokenProps> = ({
           {symbol}
         </p>
       </td>
-      <td className="flex flex-initial shrink-0 justify-end items-center py-3 pr-4 w-1/4 sm:w-1/5 md:w-1/6 text-contrast-medium border-b border-contrast-lower">
+      <td className="flex w-1/4 flex-initial shrink-0 items-center justify-end border-b border-contrast-lower py-3 pr-4 text-contrast-medium sm:w-1/5 md:w-1/6">
         <p className="overflow-hidden text-ellipsis">
           ${separateFloat(Number(value.toFixed(2)))}
         </p>

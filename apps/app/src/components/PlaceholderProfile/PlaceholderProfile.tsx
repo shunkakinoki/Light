@@ -20,7 +20,7 @@ export const PlaceholderProfile: FC<PlaceholderProfileProps> = ({
         <PlaceholderBlur />
         <PlaceholderAvatar
           address={address}
-          className="relative w-12 h-12 opacity-100"
+          className="relative h-12 w-12 opacity-100"
         />
       </a>
     </Link>

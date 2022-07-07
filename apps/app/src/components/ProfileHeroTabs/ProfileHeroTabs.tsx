@@ -46,10 +46,10 @@ export const ProfileHeroTabs: FC<ProfileHeroTabsProps> = ({
   }, [slug]);
 
   return (
-    <div className="overflow-x-scroll overflow-y-hidden border-b border-contrast-lower">
+    <div className="overflow-y-hidden overflow-x-scroll border-b border-contrast-lower">
       <div className="md:mx-auto md:max-w-container">
         <nav
-          className="flex justify-center md:justify-start -mb-px space-x-8"
+          className="-mb-px flex justify-center space-x-8 md:justify-start"
           aria-label="Tabs"
         >
           {tabs.map(tab => {
@@ -58,10 +58,10 @@ export const ProfileHeroTabs: FC<ProfileHeroTabsProps> = ({
                 <a
                   className={clsx(
                     tab.active === active
-                      ? "text-contrast-higher border-contrast-high"
-                      : "text-contrast-medium hover:text-contrast-higher border-transparent hover:border-contrast-medium",
+                      ? "border-contrast-high text-contrast-higher"
+                      : "border-transparent text-contrast-medium hover:border-contrast-medium hover:text-contrast-higher",
                     !slug && "pointer-events-none",
-                    "group inline-flex items-center p-4 text-sm font-medium border-b-4",
+                    "group inline-flex items-center border-b-4 p-4 text-sm font-medium",
                   )}
                   aria-current={tab.active === active ? "page" : undefined}
                 >
@@ -70,7 +70,7 @@ export const ProfileHeroTabs: FC<ProfileHeroTabsProps> = ({
                       tab.active === active
                         ? "text-contrast-higher"
                         : "text-contrast-medium group-hover:text-contrast-high",
-                      "mr-2 -ml-0.5 w-5 h-5",
+                      "mr-2 -ml-0.5 h-5 w-5",
                     )}
                     aria-hidden="true"
                   />

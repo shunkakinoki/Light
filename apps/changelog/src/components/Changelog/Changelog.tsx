@@ -10,7 +10,7 @@ export const Changelog = ({ posts }) => {
   }
 
   return (
-    <div className="px-3 mx-auto max-w-2xl">
+    <div className="mx-auto max-w-2xl px-3">
       <div className="mt-16">
         <h3 className="text-5xl font-extrabold text-contrast-higher">
           Changelog
@@ -21,7 +21,7 @@ export const Changelog = ({ posts }) => {
         <div className="mt-3">
           <a
             href={SocialLinks.Twitter}
-            className="font-extrabold text-contrast-high hover:text-contrast-medium underline"
+            className="font-extrabold text-contrast-high underline hover:text-contrast-medium"
             target="_blank"
             rel="noreferrer"
           >
@@ -29,7 +29,7 @@ export const Changelog = ({ posts }) => {
           </a>
         </div>
       </div>
-      <div className="flex flex-col my-12 space-y-8">
+      <div className="my-12 flex flex-col space-y-8">
         {posts.map(post => {
           const date = new Date(post.last_edited_time).toLocaleString("en-US", {
             month: "short",
@@ -46,16 +46,16 @@ export const Changelog = ({ posts }) => {
                 <div className="aspect-w-16 aspect-h-9">
                   <NotionImage src={post.cover.external.url} alt={post.id} />
                 </div>
-                <div className="justify-between items-start mt-6 w-full">
-                  <div className="flex justify-between w-full">
-                    <h3 className="text-base sm:text-lg font-bold text-contrast-medium group-hover:text-contrast-low">
+                <div className="mt-6 w-full items-start justify-between">
+                  <div className="flex w-full justify-between">
+                    <h3 className="text-base font-bold text-contrast-medium group-hover:text-contrast-low sm:text-lg">
                       Changelog #{leftNumberPad(post.properties.Number.number)}
                     </h3>
-                    <h3 className="text-base sm:text-lg text-contrast-medium group-hover:text-contrast-low">
+                    <h3 className="text-base text-contrast-medium group-hover:text-contrast-low sm:text-lg">
                       {date}
                     </h3>
                   </div>
-                  <h3 className="mt-3 text-xl sm:text-3xl font-bold text-contrast-higher group-hover:text-contrast-high">
+                  <h3 className="mt-3 text-xl font-bold text-contrast-higher group-hover:text-contrast-high sm:text-3xl">
                     {post.properties.Name.title[0].text.content}
                   </h3>
                 </div>

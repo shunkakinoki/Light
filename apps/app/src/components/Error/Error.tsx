@@ -31,13 +31,13 @@ export type ErrorProps = {
 
 export const Error: FC<ErrorProps> = ({ statusCode }) => {
   return (
-    <main className="px-4 sm:px-6 lg:px-8 mx-auto w-full max-w-7xl">
-      <div className="py-16 sm:py-24 md:py-36 mx-auto max-w-xl">
+    <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-xl py-16 sm:py-24 md:py-36">
         <div className="text-center">
-          <p className="text-sm font-semibold tracking-wide text-primary-light uppercase">
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary-light">
             {statusCode} error
           </p>
-          <h1 className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-contrast-higher">
+          <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-contrast-higher sm:text-5xl">
             {statusCode === 404
               ? "This page does not exist."
               : "Oh oh. Something went wrong."}
@@ -49,25 +49,25 @@ export const Error: FC<ErrorProps> = ({ statusCode }) => {
           </p>
         </div>
         <div className="mt-12">
-          <h2 className="text-sm font-semibold tracking-wide text-contrast-medium uppercase">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-contrast-medium">
             Popular pages
           </h2>
-          <ul className="mt-4 border-y border-contrast-lower divide-y divide-contrast-lower">
+          <ul className="mt-4 divide-y divide-contrast-lower border-y border-contrast-lower">
             {links.map((link, linkIdx) => {
               return (
                 <li
                   key={linkIdx}
-                  className="flex relative items-start py-6 space-x-4 hover:bg-bg-lighter"
+                  className="relative flex items-start space-x-4 py-6 hover:bg-bg-lighter"
                 >
                   <div className="shrink-0">
-                    <span className="flex justify-center items-center w-12 h-12 rounded-lg">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-lg">
                       <link.icon
-                        className="w-6 h-6 text-primary-light"
+                        className="h-6 w-6 text-primary-light"
                         aria-hidden="true"
                       />
                     </span>
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="min-w-0 flex-1">
                     <h3 className="text-base font-medium text-contrast-high">
                       <span className="rounded-sm">
                         <a
@@ -90,7 +90,7 @@ export const Error: FC<ErrorProps> = ({ statusCode }) => {
                   </div>
                   <div className="shrink-0 self-center">
                     <ChevronRightIcon
-                      className="w-5 h-5 text-contrast-low"
+                      className="h-5 w-5 text-contrast-low"
                       aria-hidden="true"
                     />
                   </div>

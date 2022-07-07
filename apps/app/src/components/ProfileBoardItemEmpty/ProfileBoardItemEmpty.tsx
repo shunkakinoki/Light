@@ -2,8 +2,8 @@ import type { FC } from "react";
 
 export const ProfileBoardItemEmpty: FC = () => {
   return (
-    <div className="aspect-1 flex justify-center items-center h-full text-center rounded-lg border border-contrast-lower cursor-not-allowed">
-      <h1 className="text-xl font-semibold text-center text-contrast-medium">
+    <div className="flex aspect-1 h-full cursor-not-allowed items-center justify-center rounded-lg border border-contrast-lower text-center">
+      <h1 className="text-center text-xl font-semibold text-contrast-medium">
         Empty
       </h1>
     </div>

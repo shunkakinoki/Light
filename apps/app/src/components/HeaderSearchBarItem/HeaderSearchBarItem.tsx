@@ -26,12 +26,12 @@ export const HeaderSearchBarItem: FC<HeaderSearchBarItemProps> = ({
       <a className="flex items-center">
         <PlaceholderAvatar
           address={address}
-          className="relative shrink-0 w-10 h-10 opacity-100"
+          className="relative h-10 w-10 shrink-0 opacity-100"
         />
-        <div className="flex flex-col ml-4">
+        <div className="ml-4 flex flex-col">
           <span
             className={clsx(
-              "block text-base leading-6 text-contrast-higher truncate",
+              "block truncate text-base leading-6 text-contrast-higher",
               selected ? "font-bold" : "font-semibold",
             )}
           >
@@ -46,7 +46,7 @@ export const HeaderSearchBarItem: FC<HeaderSearchBarItemProps> = ({
             )}
             {identity?.social?.twitter && (
               <>
-                <FaTwitter className="w-4 h-4" aria-hidden="true" />
+                <FaTwitter className="h-4 w-4" aria-hidden="true" />
                 &nbsp; @{identity?.social?.twitter}
               </>
             )}

@@ -9,7 +9,7 @@ export const TimelineBannerPoap: FC = () => {
         layout="fixed"
         width={13}
         height={13}
-        className="w-[13px] h-[13px] rounded-lg"
+        className="h-[13px] w-[13px] rounded-lg"
         src={"https://poap.gallery/icons/poap_dark.png"}
         loading="lazy"
       />

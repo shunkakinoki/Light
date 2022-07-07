@@ -32,10 +32,10 @@ export const TimelineNavigation: FC = () => {
     <>
       <div className="flex md:hidden">
         <Menu>
-          <div className="flex fixed -right-6 md:right-48 bottom-10 z-30">
+          <div className="fixed -right-6 bottom-10 z-30 flex md:right-48">
             <div className="group relative mr-8 mb-8">
               <PlaceholderBlur />
-              <Menu.Button className="flex relative visible justify-center items-center p-3 w-14 h-14 text-contrast-high bg-bg-light hover:bg-bg-lighter rounded-full border border-contrast-lower">
+              <Menu.Button className="visible relative flex h-14 w-14 items-center justify-center rounded-full border border-contrast-lower bg-bg-light p-3 text-contrast-high hover:bg-bg-lighter">
                 {navigation
                   .filter(item => {
                     return item.category === timelineCategoryState.category;
@@ -46,9 +46,9 @@ export const TimelineNavigation: FC = () => {
                         key={item.name}
                         className={clsx(
                           timelineCategoryState.category === item.category
-                            ? "text-primary fill-primary"
-                            : "text-contrast-high group-hover:text-contrast-higher fill-contrast-high",
-                          "shrink-0 w-6 h-6",
+                            ? "fill-primary text-primary"
+                            : "fill-contrast-high text-contrast-high group-hover:text-contrast-higher",
+                          "h-6 w-6 shrink-0",
                         )}
                         aria-hidden="true"
                       />
@@ -57,7 +57,7 @@ export const TimelineNavigation: FC = () => {
               </Menu.Button>
             </div>
           </div>
-          <Menu.Items className="flex fixed -right-6 md:right-48 bottom-36 z-30 flex-col">
+          <Menu.Items className="fixed -right-6 bottom-36 z-30 flex flex-col md:right-48">
             {navigation
               .filter(item => {
                 return item.category !== timelineCategoryState.category;
@@ -71,7 +71,7 @@ export const TimelineNavigation: FC = () => {
                           <PlaceholderBlur />
                           <button
                             className={clsx(
-                              "flex relative justify-center items-center py-3 w-14 h-14 bg-bg-lighter hover:bg-bg-light rounded-full border border-contrast-lower",
+                              "relative flex h-14 w-14 items-center justify-center rounded-full border border-contrast-lower bg-bg-lighter py-3 hover:bg-bg-light",
                               active && "text-contrast-higher",
                             )}
                             onClick={() => {
@@ -83,9 +83,9 @@ export const TimelineNavigation: FC = () => {
                             <item.icon
                               className={clsx(
                                 timelineCategoryState.category === item.category
-                                  ? "text-contrast-higher fill-contrast-higher"
-                                  : "text-contrast-high group-hover:text-contrast-higher fill-contrast-high",
-                                "shrink-0 w-6 h-6",
+                                  ? "fill-contrast-higher text-contrast-higher"
+                                  : "fill-contrast-high text-contrast-high group-hover:text-contrast-higher",
+                                "h-6 w-6 shrink-0",
                               )}
                               aria-hidden="true"
                             />
@@ -100,7 +100,7 @@ export const TimelineNavigation: FC = () => {
         </Menu>
       </div>
       <nav
-        className="hidden md:block sticky top-4 space-y-1"
+        className="sticky top-4 hidden space-y-1 md:block"
         aria-label="Sidebar"
       >
         {navigation.map(item => {
@@ -109,9 +109,9 @@ export const TimelineNavigation: FC = () => {
               key={item.name}
               className={clsx(
                 timelineCategoryState.category === item.category
-                  ? "text-contrast-higher bg-emphasis-high"
-                  : "text-contrast-medium hover:text-contrast-high hover:bg-emphasis-medium",
-                "group flex items-center py-2 px-3 w-full text-sm font-medium rounded-md",
+                  ? "bg-emphasis-high text-contrast-higher"
+                  : "text-contrast-medium hover:bg-emphasis-medium hover:text-contrast-high",
+                "group flex w-full items-center rounded-md py-2 px-3 text-sm font-medium",
               )}
               aria-current={
                 timelineCategoryState.category === item.category
@@ -125,9 +125,9 @@ export const TimelineNavigation: FC = () => {
               <item.icon
                 className={clsx(
                   timelineCategoryState.category === item.category
-                    ? "text-contrast-higher fill-contrast-higher"
-                    : "text-contrast-high group-hover:text-contrast-higher fill-contrast-high",
-                  "shrink-0 mr-3 -ml-1 w-6 h-6",
+                    ? "fill-contrast-higher text-contrast-higher"
+                    : "fill-contrast-high text-contrast-high group-hover:text-contrast-higher",
+                  "mr-3 -ml-1 h-6 w-6 shrink-0",
                 )}
                 aria-hidden="true"
               />

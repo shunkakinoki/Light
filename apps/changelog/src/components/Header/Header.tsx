@@ -5,12 +5,12 @@ import type { FC } from "react";
 export const Header: FC = () => {
   return (
     <header className="relative inset-x-0 top-0 z-50 bg-transparent">
-      <div className="container pl-1.5 mx-auto">
-        <div className="flex justify-between md:justify-start items-center py-6 md:space-x-10">
-          <div className="flex lg:flex-1 justify-start lg:w-0">
+      <div className="container mx-auto pl-1.5">
+        <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
+          <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link passHref href="https://light.so">
-              <a className="inline-flex items-center py-1.5 px-2 hover:bg-contrast-lower rounded-md">
-                <Logo className="w-24 md:w-28 h-8 md:h-10" />
+              <a className="inline-flex items-center rounded-md py-1.5 px-2 hover:bg-contrast-lower">
+                <Logo className="h-8 w-24 md:h-10 md:w-28" />
               </a>
             </Link>
           </div>

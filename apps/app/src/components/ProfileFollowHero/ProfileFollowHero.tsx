@@ -29,22 +29,22 @@ export const ProfileFollowHero: FC<ProfileFollowHeroProps> = ({
 
   return (
     <div className="bg-bg-lighter">
-      <div className="flex flex-row items-center p-4 mx-auto max-w-5xl">
+      <div className="mx-auto flex max-w-5xl flex-row items-center p-4">
         <div className="flex items-center">
           <ProfileFollowHeroButton address={profileAddress} />
           {!profileAddress ? (
-            <PlaceholderProfileLoading className="ml-4 w-12 h-12" />
+            <PlaceholderProfileLoading className="ml-4 h-12 w-12" />
           ) : (
             <div className="pl-4">
               <PlaceholderAvatar
                 address={profileAddress}
-                className="w-12 h-12"
+                className="h-12 w-12"
               />
             </div>
           )}
           <h2 className="flex justify-start pl-4 text-xl font-bold text-contrast-higher">
             {!profileAddress ? (
-              <LoadingText className="w-24 h-8" />
+              <LoadingText className="h-8 w-24" />
             ) : (
               ens ?? splitAddress(profileAddress)
             )}

@@ -22,7 +22,7 @@ export const AssetDetailsSegmentMeta: FC<AssetDetailsSegmentMetaProps> = ({
         href={address ? `https://etherscan.io/address/${address}` : ""}
         target="_blank"
         rel="noopener noreferrer"
-        className="overflow-hidden mt-2 text-lg font-semibold leading-8 text-contrast-higher hover:underline"
+        className="mt-2 overflow-hidden text-lg font-semibold leading-8 text-contrast-higher hover:underline"
       >
         {address ? splitAddress(address) : ""}
       </a>
@@ -37,7 +37,7 @@ export const AssetDetailsSegmentMeta: FC<AssetDetailsSegmentMetaProps> = ({
         }
         target="_blank"
         rel="noopener noreferrer"
-        className="overflow-hidden mt-2 text-lg font-semibold leading-8 text-contrast-higher hover:underline"
+        className="mt-2 overflow-hidden text-lg font-semibold leading-8 text-contrast-higher hover:underline"
       >
         {contractAddress ? splitAddress(contractAddress) : ""}
       </a>

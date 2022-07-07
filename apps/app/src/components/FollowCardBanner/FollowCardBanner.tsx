@@ -9,7 +9,7 @@ export type FollowCardBannerProps = FollowBannerProps;
 
 export const FollowCardBanner: FC<FollowCardBannerProps> = ({ address }) => {
   return (
-    <div className="flex justify-between items-center space-x-4 w-full">
+    <div className="flex w-full items-center justify-between space-x-4">
       <PlaceholderProfile address={address} />
       <FollowBanner address={address} />
       <FollowButton address={address} />

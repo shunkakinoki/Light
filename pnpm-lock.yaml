@@ -524,7 +524,9 @@ importers:
       copy-to-clipboard: ^3.3.1
       cypress: ^10.3.0
       next: ^12.2.0
+      next-compose-plugins: ^2.2.1
       next-themes: ^0.2.0
+      next-transpile-modules: ^9.0.0
       playwright-aws-lambda: ^0.8.0
       playwright-core: ^1.23.2
       react: ^18.2.0
@@ -538,7 +540,9 @@ importers:
       clsx: 1.2.1
       copy-to-clipboard: 3.3.1
       next: 12.2.0_biqbaboplfbrettd7655fr4n2y
+      next-compose-plugins: 2.2.1
       next-themes: 0.2.0_24lkarzjpo3wcmj2o6qyrkug4y
+      next-transpile-modules: 9.0.0
       playwright-aws-lambda: 0.8.0_playwright-core@1.23.2
       playwright-core: 1.23.2
       react: 18.2.0
@@ -4475,6 +4479,7 @@ packages:
       tsutils: 3.21.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
 
   /@typescript-eslint/parser/5.30.5_4x5o4skxv6sl53vpwefgt23khm:
     resolution: {integrity: sha512-zj251pcPXI8GO9NDKWWmygP6+UjwWmrdf9qMW/L/uQJBM/0XbU2inxe5io/234y/RCvwpKEYjZ6c1YrXERkK4Q==}
@@ -9361,6 +9366,7 @@ packages:
       eslint: 8.19.0
       eslint-config-prettier: 8.5.0_eslint@8.19.0
       prettier-linter-helpers: 1.0.0
+    dev: false
 
   /eslint-plugin-react-hooks/4.6.0_eslint@8.19.0:
     resolution: {integrity: sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==}
@@ -15488,7 +15494,7 @@ packages:
   /next-transpile-modules/9.0.0:
     resolution: {integrity: sha512-VCNFOazIAnXn1hvgYYSTYMnoWgKgwlYh4lm1pKbSfiB3kj5ZYLcKVhfh3jkPOg1cnd9DP+pte9yCUocdPEUBTQ==}
     dependencies:
-      enhanced-resolve: 5.9.3
+      enhanced-resolve: 5.10.0
       escalade: 3.1.1
     dev: false
 

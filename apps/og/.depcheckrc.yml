@@ -1,5 +1,6 @@
 ignores:
   - "@lightdotso/og"
   - "@lightdotso/styles"
+  - "@lightdotso/tsconfig"
   - "@tailwindcss/*"
   - critters

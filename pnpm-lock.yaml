@@ -511,6 +511,7 @@ importers:
       '@lightdotso/core': workspace:*
       '@lightdotso/styles': workspace:*
       '@lightdotso/tailwindcss': workspace:*
+      '@lightdotso/tsconfig': workspace:*
       '@sentry/integrations': ^7.5.1
       '@sentry/nextjs': ^7.5.1
       '@tailwindcss/aspect-ratio': ^0.4.0
@@ -546,6 +547,7 @@ importers:
     devDependencies:
       '@cypress/react': 6.0.0_wwvjv4wapaxszi5dlxdqgrwdoy
       '@lightdotso/tailwindcss': link:../../configurations/tailwindcss
+      '@lightdotso/tsconfig': link:../../configurations/tsconfig
       '@tailwindcss/aspect-ratio': 0.4.0
       '@tailwindcss/forms': 0.5.2
       '@tailwindcss/line-clamp': 0.4.0
@@ -4473,7 +4475,6 @@ packages:
       tsutils: 3.21.0
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@typescript-eslint/parser/5.30.5_4x5o4skxv6sl53vpwefgt23khm:
     resolution: {integrity: sha512-zj251pcPXI8GO9NDKWWmygP6+UjwWmrdf9qMW/L/uQJBM/0XbU2inxe5io/234y/RCvwpKEYjZ6c1YrXERkK4Q==}

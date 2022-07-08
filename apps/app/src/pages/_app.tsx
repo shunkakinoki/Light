@@ -29,7 +29,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
               },
             }}
           >
-            <ThemeProvider defaultTheme="dark" forcedTheme="dark">
+            <ThemeProvider>
               <Analytics>
                 <Layout>
                   <Seo />

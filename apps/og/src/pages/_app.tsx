@@ -8,7 +8,7 @@ import "@lightdotso/og/styles/index.css";
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
-      <ThemeProvider defaultTheme="dark" forcedTheme="dark">
+      <ThemeProvider>
         <RecoilRoot>
           <Component {...pageProps} />
         </RecoilRoot>

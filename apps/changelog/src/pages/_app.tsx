@@ -7,7 +7,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <ThemeScript />
-      <ThemeProvider defaultTheme="dark" forcedTheme="dark">
+      <ThemeProvider>
         <Analytics>
           <Seo />
           <Component {...pageProps} />

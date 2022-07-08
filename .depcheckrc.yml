@@ -1,10 +1,12 @@
 ignores:
   - "@commitlint/config-conventional"
+  - "@release-it/keep-a-changelog"
   - "@typescript-eslint/eslint-plugin"
   - "@typescript-eslint/parser"
   - autoprefixer
   - commitlint
   - concurrently
+  - cross-env
   - eslint-config-prettier
   - eslint-plugin-cypress
   - eslint-plugin-jsonc

@@ -20,6 +20,7 @@ importers:
       autoprefixer: ^10.4.7
       commitlint: ^17.0.3
       concurrently: ^7.2.2
+      cross-env: ^7.0.3
       depcheck: ^1.4.3
       eslint: ^8.19.0
       eslint-config-prettier: ^8.5.0
@@ -71,6 +72,7 @@ importers:
       autoprefixer: 10.4.7
       commitlint: 17.0.3
       concurrently: 7.2.2
+      cross-env: 7.0.3
       depcheck: 1.4.3
       eslint: 8.19.0
       eslint-config-prettier: 8.5.0_eslint@8.19.0
@@ -8006,6 +8008,14 @@ packages:
       luxon: 1.28.0
     dev: false
 
+  /cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
+    dev: true
+
   /cross-fetch/2.2.6:
     resolution: {integrity: sha512-9JZz+vXCmfKUZ68zAptS7k4Nu8e2qcibe7WVZYps7sAgk5R8GYTc+T1WR0v1rlP9HxgARmOX1UTIJZFytajpNA==}
     dependencies:
@@ -8906,6 +8916,7 @@ packages:
 
   /encoding/0.1.13:
     resolution: {integrity: sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==}
+    requiresBuild: true
     dependencies:
       iconv-lite: 0.6.3
 

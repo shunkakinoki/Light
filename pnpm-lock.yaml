@@ -15,6 +15,7 @@ importers:
       '@lightdotso/prettier': workspace:*
       '@lightdotso/tailwindcss': workspace:*
       '@next/eslint-plugin-next': ^12.2.1
+      '@release-it/keep-a-changelog': ^3.0.0
       '@typescript-eslint/eslint-plugin': ^5.30.5
       '@typescript-eslint/parser': ^5.30.5
       autoprefixer: ^10.4.7
@@ -67,6 +68,7 @@ importers:
       '@lightdotso/prettier': link:configurations/prettier
       '@lightdotso/tailwindcss': link:configurations/tailwindcss
       '@next/eslint-plugin-next': 12.2.1
+      '@release-it/keep-a-changelog': 3.0.0_release-it@15.1.1
       '@typescript-eslint/eslint-plugin': 5.30.5_6zdoc3rn4mpiddqwhppni2mnnm
       '@typescript-eslint/parser': 5.30.5_4x5o4skxv6sl53vpwefgt23khm
       autoprefixer: 10.4.7
@@ -3559,6 +3561,17 @@ packages:
       tiny-warning: 1.0.3
       tslib: 2.4.0
     dev: false
+
+  /@release-it/keep-a-changelog/3.0.0_release-it@15.1.1:
+    resolution: {integrity: sha512-ZUWbe17/i+HsGIVKOZtEeyALRyCLBvLUzvfG3rXjb7cPetEM82+ZNIHbVpiYFmR+YZT749ftWag98/QZ8/ganQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      release-it: ^15.0.0-esm.4
+    dependencies:
+      detect-newline: 4.0.0
+      release-it: 15.1.1
+      string-template: 1.0.0
+    dev: true
 
   /@resolver-engine/core/0.3.3:
     resolution: {integrity: sha512-eB8nEbKDJJBi5p5SrvrvILn4a0h42bKtbCTri3ZxCGt6UvoQyp7HnGOfki944bUjBSHKK3RvgfViHn+kqdXtnQ==}
@@ -8583,6 +8596,11 @@ packages:
   /detect-newline/3.1.0:
     resolution: {integrity: sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==}
     engines: {node: '>=8'}
+
+  /detect-newline/4.0.0:
+    resolution: {integrity: sha512-1aXUEPdfGdzVPFpzGJJNgq9o81bGg1s09uxTWsqBlo9PI332uyJRQq13+LK/UN4JfxJbFdCXonUFQ9R/p7yCtw==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dev: true
 
   /detect-node/2.1.0:
     resolution: {integrity: sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g==}
@@ -19750,6 +19768,10 @@ packages:
 
   /string-format/2.0.0:
     resolution: {integrity: sha512-bbEs3scLeYNXLecRRuk6uJxdXUSj6le/8rNPHChIJTn2V79aXVTR1EH2OH5zLKKoz0V02fOUKZZcw01pLUShZA==}
+
+  /string-template/1.0.0:
+    resolution: {integrity: sha512-SLqR3GBUXuoPP5MmYtD7ompvXiG87QjT6lzOszyXjTM86Uu7At7vNnt2xgyTLq5o9T4IxTYFyGxcULqpsmsfdg==}
+    dev: true
 
   /string-width/1.0.2:
     resolution: {integrity: sha512-0XsVpQLnVCXHJfyEs8tC0zpTVIr5PKKsQtkT29IwupnPTjtPmQ3xT/4yCREF9hYkV/3M3kzcUTSAZT6a6h81tw==}

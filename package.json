@@ -67,6 +67,7 @@
     "@lightdotso/prettier": "workspace:*",
     "@lightdotso/tailwindcss": "workspace:*",
     "@next/eslint-plugin-next": "^12.2.1",
+    "@release-it/keep-a-changelog": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
     "autoprefixer": "^10.4.7",

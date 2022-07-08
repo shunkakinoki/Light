@@ -7,5 +7,9 @@
     "release": true,
     "web": true
   },
-  "requireCleanWorkingDir": false
+  "plugins": {
+    "@release-it/keep-a-changelog": {
+      "filename": "CHANGELOG.md"
+    }
+  }
 }

@@ -12,6 +12,7 @@ module.exports = {
     "plugin:import/typescript",
     "plugin:import/warnings",
     "plugin:prettier/recommended",
+    "plugin:jsonc/recommended-with-jsonc",
     "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -42,6 +43,10 @@ module.exports = {
       rules: {
         "import/no-anonymous-default-export": "off",
       },
+    },
+    {
+      files: ["*.json", "*.json5", "*.jsonc"],
+      parser: "jsonc-eslint-parser",
     },
     {
       files: ["*.sol"],

@@ -1,4 +1,11 @@
 {
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "json5"
+  ],
   "solidity.enabledAsYouTypeCompilationErrorCheck": true,
   "solidity.linter": "solhint",
   "solidity.packageDefaultDependenciesContractsDirectory": "",

@@ -103,8 +103,5 @@
     "vercel": "^27.0.0",
     "webpack-dev-server": "^4.9.3"
   },
-  "packageManager": "pnpm@6.30.0",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  }
+  "packageManager": "pnpm@6.30.0"
 }

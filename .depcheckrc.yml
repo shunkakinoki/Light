@@ -23,6 +23,7 @@ ignores:
   - prettier-plugin-solidity
   - prettier-plugin-sort-json
   - prettier-plugin-tailwindcss
+  - release-it
   - rimraf
   - shx
   - tsconfig-paths-webpack-plugin

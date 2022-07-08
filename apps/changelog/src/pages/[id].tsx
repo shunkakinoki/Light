@@ -13,12 +13,15 @@ import { NOTION_CHANGELOG_ID } from "@lightdotso/changelog/config/Notion";
 import {
   getPage,
   getBlocks,
+  getPropertyValue,
   queryDatabase,
 } from "@lightdotso/changelog/libs/services/notion";
 
 export type Props = {
   page: any;
   blocks: any;
+  number: number;
+  title: string;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -51,7 +54,30 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   }
 
   const page = await getPage(result[0].id);
+  const pageId = page.id;
   const blocks = await getBlocks(result[0].id);
+
+  //@ts-expect-error
+  const numberPropertyId = page.properties["Number"].id;
+  const numberPropertyItem = await getPropertyValue({
+    pageId,
+    propertyId: numberPropertyId,
+  });
+  //@ts-expect-error
+  const number = numberPropertyItem.number;
+
+  //@ts-expect-error
+  const titlePropertyId = page.properties["Name"].id;
+  const titlePropertyItem = await getPropertyValue({
+    pageId,
+    propertyId: titlePropertyId,
+  });
+  const title = titlePropertyItem
+    //@ts-expect-error
+    .map(propertyItem => {
+      return propertyItem.title.plain_text;
+    })
+    .join("");
 
   const childBlocks = await Promise.all(
     blocks
@@ -78,6 +104,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({
     props: {
       page: page,
       blocks: blocksWithChildren,
+      number: number,
+      title: title,
     },
     revalidate: 1,
   };
@@ -86,6 +114,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 export const IdPage = ({
   page,
   blocks,
+  number,
+  title,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   if (!page || !blocks) {
     return <div />;
@@ -94,7 +124,7 @@ export const IdPage = ({
   return (
     <>
       <Header />
-      <Notion blocks={blocks} page={page} />
+      <Notion blocks={blocks} page={page} number={number} title={title} />
       <Footer />
     </>
   );

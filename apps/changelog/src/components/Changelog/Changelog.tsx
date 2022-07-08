@@ -4,7 +4,7 @@ import Link from "next/link";
 import { NotionImage } from "@lightdotso/changelog/components/NotionImage";
 import { leftNumberPad } from "@lightdotso/changelog/utils/leftNumberPad";
 
-export const Changelog = ({ posts }) => {
+export const Changelog = ({ posts, tasks }) => {
   if (!posts) {
     return <div />;
   }
@@ -31,7 +31,7 @@ export const Changelog = ({ posts }) => {
       </div>
       <div className="my-12 flex flex-col space-y-8">
         {posts.map(post => {
-          const date = new Date(post.last_edited_time).toLocaleString("en-US", {
+          const date = new Date(tasks[post.id].date).toLocaleString("en-US", {
             month: "short",
             day: "2-digit",
             year: "numeric",
@@ -40,23 +40,23 @@ export const Changelog = ({ posts }) => {
             <Link
               key={post.id}
               passHref
-              href={`/${leftNumberPad(post.properties.Number.number)}`}
+              href={`/${leftNumberPad(tasks[post.id].number)}`}
             >
               <a className="group">
-                <div className="aspect-w-16 aspect-h-9">
+                <div className="aspect-w-16 aspect-h-9 duration-1000 hover:opacity-80">
                   <NotionImage src={post.cover.external.url} alt={post.id} />
                 </div>
                 <div className="mt-6 w-full items-start justify-between">
                   <div className="flex w-full justify-between">
                     <h3 className="text-base font-bold text-contrast-medium group-hover:text-contrast-low sm:text-lg">
-                      Changelog #{leftNumberPad(post.properties.Number.number)}
+                      Changelog #{leftNumberPad(tasks[post.id].number)}
                     </h3>
                     <h3 className="text-base text-contrast-medium group-hover:text-contrast-low sm:text-lg">
                       {date}
                     </h3>
                   </div>
                   <h3 className="mt-3 text-xl font-bold text-contrast-higher group-hover:text-contrast-high sm:text-3xl">
-                    {post.properties.Name.title[0].text.content}
+                    {tasks[post.id].name}
                   </h3>
                 </div>
               </a>

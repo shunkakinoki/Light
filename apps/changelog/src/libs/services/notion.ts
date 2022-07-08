@@ -24,6 +24,35 @@ export const getPage = async pageId => {
   return response;
 };
 
+export const getPropertyValue = async ({ pageId, propertyId }) => {
+  const propertyItem = await notion.pages.properties.retrieve({
+    page_id: pageId,
+    property_id: propertyId,
+  });
+  if (propertyItem.object === "property_item") {
+    return propertyItem;
+  }
+
+  let nextCursor = propertyItem.next_cursor;
+  const results = propertyItem.results;
+
+  while (nextCursor !== null) {
+    const propertyItem = await notion.pages.properties.retrieve({
+      page_id: pageId,
+      property_id: propertyId,
+      start_cursor: nextCursor,
+    });
+
+    if (propertyItem.object === "property_item") {
+      return propertyItem;
+    }
+    nextCursor = propertyItem.next_cursor;
+    results.push(...propertyItem.results);
+  }
+
+  return results;
+};
+
 export const getBlocks = async blockId => {
   const blocks = [];
   let cursor;

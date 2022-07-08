@@ -31,11 +31,11 @@ export const Changelog = ({ posts, tasks }) => {
       </div>
       <div className="my-12 flex flex-col space-y-8">
         {posts.map((post, i) => {
-          // const date = new Date(tasks[i].date).toLocaleString("en-US", {
-          //   month: "short",
-          //   day: "2-digit",
-          //   year: "numeric",
-          // });
+          const date = new Date(tasks[i].date).toLocaleString("en-US", {
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+          });
           return (
             <Link
               key={post.id}
@@ -51,9 +51,9 @@ export const Changelog = ({ posts, tasks }) => {
                     <h3 className="text-base font-bold text-contrast-medium group-hover:text-contrast-low sm:text-lg">
                       Changelog #{leftNumberPad(tasks[i].number)}
                     </h3>
-                    {/* <h3 className="text-base text-contrast-medium group-hover:text-contrast-low sm:text-lg">
+                    <h3 className="text-base text-contrast-medium group-hover:text-contrast-low sm:text-lg">
                       {date}
-                    </h3> */}
+                    </h3>
                   </div>
                   <h3 className="mt-3 text-xl font-bold text-contrast-higher group-hover:text-contrast-high sm:text-3xl">
                     {tasks[i].name}

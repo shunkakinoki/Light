@@ -1,14 +1,22 @@
 import { Footer } from "@lightdotso/core";
 
 import type { InferGetStaticPropsType, GetStaticProps } from "next";
+import dynamic from "next/dynamic";
 
-import { Changelog } from "@lightdotso/changelog/components/Changelog";
 import { Header } from "@lightdotso/changelog/components/Header";
 import { NOTION_CHANGELOG_ID } from "@lightdotso/changelog/config/Notion";
 import {
   getDatabase,
   getPropertyValue,
 } from "@lightdotso/changelog/libs/services/notion";
+
+const Changelog = dynamic(
+  async () => {
+    const mod = await import("@lightdotso/changelog/components/Changelog");
+    return mod.Changelog;
+  },
+  { ssr: false },
+);
 
 export type Props = {
   posts: any;

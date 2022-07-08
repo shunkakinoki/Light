@@ -40,6 +40,7 @@ export const middleware = (req: NextRequest) => {
     req.cookies["next-auth.csrf-token"];
 
   if (hostname === targetHost && pathname === "/" && !hasNextAuthCookie) {
+    console.warn(hasNextAuthCookie);
     url.pathname = "/home";
     return NextResponse.redirect(url);
   }

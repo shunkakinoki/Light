@@ -37,7 +37,12 @@
       "outputs": [".next/**"]
     },
     "@lightdotso/changelog#build": {
-      "dependsOn": ["^build", "$NOTION_API_KEY"],
+      "dependsOn": [
+        "^build",
+        "$NEXT_PUBLIC_SENTRY_DSN",
+        "$NOTION_API_KEY",
+        "$SENTRY_DSN"
+      ],
       "inputs": [
         "cypress/**",
         "public/**",
@@ -53,7 +58,7 @@
       "outputs": ["abi/**", "artifacts/**", "dist/**", "typechain/**"]
     },
     "@lightdotso/docs#build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "$NEXT_PUBLIC_SENTRY_DSN", "$SENTRY_DSN"],
       "inputs": [
         "cypress/**",
         "public/**",
@@ -64,7 +69,7 @@
       "outputs": [".next/**"]
     },
     "@lightdotso/home#build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "$NEXT_PUBLIC_SENTRY_DSN", "$SENTRY_DSN"],
       "inputs": [
         "cypress/**",
         "public/**",
@@ -80,7 +85,7 @@
       "outputs": ["dist/**", "zod/**"]
     },
     "@lightdotso/og#build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "$NEXT_PUBLIC_SENTRY_DSN"],
       "inputs": [
         "cypress/**",
         "public/**",

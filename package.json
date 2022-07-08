@@ -39,7 +39,7 @@
     "prettier:lint": "prettier --check .",
     "postpublish": "pinst --enable",
     "release": "changeset publish",
-    "release:root": "pnpx release-it --github.release --no-npm",
+    "release:root": "HUSKY_SKIP_HOOKS=1 pnpx release-it --github.release --no-npm",
     "restore": "git restore . --recurse-submodules",
     "version-packages": "changeset version && pnpm run fix",
     "vercel:cp": "pnpm run vercel:cp:api && pnpm run vercel:cp:home",

@@ -35,9 +35,13 @@ export const middleware = (req: NextRequest) => {
     return;
   }
 
-  const hasNextAuthCookie =
-    req.cookies.getWithOptions("__Host-next-auth.csrf-token") ||
-    req.cookies.getWithOptions("next-auth.csrf-token");
+  const { value: hostValue } = req.cookies.getWithOptions(
+    "__Host-next-auth.csrf-token",
+  );
+  const { value: tokenValue } = req.cookies.getWithOptions(
+    "next-auth.csrf-token",
+  );
+  const hasNextAuthCookie = !!hostValue || !!tokenValue;
 
   if (hostname === targetHost && pathname === "/" && !hasNextAuthCookie) {
     url.pathname = "/home";

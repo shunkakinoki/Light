@@ -20,7 +20,6 @@ const Changelog = dynamic(
 
 export type Props = {
   posts: any;
-  tasks: any;
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
@@ -34,8 +33,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const tasks = [];
   for (const page of posts) {
     const pageId = page.id;
-    //@ts-expect-error
-    delete page.icon;
 
     //@ts-expect-error
     const datePropertyId = page.properties["Date"].id;
@@ -45,6 +42,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     });
     //@ts-expect-error
     const date = datePropertyItem.date.start;
+    //@ts-expect-error
+    page.date = date;
 
     //@ts-expect-error
     const namePropertyId = page.properties["Name"].id;
@@ -58,6 +57,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         return propertyItem.title.plain_text;
       })
       .join("");
+    //@ts-expect-error
+    page.name = name;
 
     //@ts-expect-error
     const numberPropertyId = page.properties["Number"].id;
@@ -67,16 +68,15 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     });
     //@ts-expect-error
     const number = numberPropertyItem.number;
-
-    tasks.push({ date: date, name: name, number: number });
+    //@ts-expect-error
+    page.number = number;
   }
 
-  console.warn(posts);
+  console.warn(posts, tasks);
 
   return {
     props: {
-      posts: JSON.stringify(posts),
-      tasks: JSON.stringify(tasks),
+      posts: posts,
     },
     revalidate: 300,
   };
@@ -84,12 +84,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 export const SlugPage = ({
   posts,
-  tasks,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   return (
     <>
       <Header />
-      <Changelog posts={JSON.parse(posts)} tasks={JSON.parse(tasks)} />
+      <Changelog posts={posts} />
       <Footer />
     </>
   );

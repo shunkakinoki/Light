@@ -4,7 +4,7 @@ import Link from "next/link";
 import { NotionImage } from "@lightdotso/changelog/components/NotionImage";
 import { leftNumberPad } from "@lightdotso/changelog/utils/leftNumberPad";
 
-export const Changelog = ({ posts, tasks }) => {
+export const Changelog = ({ posts }) => {
   if (!posts) {
     return <div />;
   }
@@ -30,8 +30,8 @@ export const Changelog = ({ posts, tasks }) => {
         </div>
       </div>
       <div className="my-12 flex flex-col space-y-8">
-        {posts.map((post, i) => {
-          const date = new Date(tasks[i].date).toLocaleString("en-US", {
+        {posts.map(post => {
+          const date = new Date(post.date).toLocaleString("en-US", {
             month: "short",
             day: "2-digit",
             year: "numeric",
@@ -40,7 +40,7 @@ export const Changelog = ({ posts, tasks }) => {
             <Link
               key={post.id}
               passHref
-              href={`/${leftNumberPad(tasks[i].number)}`}
+              href={`/${leftNumberPad(post.number)}`}
             >
               <a className="group">
                 <div className="aspect-w-16 aspect-h-9 duration-1000 hover:opacity-80">
@@ -49,14 +49,14 @@ export const Changelog = ({ posts, tasks }) => {
                 <div className="mt-6 w-full items-start justify-between">
                   <div className="flex w-full justify-between">
                     <h3 className="text-base font-bold text-contrast-medium group-hover:text-contrast-low sm:text-lg">
-                      Changelog #{leftNumberPad(tasks[i].number)}
+                      Changelog #{leftNumberPad(post.number)}
                     </h3>
                     <h3 className="text-base text-contrast-medium group-hover:text-contrast-low sm:text-lg">
                       {date}
                     </h3>
                   </div>
                   <h3 className="mt-3 text-xl font-bold text-contrast-higher group-hover:text-contrast-high sm:text-3xl">
-                    {tasks[i].name}
+                    {post.name}
                   </h3>
                 </div>
               </a>

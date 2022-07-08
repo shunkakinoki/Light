@@ -62,13 +62,14 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   }
 
   // eslint-disable-next-line no-console
-  console.log(tasks);
+  console.log(posts, tasks);
 
   return {
     props: {
       posts: posts,
-      tasks: JSON.stringify(tasks),
+      tasks: tasks,
     },
+    revalidate: 300,
   };
 };
 
@@ -79,7 +80,7 @@ export const SlugPage = ({
   return (
     <>
       <Header />
-      <Changelog posts={posts} tasks={JSON.parse(tasks)} />
+      <Changelog posts={posts} tasks={tasks} />
       <Footer />
     </>
   );

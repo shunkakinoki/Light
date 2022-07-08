@@ -39,7 +39,7 @@
     "prettier:lint": "prettier --check .",
     "postpublish": "pinst --enable",
     "release": "changeset publish",
-    "release:root": "cross-env HUSKY=1 release-it",
+    "release:root": "HUSKY=1 pnpm release-it",
     "restore": "git restore . --recurse-submodules",
     "version-packages": "changeset version && pnpm run fix",
     "vercel:cp": "pnpm run vercel:cp:api && pnpm run vercel:cp:home",

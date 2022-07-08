@@ -61,6 +61,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     tasks.push({ date: date, name: name, number: number });
   }
 
+  // eslint-disable-next-line no-console
+  console.log(tasks);
+
   return {
     props: {
       posts: posts,

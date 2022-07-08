@@ -9,6 +9,7 @@
         "prisma/**",
         "public/**",
         "src/**",
+        "cypress.config.js",
         "next.config.js",
         "package.json"
       ],
@@ -31,6 +32,7 @@
         "prisma/**",
         "public/**",
         "src/**",
+        "cypress.config.js",
         "next.config.js",
         "package.json"
       ],
@@ -47,6 +49,7 @@
         "cypress/**",
         "public/**",
         "src/**",
+        "cypress.config.js",
         "next.config.js",
         "package.json"
       ],
@@ -63,6 +66,7 @@
         "cypress/**",
         "public/**",
         "src/**",
+        "cypress.config.js",
         "next.config.js",
         "package.json"
       ],
@@ -85,11 +89,12 @@
       "outputs": ["dist/**", "zod/**"]
     },
     "@lightdotso/og#build": {
-      "dependsOn": ["^build", "$NEXT_PUBLIC_SENTRY_DSN"],
+      "dependsOn": ["^build", "$NEXT_PUBLIC_SENTRY_DSN", "$SENTRY_DSN"],
       "inputs": [
         "cypress/**",
         "public/**",
         "src/**",
+        "cypress.config.js",
         "next.config.js",
         "package.json"
       ],

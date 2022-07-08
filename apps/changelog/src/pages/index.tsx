@@ -15,7 +15,9 @@ const Changelog = dynamic(
     const mod = await import("@lightdotso/changelog/components/Changelog");
     return mod.Changelog;
   },
-  { ssr: false },
+  {
+    suspense: true,
+  },
 );
 
 export type Props = {

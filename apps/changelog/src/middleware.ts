@@ -14,6 +14,15 @@ export const middleware = (req: NextRequest) => {
     return pathname?.startsWith(path);
   });
 
+  if (
+    pathname.includes("/_next/data") &&
+    RedirectPrefixes.filter(s => {
+      return s.includes(pathname);
+    })
+  ) {
+    return;
+  }
+
   if (isExcluded) {
     return NextResponse.redirect(`https://light.so${pathname}`);
   }

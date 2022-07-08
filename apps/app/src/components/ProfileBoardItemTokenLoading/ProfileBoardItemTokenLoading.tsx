@@ -6,17 +6,17 @@ import { PlaceholderAvatarLoading } from "@lightdotso/app/components/Placeholder
 export const ProfileBoardItemTokenLoading: FC = () => {
   return (
     <tr className="flex w-full">
-      <td className="flex grow items-center py-3 pl-4 border-b border-contrast-lower">
-        <PlaceholderAvatarLoading className="w-6 md:w-8 h-6 md:h-8" />
+      <td className="flex grow items-center border-b border-contrast-lower py-3 pl-4">
+        <PlaceholderAvatarLoading className="h-6 w-6 md:h-8 md:w-8" />
         &nbsp;
-        <LoadingText className="ml-3 w-32 h-4" />
+        <LoadingText className="ml-3 h-4 w-32" />
       </td>
-      <td className="flex shrink-0 items-center py-3 text-contrast-medium border-b border-contrast-lower">
-        <LoadingText className="w-32 h-4" />
+      <td className="flex shrink-0 items-center border-b border-contrast-lower py-3 text-contrast-medium">
+        <LoadingText className="h-4 w-32" />
         &nbsp;
       </td>
-      <td className="flex flex-initial shrink-0 justify-end items-center py-3 pr-4 w-1/6 text-contrast-medium border-b border-contrast-lower">
-        <LoadingText className="w-24 h-4" />
+      <td className="flex w-1/6 flex-initial shrink-0 items-center justify-end border-b border-contrast-lower py-3 pr-4 text-contrast-medium">
+        <LoadingText className="h-4 w-24" />
       </td>
     </tr>
   );

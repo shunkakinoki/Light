@@ -1,17 +1,16 @@
+import { RedirectPrefixes } from "@lightdotso/const";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-const redirectPrefixes = [
-  "/analytics",
-  "/changelog",
-  "/favicon",
-  "/member",
-  "/home",
-];
-
 export const middleware = (req: NextRequest) => {
   const pathname = req.nextUrl.pathname;
-  const isExcluded = redirectPrefixes.find(path => {
+  const hostname = req.headers.get("host");
+
+  if (hostname.endsWith("vercel.app")) {
+    return;
+  }
+
+  const isExcluded = RedirectPrefixes.find(path => {
     return pathname?.startsWith(path);
   });
 

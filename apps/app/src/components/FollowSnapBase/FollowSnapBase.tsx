@@ -42,25 +42,25 @@ export const FollowSnapBase: FC<FollowListBaseProps> = ({
 
   return (
     <>
-      <div className="flex justify-between items-center w-full text-left">
-        <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-contrast-higher">
+      <div className="flex w-full items-center justify-between text-left">
+        <h1 className="text-2xl font-extrabold tracking-tight text-contrast-higher md:text-3xl">
           <span className="block xl:inline">{title}</span>
         </h1>
-        <span className="hidden sm:inline-flex relative z-0 items-center rounded-md shadow-sm">
+        <span className="relative z-0 hidden items-center rounded-md shadow-sm sm:inline-flex">
           <button
             type="button"
             className={clsx(
-              "inline-flex relative items-center p-2 text-sm font-medium text-contrast-medium bg-bg-light rounded-l-md border border-contrast-lower",
+              "relative inline-flex items-center rounded-l-md border border-contrast-lower bg-bg-light p-2 text-sm font-medium text-contrast-medium",
               size !== 1
                 ? "hover:text-contrast-higher"
-                : "hover:text-contrast-low cursor-not-allowed",
+                : "cursor-not-allowed hover:text-contrast-low",
             )}
             onClick={onBackClick}
           >
             <span className="sr-only">Previous</span>
-            <ChevronLeftIcon className="w-3 h-3" aria-hidden="true" />
+            <ChevronLeftIcon className="h-3 w-3" aria-hidden="true" />
           </button>
-          <span className="py-1 px-3 text-xs text-contrast-medium border-y border-contrast-lower">
+          <span className="border-y border-contrast-lower py-1 px-3 text-xs text-contrast-medium">
             <span className="text-sm font-semibold text-contrast-higher">
               {size}
             </span>
@@ -70,15 +70,15 @@ export const FollowSnapBase: FC<FollowListBaseProps> = ({
             disabled={isLoadingMore || isEnd}
             type="button"
             className={clsx(
-              "inline-flex relative items-center p-2 -ml-px text-sm font-medium text-contrast-medium bg-bg-light rounded-r-md border border-contrast-lower",
+              "relative -ml-px inline-flex items-center rounded-r-md border border-contrast-lower bg-bg-light p-2 text-sm font-medium text-contrast-medium",
               size !== MAX_FOLLOW_SNAP_NUMBER && !isEnd
                 ? "hover:text-contrast-higher"
-                : "hover:text-contrast-low cursor-not-allowed",
+                : "cursor-not-allowed hover:text-contrast-low",
             )}
             onClick={onClick}
           >
             <span className="sr-only">Next</span>
-            <ChevronRightIcon className="w-3 h-3" aria-hidden="true" />
+            <ChevronRightIcon className="h-3 w-3" aria-hidden="true" />
           </button>
         </span>
       </div>
@@ -89,7 +89,7 @@ export const FollowSnapBase: FC<FollowListBaseProps> = ({
         {children}
       </FollowGridLayout>
       {!isEnd && (
-        <div className="flex sm:hidden mx-auto mt-12 lg:max-w-xl">
+        <div className="mx-auto mt-12 flex sm:hidden lg:max-w-xl">
           <MoreButton
             disabled={isLoadingMore || isEnd}
             className="w-full disabled:cursor-not-allowed"

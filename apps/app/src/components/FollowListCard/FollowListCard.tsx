@@ -47,23 +47,23 @@ export const FollowListCard: FC<FollowListCardProps> = ({
   return (
     <button
       ref={hoverRef}
-      className="flex items-center p-4 w-full bg-bg-lighter hover:bg-bg-light rounded-lg border border-contrast-lower cursor-pointer"
+      className="flex w-full cursor-pointer items-center rounded-lg border border-contrast-lower bg-bg-lighter p-4 hover:bg-bg-light"
       onClick={e => {
         e.preventDefault();
         return router.push(`/${slug}`);
       }}
     >
       <Link passHref href={`/${slug}`}>
-        <a className="group relative shrink-0 mr-6">
+        <a className="group relative mr-6 shrink-0">
           <PlaceholderBlur />
           <PlaceholderAvatar
             address={address}
-            className="relative w-12 h-12 opacity-100"
+            className="relative h-12 w-12 opacity-100"
           />
         </a>
       </Link>
       <FollowBanner address={address} ens={ens} />
-      <div className="hidden md:inline-flex relative shrink-0 py-1 px-6">
+      <div className="relative hidden shrink-0 py-1 px-6 md:inline-flex">
         <NetworkStack disableLoading address={address} id={id} />
       </div>
       <div className="shrink-0 text-contrast-medium">

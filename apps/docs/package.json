@@ -22,9 +22,9 @@
     "@lightdotso/core": "workspace:*",
     "@lightdotso/tailwindcss": "workspace:*",
     "@reach/skip-nav": "^0.17.0",
-    "@sentry/integrations": "^7.3.0",
-    "@sentry/nextjs": "^7.3.0",
-    "next": "^12.1.6",
+    "@sentry/integrations": "^7.5.1",
+    "@sentry/nextjs": "^7.5.1",
+    "next": "^12.2.1",
     "next-compose-plugins": "^2.2.1",
     "next-plausible": "^3.2.0",
     "next-themes": "^0.2.0",
@@ -38,8 +38,8 @@
     "@cypress/react": "^6.0.0",
     "@lightdotso/tsconfig": "workspace:*",
     "@testing-library/cypress": "^8.0.3",
-    "@types/react": "^18.0.14",
-    "cypress": "^10.2.0"
+    "@types/react": "^18.0.15",
+    "cypress": "^10.3.0"
   },
   "publishConfig": {
     "access": "public",

@@ -1,7 +1,19 @@
 {
   "baseBranch": "origin/main",
-  "globalDependencies": ["pnpm-workspace.yaml", "tsconfig.json", ".env.*"],
+  "globalDependencies": ["pnpm-workspace.yaml", "tsconfig.json", "turbo.json"],
   "pipeline": {
+    "@lightdotso/api#build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "cypress/**",
+        "prisma/**",
+        "public/**",
+        "src/**",
+        "next.config.js",
+        "package.json"
+      ],
+      "outputs": [".next/**", "dist/**"]
+    },
     "@lightdotso/app#build": {
       "dependsOn": [
         "^build",
@@ -14,11 +26,69 @@
         "$SENTRY_DSN",
         "$VERCEL_ENV"
       ],
+      "inputs": [
+        "cypress/**",
+        "prisma/**",
+        "public/**",
+        "src/**",
+        "next.config.js",
+        "package.json"
+      ],
+      "outputs": [".next/**"]
+    },
+    "@lightdotso/changelog#build": {
+      "dependsOn": ["^build", "$NOTION_API_KEY"],
+      "inputs": [
+        "cypress/**",
+        "public/**",
+        "src/**",
+        "next.config.js",
+        "package.json"
+      ],
       "outputs": [".next/**"]
     },
     "@lightdotso/contracts#build": {
       "dependsOn": ["^build"],
+      "inputs": ["contracts/**", "src/**", "hardhat.config.ts"],
       "outputs": ["abi/**", "artifacts/**", "dist/**", "typechain/**"]
+    },
+    "@lightdotso/docs#build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "cypress/**",
+        "public/**",
+        "src/**",
+        "next.config.js",
+        "package.json"
+      ],
+      "outputs": [".next/**"]
+    },
+    "@lightdotso/home#build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "cypress/**",
+        "public/**",
+        "src/**",
+        "next.config.js",
+        "package.json"
+      ],
+      "outputs": [".next/**"]
+    },
+    "@lightdotso/prisma#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["schema.prisma"],
+      "outputs": ["dist/**", "zod/**"]
+    },
+    "@lightdotso/og#build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "cypress/**",
+        "public/**",
+        "src/**",
+        "next.config.js",
+        "package.json"
+      ],
+      "outputs": [".next/**"]
     },
     "build": {
       "dependsOn": ["^build"],

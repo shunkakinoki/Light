@@ -14,7 +14,7 @@ export const AssetDetailsExternalButton: FC<
       rel="noopener noreferrer"
       className={clsx(
         className,
-        "p-3 text-base font-medium text-contrast-higher bg-bg hover:bg-bg-light rounded border border-contrast-lower focus:ring-2 focus:ring-primary focus:ring-offset-2 ring-offset-bg",
+        "rounded border border-contrast-lower bg-bg p-3 text-base font-medium text-contrast-higher ring-offset-bg hover:bg-bg-light focus:ring-2 focus:ring-primary focus:ring-offset-2",
       )}
       {...rest}
     >

@@ -26,17 +26,17 @@ export const ModalNetworkListCard: FC<ModalNetworkListCardProps> = ({
   return (
     <Link passHref href={`/${type.toLowerCase()}/${networkId}`}>
       <a
-        className="group flex items-center py-3 px-4 w-full bg-bg-lighter hover:bg-emphasis-high"
+        className="group flex w-full items-center bg-bg-lighter py-3 px-4 hover:bg-emphasis-high"
         onClick={e => {
           e.stopPropagation();
           setModalNetworkState({ ...modalNetworkState, open: false });
         }}
       >
         <NetworkItem id={id} network={network} effect={false} />
-        <div className="grow pl-8 text-lg font-semibold text-contrast-higher group-hover:text-contrast-high text-ellipsis line-clamp-3">
+        <div className="grow text-ellipsis pl-8 text-lg font-semibold text-contrast-higher line-clamp-3 group-hover:text-contrast-high">
           {name}
         </div>
-        <div className="shrink-0 ml-3 text-contrast-medium">
+        <div className="ml-3 shrink-0 text-contrast-medium">
           {count?.toLocaleString()} People
         </div>
       </a>

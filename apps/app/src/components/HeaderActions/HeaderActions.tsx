@@ -9,12 +9,12 @@ export type HeaderActionsProps = {
 
 export const HeaderActions: FC<HeaderActionsProps> = ({ active = "None" }) => {
   return (
-    <div className="flex items-center ml-4">
+    <div className="ml-4 flex items-center">
       <span className="block">
         <Link passHref href="/">
           <a
             className={clsx(
-              "inline-flex items-center py-2 px-3 text-xs font-medium text-contrast-higher rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ring-offset-bg",
+              "inline-flex items-center rounded-md py-2 px-3 text-xs font-medium text-contrast-higher ring-offset-bg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
               active === "Home"
                 ? "bg-emphasis-medium"
                 : "text-contrast-high hover:bg-emphasis-medium",
@@ -22,7 +22,7 @@ export const HeaderActions: FC<HeaderActionsProps> = ({ active = "None" }) => {
           >
             <HomeIcon
               className={clsx(
-                "mr-1 -ml-1 w-5 h-5",
+                "mr-1 -ml-1 h-5 w-5",
                 active === "Home"
                   ? "text-contrast-higher"
                   : "text-contrast-high",
@@ -33,11 +33,11 @@ export const HeaderActions: FC<HeaderActionsProps> = ({ active = "None" }) => {
           </a>
         </Link>
       </span>
-      <span className="block ml-3">
+      <span className="ml-3 block">
         <Link passHref href="/explore">
           <a
             className={clsx(
-              "inline-flex items-center py-2 px-3 text-xs font-medium text-contrast-higher rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ring-offset-bg",
+              "inline-flex items-center rounded-md py-2 px-3 text-xs font-medium text-contrast-higher ring-offset-bg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
               active === "Explore"
                 ? "bg-emphasis-medium"
                 : "text-contrast-high hover:bg-emphasis-medium",
@@ -45,7 +45,7 @@ export const HeaderActions: FC<HeaderActionsProps> = ({ active = "None" }) => {
           >
             <GlobeAltIcon
               className={clsx(
-                "mr-1 -ml-1 w-5 h-5",
+                "mr-1 -ml-1 h-5 w-5",
                 active === "Explore"
                   ? "text-contrast-higher"
                   : "text-contrast-high",

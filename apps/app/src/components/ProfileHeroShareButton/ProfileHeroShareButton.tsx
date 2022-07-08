@@ -19,7 +19,7 @@ export const ProfileHeroShareButton: FC<ProfileHeroShareButtonProps> = ({
   return (
     <button
       type="button"
-      className="inline-flex items-center p-2.5 text-contrast-higher hover:text-contrast-medium bg-bg-lighter hover:bg-bg rounded-full border border-contrast-lower focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ring-offset-bg-light shadow-sm"
+      className="inline-flex items-center rounded-full border border-contrast-lower bg-bg-lighter p-2.5 text-contrast-higher shadow-sm ring-offset-bg-light hover:bg-bg hover:text-contrast-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
       onClick={() => {
         setModalShareState({
           address: address,
@@ -29,7 +29,7 @@ export const ProfileHeroShareButton: FC<ProfileHeroShareButtonProps> = ({
         });
       }}
     >
-      <FiShare className="w-4 h-4" aria-hidden="true" />
+      <FiShare className="h-4 w-4" aria-hidden="true" />
     </button>
   );
 };

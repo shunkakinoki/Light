@@ -1,4 +1,4 @@
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "@lightdotso/core";
 import type { AppProps } from "next/app";
 import type { FC } from "react";
 import { RecoilRoot } from "recoil";

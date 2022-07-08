@@ -150,7 +150,7 @@ const renderBlock = block => {
   }
 };
 
-export const Notion = ({ page, blocks }) => {
+export const Notion = ({ page, blocks, title, number }) => {
   if (!page || !blocks) {
     return <div />;
   }
@@ -164,32 +164,30 @@ export const Notion = ({ page, blocks }) => {
   return (
     <>
       <Head>
-        <title>{page.properties.Name.title[0].plain_text}</title>
+        <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="twitter:image" content={page.cover.external.url} />
         <meta property="og:image" content={page.cover.external.url} />
       </Head>
       <NextSeo
-        title={page.properties.Name.title[0].plain_text}
-        description={`Changelog #${leftNumberPad(
-          page.properties.Number.number,
-        )}`}
+        title={title}
+        description={`Changelog #${leftNumberPad(number)}`}
         openGraph={{
           images: [{ url: page.cover.external.url }],
         }}
       />
-      <div className="py-16 px-3 mx-auto max-w-2xl">
+      <div className="mx-auto max-w-2xl py-16 px-3">
         <Link href="/">
           <a className="text-contrast-medium hover:underline">
             ← Go back to changelog
           </a>
         </Link>
         <h1 className="my-5 text-4xl font-extrabold text-contrast-higher">
-          <Text text={page.properties.Name.title} />
+          {title}
         </h1>
-        <div className="flex justify-between mt-3 w-full">
+        <div className="mt-3 flex w-full justify-between">
           <h3 className="text-lg font-bold text-contrast-medium">
-            Changelog #{leftNumberPad(page.properties.Number.number)}
+            Changelog #{leftNumberPad(number)}
           </h3>
           <h3 className="text-lg text-contrast-medium">{date}</h3>
         </div>

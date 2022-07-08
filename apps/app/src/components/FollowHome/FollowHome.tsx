@@ -42,12 +42,12 @@ export const FollowHome: FC = () => {
               Follow us on Twitter
             </a>
           </div>
-          <h1 className="mt-4 md:mt-8 text-3xl md:text-4xl font-extrabold tracking-tight text-contrast-higher">
+          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-contrast-higher md:mt-8 md:text-4xl">
             <span className="block xl:inline">
               Follow the best people in the metaverse.
             </span>
           </h1>
-          <p className="sm:mx-auto lg:mx-0 mt-3 sm:max-w-xl text-base sm:text-lg md:text-xl text-contrast-low">
+          <p className="mt-3 text-base text-contrast-low sm:mx-auto sm:max-w-xl sm:text-lg md:text-xl lg:mx-0">
             Check out the Explore page to find the best people in Light.
           </p>
         </div>

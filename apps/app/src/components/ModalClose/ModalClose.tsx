@@ -7,7 +7,7 @@ export type ModalCloseProps = ModalCloseButtonProps;
 
 export const ModalClose: FC<ModalCloseProps> = ({ onClick }) => {
   return (
-    <div className="flex justify-end items-center mb-4 w-full">
+    <div className="mb-4 flex w-full items-center justify-end">
       <ModalCloseButton onClick={onClick} />
     </div>
   );

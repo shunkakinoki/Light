@@ -88,7 +88,7 @@ model Activity {
   type      DataType
 
   timeline Timeline[]
-  @@unique([id, chainId, type])
+  @@unique([id, address, createdAt, chainId, type])
 }
 
 model Address {

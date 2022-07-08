@@ -25,7 +25,7 @@ export const TimelineBannerNFT: FC<TimelineBannerNFTProps> = ({ data }) => {
                 layout="fixed"
                 width={13}
                 height={13}
-                className="w-[13px] h-[13px] rounded-lg"
+                className="h-[13px] w-[13px] rounded-lg"
                 src={image_url}
                 loading="lazy"
               />
@@ -38,7 +38,7 @@ export const TimelineBannerNFT: FC<TimelineBannerNFTProps> = ({ data }) => {
       </Link>
       {safelist_request_status === "verified" && (
         <span className="inline-block">
-          <BadgeCheckIcon className="w-3 h-3 fill-primary" />
+          <BadgeCheckIcon className="h-3 w-3 fill-primary" />
         </span>
       )}
     </>

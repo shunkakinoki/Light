@@ -4,8 +4,8 @@ import { FaTwitter } from "react-icons/fa";
 
 export const TwitterNotice: FC = () => {
   return (
-    <div className="w-full h-48">
-      <div className="flex flex-col justify-center items-center">
+    <div className="h-48 w-full">
+      <div className="flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold leading-7 text-contrast-higher">
           Coming soon...
         </h1>
@@ -16,9 +16,9 @@ export const TwitterNotice: FC = () => {
           href={SocialLinks.Twitter}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center p-3 mt-4 text-sm text-contrast-higher hover:text-contrast-medium rounded-full cursor-pointer"
+          className="mt-4 inline-flex cursor-pointer items-center rounded-full p-3 text-sm text-contrast-higher hover:text-contrast-medium"
         >
-          <FaTwitter className="w-10 h-10" aria-hidden="true" />
+          <FaTwitter className="h-10 w-10" aria-hidden="true" />
         </a>
       </div>
     </div>

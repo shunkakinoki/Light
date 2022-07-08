@@ -43,10 +43,10 @@ export const ProfileFollowHeroTabs: FC<ProfileFollowHeroTabsProps> = ({
   ];
 
   return (
-    <div className="overflow-x-scroll overflow-y-hidden bg-bg-lighter border-b border-contrast-lower">
-      <div className="flex justify-center mx-auto">
+    <div className="overflow-y-hidden overflow-x-scroll border-b border-contrast-lower bg-bg-lighter">
+      <div className="mx-auto flex justify-center">
         <nav
-          className="flex justify-center md:justify-start -mb-px space-x-8"
+          className="-mb-px flex justify-center space-x-8 md:justify-start"
           aria-label="Tabs"
         >
           {tabs.map(tab => {
@@ -55,10 +55,10 @@ export const ProfileFollowHeroTabs: FC<ProfileFollowHeroTabsProps> = ({
                 <a
                   className={clsx(
                     tab.follow === follow
-                      ? "text-contrast-higher border-contrast-high"
-                      : "text-contrast-medium hover:text-contrast-higher border-transparent hover:border-contrast-medium",
+                      ? "border-contrast-high text-contrast-higher"
+                      : "border-transparent text-contrast-medium hover:border-contrast-medium hover:text-contrast-higher",
                     !slug && "pointer-events-none",
-                    "group inline-flex items-center py-4 px-3 text-sm font-medium border-b-4",
+                    "group inline-flex items-center border-b-4 py-4 px-3 text-sm font-medium",
                   )}
                   aria-current={tab.follow === follow ? "page" : undefined}
                 >

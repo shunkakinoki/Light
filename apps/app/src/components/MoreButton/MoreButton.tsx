@@ -12,7 +12,7 @@ export const MoreButton: FC<MoreButtonProps> = ({
     <button
       className={clsx(
         className,
-        "py-3 text-base font-medium text-contrast-higher hover:bg-bg-light rounded border border-contrast-lower focus:ring-2 focus:ring-primary focus:ring-offset-2 ring-offset-bg",
+        "rounded border border-contrast-lower py-3 text-base font-medium text-contrast-higher ring-offset-bg hover:bg-bg-light focus:ring-2 focus:ring-primary focus:ring-offset-2",
       )}
       {...rest}
     >

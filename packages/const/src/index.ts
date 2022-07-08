@@ -1,5 +1,6 @@
 export { ApiLinks } from "./ApiLinks";
 export { ChainIds } from "./ChainIds";
+export { RedirectPrefixes } from "./RedirectPrefixes";
 export { NavigationLinks } from "./NavigationLinks";
 export { NetworkNames, NetworkNamesEnum } from "./NetworkNames";
 export type { Network } from "./NetworkNames";

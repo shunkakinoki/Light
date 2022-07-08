@@ -31,20 +31,20 @@ export const TimelineListBase: FC<TimelineListBaseProps> = ({
   return (
     <div
       className={clsx(
-        "flex flex-col md:flex-row w-full lg:max-w-3xl",
+        "flex w-full flex-col md:flex-row lg:max-w-3xl",
         isCenter && "mx-auto",
       )}
     >
-      <div className="basis-1/6 md:basis-1/3 shrink md:py-8 px-3">
+      <div className="shrink basis-1/6 px-3 md:basis-1/3 md:py-8">
         <TimelineNavigation />
       </div>
-      <div className="flex px-3 w-full">
-        <div className="flex overflow-visible flex-col justify-center py-8 space-y-3.5 w-full">
+      <div className="flex w-full px-3">
+        <div className="flex w-full flex-col justify-center space-y-3.5 overflow-visible py-8">
           {isLoadingInitial && <TimelineListLoading />}
           {isEmpty && <TimelineEmpty />}
           {children}
           {!isEnd && (
-            <div className="pt-8 w-full lg:max-w-lg">
+            <div className="w-full pt-8 lg:max-w-lg">
               <MoreButton
                 disabled={isLoadingMore || isEnd}
                 className="w-full disabled:cursor-not-allowed"

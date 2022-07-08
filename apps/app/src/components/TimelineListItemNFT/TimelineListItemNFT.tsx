@@ -20,7 +20,7 @@ export const TimelineListItemNFT: FC<TimelineListItemNFTProps> = ({
 
   return (
     <TimelineListItem
-      className={clsx(className, "z-0 w-full h-full bg-transparent")}
+      className={clsx(className, "z-0 h-full w-full bg-transparent")}
     >
       <Link passHref href={`/asset/nft/${address}/${token_id}`}>
         <a>

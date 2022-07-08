@@ -5,6 +5,7 @@ export enum NotionPages {
   TERMS_OF_SERVICE = "Terms of Service",
   MARKETING = "Marketing",
   ROADMAP = "Roadmap",
+  STATS = "Stats",
   TEAM = "Team",
 }
 
@@ -23,6 +24,8 @@ export const NotionLinks: {
     "https://lightdotso.notion.site/7376e95f478740609a7892a6655b9654",
   [NotionPages.ROADMAP]:
     "https://lightdotso.notion.site/21b4c7b11a6747dd88a89eb7a1177837",
+  [NotionPages.STATS]:
+    "https://lightdotso.notion.site/58f5993e078147caaddb41d7890711e7",
   [NotionPages.TEAM]:
     "https://lightdotso.notion.site/a01c7d1d1eb94ce697595e53d6e8568b",
 };

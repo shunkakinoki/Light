@@ -1,5 +1,4 @@
-import { Analytics, Seo, ThemeScript } from "@lightdotso/core";
-import { ThemeProvider } from "next-themes";
+import { Analytics, Seo, ThemeScript, ThemeProvider } from "@lightdotso/core";
 import type { AppProps } from "next/app";
 import type { FC } from "react";
 import "@lightdotso/changelog/styles/index.css";

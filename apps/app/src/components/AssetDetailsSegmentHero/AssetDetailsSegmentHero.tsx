@@ -12,7 +12,7 @@ export const AssetDetailsSegmentHero: FC<AssetDetailsSegmentHeroProps> = ({
   description,
 }) => {
   return (
-    <div className="overflow-hidden max-w-xl text-ellipsis break-words">
+    <div className="max-w-xl overflow-hidden text-ellipsis break-words">
       <h1 className="mt-6 text-4xl font-extrabold text-contrast-higher line-clamp-3">
         {name}
       </h1>

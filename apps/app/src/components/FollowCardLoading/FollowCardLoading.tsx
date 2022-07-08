@@ -6,9 +6,9 @@ import { NetworkStackLoading } from "@lightdotso/app/components/NetworkStackLoad
 
 export const FollowCardLoading: FC = () => {
   return (
-    <li className="col-span-1 p-4 bg-emphasis-medium rounded-lg border border-contrast-lower shadow animate-pulse">
+    <li className="col-span-1 animate-pulse rounded-lg border border-contrast-lower bg-emphasis-medium p-4 shadow">
       <FollowCardBannerLoading />
-      <div className="flex overflow-x-scroll overflow-y-visible items-center pt-[20px] pb-[18px] space-x-2">
+      <div className="flex items-center space-x-2 overflow-y-visible overflow-x-scroll pt-[20px] pb-[18px]">
         <NetworkStackLoading />
       </div>
       <FollowCardProofLoading />

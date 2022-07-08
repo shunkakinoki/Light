@@ -5,10 +5,10 @@ import { ListLi } from "../ListLi";
 
 export const FooterList = () => {
   return (
-    <div className="grid xl:col-span-1 gap-8 mt-12 xl:mt-0">
+    <div className="mt-12 grid gap-8 xl:col-span-1 xl:mt-0">
       <div className="md:grid md:grid-cols-3 md:gap-8">
         <div>
-          <h3 className="text-sm font-semibold tracking-wider text-contrast-low uppercase">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-contrast-low">
             Resources
           </h3>
           <ul className="mt-4 space-y-4">
@@ -26,7 +26,7 @@ export const FooterList = () => {
           </ul>
         </div>
         <div className="mt-12 md:mt-0">
-          <h3 className="text-sm font-semibold tracking-wider text-contrast-low uppercase">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-contrast-low">
             Company
           </h3>
           <ul className="mt-4 space-y-4">
@@ -44,7 +44,7 @@ export const FooterList = () => {
           </ul>
         </div>
         <div className="mt-12 md:mt-0">
-          <h3 className="text-sm font-semibold tracking-wider text-contrast-low uppercase">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-contrast-low">
             Legal
           </h3>
           <ul className="mt-4 space-y-4">

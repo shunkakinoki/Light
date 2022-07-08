@@ -19,15 +19,18 @@
     "start": "next start"
   },
   "dependencies": {
+    "@lightdotso/core": "workspace:*",
     "@lightdotso/styles": "workspace:*",
-    "@sentry/integrations": "^7.3.0",
-    "@sentry/nextjs": "^7.3.0",
-    "clsx": "^1.1.1",
+    "@sentry/integrations": "^7.5.1",
+    "@sentry/nextjs": "^7.5.1",
+    "clsx": "^1.2.1",
     "copy-to-clipboard": "^3.3.1",
-    "next": "^12.1.6",
+    "next": "^12.2.1",
+    "next-compose-plugins": "^2.2.1",
     "next-themes": "^0.2.0",
+    "next-transpile-modules": "^9.0.0",
     "playwright-aws-lambda": "^0.8.0",
-    "playwright-core": "^1.23.0",
+    "playwright-core": "^1.23.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "recoil": "^0.7.4"
@@ -35,13 +38,14 @@
   "devDependencies": {
     "@cypress/react": "^6.0.0",
     "@lightdotso/tailwindcss": "workspace:*",
+    "@lightdotso/tsconfig": "workspace:*",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/line-clamp": "^0.4.0",
-    "@tailwindcss/typography": "^0.5.2",
+    "@tailwindcss/typography": "^0.5.3",
     "@testing-library/cypress": "^8.0.3",
-    "@types/react": "^18.0.14",
-    "cypress": "^10.2.0"
+    "@types/react": "^18.0.15",
+    "cypress": "^10.3.0"
   },
   "publishConfig": {
     "access": "public",

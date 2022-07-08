@@ -25,8 +25,8 @@ export const TimelineBanner: FC<TimelineBannerProps> = ({
   const slug = isEnsLoading ? truncatedAddress : ens ?? truncatedAddress;
 
   return (
-    <div className="flex flex-col justify-start items-start text-left">
-      <p className="text-contrast-medium break-words line-clamp-1">
+    <div className="flex flex-col items-start justify-start text-left">
+      <p className="break-words text-contrast-medium line-clamp-1">
         <Link passHref href={`/${ens ?? address}`}>
           <a className="text-sm font-medium text-contrast-high hover:underline">
             {slug}
@@ -37,7 +37,7 @@ export const TimelineBanner: FC<TimelineBannerProps> = ({
         {banner && <span className="text-contrast-medium">{"・"}</span>}
         {banner}
       </p>
-      <p className="text-contrast-medium break-words line-clamp-1">
+      <p className="break-words text-contrast-medium line-clamp-1">
         {children}
       </p>
     </div>

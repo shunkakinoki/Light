@@ -6,7 +6,7 @@ import { PlaceholderProfileLoading } from "@lightdotso/app/components/Placeholde
 
 export const FollowCardBannerLoading: FC = () => {
   return (
-    <div className="flex justify-between items-center space-x-4 w-full">
+    <div className="flex w-full items-center justify-between space-x-4">
       <PlaceholderProfileLoading />
       <FollowBannerLoading />
       <FollowButtonLoading />

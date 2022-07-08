@@ -13,7 +13,7 @@ export const MemberDiscord: FC = () => {
           rel="noreferrer"
           className="text-center text-contrast-higher hover:text-contrast-high"
         >
-          <FaDiscord className="w-10 h-10" aria-hidden="true" />
+          <FaDiscord className="h-10 w-10" aria-hidden="true" />
         </a>
       </div>
       <p className="mt-4 text-lg text-contrast-medium">

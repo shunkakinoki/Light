@@ -28,10 +28,10 @@ export const NetworkHeroPoap: FC<NetworkHeroProps> = ({ eventId }) => {
       avatar={
         <>
           {!event ? (
-            <PlaceholderAvatarLoading className="w-24 h-24" />
+            <PlaceholderAvatarLoading className="h-24 w-24" />
           ) : (
             <NetworkAvatar
-              className="w-24 h-24"
+              className="h-24 w-24"
               avatar={event.image_url}
               name={event.name}
               id={eventId}

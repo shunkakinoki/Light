@@ -35,8 +35,8 @@ export const Network: FC<NetworkProps> = ({ active, id, type, name }) => {
     <>
       <SeoLight ogpName={name || id} />
       <div className="mx-auto max-w-7xl">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-x-5 lg:px-12 lg:mt-12">
-          <div className="lg:col-span-3 lg:p-0 py-8 lg:py-12 px-2 sm:px-6 bg-bg-lighter lg:bg-bg">
+        <div className="lg:mt-12 lg:grid lg:grid-cols-12 lg:gap-x-5 lg:px-12">
+          <div className="bg-bg-lighter py-8 px-2 sm:px-6 lg:col-span-3 lg:bg-bg lg:p-0 lg:py-12">
             {type === "DAO" && <NetworkHeroSnapshot spaceId={id} />}
             {type === "POAP" && <NetworkHeroPoap eventId={id} />}
           </div>

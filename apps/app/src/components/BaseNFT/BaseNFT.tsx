@@ -48,7 +48,7 @@ export const BaseNFT: FC<BaseNFTProps> = ({
     animation_original_url?.endsWith(".mov")
   ) {
     return (
-      <div className="flex w-full h-full">
+      <div className="flex h-full w-full">
         <video
           controls
           loop
@@ -62,7 +62,7 @@ export const BaseNFT: FC<BaseNFTProps> = ({
 
   if (animation_url) {
     return (
-      <div className="flex w-full h-full">
+      <div className="flex h-full w-full">
         <iframe
           className="w-full"
           title={name}
@@ -74,7 +74,7 @@ export const BaseNFT: FC<BaseNFTProps> = ({
 
   if (image_original_url?.endsWith(".webm")) {
     return (
-      <div className="flex w-full h-full">
+      <div className="flex h-full w-full">
         <video controls autoPlay loop muted>
           <source src={image_url ?? image_original_url} type="video/webm" />
         </video>
@@ -86,7 +86,7 @@ export const BaseNFT: FC<BaseNFTProps> = ({
     return (
       <NextImage
         layout="fill"
-        className="object-cover w-full h-full"
+        className="h-full w-full object-cover"
         src={image_url ?? image_original_url}
         alt={name}
         loading="lazy"
@@ -96,8 +96,8 @@ export const BaseNFT: FC<BaseNFTProps> = ({
 
   if (!name) {
     return (
-      <div className="flex justify-center items-center h-full bg-emphasis-high duration-[3000ms] animate-pulse">
-        <h1 className="text-xl font-semibold text-center text-contrast-medium">
+      <div className="flex h-full animate-pulse items-center justify-center bg-emphasis-high duration-[3000ms]">
+        <h1 className="text-center text-xl font-semibold text-contrast-medium">
           Unknown
         </h1>
       </div>
@@ -105,8 +105,8 @@ export const BaseNFT: FC<BaseNFTProps> = ({
   }
 
   return (
-    <div className="flex justify-center items-center h-full">
-      <h1 className="text-xl font-semibold text-center text-contrast-medium">
+    <div className="flex h-full items-center justify-center">
+      <h1 className="text-center text-xl font-semibold text-contrast-medium">
         {name}
       </h1>
     </div>

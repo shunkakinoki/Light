@@ -25,7 +25,7 @@ export const AssetDetailsSegmentProfile: FC<
         </a>
       </Link>
       <a href={`https://etherscan.io/address/${address}`}>
-        <ArrowUpIcon className="inline-block ml-2 w-5 h-5 text-contrast-high group-hover:animate-pulse rotate-45" />
+        <ArrowUpIcon className="ml-2 inline-block h-5 w-5 rotate-45 text-contrast-high group-hover:animate-pulse" />
       </a>
     </div>
   );

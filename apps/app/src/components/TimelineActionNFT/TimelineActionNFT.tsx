@@ -36,32 +36,32 @@ export const TimelineActionNFT: FC<TimelineActionNFTProps> = ({ data }) => {
       {data?.event_type === "approve" ? (
         <>
           Approved{" "}
-          <ChevronDoubleRightIcon className="inline-block w-4 h-4 fill-contrast-higher" />{" "}
+          <ChevronDoubleRightIcon className="inline-block h-4 w-4 fill-contrast-higher" />{" "}
         </>
       ) : data?.event_type === "cancelled" ? (
         <>
           Cancelled{" "}
-          <ChevronDoubleRightIcon className="inline-block w-4 h-4 fill-contrast-higher" />{" "}
+          <ChevronDoubleRightIcon className="inline-block h-4 w-4 fill-contrast-higher" />{" "}
         </>
       ) : data?.event_type === "created" ? (
         <>
           Created{" "}
-          <ChevronDoubleRightIcon className="inline-block w-4 h-4 fill-contrast-higher" />{" "}
+          <ChevronDoubleRightIcon className="inline-block h-4 w-4 fill-contrast-higher" />{" "}
         </>
       ) : data?.event_type === "bid_entered" ? (
         <>
           Entered Bid{" "}
-          <ChevronDoubleRightIcon className="inline-block w-4 h-4 fill-contrast-higher" />{" "}
+          <ChevronDoubleRightIcon className="inline-block h-4 w-4 fill-contrast-higher" />{" "}
         </>
       ) : data?.event_type === "bid_withdrawn" ? (
         <>
           Withdrew Bid{" "}
-          <ChevronDoubleRightIcon className="inline-block w-4 h-4 fill-contrast-higher" />{" "}
+          <ChevronDoubleRightIcon className="inline-block h-4 w-4 fill-contrast-higher" />{" "}
         </>
       ) : data?.event_type === "offer_entered" ? (
         <>
           Entered Offer{" "}
-          <ChevronDoubleRightIcon className="inline-block w-4 h-4 fill-contrast-higher" />{" "}
+          <ChevronDoubleRightIcon className="inline-block h-4 w-4 fill-contrast-higher" />{" "}
           for{" "}
           <span className="text-sm font-semibold text-contrast-higher">
             {data?.bid_amount / 10 ** data?.payment_token.decimals}{" "}
@@ -75,30 +75,30 @@ export const TimelineActionNFT: FC<TimelineActionNFTProps> = ({ data }) => {
         data?.from_account?.address === ZERO_WALLET_ADDRESS ? (
         <>
           Success{" "}
-          <SparklesIcon className="inline-block w-4 h-4 fill-contrast-higher" />{" "}
+          <SparklesIcon className="inline-block h-4 w-4 fill-contrast-higher" />{" "}
         </>
       ) : data?.event_type === "transfer" &&
         data?.from_account?.address === ZERO_WALLET_ADDRESS ? (
         <>
           Minted{" "}
-          <SparklesIcon className="inline-block w-4 h-4 fill-contrast-higher" />{" "}
+          <SparklesIcon className="inline-block h-4 w-4 fill-contrast-higher" />{" "}
         </>
       ) : data?.event_type === "transfer" ? (
         <>
           Transferred{" "}
-          <SparklesIcon className="inline-block w-4 h-4 fill-contrast-higher" />{" "}
+          <SparklesIcon className="inline-block h-4 w-4 fill-contrast-higher" />{" "}
         </>
       ) : (
         <>
           Something{" "}
-          <ChevronDoubleRightIcon className="inline-block w-4 h-4 fill-contrast-higher" />{" "}
+          <ChevronDoubleRightIcon className="inline-block h-4 w-4 fill-contrast-higher" />{" "}
         </>
       )}
       <Link
         passHref
         href={`/asset/nft/${data?.asset?.asset_contract?.address}/${data?.asset?.token_id}`}
       >
-        <a className="overflow-hidden text-sm font-normal text-contrast-high hover:underline text-ellipsis break-all">
+        <a className="overflow-hidden text-ellipsis break-all text-sm font-normal text-contrast-high hover:underline">
           {data?.asset?.name}
         </a>
       </Link>
@@ -108,7 +108,7 @@ export const TimelineActionNFT: FC<TimelineActionNFTProps> = ({ data }) => {
           <span className="text-sm text-contrast-low">to</span>
           &nbsp;
           <Link passHref href={`/${address}`}>
-            <a className="overflow-hidden text-sm font-normal text-contrast-high hover:underline text-ellipsis break-all">
+            <a className="overflow-hidden text-ellipsis break-all text-sm font-normal text-contrast-high hover:underline">
               {slug}
             </a>
           </Link>

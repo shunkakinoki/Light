@@ -41,7 +41,7 @@ export const TimelineDigest: FC<TimelineDigestProps> = ({ category }) => {
     <div className="flex pt-3 md:pt-4">
       <div
         className={clsx(
-          "flex items-center py-1 px-2.5 text-sm md:text-base rounded-full",
+          "flex items-center rounded-full py-1 px-2.5 text-sm md:text-base",
           category === "NFT" && "bg-[#DB61A2] bg-opacity-[0.15]",
           category === "DAO" && "bg-[#FFC328] bg-opacity-[0.15]",
           category === "SOCIAL" && "bg-[#4D7FFF] bg-opacity-[0.15]",
@@ -49,7 +49,7 @@ export const TimelineDigest: FC<TimelineDigestProps> = ({ category }) => {
       >
         <first.icon
           className={clsx(
-            "shrink-0 w-4 h-4 opacity-100",
+            "h-4 w-4 shrink-0 opacity-100",
             category === "NFT" && "fill-[#DB61A2]",
             category === "DAO" && "fill-[#FFC328]",
             category === "SOCIAL" && "fill-[#4D7FFF]",

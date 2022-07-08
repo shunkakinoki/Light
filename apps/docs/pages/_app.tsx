@@ -1,5 +1,4 @@
-import { Analytics, Seo, ThemeScript } from "@lightdotso/core";
-import { ThemeProvider } from "next-themes";
+import { Analytics, Seo, ThemeScript, ThemeProvider } from "@lightdotso/core";
 import type { AppProps } from "next/app";
 import type { FC } from "react";
 
@@ -17,7 +16,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <ThemeScript />
-      <ThemeProvider defaultTheme="dark" forcedTheme="dark">
+      <ThemeProvider>
         <Analytics>
           <Seo />
           {getLayout(<Component {...pageProps} />)}

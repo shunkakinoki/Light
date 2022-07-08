@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 const redirectPrefixes = [
   "/analytics",
   "/changelog",
+  "/docs",
   "/favicon",
   "/member",
   "/home",

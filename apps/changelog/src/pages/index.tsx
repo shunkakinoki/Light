@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     return post.cover !== null && post.cover.external_url !== null;
   });
 
-  const tasks = {};
+  const tasks = [];
   for (const page of posts) {
     const pageId = page.id;
 
@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     //@ts-expect-error
     const number = numberPropertyItem.number;
 
-    tasks[pageId] = { date: date, name: name, number: number };
+    tasks.push({ date: date, name: name, number: number });
   }
 
   return {

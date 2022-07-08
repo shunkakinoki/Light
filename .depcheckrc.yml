@@ -15,6 +15,7 @@ ignores:
   - eslint-plugin-tailwindcss
   - git-cz
   - html-webpack-plugin
+  - jsonc-eslint-parser
   - lint-staged
   - next
   - npm-package-json-lint-config-default

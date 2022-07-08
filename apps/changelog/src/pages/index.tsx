@@ -34,6 +34,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const tasks = [];
   for (const page of posts) {
     const pageId = page.id;
+    //@ts-expect-error
+    delete page.icon;
 
     //@ts-expect-error
     const datePropertyId = page.properties["Date"].id;
@@ -68,6 +70,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
     tasks.push({ date: date, name: name, number: number });
   }
+
+  console.warn(posts);
 
   return {
     props: {

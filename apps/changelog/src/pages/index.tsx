@@ -12,7 +12,7 @@ import {
 
 export type Props = {
   posts: any;
-  tasks: { [key: string]: { date: string; name: string; number: number } };
+  tasks: any;
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
@@ -64,7 +64,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       posts: posts,
-      tasks: tasks,
+      tasks: JSON.stringify(tasks),
     },
   };
 };
@@ -76,7 +76,7 @@ export const SlugPage = ({
   return (
     <>
       <Header />
-      <Changelog posts={posts} tasks={tasks} />
+      <Changelog posts={posts} tasks={JSON.parse(tasks)} />
       <Footer />
     </>
   );

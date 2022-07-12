@@ -120,6 +120,7 @@ module.exports = {
     "no-unused-vars": "off",
     "prefer-arrow-callback": ["error", { allowNamedFunctions: false }],
     "func-style": ["error", "expression", { allowArrowFunctions: false }],
+    "import/no-unresolved": [2, { ignore: [".png$", ".webp$", ".jpg$"] }],
     "react/jsx-sort-props": [
       "error",
       {

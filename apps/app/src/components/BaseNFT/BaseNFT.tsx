@@ -1,4 +1,5 @@
 import type { OpenseaAsset } from "@lightdotso/types";
+import Script from "next/script";
 import type { FC } from "react";
 
 export type BaseNFTProps = { asset: OpenseaAsset };
@@ -14,6 +15,27 @@ export const BaseNFT: FC<BaseNFTProps> = ({
     name,
   },
 }) => {
+  if (
+    animation_original_url?.endsWith(".glb") ||
+    animation_url?.endsWith(".glb")
+  ) {
+    return (
+      <div className="flex h-full w-full items-center justify-center">
+        <Script
+          type="module"
+          src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+        />
+        {/* @ts-ignore */}
+        <model-viewer
+          auto-rotate
+          camera-controls
+          className="h-full w-full"
+          src={animation_url ?? animation_original_url}
+        />
+      </div>
+    );
+  }
+
   if (
     animation_original_url?.endsWith(".mp3") ||
     animation_original_url?.endsWith(".wav") ||

@@ -17,12 +17,12 @@
     "src/index.js"
   ],
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
-    "@typescript-eslint/parser": "^5.30.5",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
     "eslint": "^8.19.0",
-    "eslint-config-next": "^12.2.1",
+    "eslint-config-next": "^12.2.2",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-import-resolver-typescript": "^3.2.4",
+    "eslint-import-resolver-typescript": "^3.2.5",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-editorconfig": "^4.0.2",
     "eslint-plugin-import": "^2.26.0",

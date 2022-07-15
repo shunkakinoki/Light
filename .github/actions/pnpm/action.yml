@@ -28,8 +28,10 @@ runs:
       with:
         run_install: false
     - if: github.repository == "LightDotSo/LightDotSo"
+      shell: bash
       run: |
         pnpm install --frozen-lockfile
     - if: github.repository != "LightDotSo/LightDotSo"
+      shell: bash
       run: |
         pnpm install --no-lockfile

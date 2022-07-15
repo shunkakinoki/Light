@@ -40,4 +40,4 @@ mv tmp/* $SUBMODULE_PATH/
 
 rm -rf tmp
 
-pnpm install
+pnpm install --no-lockfile

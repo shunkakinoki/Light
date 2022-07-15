@@ -30,7 +30,7 @@
     "next-themes": "^0.2.0",
     "next-transpile-modules": "^9.0.0",
     "playwright-aws-lambda": "^0.8.0",
-    "playwright-core": "^1.23.2",
+    "playwright-core": "^1.23.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "recoil": "^0.7.4"
@@ -42,7 +42,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/line-clamp": "^0.4.0",
-    "@tailwindcss/typography": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.4",
     "@testing-library/cypress": "^8.0.3",
     "@types/react": "^18.0.15",
     "cypress": "^10.3.0"

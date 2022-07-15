@@ -9,7 +9,7 @@ importers:
 
   .:
     specifiers:
-      '@changesets/cli': ^2.23.1
+      '@changesets/cli': ^2.23.2
       '@commitlint/config-conventional': ^17.0.3
       '@lightdotso/eslint-config': workspace:*
       '@lightdotso/prettier': workspace:*
@@ -39,7 +39,7 @@ importers:
       husky: ^8.0.1
       lint-staged: ^13.0.3
       next: ^12.2.2
-      npm-check-updates: ^15.2.6
+      npm-check-updates: ^15.3.3
       npm-package-json-lint: ^6.3.0
       npm-package-json-lint-config-default: ^5.0.0
       prettier: ^2.7.1
@@ -54,7 +54,7 @@ importers:
       tsup: ^6.1.3
       turbo: ^1.3.1
       typescript: ^4.7.4
-      vercel: ^27.1.1
+      vercel: ^27.1.3
       webpack-dev-server: ^4.9.3
     dependencies:
       next: 12.2.2
@@ -62,7 +62,7 @@ importers:
       turbo: 1.3.1
       typescript: 4.7.4
     devDependencies:
-      '@changesets/cli': 2.23.1
+      '@changesets/cli': 2.23.2
       '@commitlint/config-conventional': 17.0.3
       '@lightdotso/eslint-config': link:configurations/eslint
       '@lightdotso/prettier': link:configurations/prettier
@@ -91,7 +91,7 @@ importers:
       html-webpack-plugin: 5.5.0
       husky: 8.0.1
       lint-staged: 13.0.3
-      npm-check-updates: 15.2.6
+      npm-check-updates: 15.3.3
       npm-package-json-lint: 6.3.0
       npm-package-json-lint-config-default: 5.0.0_5bj2o3dcjliztyiwap3x4pk5tu
       prettier: 2.7.1
@@ -103,13 +103,13 @@ importers:
       shx: 0.3.4
       tsconfig-paths-webpack-plugin: 3.5.2
       tsup: 6.1.3_typescript@4.7.4
-      vercel: 27.1.1
+      vercel: 27.1.3
       webpack-dev-server: 4.9.3
 
   apps/api:
     specifiers:
-      '@bull-board/api': ^4.0.0
-      '@bull-board/express': ^4.0.0
+      '@bull-board/api': ^4.0.1
+      '@bull-board/express': ^4.0.1
       '@cloudflare/workers-types': ^3.14.1
       '@cloudflare/wrangler': ^1.19.12
       '@cypress/react': ^6.0.0
@@ -172,8 +172,8 @@ importers:
       zod: ^3.17.3
       zod-prisma: ^0.5.4
     dependencies:
-      '@bull-board/api': 4.0.0
-      '@bull-board/express': 4.0.0
+      '@bull-board/api': 4.0.1
+      '@bull-board/express': 4.0.1
       '@ethersproject/abstract-provider': 5.6.1
       '@ethersproject/address': 5.6.1
       '@ethersproject/providers': 5.6.8
@@ -267,7 +267,7 @@ importers:
       critters: ^0.0.16
       cypress: ^10.3.0
       ethers: ^5.6.9
-      framer-motion: ^6.5.0
+      framer-motion: ^6.5.1
       javascript-time-ago: ^2.5.6
       jsonwebtoken: ^8.5.1
       lodash: ^4.17.21
@@ -314,7 +314,7 @@ importers:
       copy-to-clipboard: 3.3.1
       critters: 0.0.16
       ethers: 5.6.9
-      framer-motion: 6.5.0_biqbaboplfbrettd7655fr4n2y
+      framer-motion: 6.5.1_biqbaboplfbrettd7655fr4n2y
       javascript-time-ago: 2.5.6
       jsonwebtoken: 8.5.1
       lodash: 4.17.21
@@ -483,7 +483,7 @@ importers:
       react-dom: ^18.2.0
       react-icons: ^4.4.0
       react-popper: ^2.3.0
-      tailwindcss: ^3.1.6
+      tailwindcss: ^3.0.24
     dependencies:
       '@headlessui/react': 1.6.6_biqbaboplfbrettd7655fr4n2y
       '@heroicons/react': 1.0.6_react@18.2.0
@@ -692,7 +692,7 @@ importers:
       dotenv: ^16.0.1
       ethereum-waffle: ^3.4.4
       ethers: ^5.6.9
-      hardhat: ^2.10.0
+      hardhat: ^2.10.1
       hardhat-abi-exporter: ^2.10.0
       hardhat-deploy: ^0.11.11
       hardhat-gas-reporter: ^1.0.8
@@ -700,34 +700,34 @@ importers:
       hardhat-spdx-license-identifier: ^2.0.3
       hardhat-watcher: ^2.3.0
       solc: ^0.8.15
-      ts-node: ^10.8.2
+      ts-node: ^10.9.1
       tsconfig-paths: ^4.0.0
       typechain: ^8.1.0
     dependencies:
       '@ethersproject/abi': 5.6.4
       '@ethersproject/providers': 5.6.8
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
-      '@nomiclabs/hardhat-ethers': 2.1.0_aczsflea7zwg5rslfwp3gg4avy
-      '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.0
-      '@nomiclabs/hardhat-waffle': 2.0.3_dcvnsllmm676ignkib2rbakqou
+      '@nomiclabs/hardhat-ethers': 2.1.0_72jgnctblym52z6vqt46lbuldu
+      '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.1
+      '@nomiclabs/hardhat-waffle': 2.0.3_q2ktf46bpuaddom63xwo7uqczm
       '@openzeppelin/contracts': 4.7.0
       '@openzeppelin/contracts-upgradeable': 4.7.0
-      '@openzeppelin/hardhat-upgrades': 1.19.0_oipwi4u5qozcenkpuwlqopgmha
+      '@openzeppelin/hardhat-upgrades': 1.19.0_nk25por2iqjqr6r37ykghk23yi
       '@typechain/ethers-v5': 10.1.0_ye4lbsqopu3xz6mit6y7dhzh2e
-      '@typechain/hardhat': 6.1.2_q23vbzuigdjdfqtkube2jwkffq
+      '@typechain/hardhat': 6.1.2_hiuzc7rf2hnnjtqpezkxy3qeb4
       ethers: 5.6.9
-      hardhat: 2.10.0_ts-node@10.8.2
-      hardhat-abi-exporter: 2.10.0_hardhat@2.10.0
+      hardhat: 2.10.1_ts-node@10.9.1
+      hardhat-abi-exporter: 2.10.0_hardhat@2.10.1
       hardhat-deploy: 0.11.11
-      hardhat-gas-reporter: 1.0.8_hardhat@2.10.0
-      hardhat-preprocessor: 0.1.4_hardhat@2.10.0
-      hardhat-spdx-license-identifier: 2.0.3_hardhat@2.10.0
-      hardhat-watcher: 2.3.0_hardhat@2.10.0
+      hardhat-gas-reporter: 1.0.8_hardhat@2.10.1
+      hardhat-preprocessor: 0.1.4_hardhat@2.10.1
+      hardhat-spdx-license-identifier: 2.0.3_hardhat@2.10.1
+      hardhat-watcher: 2.3.0_hardhat@2.10.1
       solc: 0.8.15
     devDependencies:
       dotenv: 16.0.1
       ethereum-waffle: 3.4.4
-      ts-node: 10.8.2
+      ts-node: 10.9.1
       tsconfig-paths: 4.0.0
       typechain: 8.1.0
 
@@ -755,7 +755,7 @@ importers:
       '@lightdotso/queries': workspace:*
       '@lightdotso/tsconfig': workspace:*
       '@lightdotso/types': workspace:*
-      '@types/node': ^18.0.3
+      '@types/node': ^18.0.4
       ethers: ^5.6.9
       graphql: ^16.5.0
       graphql-request: ^4.3.0
@@ -768,7 +768,7 @@ importers:
       graphql: 16.5.0
       graphql-request: 4.3.0_graphql@16.5.0
     devDependencies:
-      '@types/node': 18.0.3
+      '@types/node': 18.0.4
 
   packages/styles:
     specifiers: {}
@@ -1027,27 +1027,27 @@ packages:
       '@babel/helper-validator-identifier': 7.16.7
       to-fast-properties: 2.0.0
 
-  /@bull-board/api/4.0.0:
-    resolution: {integrity: sha512-4STXOhQv07/8d/Ei6LA38D3aaYtMuOHJMejkkF2CTAW3gAzEtwhDHmrKlk7tG01Gq2jnPNIcYxbd4WIbtP/+fQ==}
+  /@bull-board/api/4.0.1:
+    resolution: {integrity: sha512-C46wQyDLTHc3QMq+7JaMCGgqPgmUqs6B7gUplfWxgjvFMDMkIZmMvb88EbKs0eNuwuBWADxvuLX9mc/tV9mOAg==}
     dependencies:
       redis-info: 3.1.0
     dev: false
 
-  /@bull-board/express/4.0.0:
-    resolution: {integrity: sha512-2J+TqGMDv367GI/Bpf3Jf3bbOXV0DTcAX2hIL830fWLeSWPwoOO/EnGAhbp+AGDGHnesHEe5MDW4AIuodyl+RQ==}
+  /@bull-board/express/4.0.1:
+    resolution: {integrity: sha512-q+todLJybSaDaQ6wL5osPPjyAoxCxkO6w8gJRHt2CUi5n/Usk/oPnzDMxudeD+zrHfG1Qwy/OBV/88XA1QPZ6w==}
     dependencies:
-      '@bull-board/api': 4.0.0
-      '@bull-board/ui': 4.0.0
+      '@bull-board/api': 4.0.1
+      '@bull-board/ui': 4.0.1
       ejs: 3.1.7
       express: 4.17.3
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@bull-board/ui/4.0.0:
-    resolution: {integrity: sha512-sesp3n3e/Zkw7oFxrihB/AGsPWRzLywTXlcc3N6ttGLE1U5ow5yRSg6F/1LFe9OpHsYko0VsYJMcTAeZk7AJ+w==}
+  /@bull-board/ui/4.0.1:
+    resolution: {integrity: sha512-bYPfHotet/3J/R5uMZJDshEaXtNFUlp9irO1ImtCh6L/zBgTf8mgTjBRfqFEyKo1i9xgElYnQ+MRCHYcUdVa2Q==}
     dependencies:
-      '@bull-board/api': 4.0.0
+      '@bull-board/api': 4.0.1
     dev: false
 
   /@changesets/apply-release-plan/6.0.1:
@@ -1085,8 +1085,8 @@ packages:
       '@changesets/types': 5.0.0
     dev: true
 
-  /@changesets/cli/2.23.1:
-    resolution: {integrity: sha512-yXQ29Iw/26yq1oJpOCa7BJDeUvuurZmREmCX9p9m5RxlKNDnROJBylQDCVfqQdZbeV2jfvd3XRKvci80SvGssg==}
+  /@changesets/cli/2.23.2:
+    resolution: {integrity: sha512-o7CWC+mcwOmA3yK5axqHOSYPYEjX/x+nq/s9aX78AyzH1SQZa6L5HX4P9uUXibyjcKynklkmusxv8vN8+hJggA==}
     hasBin: true
     dependencies:
       '@babel/runtime': 7.18.3
@@ -3097,17 +3097,17 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
 
-  /@nomiclabs/hardhat-ethers/2.1.0_aczsflea7zwg5rslfwp3gg4avy:
+  /@nomiclabs/hardhat-ethers/2.1.0_72jgnctblym52z6vqt46lbuldu:
     resolution: {integrity: sha512-vlW90etB3675QWG7tMrHaDoTa7ymMB7irM4DAQ98g8zJoe9YqEggeDnbO6v5b+BLth/ty4vN6Ko/kaqRN1krHw==}
     peerDependencies:
       ethers: ^5.0.0
       hardhat: ^2.0.0
     dependencies:
       ethers: 5.6.9
-      hardhat: 2.10.0_ts-node@10.8.2
+      hardhat: 2.10.1_ts-node@10.9.1
     dev: false
 
-  /@nomiclabs/hardhat-etherscan/3.1.0_hardhat@2.10.0:
+  /@nomiclabs/hardhat-etherscan/3.1.0_hardhat@2.10.1:
     resolution: {integrity: sha512-JroYgfN1AlYFkQTQ3nRwFi4o8NtZF7K/qFR2dxDUgHbCtIagkUseca9L4E/D2ScUm4XT40+8PbCdqZi+XmHyQA==}
     peerDependencies:
       hardhat: ^2.0.4
@@ -3118,7 +3118,7 @@ packages:
       chalk: 2.4.2
       debug: 4.3.4
       fs-extra: 7.0.1
-      hardhat: 2.10.0_ts-node@10.8.2
+      hardhat: 2.10.1_ts-node@10.9.1
       lodash: 4.17.21
       semver: 6.3.0
       table: 6.8.0
@@ -3127,7 +3127,7 @@ packages:
       - supports-color
     dev: false
 
-  /@nomiclabs/hardhat-waffle/2.0.3_dcvnsllmm676ignkib2rbakqou:
+  /@nomiclabs/hardhat-waffle/2.0.3_q2ktf46bpuaddom63xwo7uqczm:
     resolution: {integrity: sha512-049PHSnI1CZq6+XTbrMbMv5NaL7cednTfPenx02k3cEh8wBMLa6ys++dBETJa6JjfwgA9nBhhHQ173LJv6k2Pg==}
     peerDependencies:
       '@nomiclabs/hardhat-ethers': ^2.0.0
@@ -3135,12 +3135,12 @@ packages:
       ethers: ^5.0.0
       hardhat: ^2.0.0
     dependencies:
-      '@nomiclabs/hardhat-ethers': 2.1.0_aczsflea7zwg5rslfwp3gg4avy
+      '@nomiclabs/hardhat-ethers': 2.1.0_72jgnctblym52z6vqt46lbuldu
       '@types/sinon-chai': 3.2.8
       '@types/web3': 1.0.19
       ethereum-waffle: 3.4.4
       ethers: 5.6.9
-      hardhat: 2.10.0_ts-node@10.8.2
+      hardhat: 2.10.1_ts-node@10.9.1
     dev: false
 
   /@notionhq/client/2.0.0:
@@ -3380,7 +3380,7 @@ packages:
     resolution: {integrity: sha512-52Qb+A1DdOss8QvJrijYYPSf32GUg2pGaG/yCxtaA3cu4jduouTdg4XZSMLW9op54m1jH7J8hoajhHKOPsoJFw==}
     dev: false
 
-  /@openzeppelin/hardhat-upgrades/1.19.0_oipwi4u5qozcenkpuwlqopgmha:
+  /@openzeppelin/hardhat-upgrades/1.19.0_nk25por2iqjqr6r37ykghk23yi:
     resolution: {integrity: sha512-351QqDO3nZ96g0BO/bQnaTflix4Nw4ELWC/hZ8PwicsuVxRmxN/GZhxPrs62AOdiQdZ+xweawrVXa5knliRd4A==}
     hasBin: true
     peerDependencies:
@@ -3392,11 +3392,11 @@ packages:
       '@nomiclabs/harhdat-etherscan':
         optional: true
     dependencies:
-      '@nomiclabs/hardhat-ethers': 2.1.0_aczsflea7zwg5rslfwp3gg4avy
-      '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.0
+      '@nomiclabs/hardhat-ethers': 2.1.0_72jgnctblym52z6vqt46lbuldu
+      '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.1
       '@openzeppelin/upgrades-core': 1.16.1
       chalk: 4.1.2
-      hardhat: 2.10.0_ts-node@10.8.2
+      hardhat: 2.10.1_ts-node@10.9.1
       proper-lockfile: 4.1.2
     transitivePeerDependencies:
       - supports-color
@@ -4124,7 +4124,7 @@ packages:
       - bufferutil
       - utf-8-validate
 
-  /@typechain/hardhat/6.1.2_q23vbzuigdjdfqtkube2jwkffq:
+  /@typechain/hardhat/6.1.2_hiuzc7rf2hnnjtqpezkxy3qeb4:
     resolution: {integrity: sha512-k4Ea3pVITKB2DH8p1a5U38cyy7KZPD04Spo4q5b4wO+n2mT+uAz5dxckPtbczn/Kk5wiFq+ZkuOtw5ZKFhL/+w==}
     peerDependencies:
       '@ethersproject/abi': ^5.4.7
@@ -4139,7 +4139,7 @@ packages:
       '@typechain/ethers-v5': 10.1.0_ye4lbsqopu3xz6mit6y7dhzh2e
       ethers: 5.6.9
       fs-extra: 9.1.0
-      hardhat: 2.10.0_ts-node@10.8.2
+      hardhat: 2.10.1_ts-node@10.9.1
       lodash: 4.17.21
       typechain: 8.1.0
     dev: false
@@ -4161,12 +4161,12 @@ packages:
   /@types/bn.js/4.11.6:
     resolution: {integrity: sha512-pqr857jrp2kPuO9uRjZ3PwnJTjoQy+fcdxvBTvHm6dkmEL9q+hDD/2j/0ELOBPtPnS8LjCX0gI9nbl8lVkadpg==}
     dependencies:
-      '@types/node': 18.0.3
+      '@types/node': 18.0.4
 
   /@types/bn.js/5.1.0:
     resolution: {integrity: sha512-QSSVYj7pYFN49kW77o2s9xTCwZ8F2xLbjLLSEVh8D2F4JUhZtPAGOFLTD+ffqksBx/u4cE/KImFjyhqCjn/LIA==}
     dependencies:
-      '@types/node': 18.0.0
+      '@types/node': 18.0.4
 
   /@types/body-parser/1.19.2:
     resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==}
@@ -4325,7 +4325,7 @@ packages:
   /@types/keyv/3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
-      '@types/node': 18.0.3
+      '@types/node': 18.0.4
 
   /@types/level-errors/3.0.0:
     resolution: {integrity: sha512-/lMtoq/Cf/2DVOm6zE6ORyOM+3ZVm/BvzEZVxUhf6bgh8ZHglXlBqxbxSlJeVp8FCbD3IVvk/VbsaNmDjrQvqQ==}
@@ -4336,7 +4336,7 @@ packages:
     dependencies:
       '@types/abstract-leveldown': 7.2.0
       '@types/level-errors': 3.0.0
-      '@types/node': 18.0.3
+      '@types/node': 18.0.4
     dev: false
 
   /@types/lodash/4.14.182:
@@ -4403,6 +4403,9 @@ packages:
   /@types/node/18.0.3:
     resolution: {integrity: sha512-HzNRZtp4eepNitP+BD6k2L6DROIDG4Q0fm4x+dwfsr6LGmROENnok75VGw40628xf+iR24WeMFcHuuBDUAzzsQ==}
 
+  /@types/node/18.0.4:
+    resolution: {integrity: sha512-M0+G6V0Y4YV8cqzHssZpaNCqvYwlCiulmm0PwpNLF55r/+cT8Ol42CHRU1SEaYFH2rTwiiE1aYg/2g2rrtGdPA==}
+
   /@types/node/8.10.66:
     resolution: {integrity: sha512-tktOkFUA4kXx2hhhrB8bIFb5TbwzS4uOhKEmwiD+NoiL0qtP2OQ9mFldbgD4dV1djrlBYP6eBuQZiWjuHUpqFw==}
 
@@ -4434,7 +4437,7 @@ packages:
   /@types/pbkdf2/3.1.0:
     resolution: {integrity: sha512-Cf63Rv7jCQ0LaL8tNXmEyqTHuIJxRdlS5vMh1mj5voN4+QFhVZnlZruezqpWYDiJ8UTzhP0VmeLXCmBk66YrMQ==}
     dependencies:
-      '@types/node': 18.0.0
+      '@types/node': 18.0.4
 
   /@types/prettier/2.6.3:
     resolution: {integrity: sha512-ymZk3LEC/fsut+/Q5qejp6R9O1rMxz3XaRHDV6kX8MrGAhOSPqVARbDi+EZvInBpw+BnCX3TD240byVkOfQsHg==}
@@ -4470,7 +4473,7 @@ packages:
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 18.0.3
+      '@types/node': 18.0.4
 
   /@types/retry/0.12.0:
     resolution: {integrity: sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==}
@@ -4482,7 +4485,7 @@ packages:
   /@types/secp256k1/4.0.3:
     resolution: {integrity: sha512-Da66lEIFeIz9ltsdMZcpQvmrmmoqrfju8pm1BH8WbYjZSwUgCwXLb9C+9XYogwBITnbsSaMdVPb2ekf7TV+03w==}
     dependencies:
-      '@types/node': 18.0.0
+      '@types/node': 18.0.4
 
   /@types/semver/6.2.3:
     resolution: {integrity: sha512-KQf+QAMWKMrtBMsB8/24w53tEsxllMj6TuA80TT/5igJalLI/zm0L3oXRbIAl4Ohfc85gyHX/jhMwsVkmhLU4A==}
@@ -4625,7 +4628,6 @@ packages:
       tsutils: 3.21.0
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@typescript-eslint/parser/5.30.6_4x5o4skxv6sl53vpwefgt23khm:
     resolution: {integrity: sha512-gfF9lZjT0p2ZSdxO70Xbw8w9sPPJGfAdjK7WikEjB3fcUI/yr9maUVEdqigBjKincUYNKOmf7QBMiTf719kbrA==}
@@ -4845,7 +4847,7 @@ packages:
   /@vercel/node/2.4.3:
     resolution: {integrity: sha512-HmhRC7pThfSi/ZKfe7txKaoOMgSW9HpIdrfwAEULyQ5AWn6NXyJaDnRWwOL3RVJU11YITHa49ZJwRe/OQNMWfw==}
     dependencies:
-      '@types/node': 18.0.3
+      '@types/node': 18.0.4
       '@vercel/build-utils': 5.0.2
       '@vercel/node-bridge': 3.0.0
       '@vercel/static-config': 2.0.1
@@ -4893,8 +4895,8 @@ packages:
     resolution: {integrity: sha512-mTNLazUikFZA0g0Jn9UUxk36SVzKOOVgD9R+zjDxL4F3m4slqMMx+TBjWy9JCbeA/IRFDqBNnzK28j+G7choLg==}
     dev: true
 
-  /@vercel/static-build/1.0.6:
-    resolution: {integrity: sha512-mCO7PrVBc978rikfaZRHqLXa7cyNpW6cI7Wd4gEqoYQ4ihA6mi6qAEW5TNoghYWhIve/kjt7Wy4xj4wOwRgoIQ==}
+  /@vercel/static-build/1.0.7:
+    resolution: {integrity: sha512-8FauDDm1tR8nIexmI4DVatpRQ7R7E1f9K9INUFjBVAla7/yWKs/hILe1GZAQETqen6Y8xTg6kpi5pe94X7B/nA==}
     dev: true
 
   /@vercel/static-config/2.0.1:
@@ -9608,7 +9610,6 @@ packages:
       eslint: 8.19.0
       eslint-config-prettier: 8.5.0_eslint@8.19.0
       prettier-linter-helpers: 1.0.0
-    dev: false
 
   /eslint-plugin-react-hooks/4.6.0_eslint@8.19.0:
     resolution: {integrity: sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==}
@@ -11002,8 +11003,8 @@ packages:
     dependencies:
       map-cache: 0.2.2
 
-  /framer-motion/6.5.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-nd6IrudXz5jDdlfps54QArUAEqbCJHcm/r8TB4OSBrylQMULsJc+kKDFHn3Lk5R6yakRqOXeFZ/3W8WrwlodAQ==}
+  /framer-motion/6.5.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-o1BGqqposwi7cgDrtg0dNONhkmPsUFDaLcKXigzuTFC5x58mE8iyTazxSudFzmT6MEyJKfjjU8ItoMe3W+3fiw==}
     peerDependencies:
       react: '>=16.8 || ^17.0.0 || ^18.0.0'
       react-dom: '>=16.8 || ^17.0.0 || ^18.0.0'
@@ -11672,7 +11673,7 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /hardhat-abi-exporter/2.10.0_hardhat@2.10.0:
+  /hardhat-abi-exporter/2.10.0_hardhat@2.10.1:
     resolution: {integrity: sha512-ynYGUptkal3leyUNGP3aJ6GRYtSHed3lHcfMv6imawqEd7MERueEkeFy+X4kWH3Vf5w4k6xeeCJHJsegGBJUPA==}
     engines: {node: '>=14.14.0'}
     peerDependencies:
@@ -11680,7 +11681,7 @@ packages:
     dependencies:
       '@ethersproject/abi': 5.6.4
       delete-empty: 3.0.0
-      hardhat: 2.10.0_ts-node@10.8.2
+      hardhat: 2.10.1_ts-node@10.9.1
     dev: false
 
   /hardhat-deploy/0.11.11:
@@ -11705,47 +11706,47 @@ packages:
       - utf-8-validate
     dev: false
 
-  /hardhat-gas-reporter/1.0.8_hardhat@2.10.0:
+  /hardhat-gas-reporter/1.0.8_hardhat@2.10.1:
     resolution: {integrity: sha512-1G5thPnnhcwLHsFnl759f2tgElvuwdkzxlI65fC9PwxYMEe9cmjkVAAWTf3/3y8uP6ZSPiUiOW8PgZnykmZe0g==}
     peerDependencies:
       hardhat: ^2.0.2
     dependencies:
       array-uniq: 1.0.3
       eth-gas-reporter: 0.2.25
-      hardhat: 2.10.0_ts-node@10.8.2
+      hardhat: 2.10.1_ts-node@10.9.1
       sha1: 1.1.1
     transitivePeerDependencies:
       - '@codechecks/client'
     dev: false
 
-  /hardhat-preprocessor/0.1.4_hardhat@2.10.0:
+  /hardhat-preprocessor/0.1.4_hardhat@2.10.1:
     resolution: {integrity: sha512-TeIi9y5xXf6oKa2BMqXAFQV0tAJRy9MKDElu0VrHMsEVpiUXRh47AEJqWkFpWr2lVLFweif40n1RGxGIEFOPXw==}
     peerDependencies:
       hardhat: ^2.0.5
     dependencies:
-      hardhat: 2.10.0_ts-node@10.8.2
+      hardhat: 2.10.1_ts-node@10.9.1
       murmur-128: 0.2.1
     dev: false
 
-  /hardhat-spdx-license-identifier/2.0.3_hardhat@2.10.0:
+  /hardhat-spdx-license-identifier/2.0.3_hardhat@2.10.1:
     resolution: {integrity: sha512-G4u4I1md0tWaitX6Os7Nq9sYZ/CFdR+ibm7clCksGJ4yrtdHEZxgLjWpJ0WiALF9SoFKt03PwCe9lczDQ/5ADA==}
     peerDependencies:
       hardhat: ^2.0.0
     dependencies:
-      hardhat: 2.10.0_ts-node@10.8.2
+      hardhat: 2.10.1_ts-node@10.9.1
     dev: false
 
-  /hardhat-watcher/2.3.0_hardhat@2.10.0:
+  /hardhat-watcher/2.3.0_hardhat@2.10.1:
     resolution: {integrity: sha512-u76a/1pxPyW9DRZ7FZ8HoSQ4AuKOiSDQTR2NyiZlH5f0Ux+qQfahsh9CNusRLhx2s1OWzlkwCVvrdHq5FTGUzw==}
     peerDependencies:
       hardhat: ^2.0.0
     dependencies:
       chokidar: 3.5.3
-      hardhat: 2.10.0_ts-node@10.8.2
+      hardhat: 2.10.1_ts-node@10.9.1
     dev: false
 
-  /hardhat/2.10.0_ts-node@10.8.2:
-    resolution: {integrity: sha512-9VUorKvWNyW96qFXkwkpDUSeWND3gOZpm0oJ8l63JQJvWhxyxTJ92BcOrNylOKy9hzNNGdMfM2QWNP80fGOjpA==}
+  /hardhat/2.10.1_ts-node@10.9.1:
+    resolution: {integrity: sha512-0FN9TyCtn7Lt25SB2ei2G7nA2rZjP+RN6MvFOm+zYwherxLZNo6RbD8nDz88eCbhRapevmXqOiL2nM8INKsjmA==}
     engines: {node: ^14.0.0 || ^16.0.0 || ^18.0.0}
     hasBin: true
     peerDependencies:
@@ -11801,7 +11802,7 @@ packages:
       source-map-support: 0.5.21
       stacktrace-parser: 0.1.10
       true-case-path: 2.2.1
-      ts-node: 10.8.2
+      ts-node: 10.9.1
       tsort: 0.0.1
       undici: 5.5.1
       uuid: 8.3.2
@@ -13748,7 +13749,7 @@ packages:
     dependencies:
       inherits: 2.0.4
       level-errors: 1.0.5
-      readable-stream: 1.0.34
+      readable-stream: 1.1.14
       xtend: 4.0.2
 
   /level-iterator-stream/2.0.3:
@@ -16224,12 +16225,12 @@ packages:
       npm-normalize-package-bin: 1.0.1
     dev: true
 
-  /npm-check-updates/15.2.6:
-    resolution: {integrity: sha512-lXihP+6EjHW74ENE6YYW2feUmdsfK4evus2ZTCyTd0QSnmHdx0bcHpiHsjgqjPtIqgHPJXLCrV6gd3JGYZg3xg==}
+  /npm-check-updates/15.3.3:
+    resolution: {integrity: sha512-kdZte9jeJ3n8tS8wxAjrvQz5owi4AEY9pxt5OaEzw094k/ymg0HYR6b89W2OJaFn7xK4tCrkOFp9PUWKlydA8Q==}
     engines: {node: '>=14.14'}
     hasBin: true
     dependencies:
-      chalk: 4.1.2
+      chalk: 5.0.1
       cli-table: 0.3.11
       commander: 9.3.0
       fast-memoize: 2.5.2
@@ -18191,7 +18192,6 @@ packages:
       inherits: 2.0.4
       isarray: 0.0.1
       string_decoder: 0.10.31
-    dev: true
 
   /readable-stream/2.3.7:
     resolution: {integrity: sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw==}
@@ -20647,34 +20647,6 @@ packages:
       code-block-writer: 11.0.0
     dev: false
 
-  /ts-node/10.8.2:
-    resolution: {integrity: sha512-LYdGnoGddf1D6v8REPtIH+5iq/gTDuZqv2/UJUU7tKjuEU8xVZorBM+buCGNjj+pGEud+sOoM4CX3/YzINpENA==}
-    hasBin: true
-    peerDependencies:
-      '@swc/core': '>=1.2.50'
-      '@swc/wasm': '>=1.2.50'
-      '@types/node': '*'
-      typescript: '>=2.7'
-    peerDependenciesMeta:
-      '@swc/core':
-        optional: true
-      '@swc/wasm':
-        optional: true
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@tsconfig/node10': 1.0.9
-      '@tsconfig/node12': 1.0.11
-      '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.3
-      acorn: 8.7.1
-      acorn-walk: 8.2.0
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.2
-      make-error: 1.3.6
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
-
   /ts-node/10.8.2_fxk5i3xm3ivo7fjwhcizcinpla:
     resolution: {integrity: sha512-LYdGnoGddf1D6v8REPtIH+5iq/gTDuZqv2/UJUU7tKjuEU8xVZorBM+buCGNjj+pGEud+sOoM4CX3/YzINpENA==}
     hasBin: true
@@ -20705,6 +20677,34 @@ packages:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
+
+  /ts-node/10.9.1:
+    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+    hasBin: true
+    peerDependencies:
+      '@swc/core': '>=1.2.50'
+      '@swc/wasm': '>=1.2.50'
+      '@types/node': '*'
+      typescript: '>=2.7'
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      '@swc/wasm':
+        optional: true
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.9
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.3
+      acorn: 8.7.1
+      acorn-walk: 8.2.0
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
 
   /ts-node/8.9.1_typescript@4.3.4:
     resolution: {integrity: sha512-yrq6ODsxEFTLz0R3BX2myf0WBCSQh9A+py8PBo1dCzWIOcvisbyH6akNKqDHMgXePF2kir5mm5JXJTH3OUJYOQ==}
@@ -21542,8 +21542,8 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  /vercel/27.1.1:
-    resolution: {integrity: sha512-cV3xgBP7EMNPCZAHKjxH9ZXat5BnvOIa45t8yhSo8rs6QHmH7krpL+Dw/8yo7xucfab4JsgNCOhb5jorwABPKA==}
+  /vercel/27.1.3:
+    resolution: {integrity: sha512-6Je8nT/PwkM9NQDNRJRdIcSVyh0o1edMFfMesboWALdMh5bmXuGaMgqbB8uXcs87YuzHkpvEGQ4kyWlxZwT5Ew==}
     engines: {node: '>= 14'}
     hasBin: true
     requiresBuild: true
@@ -21557,7 +21557,7 @@ packages:
       '@vercel/redwood': 1.0.7
       '@vercel/remix': 1.0.8
       '@vercel/ruby': 1.3.14
-      '@vercel/static-build': 1.0.6
+      '@vercel/static-build': 1.0.7
       update-notifier: 5.1.0
     transitivePeerDependencies:
       - encoding

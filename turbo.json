@@ -4,15 +4,7 @@
   "pipeline": {
     "@lightdotso/api#build": {
       "dependsOn": ["^build"],
-      "inputs": [
-        "cypress/**",
-        "prisma/**",
-        "public/**",
-        "src/**",
-        "cypress.config.js",
-        "next.config.js",
-        "package.json"
-      ],
+      "inputs": ["**"],
       "outputs": [".next/**", "dist/**"]
     },
     "@lightdotso/app#build": {
@@ -74,13 +66,7 @@
     },
     "@lightdotso/home#build": {
       "dependsOn": ["^build", "$NEXT_PUBLIC_SENTRY_DSN", "$SENTRY_DSN"],
-      "inputs": [
-        "cypress/**",
-        "public/**",
-        "src/**",
-        "next.config.js",
-        "package.json"
-      ],
+      "inputs": ["**"],
       "outputs": [".next/**"]
     },
     "@lightdotso/prisma#build": {

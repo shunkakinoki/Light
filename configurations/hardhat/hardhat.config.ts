@@ -97,7 +97,7 @@ const config: HardhatUserConfig = {
     deploy: "deploy",
     deployments: "deployments",
     imports: "imports",
-    sources: "contracts",
+    sources: "src",
     tests: "tests",
   },
   abiExporter: {
@@ -113,7 +113,7 @@ const config: HardhatUserConfig = {
     apiKey: process.env.ETHERSCAN_API_KEY,
   },
   typechain: {
-    outDir: "../typechain/src",
+    outDir: "../../packages/typechain/src",
     target: "ethers-v5",
     alwaysGenerateOverloads: true,
   },

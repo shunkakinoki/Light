@@ -15,8 +15,8 @@
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
-    "build": "pnpm run clean && pnpm build:sol && pnpm run build:forge && pnpm run build:ts",
-    "build:forge": "forge build --root . -c contracts",
+    "build": "pnpm run clean && pnpm build:sol && pnpm run build:forge",
+    "build:forge": "forge build --root . -c src",
     "build:sol": "hardhat compile --force",
     "build:ts": "pnpm run compile",
     "clean": "pnpm run clean:sol",
@@ -40,6 +40,7 @@
     "task:balance": "hardhat balance",
     "test": "hardhat test",
     "test:coverage": "hardhat coverage",
+    "test:forge": "forge test --root . -c src",
     "test:gas": "REPORT_GAS=true hardhat test",
     "verify": "pnpm run verify:mainnet",
     "verify:cmd": "hardhat etherscan-verify --solc-input",

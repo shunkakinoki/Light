@@ -1,0 +1,8 @@
+[profile.default]
+src = 'contracts'
+out = 'out'
+libs = ['lib']
+gas_reports = ["*"]
+cache = true
+cache_path = 'foundry'
+ffi = true

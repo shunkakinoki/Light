@@ -152,6 +152,7 @@ module.exports = {
         project: [
           "apps/*/tsconfig.json",
           "components/*/tsconfig.json",
+          "contracts/*/tsconfig.json",
           "configurations/*/tsconfig.json",
           "packages/*/tsconfig.json",
         ],

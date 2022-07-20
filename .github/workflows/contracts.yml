@@ -31,4 +31,6 @@ jobs:
       - run: |
           forge install
       - run: |
+          forge snapshot --check
+      - run: |
           forge test -vvvvv --gas-report

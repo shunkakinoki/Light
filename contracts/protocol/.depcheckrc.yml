@@ -1,0 +1,7 @@
+ignores:
+  - "@lightdotso/typechain"
+  - "@lightdotso/tsconfig"
+  - "@openzeppelin/contracts"
+  - "@openzeppelin/contracts-upgradeable"
+  - solc
+  - ts-node

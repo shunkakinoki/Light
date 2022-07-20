@@ -472,7 +472,7 @@ importers:
       '@types/react': ^17.0.43
       clsx: ^1.2.1
       critters: ^0.0.16
-      cypress: ^10.3.0
+      cypress: ^10.3.1
       next: ^12.2.2
       next-compose-plugins: ^2.2.1
       next-plausible: ^3.2.0

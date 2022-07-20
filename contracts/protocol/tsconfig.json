@@ -15,7 +15,6 @@
     "./src",
     "./tasks",
     "./tests",
-    "./typechain",
-    "./hardhat.config.ts"
+    "./typechain"
   ]
 }

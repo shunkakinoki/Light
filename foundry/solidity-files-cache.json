@@ -9,42 +9,6 @@
     "libraries": ["lib"]
   },
   "files": {
-    "contracts/contracts/src/Greeter.sol": {
-      "lastModificationDate": 1658355928573,
-      "contentHash": "080c91796b3109ddcb27deb69932c7b0",
-      "sourceName": "contracts/contracts/src/Greeter.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": ["ast"],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.15",
-      "artifacts": {
-        "Greeter": {
-          "0.8.15+commit.e14f2714.Darwin.appleclang": "Greeter.sol/Greeter.json"
-        }
-      }
-    },
     "contracts/protocol/src/Greeter.sol": {
       "lastModificationDate": 1658356170853,
       "contentHash": "080c91796b3109ddcb27deb69932c7b0",

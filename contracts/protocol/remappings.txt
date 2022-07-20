@@ -1,4 +1,0 @@
-@lightdotso/protocol/=src/
-@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/
-ds-test/=node_modules/@shunkakinoki/ds-test/
-forge-std/=node_modules/forge-std/

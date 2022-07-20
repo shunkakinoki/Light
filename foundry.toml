@@ -4,5 +4,5 @@ out = 'out'
 libs = ['lib']
 gas_reports = ["*"]
 cache = true
-cache_path = 'foundry'
+cache_path = 'cache'
 ffi = true

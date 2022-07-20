@@ -72,6 +72,7 @@
     "zod-prisma": "^0.5.4"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.10.0",
     "@cypress/react": "^6.0.0",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.2",
@@ -80,6 +81,7 @@
     "@testing-library/cypress": "^8.0.3",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^18.0.15",
+    "babel-plugin-istanbul": "^6.1.1",
     "cypress": "^10.3.1",
     "postcss": "^8.4.14",
     "prisma": "^4.1.0",

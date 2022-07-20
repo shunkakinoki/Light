@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "outDir": "./dist"
+  },
+  "exclude": ["dist", "build", "node_modules"],
+  "extends": "@lightdotso/tsconfig/node.json",
+  "include": ["."]
+}

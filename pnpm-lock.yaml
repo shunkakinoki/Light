@@ -786,6 +786,7 @@ importers:
     specifiers:
       '@ethersproject/abi': ^5.6.4
       '@ethersproject/providers': ^5.6.8
+      '@lightdotso/hardhat': workspace:*
       '@lightdotso/tsconfig': workspace:*
       '@nomiclabs/hardhat-ethers': ^2.1.0
       '@nomiclabs/hardhat-etherscan': ^3.1.0
@@ -812,6 +813,7 @@ importers:
     dependencies:
       '@ethersproject/abi': 5.6.4
       '@ethersproject/providers': 5.6.8
+      '@lightdotso/hardhat': link:../hardhat
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
       '@nomiclabs/hardhat-ethers': 2.1.0_72jgnctblym52z6vqt46lbuldu
       '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.1
@@ -4776,7 +4778,6 @@ packages:
       tsutils: 3.21.0
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@typescript-eslint/parser/5.30.7_eslint@8.20.0:
     resolution: {integrity: sha512-Rg5xwznHWWSy7v2o0cdho6n+xLhK2gntImp0rJroVVFkcYFYQ8C8UJTSuTw/3CnExBmPjycjmUJkxVmjXsld6A==}
@@ -9752,7 +9753,6 @@ packages:
       eslint: 8.20.0
       eslint-config-prettier: 8.5.0_eslint@8.20.0
       prettier-linter-helpers: 1.0.0
-    dev: false
 
   /eslint-plugin-prettier/4.2.1_g4fztgbwjyq2fvmcscny2sj6fy:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}

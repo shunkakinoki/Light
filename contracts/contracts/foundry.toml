@@ -1,6 +1,6 @@
 [profile.default]
-src = 'contracts'
+src = 'src'
 out = 'out'
 libs = ['lib']
 gas_reports = ['*']
-test = ['test']
+test = 'test'

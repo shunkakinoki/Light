@@ -756,7 +756,6 @@ importers:
       dotenv: ^16.0.1
       ethereum-waffle: ^3.4.4
       ethers: ^5.6.9
-      forge-std: ^1.1.1
       hardhat: ^2.10.1
       hardhat-abi-exporter: ^2.10.0
       hardhat-deploy: ^0.11.11
@@ -783,7 +782,6 @@ importers:
       '@typechain/ethers-v5': 10.1.0_ye4lbsqopu3xz6mit6y7dhzh2e
       '@typechain/hardhat': 6.1.2_hiuzc7rf2hnnjtqpezkxy3qeb4
       ethers: 5.6.9
-      forge-std: 1.1.2
       hardhat: 2.10.1_ts-node@10.9.1
       hardhat-abi-exporter: 2.10.0_hardhat@2.10.1
       hardhat-deploy: 0.11.11
@@ -11348,10 +11346,6 @@ packages:
 
   /forever-agent/0.6.1:
     resolution: {integrity: sha512-j0KLYPhm6zeac4lz3oJ3o65qvgQCcPubiyotZrXqEaG4hNagNYO8qdlUrX5vwqv9ohqeT/Z3j6+yW067yWWdUw==}
-
-  /forge-std/1.1.2:
-    resolution: {integrity: sha512-Wfb0iAS9PcfjMKtGpWQw9mXzJxrWD62kJCUqqLcyuI0+VRtJ3j20XembjF3kS20qELYdXft1vD/SPFVWVKMFOw==}
-    dev: false
 
   /fork-ts-checker-webpack-plugin/7.2.11_3o2jfq6vfqxns3sz6wn2nnc3ei:
     resolution: {integrity: sha512-2e5+NyTUTE1Xq4fWo7KFEQblCaIvvINQwUX3jRmEGlgCTc1Ecqw/975EfQrQ0GEraxJTnp8KB9d/c8hlCHUMJA==}

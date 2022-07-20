@@ -1,8 +1,10 @@
 ignores:
+  - "@cypress/code-coverage"
   - "@lightdotso/app"
   - "@lightdotso/styles"
   - "@lightdotso/tsconfig"
   - "@tailwindcss/*"
+  - babel-plugin-istanbul
   - critters
   - next-themes
   - zod-prisma

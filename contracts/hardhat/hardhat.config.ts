@@ -146,7 +146,7 @@ const config: HardhatUserConfig = {
   watcher: {
     compile: {
       tasks: ["compile"],
-      files: ["./contracts"],
+      files: ["./src"],
       verbose: true,
     },
   },

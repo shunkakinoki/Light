@@ -729,11 +729,21 @@ importers:
   configurations/tsconfig:
     specifiers: {}
 
-  contracts/contracts:
+  contracts/protocol:
+    specifiers: {}
+
+  packages/const:
+    specifiers:
+      '@lightdotso/tsconfig': workspace:*
+    dependencies:
+      '@lightdotso/tsconfig': link:../../configurations/tsconfig
+
+  packages/contracts:
     specifiers:
       '@ethersproject/abi': ^5.6.4
       '@ethersproject/providers': ^5.6.8
       '@lightdotso/hardhat': workspace:*
+      '@lightdotso/protocol': workspace:*
       '@lightdotso/tsconfig': workspace:*
       '@nomiclabs/hardhat-ethers': ^2.1.0
       '@nomiclabs/hardhat-etherscan': ^3.1.0
@@ -762,6 +772,7 @@ importers:
       '@ethersproject/abi': 5.6.4
       '@ethersproject/providers': 5.6.8
       '@lightdotso/hardhat': link:../../configurations/hardhat
+      '@lightdotso/protocol': link:../../contracts/protocol
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
       '@nomiclabs/hardhat-ethers': 2.1.0_72jgnctblym52z6vqt46lbuldu
       '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.1
@@ -769,67 +780,6 @@ importers:
       '@openzeppelin/contracts': 4.7.0
       '@openzeppelin/contracts-upgradeable': 4.7.0
       '@openzeppelin/hardhat-upgrades': 1.19.0_nk25por2iqjqr6r37ykghk23yi
-      '@typechain/ethers-v5': 10.1.0_ye4lbsqopu3xz6mit6y7dhzh2e
-      '@typechain/hardhat': 6.1.2_hiuzc7rf2hnnjtqpezkxy3qeb4
-      ethers: 5.6.9
-      forge-std: 1.1.1
-      hardhat: 2.10.1_ts-node@10.9.1
-      hardhat-abi-exporter: 2.10.0_hardhat@2.10.1
-      hardhat-deploy: 0.11.11
-      hardhat-gas-reporter: 1.0.8_hardhat@2.10.1
-      hardhat-preprocessor: 0.1.4_hardhat@2.10.1
-      hardhat-spdx-license-identifier: 2.0.3_hardhat@2.10.1
-      hardhat-watcher: 2.3.0_hardhat@2.10.1
-      solc: 0.8.15
-    devDependencies:
-      dotenv: 16.0.1
-      ethereum-waffle: 3.4.4
-      ts-node: 10.9.1
-      tsconfig-paths: 4.0.0
-      typechain: 8.1.0
-
-  contracts/protocol:
-    specifiers:
-      '@ethersproject/abi': ^5.6.4
-      '@ethersproject/providers': ^5.6.8
-      '@lightdotso/hardhat': workspace:*
-      '@lightdotso/tsconfig': workspace:*
-      '@nomiclabs/hardhat-ethers': ^2.1.0
-      '@nomiclabs/hardhat-etherscan': ^3.1.0
-      '@nomiclabs/hardhat-waffle': ^2.0.3
-      '@openzeppelin/contracts': ^4.7.0
-      '@openzeppelin/contracts-upgradeable': ^4.7.0
-      '@openzeppelin/hardhat-upgrades': ^1.19.0
-      '@shunkakinoki/ds-test': ^1.0.2
-      '@typechain/ethers-v5': ^10.1.0
-      '@typechain/hardhat': ^6.1.2
-      dotenv: ^16.0.1
-      ethereum-waffle: ^3.4.4
-      ethers: ^5.6.9
-      forge-std: ^1.1.2
-      hardhat: ^2.10.1
-      hardhat-abi-exporter: ^2.10.0
-      hardhat-deploy: ^0.11.11
-      hardhat-gas-reporter: ^1.0.8
-      hardhat-preprocessor: ^0.1.4
-      hardhat-spdx-license-identifier: ^2.0.3
-      hardhat-watcher: ^2.3.0
-      solc: ^0.8.15
-      ts-node: ^10.9.1
-      tsconfig-paths: ^4.0.0
-      typechain: ^8.1.0
-    dependencies:
-      '@ethersproject/abi': 5.6.4
-      '@ethersproject/providers': 5.6.8
-      '@lightdotso/hardhat': link:../../configurations/hardhat
-      '@lightdotso/tsconfig': link:../../configurations/tsconfig
-      '@nomiclabs/hardhat-ethers': 2.1.0_72jgnctblym52z6vqt46lbuldu
-      '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.1
-      '@nomiclabs/hardhat-waffle': 2.0.3_q2ktf46bpuaddom63xwo7uqczm
-      '@openzeppelin/contracts': 4.7.0
-      '@openzeppelin/contracts-upgradeable': 4.7.0
-      '@openzeppelin/hardhat-upgrades': 1.19.0_nk25por2iqjqr6r37ykghk23yi
-      '@shunkakinoki/ds-test': 1.0.2
       '@typechain/ethers-v5': 10.1.0_ye4lbsqopu3xz6mit6y7dhzh2e
       '@typechain/hardhat': 6.1.2_hiuzc7rf2hnnjtqpezkxy3qeb4
       ethers: 5.6.9
@@ -848,12 +798,6 @@ importers:
       ts-node: 10.9.1
       tsconfig-paths: 4.0.0
       typechain: 8.1.0
-
-  packages/const:
-    specifiers:
-      '@lightdotso/tsconfig': workspace:*
-    dependencies:
-      '@lightdotso/tsconfig': link:../../configurations/tsconfig
 
   packages/prisma:
     specifiers:
@@ -919,7 +863,7 @@ importers:
     dependencies:
       '@ethersproject/abi': 5.6.4
       '@ethersproject/providers': 5.6.8
-      '@lightdotso/contracts': link:../../contracts/contracts
+      '@lightdotso/contracts': link:../contracts
       '@lightdotso/protocol': link:../../contracts/protocol
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
       ethers: 5.6.9
@@ -4264,10 +4208,6 @@ packages:
       - supports-color
     dev: false
 
-  /@shunkakinoki/ds-test/1.0.2:
-    resolution: {integrity: sha512-idbQ49CLviwkNRnVyvy8Hro4/ZktpYN8SpvV5BFXxA0tV0pNGPFqDYdlJkryhVgNNeOKYKaKB9gACrOOpA4Ebw==}
-    dev: false
-
   /@sindresorhus/is/0.14.0:
     resolution: {integrity: sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==}
     engines: {node: '>=6'}
@@ -6363,7 +6303,7 @@ packages:
   /axios/0.21.4_debug@4.3.4:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
     dependencies:
-      follow-redirects: 1.15.1_debug@4.3.4
+      follow-redirects: 1.15.1
     transitivePeerDependencies:
       - debug
     dev: false
@@ -11389,18 +11329,6 @@ packages:
       debug: 4.3.1
     dev: true
 
-  /follow-redirects/1.15.1_debug@4.3.4:
-    resolution: {integrity: sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
-    dependencies:
-      debug: 4.3.4
-    dev: false
-
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
     dependencies:
@@ -11420,10 +11348,6 @@ packages:
 
   /forever-agent/0.6.1:
     resolution: {integrity: sha512-j0KLYPhm6zeac4lz3oJ3o65qvgQCcPubiyotZrXqEaG4hNagNYO8qdlUrX5vwqv9ohqeT/Z3j6+yW067yWWdUw==}
-
-  /forge-std/1.1.1:
-    resolution: {integrity: sha512-yPFvzrT4DXo8sqcdHEYz6TBump0mfdLOm9Oud/zdRreHnhQgr/iEBU6i6WE9J1jZ2r3qsftMeVccfJjpS1UclA==}
-    dev: false
 
   /forge-std/1.1.2:
     resolution: {integrity: sha512-Wfb0iAS9PcfjMKtGpWQw9mXzJxrWD62kJCUqqLcyuI0+VRtJ3j20XembjF3kS20qELYdXft1vD/SPFVWVKMFOw==}

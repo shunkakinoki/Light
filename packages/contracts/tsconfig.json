@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@lightdotso/typechain/*": ["./typechain/*"]
+    }
+  },
+  "exclude": ["node_modules", "typechain"],
+  "extends": "@lightdotso/tsconfig/contracts.json",
+  "include": ["./artifacts/**/*.json", "./src", "./tests"]
+}

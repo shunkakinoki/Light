@@ -7,5 +7,5 @@
   },
   "exclude": ["node_modules", "typechain"],
   "extends": "@lightdotso/tsconfig/contracts.json",
-  "include": ["./artifacts/**/*.json", "./src", "./tests"]
+  "include": ["./artifacts/**/*.json", "./tests"]
 }

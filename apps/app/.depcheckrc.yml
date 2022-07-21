@@ -3,7 +3,9 @@ ignores:
   - "@lightdotso/styles"
   - "@lightdotso/tsconfig"
   - "@tailwindcss/*"
+  - "@types/jest"
   - babel-plugin-istanbul
   - critters
+  - jest-environment-jsdom
   - next-themes
   - zod-prisma

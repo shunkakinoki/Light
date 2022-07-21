@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders LoadingText 1`] = `
+<DocumentFragment>
+  <span
+    class="animate-pulse rounded-full bg-emphasis-medium h-3 w-6"
+  />
+</DocumentFragment>
+`;

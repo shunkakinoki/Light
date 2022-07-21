@@ -30,6 +30,7 @@ const config = {
     ignoreDuringBuilds: true,
   },
   experimental: {
+    forceSwcTransforms: process.env.CYPRESS_INSTRUMENT_CODE !== 1,
     scrollRestoration: true,
   },
   publicRuntimeConfig: {

@@ -1,0 +1,4 @@
+ignores:
+  - "@ethersproject/abi"
+  - "@ethersproject/providers"
+  - ethers

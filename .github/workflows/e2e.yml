@@ -1,0 +1,29 @@
+name: E2E
+on:
+  push:
+    branches:
+      - alpha
+      - beta
+      - main
+  pull_request:
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [app]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/pnpm
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+      - run: |
+          pnpx turbo run e2e --scope=@lightdotso/app
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+          TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+      - uses: codecov/codecov-action@v3
+        with:
+          working-directory: apps/${{ matrix.app }}

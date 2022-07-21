@@ -15,14 +15,8 @@ jobs:
       - uses: ./.github/actions/pnpm
         with:
           token: ${{ secrets.BOT_TOKEN }}
-      - uses: foundry-rs/foundry-toolchain@v1
-        with:
-          version: nightly
       - run: |
           pnpx turbo run build --scope=@lightdotso/contracts --include-dependencies --no-deps
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-      - working-directory: packages/contracts
-        run: |
-          forge test -vvv --gas-report

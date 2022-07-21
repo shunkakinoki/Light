@@ -86,6 +86,11 @@
       ],
       "outputs": [".next/**"]
     },
+    "@lightdotso/typechain#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**"],
+      "outputs": ["dist/**"]
+    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["artifacts/**", "dist/**", ".next/**"]

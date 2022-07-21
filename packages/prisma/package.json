@@ -31,9 +31,9 @@
     "prisma:studio": "prisma studio"
   },
   "dependencies": {
-    "@prisma/client": "^4.0.0",
-    "prisma": "^4.0.0",
-    "zod": "^3.17.3",
+    "@prisma/client": "^4.1.0",
+    "prisma": "^4.1.0",
+    "zod": "^3.17.9",
     "zod-prisma": "^0.5.4"
   },
   "publishConfig": {

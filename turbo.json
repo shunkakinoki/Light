@@ -107,7 +107,7 @@
     },
     "test": {
       "dependsOn": ["build"],
-      "outputs": ["coverage/**"]
+      "outputs": ["coverage/**", "src/**/__snapshots__/**"]
     },
     "//#lint": {
       "dependsOn": [],

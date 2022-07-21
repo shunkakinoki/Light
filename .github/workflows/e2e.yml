@@ -27,4 +27,5 @@ jobs:
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       - uses: codecov/codecov-action@v3
         with:
+          token: ${{ secrets.CODECOV_TOKEN }}
           working-directory: apps/${{ matrix.app }}

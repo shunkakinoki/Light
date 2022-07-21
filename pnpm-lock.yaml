@@ -670,6 +670,9 @@ importers:
   configurations/tsconfig:
     specifiers: {}
 
+  contracts/protocol:
+    specifiers: {}
+
   packages/const:
     specifiers:
       '@lightdotso/tsconfig': workspace:*
@@ -783,6 +786,22 @@ importers:
     devDependencies:
       '@graphprotocol/graph-cli': 0.32.0
       '@graphprotocol/graph-ts': 0.27.0
+
+  packages/typechain:
+    specifiers:
+      '@ethersproject/abi': ^5.6.4
+      '@ethersproject/providers': ^5.6.8
+      '@lightdotso/contracts': workspace:*
+      '@lightdotso/protocol': workspace:*
+      '@lightdotso/tsconfig': workspace:*
+      ethers: ^5.6.9
+    dependencies:
+      '@ethersproject/abi': 5.6.4
+      '@ethersproject/providers': 5.6.8
+      '@lightdotso/contracts': link:../contracts
+      '@lightdotso/protocol': link:../../contracts/protocol
+      '@lightdotso/tsconfig': link:../../configurations/tsconfig
+      ethers: 5.6.9
 
   packages/types:
     specifiers:

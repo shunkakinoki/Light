@@ -50,7 +50,7 @@
     "@lightdotso/contracts#build": {
       "dependsOn": ["^build"],
       "inputs": ["contracts/**", "src/**", "hardhat.config.ts"],
-      "outputs": ["abi/**", "artifacts/**", "dist/**", "typechain/**"]
+      "outputs": ["abi/**", "artifacts/**", "../packages/typechain/src/**"]
     },
     "@lightdotso/docs#build": {
       "dependsOn": ["^build", "$NEXT_PUBLIC_SENTRY_DSN", "$SENTRY_DSN"],

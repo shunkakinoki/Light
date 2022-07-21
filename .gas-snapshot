@@ -1,0 +1,2 @@
+GreeterTest:testGreetIsHelloWorld() (gas: 9167)
+GreeterTest:testSetGreetingIsNewWorld() (gas: 13653)

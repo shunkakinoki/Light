@@ -1,4 +1,4 @@
-name: Check
+name: Test
 on:
   push:
     branches:
@@ -7,23 +7,25 @@ on:
       - main
   pull_request:
 jobs:
-  check:
+  test:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [app]
     steps:
       - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
       - uses: ./.github/actions/pnpm
         with:
           token: ${{ secrets.BOT_TOKEN }}
       - run: |
-          pnpm run lint
-          pnpm run build
+          pnpx turbo run test --scope=@lightdotso/${{ matrix.app }}
+        continue-on-error: true
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-      - if: failure()
-        run: |
-          pnpm run fix
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          working-directory: apps/${{ matrix.app }}

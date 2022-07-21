@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders homepage unchanged 1`] = `
+exports[`Renders Logo 1`] = `
 <DocumentFragment>
   <svg
     class="fill-contrast-high"

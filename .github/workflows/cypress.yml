@@ -1,8 +1,8 @@
-name: E2E
+name: Cypress
 on:
   deployment_status:
 jobs:
-  e2e:
+  cypress:
     if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     environment: ${{ github.event.deployment_status.environment }}

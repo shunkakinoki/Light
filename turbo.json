@@ -96,7 +96,8 @@
       "outputs": ["artifacts/**", "dist/**", ".next/**"]
     },
     "e2e": {
-      "dependsOn": ["build"]
+      "dependsOn": ["build"],
+      "outputs": [".nyc_output/**", "coverage/**"]
     },
     "clean": {
       "cache": false

@@ -10,6 +10,10 @@ const config = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    forceSwcTransforms: !("CYPRESS_INSTRUMENT_CODE" in process.env),
+    optimizeCss: true,
+  },
   webpack: (config, { webpack }) => {
     config.plugins.push(
       new webpack.DefinePlugin({

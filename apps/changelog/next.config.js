@@ -24,6 +24,7 @@ const plugins = [
 const config = {
   basePath: "/changelog",
   experimental: {
+    forceSwcTransforms: !("CYPRESS_INSTRUMENT_CODE" in process.env),
     optimizeCss: true,
   },
   eslint: {

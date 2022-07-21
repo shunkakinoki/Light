@@ -18,8 +18,8 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
       - run: |
-          pnpm run lint
-          pnpm run build
+          pnpx turbo run lint
+          pnpx turbo run build
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}

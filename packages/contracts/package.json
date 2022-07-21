@@ -16,7 +16,7 @@
   "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "pnpm run clean && pnpm run build:cp && pnpm build:sol && pnpm run build:ts",
-    "build:cp": "cp -r node_modules/@lightdotso/protocol/src src/protocol",
+    "build:cp": "cp -r node_modules/@lightdotso/protocol/src/ src/protocol",
     "build:sol": "hardhat compile --force",
     "build:ts": "pnpm run compile",
     "clean": "pnpm run clean:sol",
@@ -52,6 +52,7 @@
   "dependencies": {
     "@ethersproject/abi": "^5.6.4",
     "@ethersproject/providers": "^5.6.8",
+    "@lightdotso/protocol": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
     "@nomiclabs/hardhat-ethers": "^2.1.0",
     "@nomiclabs/hardhat-etherscan": "^3.1.0",

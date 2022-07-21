@@ -472,7 +472,7 @@ importers:
       '@types/react': ^17.0.43
       clsx: ^1.2.1
       critters: ^0.0.16
-      cypress: ^10.3.1
+      cypress: ^10.3.0
       next: ^12.2.2
       next-compose-plugins: ^2.2.1
       next-plausible: ^3.2.0
@@ -683,6 +683,7 @@ importers:
     specifiers:
       '@ethersproject/abi': ^5.6.4
       '@ethersproject/providers': ^5.6.8
+      '@lightdotso/protocol': workspace:*
       '@lightdotso/tsconfig': workspace:*
       '@nomiclabs/hardhat-ethers': ^2.1.0
       '@nomiclabs/hardhat-etherscan': ^3.1.0
@@ -709,6 +710,7 @@ importers:
     dependencies:
       '@ethersproject/abi': 5.6.4
       '@ethersproject/providers': 5.6.8
+      '@lightdotso/protocol': link:../../contracts/protocol
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
       '@nomiclabs/hardhat-ethers': 2.1.0_72jgnctblym52z6vqt46lbuldu
       '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.1
@@ -4654,7 +4656,7 @@ packages:
     resolution: {integrity: sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==}
     requiresBuild: true
     dependencies:
-      '@types/node': 18.0.3
+      '@types/node': 18.0.4
     dev: true
     optional: true
 

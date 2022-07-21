@@ -1,4 +1,7 @@
 ignores:
+  - "@lightdotso/contracts"
+  - "@lightdotso/protocol"
+  - "@lightdotso/tsconfig"
   - "@ethersproject/abi"
   - "@ethersproject/providers"
   - ethers

@@ -1,6 +1,4 @@
-const shouldInstrumentCode = "CYPRESS_INSTRUMENT_CODE" in process.env;
-
 module.exports = {
   presets: ["next/babel"],
-  plugins: shouldInstrumentCode ? ["istanbul"] : [],
+  plugins: "CYPRESS_INSTRUMENT_CODE" in process.env ? ["istanbul"] : [],
 };

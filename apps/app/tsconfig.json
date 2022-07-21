@@ -4,7 +4,8 @@
     "paths": {
       "@lightdotso/app/*": ["./src/*"],
       "@lightdotso/app/public/*": ["./public/*"]
-    }
+    },
+    "types": ["jest"]
   },
   "extends": "@lightdotso/tsconfig/next.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]

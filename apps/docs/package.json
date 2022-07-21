@@ -35,11 +35,15 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.10.0",
     "@cypress/react": "^6.0.0",
     "@lightdotso/tsconfig": "workspace:*",
     "@testing-library/cypress": "^8.0.3",
     "@types/react": "^18.0.15",
-    "cypress": "^10.3.1"
+    "babel-plugin-istanbul": "^6.1.1",
+    "cypress": "^10.3.1",
+    "nyc": "^15.1.0",
+    "start-server-and-test": "^1.14.0"
   },
   "publishConfig": {
     "access": "public",

@@ -3,5 +3,8 @@ ignores:
   - "@lightdotso/styles"
   - "@lightdotso/tsconfig"
   - "@tailwindcss/*"
+  - babel-plugin-istanbul
   - critters
   - next-themes
+  - nyc
+  - start-server-and-test

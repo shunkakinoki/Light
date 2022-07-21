@@ -38,6 +38,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.10.0",
     "@cypress/react": "^6.0.0",
     "@lightdotso/styles": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
@@ -47,8 +48,11 @@
     "@tailwindcss/typography": "^0.5.4",
     "@testing-library/cypress": "^8.0.3",
     "@types/react": "^18.0.15",
+    "babel-plugin-istanbul": "^6.1.1",
     "cypress": "^10.3.1",
-    "next-transpile-modules": "^9.0.0"
+    "next-transpile-modules": "^9.0.0",
+    "nyc": "^15.1.0",
+    "start-server-and-test": "^1.14.0"
   },
   "publishConfig": {
     "access": "public",

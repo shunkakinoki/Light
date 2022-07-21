@@ -32,6 +32,7 @@ const plugins = [
 const config = {
   basePath: "/docs",
   eslint: {
+    forceSwcTransforms: !("CYPRESS_INSTRUMENT_CODE" in process.env),
     ignoreDuringBuilds: true,
   },
   redirects: () => {

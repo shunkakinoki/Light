@@ -19,15 +19,6 @@
         "$SENTRY_DSN",
         "$VERCEL_ENV"
       ],
-      "inputs": [
-        "cypress/**",
-        "prisma/**",
-        "public/**",
-        "src/**",
-        "cypress.config.js",
-        "next.config.js",
-        "package.json"
-      ],
       "outputs": [".next/**"]
     },
     "@lightdotso/changelog#build": {
@@ -37,36 +28,18 @@
         "$NOTION_API_KEY",
         "$SENTRY_DSN"
       ],
-      "inputs": [
-        "cypress/**",
-        "public/**",
-        "src/**",
-        "cypress.config.js",
-        "next.config.js",
-        "package.json"
-      ],
       "outputs": [".next/**"]
     },
     "@lightdotso/contracts#build": {
       "dependsOn": ["^build"],
-      "inputs": ["contracts/**", "src/**", "hardhat.config.ts"],
       "outputs": ["abi/**", "artifacts/**", "../packages/typechain/src/**"]
     },
     "@lightdotso/docs#build": {
       "dependsOn": ["^build", "$NEXT_PUBLIC_SENTRY_DSN", "$SENTRY_DSN"],
-      "inputs": [
-        "cypress/**",
-        "public/**",
-        "src/**",
-        "cypress.config.js",
-        "next.config.js",
-        "package.json"
-      ],
       "outputs": [".next/**"]
     },
     "@lightdotso/home#build": {
       "dependsOn": ["^build", "$NEXT_PUBLIC_SENTRY_DSN", "$SENTRY_DSN"],
-      "inputs": ["**"],
       "outputs": [".next/**"]
     },
     "@lightdotso/prisma#build": {
@@ -76,14 +49,6 @@
     },
     "@lightdotso/og#build": {
       "dependsOn": ["^build", "$NEXT_PUBLIC_SENTRY_DSN", "$SENTRY_DSN"],
-      "inputs": [
-        "cypress/**",
-        "public/**",
-        "src/**",
-        "cypress.config.js",
-        "next.config.js",
-        "package.json"
-      ],
       "outputs": [".next/**"]
     },
     "@lightdotso/typechain#build": {
@@ -107,7 +72,7 @@
     },
     "test": {
       "dependsOn": ["build"],
-      "outputs": ["coverage/**", "src/**/__snapshots__/**"]
+      "outputs": ["coverage/**", "**/__snapshots__/**"]
     },
     "//#lint": {
       "dependsOn": [],

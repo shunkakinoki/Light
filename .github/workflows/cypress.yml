@@ -1,0 +1,28 @@
+name: E2E
+on:
+  deployment_status:
+jobs:
+  e2e:
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.deployment_status.environment }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/pnpm
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - id: app
+        run: |
+          echo ::set-output name=APP::$(echo ${{ github.event.deployment_status.environment }} | awk '{print $3}' )
+      - uses: cypress-io/github-action@v2
+        env:
+          CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          record: true
+          install: false
+          command: pnpm run cypress:ci
+          group: ${{ steps.app.outputs.APP }}
+          working-directory: apps/${{ steps.app.outputs.APP }}

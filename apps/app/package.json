@@ -11,10 +11,14 @@
   "author": "Light, Inc.",
   "scripts": {
     "build": "pnpm run prisma:cp && pnpm run prisma:generate && next build",
+    "coverage": "nyc report && nyc check-coverage --lines 95",
     "cypress:ci": "cypress run --record",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "dev": "next dev",
+    "e2e": "start-server-and-test dev:instrumented http://localhost:3000 cypress:run",
+    "e2e:open": "start-server-and-test dev:instrumented http://localhost:3000 cypress:open",
+    "dev:instrumented": "cross-env CYPRESS_INSTRUMENT_CODE=1 next dev",
     "doppler:setup": "doppler setup --no-interactive",
     "env:local": "doppler secrets download --no-file --format env > .env.local",
     "env:prisma": "doppler secrets download --no-file --format env > prisma/.env",
@@ -72,6 +76,7 @@
     "zod-prisma": "^0.5.4"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.10.0",
     "@cypress/react": "^6.0.0",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.2",
@@ -80,9 +85,12 @@
     "@testing-library/cypress": "^8.0.3",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^18.0.15",
+    "babel-plugin-istanbul": "^6.1.1",
     "cypress": "^10.3.1",
+    "nyc": "^15.1.0",
     "postcss": "^8.4.14",
     "prisma": "^4.1.0",
+    "start-server-and-test": "^1.14.0",
     "tailwindcss": "^3.1.6"
   },
   "publishConfig": {

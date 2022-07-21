@@ -1,4 +1,5 @@
 ignores:
+  - "@lightdotso/protocol"
   - "@lightdotso/typechain"
   - "@lightdotso/tsconfig"
   - "@openzeppelin/contracts"

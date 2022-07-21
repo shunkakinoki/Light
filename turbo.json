@@ -95,6 +95,9 @@
       "dependsOn": ["^build"],
       "outputs": ["artifacts/**", "dist/**", ".next/**"]
     },
+    "e2e": {
+      "dependsOn": ["build"]
+    },
     "clean": {
       "cache": false
     },

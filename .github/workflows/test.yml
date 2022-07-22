@@ -21,7 +21,7 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
       - id: path
         run: |
-          echo "::set-output name=PATH::{\"app\":\"apps/app\"}"
+          echo "::set-output name=PATH::{\"app\":\"apps/app\"}
       - run: |
           echo ${{ fromJson(steps.path.outputs.PATH).${{ matrix.package }} }}
       - run: |

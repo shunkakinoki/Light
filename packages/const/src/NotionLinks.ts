@@ -1,6 +1,7 @@
 export enum NotionPages {
   CAREERS = "Careers",
   COMMUNITY = "Community",
+  FAQ = "Faq",
   PRIVACY_POLICY = "Privacy Policy",
   TERMS_OF_SERVICE = "Terms of Service",
   MARKETING = "Marketing",
@@ -16,6 +17,8 @@ export const NotionLinks: {
     "https://lightdotso.notion.site/3241632ef8d54d21a73732cbad792ce4",
   [NotionPages.COMMUNITY]:
     "https://lightdotso.notion.site/a797b4dd6772427f9039530f8237af52",
+  [NotionPages.FAQ]:
+    "https://lightdotso.notion.site/d9a70e761b9e4290bc2b8e58cd71a70c",
   [NotionPages.PRIVACY_POLICY]:
     "https://lightdotso.notion.site/81dbf21d7bca4b9285a13392edbf575e",
   [NotionPages.TERMS_OF_SERVICE]:

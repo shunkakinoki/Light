@@ -20,7 +20,7 @@ jobs:
         run: |
           echo "::set-output name=matrix::{\"include\":[{\"app\":\"apps/app\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
       - run: |
-          echo ${{ fromJSON(steps.path.outputs.matrix).include[0] }}.${{ matrix.package }}
+          echo ${{ fromJSON(steps.path.outputs.matrix).include[0].(matrix.package) }}
       # - uses: ./.github/actions/pnpm
       #   with:
       #     token: ${{ secrets.BOT_TOKEN }}

@@ -13,7 +13,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        map: [{ package: app, path: apps/app }]
+        map:
+          [
+            { package: app, path: apps/app },
+            { package: changelog, path: apps/changelog },
+            { package: docs, path: apps/docs },
+            { package: og, path: apps/og },
+          ]
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/pnpm

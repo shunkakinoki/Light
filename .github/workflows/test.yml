@@ -22,7 +22,7 @@ jobs:
       - id: path
         run: |
           path=$(cat ./path.json | jq -r .${{ matrix.package }})
-          echo "::set-output name=PATH::path"
+          echo "::set-output name=PATH::$path"
       - run: |
           echo ${{ steps.path.outputs.PATH }}
       - run: |

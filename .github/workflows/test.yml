@@ -15,10 +15,10 @@ jobs:
       matrix:
         package: [app]
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/pnpm
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
+      # - uses: actions/checkout@v3
+      # - uses: ./.github/actions/pnpm
+      #   with:
+      #     token: ${{ secrets.BOT_TOKEN }}
       - id: path
         run: |
           path=$(cat ./github/workflows/path.json | jq -r .${{ matrix.package }})
@@ -31,7 +31,7 @@ jobs:
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-      # - uses: codecov/codecov-action@v3
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      #     working-directory: ${{ fromJson(steps.path.outputs.PATH).${{ matrix.package }} }}
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          working-directory: ${{ steps.path.outputs.PATH }}

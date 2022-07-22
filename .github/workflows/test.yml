@@ -15,7 +15,7 @@ jobs:
       matrix:
         package: [app]
     steps:
-      # - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       # - uses: ./.github/actions/pnpm
       #   with:
       #     token: ${{ secrets.BOT_TOKEN }}

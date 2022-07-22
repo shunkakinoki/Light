@@ -20,8 +20,6 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
       - run: |
-          echo ${{ steps.path.outputs.PATH }}
-      - run: |
           pnpx turbo run test --scope=@lightdotso/${{ matrix.map.package }}
         continue-on-error: true
         env:

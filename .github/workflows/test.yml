@@ -19,7 +19,7 @@ jobs:
       - id: set-matrix
         run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
       - run: |
-          echo ${{ fromJSON(id.set-matrix.outputs.matrix) }}
+          echo ${{ fromJSON(steps.set-matrix.outputs.matrix) }}
       # - uses: ./.github/actions/pnpm
       #   with:
       #     token: ${{ secrets.BOT_TOKEN }}

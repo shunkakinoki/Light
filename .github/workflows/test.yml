@@ -21,9 +21,10 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
       - id: path
         run: |
+          path=$(cat ./github/workflows/path.json | jq -r .${{ matrix.package }})
           echo "::set-output name=PATH::{\"app\":\"apps/app\"}
       - run: |
-          echo ${{ fromJson(steps.path.outputs.PATH).${{ matrix.package }} }}
+          echo ${{ steps.path.outputs.PATH }}
       - run: |
           pnpx turbo run test --scope=@lightdotso/${{ matrix.package }}
         continue-on-error: true

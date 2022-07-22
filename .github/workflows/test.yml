@@ -23,10 +23,6 @@ jobs:
       # - uses: ./.github/actions/pnpm
       #   with:
       #     token: ${{ secrets.BOT_TOKEN }}
-      - id: path
-        run: |
-          path=$(cat ./github/workflows/path.json | jq -r .${{ matrix.package }})
-          echo "::set-output name=PATH::$path"
       - run: |
           echo ${{ steps.path.outputs.PATH }}
       - run: |

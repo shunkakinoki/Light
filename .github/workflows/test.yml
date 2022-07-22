@@ -19,8 +19,13 @@ jobs:
       - uses: ./.github/actions/pnpm
         with:
           token: ${{ secrets.BOT_TOKEN }}
+      - id: path
+        run: |
+          echo "::set-output name=PATH::{\"app\":\"apps/app\"}"
       - run: |
-          pnpx turbo run test --scope=@lightdotso/${{ matrix.app }}
+          echo ${{ fromJson(steps.path.outputs.PATH).${{ matrix.package }} }}
+      - run: |
+          pnpx turbo run test --scope=@lightdotso/${{ matrix.package }}
         continue-on-error: true
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -28,4 +33,4 @@ jobs:
       - uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          working-directory: apps/${{ matrix.app }}
+          working-directory: ${{ fromJson(steps.path.outputs.PATH).${{ matrix.package }} }}

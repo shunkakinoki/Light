@@ -5,6 +5,7 @@ export const NavigationLinks = {
   resources: [
     { name: "Changelog", href: "/changelog", external: false },
     { name: "Docs", href: "/docs", external: false },
+    { name: "FAQ", href: "/faq", external: false },
     { name: "Membership", href: "/member", external: false },
     { name: "Support", href: SocialLinks.Discord, external: true },
   ],

@@ -21,8 +21,7 @@ jobs:
       #     token: ${{ secrets.BOT_TOKEN }}
       - id: path
         run: |
-          pwd
-          path=$(cat ./path.json | jq -r .${{ matrix.package }})
+          path=$(cat ./github/workflows/path.json | jq -r .${{ matrix.package }})
           echo "::set-output name=PATH::$path"
       - run: |
           echo ${{ steps.path.outputs.PATH }}

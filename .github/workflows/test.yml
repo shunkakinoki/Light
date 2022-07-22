@@ -16,10 +16,10 @@ jobs:
         package: [app]
     steps:
       - uses: actions/checkout@v3
-      - id: set-matrix
-        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+      - id: path
+        run: echo "::set-output name=matrix::{\"include\":[{\"app\":\"apps/app\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
       - run: |
-          echo ${{ fromJSON(steps.set-matrix.outputs.matrix).include[0].project }}
+          echo ${{ fromJSON(steps.path.outputs.matrix).include[0].${{ matrix.package }} }}
       # - uses: ./.github/actions/pnpm
       #   with:
       #     token: ${{ secrets.BOT_TOKEN }}

@@ -1,9 +1,15 @@
 ignores:
   - "@lightdotso/docs"
   - "@lightdotso/tsconfig"
+  - "@jest/globals"
   - "@tailwindcss/*"
+  - "@testing-library/jest-dom"
+  - "@testing-library/react"
+  - "@types/jest"
   - babel-plugin-istanbul
   - critters
+  - jest
+  - jest-environment-jsdom
   - next-themes
   - nyc
   - start-server-and-test

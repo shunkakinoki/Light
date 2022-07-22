@@ -13,21 +13,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: [app]
+        map: [{ package: app, path: apps/app }]
     steps:
       - uses: actions/checkout@v3
-      - id: path
-        run: |
-          echo "::set-output name=matrix::{\"include\":[{\"app\":\"apps/app\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
-      - run: |
-          echo ${{ fromJSON(steps.path.outputs.matrix).include[0].(matrix.package) }}
-      # - uses: ./.github/actions/pnpm
-      #   with:
-      #     token: ${{ secrets.BOT_TOKEN }}
+      - uses: ./.github/actions/pnpm
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
       - run: |
           echo ${{ steps.path.outputs.PATH }}
       - run: |
-          pnpx turbo run test --scope=@lightdotso/${{ matrix.package }}
+          pnpx turbo run test --scope=@lightdotso/${{ matrix.map.package }}
         continue-on-error: true
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -35,4 +30,4 @@ jobs:
       - uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          working-directory: ${{ steps.path.outputs.PATH }}
+          working-directory: ${{ matrix.map.path }}

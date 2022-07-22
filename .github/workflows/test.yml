@@ -30,7 +30,7 @@ jobs:
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-      - uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          working-directory: ${{ fromJson(steps.path.outputs.PATH).${{ matrix.package }} }}
+      # - uses: codecov/codecov-action@v3
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     working-directory: ${{ fromJson(steps.path.outputs.PATH).${{ matrix.package }} }}

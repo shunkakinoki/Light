@@ -3,10 +3,7 @@ import { NextResponse } from "next/server";
 import type { PipeableMiddleware } from "./pipe";
 
 export const authMiddleware: PipeableMiddleware = async (req, res) => {
-  const hostname = req.headers.get("host");
   const pathname = req.nextUrl.pathname;
-  const targetHost =
-    process.env.NODE_ENV == "production" ? "light.so" : "localhost:3000";
   const url = req.nextUrl.clone();
 
   const { value: hostValue } = req.cookies.getWithOptions(
@@ -17,7 +14,7 @@ export const authMiddleware: PipeableMiddleware = async (req, res) => {
   );
   const hasNextAuthCookie = !!hostValue || !!tokenValue;
 
-  if (hostname === targetHost && pathname === "/" && !hasNextAuthCookie) {
+  if (pathname === "/" && !hasNextAuthCookie) {
     url.pathname = "/home";
     return NextResponse.redirect(url);
   }

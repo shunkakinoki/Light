@@ -32,7 +32,7 @@
     },
     "@lightdotso/contracts#build": {
       "dependsOn": ["^build"],
-      "outputs": ["abi/**", "artifacts/**", "../packages/typechain/src/**"]
+      "outputs": ["abi/**", "artifacts/**", "../typechain/src/**"]
     },
     "@lightdotso/docs#build": {
       "dependsOn": ["^build", "$NEXT_PUBLIC_SENTRY_DSN", "$SENTRY_DSN"],

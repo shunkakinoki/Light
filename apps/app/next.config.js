@@ -71,16 +71,6 @@ const config = {
   async redirects() {
     return [
       {
-        source: "/analytics",
-        destination: "https://plausible.io/light.so",
-        permanent: true,
-      },
-      {
-        source: "/notion",
-        destination: "https://lightdotso.notion.site",
-        permanent: true,
-      },
-      {
         source: "/whitepaper",
         destination: "/docs",
         permanent: true,

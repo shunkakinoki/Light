@@ -9,10 +9,6 @@ export const authMiddleware: PipeableMiddleware = async (req, res) => {
     process.env.NODE_ENV == "production" ? "light.so" : "localhost:3000";
   const url = req.nextUrl.clone();
 
-  if (hostname.endsWith("vercel.app")) {
-    return;
-  }
-
   const { value: hostValue } = req.cookies.getWithOptions(
     "__Host-next-auth.csrf-token",
   );

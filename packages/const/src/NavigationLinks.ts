@@ -12,7 +12,7 @@ export const NavigationLinks = {
   company: [
     { name: "Careers", href: NotionLinks.Careers, external: true },
     { name: "Home", href: "/home", external: false },
-    { name: "Open", href: "/analytics", external: false },
+    { name: "Open", href: SocialLinks.Plausible, external: false },
     { name: "Notion", href: SocialLinks.Notion, external: true },
   ],
   legal: [

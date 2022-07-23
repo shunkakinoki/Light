@@ -4,6 +4,7 @@ export enum Social {
   GITHUB = "Github",
   MIRROR = "Mirror",
   NOTION = "Notion",
+  PLAUSIBLE = "Plausible",
   TWITTER = "Twitter",
 }
 
@@ -15,5 +16,6 @@ export const SocialLinks: {
   [Social.MIRROR]: "https://mirror.xyz/lightdotso.eth",
   [Social.NOTION]: "https://lightdotso.notion.site",
   [Social.OPENSEA]: "https://opensea.io",
+  [Social.PLAUSIBLE]: "https://plausible.io/light.so",
   [Social.TWITTER]: "https://twitter.com/LightDotSo",
 };

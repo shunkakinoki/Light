@@ -2,7 +2,7 @@ export enum Internal {
   CHANGELOG = "Changelog",
   DOCS = "Docs",
   HOME = "Home",
-  MEMBERSHIP = "Membership",
+  MEMBER = "Membership",
 }
 
 export const InternalLinks: {
@@ -11,5 +11,5 @@ export const InternalLinks: {
   [Internal.CHANGELOG]: "/changelog",
   [Internal.DOCS]: "/docs",
   [Internal.HOME]: "/home",
-  [Internal.MEMBERSHIP]: "/member",
+  [Internal.MEMBER]: "/membership",
 };

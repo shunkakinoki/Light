@@ -527,6 +527,7 @@ importers:
       '@jest/globals': ^28.1.3
       '@lightdotso/const': workspace:*
       '@lightdotso/core': workspace:*
+      '@lightdotso/middlewares': workspace:*
       '@lightdotso/styles': workspace:*
       '@lightdotso/tailwindcss': workspace:*
       '@lightdotso/tsconfig': workspace:*
@@ -565,6 +566,7 @@ importers:
       '@heroicons/react': 1.0.6_react@18.2.0
       '@lightdotso/const': link:../../packages/const
       '@lightdotso/core': link:../../components/core
+      '@lightdotso/middlewares': link:../../packages/middlewares
       '@lightdotso/tailwindcss': link:../../configurations/tailwindcss
       '@sentry/integrations': 7.7.0
       '@sentry/nextjs': 7.7.0_next@12.2.3+react@18.2.0
@@ -845,15 +847,13 @@ importers:
   packages/middlewares:
     specifiers:
       '@lightdotso/const': workspace:*
-      '@lightdotso/queries': workspace:*
       '@lightdotso/tsconfig': workspace:*
-      '@lightdotso/types': workspace:*
       '@types/node': ^18.0.6
+      next: ^12.2.3
     dependencies:
       '@lightdotso/const': link:../const
-      '@lightdotso/queries': link:../queries
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
-      '@lightdotso/types': link:../types
+      next: 12.2.3
     devDependencies:
       '@types/node': 18.0.6
 

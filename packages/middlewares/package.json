@@ -26,9 +26,8 @@
   },
   "dependencies": {
     "@lightdotso/const": "workspace:*",
-    "@lightdotso/queries": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
-    "@lightdotso/types": "workspace:*"
+    "next": "^12.2.3"
   },
   "devDependencies": {
     "@types/node": "^18.0.6"

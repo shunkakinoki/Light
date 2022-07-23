@@ -11,7 +11,7 @@ export const middleware = (req: NextRequest) => {
   return pipeMiddleware(req, NextResponse.next(), [
     linksMiddleware,
     excludedMiddleware,
-    // authMiddleware,
+    authMiddleware,
   ]);
 };
 

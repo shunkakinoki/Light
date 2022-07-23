@@ -23,6 +23,7 @@
   "dependencies": {
     "@lightdotso/const": "workspace:*",
     "@lightdotso/core": "workspace:*",
+    "@lightdotso/middlewares": "workspace:*",
     "@lightdotso/tailwindcss": "workspace:*",
     "@notionhq/client": "^2.1.0",
     "@sentry/integrations": "^7.7.0",

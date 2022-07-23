@@ -248,6 +248,7 @@ importers:
       '@jest/globals': ^28.1.3
       '@lightdotso/const': workspace:*
       '@lightdotso/core': workspace:*
+      '@lightdotso/middlewares': workspace:*
       '@lightdotso/services': workspace:*
       '@lightdotso/styles': workspace:*
       '@lightdotso/tailwindcss': workspace:*
@@ -311,6 +312,7 @@ importers:
       '@heroicons/react': 1.0.6_react@18.2.0
       '@lightdotso/const': link:../../packages/const
       '@lightdotso/core': link:../../components/core
+      '@lightdotso/middlewares': link:../../packages/middlewares
       '@lightdotso/services': link:../../packages/services
       '@lightdotso/styles': link:../../packages/styles
       '@lightdotso/tailwindcss': link:../../configurations/tailwindcss

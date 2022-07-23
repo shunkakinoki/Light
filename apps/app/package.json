@@ -38,6 +38,7 @@
     "@heroicons/react": "^1.0.6",
     "@lightdotso/const": "workspace:*",
     "@lightdotso/core": "workspace:*",
+    "@lightdotso/middlewares": "workspace:*",
     "@lightdotso/services": "workspace:*",
     "@lightdotso/styles": "workspace:*",
     "@lightdotso/tailwindcss": "workspace:*",

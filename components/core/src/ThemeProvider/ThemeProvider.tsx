@@ -1,7 +1,11 @@
 import { ThemeProvider as NextThemeProvider } from "next-themes";
+import type { ThemeProviderProps } from "next-themes/dist/types";
 import type { FC } from "react";
 
-export const ThemeProvider: FC = ({ children }) => {
+export const ThemeProvider: FC<ThemeProviderProps> = ({
+  children,
+  ...props
+}) => {
   const savedTheme =
     typeof window !== "undefined"
       ? (localStorage.getItem("theme") as any)
@@ -11,7 +15,11 @@ export const ThemeProvider: FC = ({ children }) => {
     : "dark";
 
   return (
-    <NextThemeProvider defaultTheme={defaultTheme} forcedTheme="dark">
+    <NextThemeProvider
+      defaultTheme={defaultTheme}
+      forcedTheme="dark"
+      {...props}
+    >
       {children}
     </NextThemeProvider>
   );

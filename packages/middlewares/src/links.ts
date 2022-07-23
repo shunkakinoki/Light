@@ -8,7 +8,9 @@ export const linksMiddleware: PipeableMiddleware = async (req, res) => {
 
   const CapitalizedSlug = pathname.charAt(1).toUpperCase() + pathname.slice(2);
   if (InternalLinks[CapitalizedSlug]) {
-    return NextResponse.redirect(InternalLinks[CapitalizedSlug]);
+    return NextResponse.redirect(
+      SocialLinks.Website + InternalLinks[CapitalizedSlug],
+    );
   }
   if (NotionLinks[CapitalizedSlug]) {
     return NextResponse.redirect(NotionLinks[CapitalizedSlug]);

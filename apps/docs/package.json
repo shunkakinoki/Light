@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@lightdotso/core": "workspace:*",
+    "@lightdotso/middlewares": "workspace:*",
     "@lightdotso/tailwindcss": "workspace:*",
     "@reach/skip-nav": "^0.17.0",
     "@sentry/integrations": "^7.7.0",

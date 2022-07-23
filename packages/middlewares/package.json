@@ -1,6 +1,6 @@
 {
-  "name": "@lightdotso/core",
-  "version": "1.0.1",
+  "name": "@lightdotso/middlewares",
+  "version": "1.0.0",
   "private": false,
   "homepage": "https://github.com/LightDotSo/LightDotSo",
   "bugs": {
@@ -25,19 +25,12 @@
     "test": "pnpm run build"
   },
   "dependencies": {
-    "@headlessui/react": "^1.6.6",
-    "@heroicons/react": "^1.0.6",
     "@lightdotso/const": "workspace:*",
-    "clsx": "^1.2.1",
-    "next": "^12.2.3",
-    "next-plausible": "^3.2.0",
-    "next-seo": "^5.5.0",
-    "next-themes": "^0.2.0",
-    "react": "^18.2.0",
-    "react-icons": "^4.4.0"
+    "@lightdotso/tsconfig": "workspace:*",
+    "next": "^12.2.3"
   },
   "devDependencies": {
-    "@lightdotso/tsconfig": "workspace:*"
+    "@types/node": "^18.0.6"
   },
   "publishConfig": {
     "access": "public",

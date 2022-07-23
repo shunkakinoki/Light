@@ -1,6 +1,6 @@
 import type { PipeableMiddleware } from "./pipe";
 
-const excludedPrefixes = ["/api", "/_next"];
+const excludedPrefixes = ["/api"];
 const excludedSuffixes = [".png", ".jpg", ".jpeg", ".svg", ".gif"];
 
 export const excludedMiddleware: PipeableMiddleware = async (req, res) => {

@@ -1,5 +1,5 @@
 import {
-  excludedMiddleware,
+  // excludedMiddleware,
   linksMiddleware,
   homeMiddleware,
   pipeMiddleware,
@@ -9,7 +9,7 @@ import type { NextRequest } from "next/server";
 
 export const middleware = (req: NextRequest) => {
   return pipeMiddleware(req, NextResponse.next(), [
-    excludedMiddleware,
+    // excludedMiddleware,
     linksMiddleware,
     homeMiddleware,
   ]);

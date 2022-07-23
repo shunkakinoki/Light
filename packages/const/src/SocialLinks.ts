@@ -6,6 +6,7 @@ export enum Social {
   NOTION = "Notion",
   PLAUSIBLE = "Plausible",
   TWITTER = "Twitter",
+  WEBSITE = "Website",
 }
 
 export const SocialLinks: {
@@ -18,4 +19,5 @@ export const SocialLinks: {
   [Social.OPENSEA]: "https://opensea.io",
   [Social.PLAUSIBLE]: "https://plausible.io/light.so",
   [Social.TWITTER]: "https://twitter.com/LightDotSo",
+  [Social.WEBSITE]: "https://light.so",
 };

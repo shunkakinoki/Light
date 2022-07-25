@@ -1,9 +1,13 @@
+import { Bezel } from "./Bezel";
+import { Engraving } from "./Engraving";
+import { Light } from "./Light";
+
 import type {
   ISpaceLayout,
   ISpaceConfigLayout,
 } from "@lightdotso/app/types/space";
 
-export const layouts: ISpaceLayout[] = [];
+export const layouts: ISpaceLayout[] = [Bezel, Engraving, Light];
 
 export const getDefaultLayout = (layout: ISpaceLayout): ISpaceConfigLayout => {
   const config: ISpaceConfigLayout = {};

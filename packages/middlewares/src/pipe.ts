@@ -37,7 +37,7 @@ export const pipeMiddleware: PipeMiddleware = async (req, res, middlewares) => {
   }
 
   const result = await middleware(req, res);
-  if ("final" in result) {
+  if (typeof result !== "undefined" && "final" in result) {
     return result.final ? result.res : pipeMiddleware(req, res, rest);
   }
 

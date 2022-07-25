@@ -1,7 +1,5 @@
-/* eslint-disable no-restricted-imports */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-
 import type { FC } from "react";
+import { useState, useEffect } from "react";
 
 import { SpaceConfigInput } from "@lightdotso/app/components/SpaceConfigInput";
 import { SpaceConfigSelect } from "@lightdotso/app/components/SpaceConfigSelect";
@@ -16,7 +14,20 @@ export interface Props {
   layout: ISpaceLayout;
 }
 
+const useHasMounted = () => {
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  return hasMounted;
+};
+
 export const SpaceConfigLayout: FC<Props> = ({ layout }) => {
+  const hasMounted = useHasMounted();
+  if (!hasMounted) {
+    return null;
+  }
+
   return (
     <div className="space-y-4">
       {layout.properties.map(p => {
@@ -33,7 +44,6 @@ export const LayoutProperty: FC<{
 
   return (
     <div className="flex">
-      <h1 className="mt-1 mr-4 w-32 text-contrast-high">{p.name}</h1>;
       <div className="w-full">
         {p.type === "text" ? (
           <SpaceConfigInput
@@ -63,7 +73,6 @@ export const LayoutProperty: FC<{
             }}
           />
         ) : null}
-
         {p.description != null && (
           <span className="text-xs text-gray-400">{p.description}</span>
         )}

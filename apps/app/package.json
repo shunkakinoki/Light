@@ -22,7 +22,7 @@
     "doppler:setup": "doppler setup --no-interactive",
     "env:local": "doppler secrets download --no-file --format env > .env.local",
     "env:prisma": "doppler secrets download --no-file --format env > prisma/.env",
-    "env:vercel": "vercel pull --env .env.local",
+    "env:vercel": "vercel env pull .env.local",
     "fix": "cd ../.. && pnpm run fix",
     "prisma:cp": "cp ../../packages/prisma/schema.prisma prisma/schema.prisma",
     "prisma:db:push": "prisma db push",

@@ -44,6 +44,7 @@ export const LayoutProperty: FC<{
 
   return (
     <div className="flex">
+      <h1 className="mt-1 mr-4 w-32 text-contrast-high">{p.name}</h1>;
       <div className="w-full">
         {p.type === "text" ? (
           <SpaceConfigInput

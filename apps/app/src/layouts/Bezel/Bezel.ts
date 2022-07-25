@@ -8,5 +8,11 @@ export const Bezel: ISpaceLayout = {
       type: "select",
       options: ["Light", "Dark"],
     },
+    {
+      name: "Name",
+      type: "text",
+      default: "lightdotso.eth",
+      placeholder: "kaki.eth",
+    },
   ],
 };

@@ -1,0 +1,1 @@
+export { SpaceConfigInput } from "./SpaceConfigInput";

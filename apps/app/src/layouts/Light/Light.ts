@@ -4,9 +4,19 @@ export const Light: ISpaceLayout = {
   name: "Light",
   properties: [
     {
-      name: "Theme",
+      name: "Bezel",
       type: "select",
-      options: ["Light", "Dark"],
+      options: ["1"],
+    },
+    {
+      name: "Light",
+      type: "select",
+      options: ["1", "2", "3", "4"],
+    },
+    {
+      name: "Spiral",
+      type: "select",
+      options: ["1", "2", "3", "4"],
     },
   ],
 };

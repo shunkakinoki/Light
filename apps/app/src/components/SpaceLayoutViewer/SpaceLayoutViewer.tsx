@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
 
@@ -32,8 +34,23 @@ export const SpaceLayoutViewer: FC = () => {
   }, [config, configLayout]);
 
   return (
-    <div className="col-span-2 w-full">
-      <div className="mt-12 flex justify-end space-x-2">
+    <>
+      <div className="relative flex w-full rounded-md">
+        <img className="absolute z-10" src={`/bazels/black.svg`} alt="black" />;
+        <img
+          className="absolute"
+          src={`/lights/${configLayout.Light}.svg`}
+          alt="black"
+        />
+        ;
+        <img
+          className="absolute z-30 overflow-hidden"
+          src={`/spirals/${configLayout.Spiral}.svg`}
+          alt="black"
+        />
+        ;
+      </div>
+      <div className="relative mt-12 flex justify-end space-x-2">
         <button
           className="inline-flex cursor-pointer items-center justify-center rounded-md border border-transparent bg-contrast-higher py-2 px-4 text-center text-sm font-medium leading-6 hover:bg-contrast-medium"
           onClick={(): void => {
@@ -43,6 +60,6 @@ export const SpaceLayoutViewer: FC = () => {
           {isCopied ? "Copied!" : "Copy Image URL"}
         </button>
       </div>
-    </div>
+    </>
   );
 };

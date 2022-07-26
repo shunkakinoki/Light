@@ -36,23 +36,23 @@ export const SpaceLayoutViewer: FC = () => {
   return (
     <>
       <div className="relative flex w-full rounded-md">
-        <img className="absolute z-10" src={`/bazels/black.svg`} alt="black" />;
+        <img className="absolute z-40" src={`/bazels/black.svg`} alt="black" />;
         <img
-          className="absolute"
+          className="absolute z-30"
           src={`/lights/${configLayout.Light}.svg`}
           alt="black"
         />
         ;
         <img
-          className="absolute z-30 overflow-hidden"
+          className="absolute z-20 overflow-hidden"
           src={`/spirals/${configLayout.Spiral}.svg`}
           alt="black"
         />
         ;
       </div>
-      <div className="relative mt-12 flex justify-end space-x-2">
+      <div className="relative mt-12 flex flex-col justify-end space-x-2">
         <button
-          className="inline-flex cursor-pointer items-center justify-center rounded-md border border-transparent bg-contrast-higher py-2 px-4 text-center text-sm font-medium leading-6 hover:bg-contrast-medium"
+          className="inline-flex h-9 cursor-pointer items-center justify-center rounded-md border border-transparent bg-contrast-higher py-2 px-4 text-center text-sm font-medium leading-6 hover:bg-contrast-medium"
           onClick={(): void => {
             return copy(host + query);
           }}

@@ -18,7 +18,7 @@ export const SpaceConfig: FC = () => {
   }, [layoutName]);
 
   return (
-    <div className="mt-3 space-y-4">
+    <div className="my-auto mt-12 h-full items-center justify-center space-y-4">
       <div className="flex">
         <h1 className="mt-1 mr-4 w-32 text-contrast-high">Layout</h1>
         <SpaceConfigSelect

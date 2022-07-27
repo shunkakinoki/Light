@@ -8,6 +8,9 @@ import { Implementation1, Implementation2, Implementation3, Implementation4 } fr
 import "forge-std/Test.sol";
 
 contract LightProxiesE2ETest is Test {
+  bytes32 implSlot =
+    bytes32(uint256(keccak256("eip1967.proxy.implementation")) - 1);
+
   LightProxy internal proxy;
   LightProxyAdmin internal admin;
   Implementation1 internal v1;
@@ -33,6 +36,15 @@ contract LightProxiesE2ETest is Test {
     vm.expectEmit(true, true, false, true);
     emit AdminChanged(address(0), address(admin));
     proxy = new LightProxy(address(v1), address(admin), "");
+
+    bytes32 proxySlot = vm.load(address(proxy), implSlot);
+    address addr;
+    assembly {
+      mstore(0, proxySlot)
+      addr := mload(0)
+    }
+    assertEq(addr, address(v1));
+
     v1 = Implementation1(address(proxy));
     vm.expectEmit(true, false, false, true);
     emit Initialized(1);
@@ -53,6 +65,13 @@ contract LightProxiesE2ETest is Test {
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(v2));
     admin.upgrade(proxy, address(v2));
+    bytes32 proxySlotV2 = vm.load(address(proxy), implSlot);
+    address addrV2;
+    assembly {
+      mstore(0, proxySlotV2)
+      addrV2 := mload(0)
+    }
+    assertEq(addrV2, address(v2));
     v2 = Implementation2(address(proxy));
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
     v2.initialize();
@@ -64,6 +83,13 @@ contract LightProxiesE2ETest is Test {
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(v3));
     admin.upgrade(proxy, address(v3));
+    bytes32 proxySlotV3 = vm.load(address(proxy), implSlot);
+    address addrV3;
+    assembly {
+      mstore(0, proxySlotV3)
+      addrV3 := mload(0)
+    }
+    assertEq(addrV3, address(v3));
     v3 = Implementation3(address(proxy));
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
     v3.initialize();
@@ -74,6 +100,12 @@ contract LightProxiesE2ETest is Test {
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(v4));
     admin.upgrade(proxy, address(v4));
+    bytes32 proxySlotV4 = vm.load(address(proxy), implSlot);
+    address addrV4;
+    assembly {
+      mstore(0, proxySlotV4)
+      addrV4 := mload(0)
+    }
     v4 = Implementation4(address(proxy));
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
     v4.initialize();

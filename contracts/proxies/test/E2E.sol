@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 
 import "@lightdotso/proxies/LightProxy.sol";
 import "@lightdotso/proxies/LightProxyAdmin.sol";
-import { Implementation1, Implementation2, Implementation3 } from "@openzeppelin/contracts/mocks/RegressionImplementation.sol";
+import { Implementation1, Implementation2, Implementation3, Implementation4 } from "@openzeppelin/contracts/mocks/RegressionImplementation.sol";
 import "forge-std/Test.sol";
 
 contract LightProxiesE2ETest is Test {
@@ -13,6 +13,7 @@ contract LightProxiesE2ETest is Test {
   Implementation1 internal v1;
   Implementation2 internal v2;
   Implementation3 internal v3;
+  Implementation4 internal v4;
 
   event AdminChanged(address previousAdmin, address newAdmin);
   event OwnershipTransferred(
@@ -36,6 +37,7 @@ contract LightProxiesE2ETest is Test {
     vm.expectEmit(true, false, false, true);
     emit Initialized(1);
     v1.initialize();
+    v1.setValue(1);
   }
 
   function testProxyAdmin() public {
@@ -52,5 +54,33 @@ contract LightProxiesE2ETest is Test {
     emit Upgraded(address(v2));
     admin.upgrade(proxy, address(v2));
     v2 = Implementation2(address(proxy));
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    v2.initialize();
+    assertEq(v2.getValue(), 1);
+    v2.setValue(2);
+    assertEq(v2.getValue(), 2);
+
+    v3 = new Implementation3();
+    vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(v3));
+    admin.upgrade(proxy, address(v3));
+    v3 = Implementation3(address(proxy));
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    v3.initialize();
+    assertEq(v3.getValue(1), 3);
+    v3.setValue(3);
+
+    v4 = new Implementation4();
+    vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(v4));
+    admin.upgrade(proxy, address(v4));
+    v4 = Implementation4(address(proxy));
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    v4.initialize();
+    assertEq(v4.getValue(), 3);
+    v4.setValue(4);
+    assertEq(v4.getValue(), 4);
+    address(v4).call("");
+    assertEq(v4.getValue(), 1);
   }
 }

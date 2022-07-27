@@ -32,6 +32,7 @@ contract LightProxiesE2ETest is Test {
     vm.expectEmit(true, true, false, true);
     emit AdminChanged(address(0), address(admin));
     proxy = new LightProxy(address(v1), address(admin), "");
+    v1 = Implementation1(address(proxy));
     vm.expectEmit(true, false, false, true);
     emit Initialized(1);
     v1.initialize();
@@ -46,6 +47,10 @@ contract LightProxiesE2ETest is Test {
   }
 
   function testProxyImplementation() public {
-    v1 = new Implementation1();
+    v2 = new Implementation2();
+    vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(v2));
+    admin.upgrade(proxy, address(v2));
+    v2 = Implementation2(address(proxy));
   }
 }

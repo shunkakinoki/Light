@@ -106,14 +106,15 @@ contract LightProxiesE2ETest is Test {
       mstore(0, proxySlotV4)
       addrV4 := mload(0)
     }
-    assertEq(addrV4, address(v4 ));
+    assertEq(addrV4, address(v4));
     v4 = Implementation4(address(proxy));
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
     v4.initialize();
     assertEq(v4.getValue(), 3);
     v4.setValue(4);
     assertEq(v4.getValue(), 4);
-    address(v4).call("");
+    (bool status, ) = address(v4).call("");
+    assertEq(status, true);
     assertEq(v4.getValue(), 1);
   }
 }

@@ -39,8 +39,8 @@ contract LightProxiesE2ETest is Test {
 
   function testProxyAdmin() public {
     assertEq(admin.owner(), address(this));
-    vm.expectEmit(true, false, false, true);
-    emit Initialized(1);
+    vm.expectEmit(true, true, false, true);
+    emit OwnershipTransferred(address(this), address(0));
     admin.renounceOwnership();
     assertEq(admin.owner(), address(0));
   }

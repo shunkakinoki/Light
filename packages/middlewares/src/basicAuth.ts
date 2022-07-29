@@ -2,7 +2,11 @@
 
 import type { ComposableMiddleware } from "next-compose-middleware";
 
-export const basicAuthMiddleware: ComposableMiddleware = async (req, res) => {
+export const basicAuthMiddleware: ComposableMiddleware = async (
+  req,
+  res,
+  { breakAll },
+) => {
   const basicAuth = req.headers.get("authorization");
 
   if (basicAuth) {
@@ -11,6 +15,8 @@ export const basicAuthMiddleware: ComposableMiddleware = async (req, res) => {
 
     if (user === "4dmin" && pwd === "testpwd123") {
       return res;
+    } else {
+      return breakAll(res);
     }
   }
 };

@@ -34,7 +34,7 @@
     "graphql-request": "^4.3.0"
   },
   "devDependencies": {
-    "@types/node": "^18.6.1"
+    "@types/node": "^18.6.2"
   },
   "publishConfig": {
     "access": "public",

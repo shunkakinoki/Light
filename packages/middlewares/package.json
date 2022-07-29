@@ -30,7 +30,7 @@
     "next": "^12.2.3"
   },
   "devDependencies": {
-    "@types/node": "^18.6.1"
+    "@types/node": "^18.6.2"
   },
   "publishConfig": {
     "access": "public",

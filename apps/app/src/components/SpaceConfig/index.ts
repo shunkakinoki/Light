@@ -1,0 +1,1 @@
+export { SpaceConfig } from "./SpaceConfig";

@@ -21,7 +21,7 @@
     "prettier-plugin-packagejson": "^2.2.18",
     "prettier-plugin-solidity": "^1.0.0-dev.23",
     "prettier-plugin-sort-json": "^0.0.2",
-    "prettier-plugin-tailwindcss": "^0.1.12"
+    "prettier-plugin-tailwindcss": "^0.1.13"
   },
   "publishConfig": {
     "access": "public",

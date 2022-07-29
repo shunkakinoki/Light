@@ -22,8 +22,8 @@
   "dependencies": {
     "@lightdotso/core": "workspace:*",
     "@lightdotso/styles": "workspace:*",
-    "@sentry/integrations": "^7.7.0",
-    "@sentry/nextjs": "^7.7.0",
+    "@sentry/integrations": "^7.8.0",
+    "@sentry/nextjs": "^7.8.0",
     "clsx": "^1.2.1",
     "copy-to-clipboard": "^3.3.1",
     "next": "^12.2.3",
@@ -31,7 +31,7 @@
     "next-themes": "^0.2.0",
     "next-transpile-modules": "^9.0.0",
     "playwright-aws-lambda": "^0.9.0",
-    "playwright-core": "^1.24.0",
+    "playwright-core": "^1.24.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "recoil": "^0.7.4"

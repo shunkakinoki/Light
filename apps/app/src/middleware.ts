@@ -2,17 +2,19 @@ import {
   excludedMiddleware,
   linksMiddleware,
   authMiddleware,
-  pipeMiddleware,
+  basicAuthMiddleware,
+  composeMiddleware,
 } from "@lightdotso/middlewares";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export const middleware = (req: NextRequest) => {
-  return pipeMiddleware(req, NextResponse.next(), [
-    authMiddleware,
-    linksMiddleware,
-    excludedMiddleware,
-  ]);
+  return composeMiddleware(req, NextResponse.next(), {
+    scripts: [authMiddleware, linksMiddleware, excludedMiddleware],
+    "/space": {
+      scripts: [basicAuthMiddleware],
+    },
+  });
 };
 
 export const config = {

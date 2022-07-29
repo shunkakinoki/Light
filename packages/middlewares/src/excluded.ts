@@ -1,9 +1,9 @@
-import type { PipeableMiddleware } from "./pipe";
+import type { ComposableMiddleware } from "next-compose-middleware";
 
 const excludedPrefixes = ["/api"];
 const excludedSuffixes = [".png", ".jpg", ".jpeg", ".svg", ".gif"];
 
-export const excludedMiddleware: PipeableMiddleware = async (req, res) => {
+export const excludedMiddleware: ComposableMiddleware = async (req, res) => {
   const pathname = req.nextUrl.pathname;
 
   const isPrefixExcluded = excludedPrefixes.find(path => {

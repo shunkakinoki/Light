@@ -853,10 +853,12 @@ importers:
       '@lightdotso/tsconfig': workspace:*
       '@types/node': ^18.6.2
       next: ^12.2.3
+      next-compose-middleware: ^2.0.3
     dependencies:
       '@lightdotso/const': link:../const
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
       next: 12.2.3
+      next-compose-middleware: 2.0.3
     devDependencies:
       '@types/node': 18.6.2
 
@@ -5652,6 +5654,7 @@ packages:
       tsutils: 3.21.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
 
   /@typescript-eslint/parser/5.31.0_eslint@8.20.0:
     resolution: {integrity: sha512-UStjQiZ9OFTFReTrN+iGrC6O/ko9LVDhreEK5S3edmXgR396JGq7CoX2TWIptqt/ESzU2iRKXAHfSF2WJFcWHw==}
@@ -10915,6 +10918,7 @@ packages:
       eslint: 8.20.0
       eslint-config-prettier: 8.5.0_eslint@8.20.0
       prettier-linter-helpers: 1.0.0
+    dev: false
 
   /eslint-plugin-prettier/4.2.1_g4fztgbwjyq2fvmcscny2sj6fy:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
@@ -17868,6 +17872,10 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       uuid: 8.3.2
+    dev: false
+
+  /next-compose-middleware/2.0.3:
+    resolution: {integrity: sha512-Th92BsIVq8C1g0LT1IJdVS6hEeCEz9i+ytbmgKy34Lpm7FnqC92xPZRwuZLT133Uq2QJ23Yg6b26CuWhY5rESg==}
     dev: false
 
   /next-compose-plugins/2.2.1:

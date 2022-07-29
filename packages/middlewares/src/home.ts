@@ -1,9 +1,8 @@
 import { SocialLinks } from "@lightdotso/const";
+import type { ComposableMiddleware } from "next-compose-middleware";
 import { NextResponse } from "next/server";
 
-import type { PipeableMiddleware } from "./pipe";
-
-export const homeMiddleware: PipeableMiddleware = async (req, res) => {
+export const homeMiddleware: ComposableMiddleware = async (req, res) => {
   const pathname = req.nextUrl.pathname;
 
   if (pathname === "/home") {

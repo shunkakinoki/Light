@@ -25,7 +25,8 @@
     "test": "pnpm run build"
   },
   "dependencies": {
-    "@lightdotso/tsconfig": "workspace:*"
+    "@lightdotso/tsconfig": "workspace:*",
+    "@types/tailwindcss": "^3.0.11"
   },
   "publishConfig": {
     "access": "public",

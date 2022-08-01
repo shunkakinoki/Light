@@ -76,7 +76,7 @@
     "concurrently": "^7.3.0",
     "cross-env": "^7.0.3",
     "depcheck": "^1.4.3",
-    "eslint": "^8.20.0",
+    "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.3.0",
     "eslint-plugin-cypress": "^2.12.1",
@@ -91,7 +91,7 @@
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "npm-check-updates": "^16.0.3",
+    "npm-check-updates": "^16.0.4",
     "npm-package-json-lint": "^6.3.0",
     "npm-package-json-lint-config-default": "^5.0.0",
     "prettier": "^2.7.1",
@@ -102,8 +102,8 @@
     "release-it": "^15.2.0",
     "shx": "^0.3.4",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
-    "tsup": "^6.2.0",
-    "vercel": "^27.3.2",
+    "tsup": "^6.2.1",
+    "vercel": "^27.3.3",
     "webpack-dev-server": "^4.9.3"
   },
   "packageManager": "pnpm@6.30.0"

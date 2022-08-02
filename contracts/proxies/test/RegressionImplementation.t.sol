@@ -56,10 +56,7 @@ contract LightProxiesE2ETest is Test {
 
   function testProxyImplementation() public {
     v1 = new Implementation1();
-    vm.expectEmit(true, false, false, true);
-    emit Upgraded(address(v1));
-    admin.upgrade(proxy, address(v1));
-
+    _upgradeUUPS(proxy, address(v1));
     _testUUPSSlot(address(proxy), address(v1));
     _testUUPSInitializeOnce(address(proxy));
 
@@ -67,9 +64,7 @@ contract LightProxiesE2ETest is Test {
     v1.setValue(1);
 
     v2 = new Implementation2();
-    vm.expectEmit(true, false, false, true);
-    emit Upgraded(address(v2));
-    admin.upgrade(proxy, address(v2));
+    _upgradeUUPS(proxy, address(v2));
 
     _testUUPSSlot(address(proxy), address(v2));
     _testUUPSInitializeOnce(address(proxy));
@@ -80,10 +75,7 @@ contract LightProxiesE2ETest is Test {
     assertEq(v2.getValue(), 2);
 
     v3 = new Implementation3();
-    vm.expectEmit(true, false, false, true);
-    emit Upgraded(address(v3));
-    admin.upgrade(proxy, address(v3));
-
+    _upgradeUUPS(proxy, address(v3));
     _testUUPSSlot(address(proxy), address(v3));
     _testUUPSInitializeOnce(address(proxy));
 
@@ -92,10 +84,7 @@ contract LightProxiesE2ETest is Test {
     v3.setValue(3);
 
     v4 = new Implementation4();
-    vm.expectEmit(true, false, false, true);
-    emit Upgraded(address(v4));
-    admin.upgrade(proxy, address(v4));
-
+    _upgradeUUPS(proxy, address(v4));
     _testUUPSSlot(address(proxy), address(v4));
     _testUUPSInitializeOnce(address(proxy));
 
@@ -128,5 +117,13 @@ contract LightProxiesE2ETest is Test {
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
     (bool status, ) = _proxy.call(abi.encodeWithSignature("initialize()"));
     assertEq(status, true);
+  }
+
+  function _upgradeUUPS(TransparentUpgradeableProxy _proxy, address _impl)
+    internal
+  {
+    vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(_impl));
+    admin.upgrade(_proxy, _impl);
   }
 }

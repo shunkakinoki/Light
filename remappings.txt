@@ -1,3 +1,5 @@
+@lightdotso/ens/=contracts/ens/src/
+@lightdotso/foundry/=contracts/foundry/src/
 @lightdotso/protocol/=contracts/protocol/src/
 @lightdotso/proxies/=contracts/proxies/src/
 @lightdotso/renderer/=contracts/renderer/src/

@@ -115,7 +115,7 @@ contract LightProxiesE2ETest is Test {
 
   function _testUUPSInitializeOnce(address _proxy) internal {
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    (bool success, ) = _proxy.call(abi.encodeWithSignature("initialize()"));
-    assertEq(success, true);
+    (bool status, ) = _proxy.call(abi.encodeWithSignature("initialize()"));
+    assertEq(status, true);
   }
 }

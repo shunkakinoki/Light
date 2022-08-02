@@ -21,7 +21,7 @@ contract LightProxiesE2ETest is BaseTest {
     setUpProxies();
   }
 
-  function testProxyImplementationZ() public {
+  function testProxyImplementation() public {
     v1 = new Implementation1();
     payload = abi.encodeWithSignature("setValue(uint256)", 1);
     _upgradeAndCallUUPS(proxy, address(v1), payload);

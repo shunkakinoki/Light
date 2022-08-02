@@ -1,5 +1,6 @@
 @lightdotso/protocol/=contracts/protocol/src/
 @lightdotso/proxies/=contracts/proxies/src/
+@lightdotso/renderer/=contracts/renderer/src/
 ds-test/=lib/ds-test/src/
 forge-std/=lib/forge-std/src/
 @openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/

@@ -15,19 +15,54 @@ contract LightProxiesE2ETest is BaseTest {
   Implementation3 internal v3;
   Implementation4 internal v4;
 
+  bytes payload;
+
   function setUp() public {
     setUpProxies();
   }
 
-  function testProxyAdmin() public {
-    assertEq(admin.owner(), address(this));
-    vm.expectEmit(true, true, false, true);
-    emit OwnershipTransferred(address(this), address(0));
-    admin.renounceOwnership();
-    assertEq(admin.owner(), address(0));
+  function testProxyImplementationZ() public {
+    v1 = new Implementation1();
+    payload = abi.encodeWithSignature("setValue(uint256)", 1);
+    _upgradeAndCallUUPS(proxy, address(v1), payload);
+    _testUUPSSlot(address(proxy), address(v1));
+    _testUUPSInitializeOnce(address(proxy));
+
+    v2 = new Implementation2();
+    payload = abi.encodeWithSignature("setValue(uint256)", 2);
+    _upgradeAndCallUUPS(proxy, address(v2), payload);
+    _testUUPSSlot(address(proxy), address(v2));
+    _testUUPSInitializeOnce(address(proxy));
+
+    v2 = Implementation2(address(proxy));
+    assertEq(v2.getValue(), 2);
+
+    v3 = new Implementation3();
+    payload = abi.encodeWithSignature("setValue(uint256)", 3);
+    _upgradeAndCallUUPS(proxy, address(v3), payload);
+    _testUUPSSlot(address(proxy), address(v3));
+    _testUUPSInitializeOnce(address(proxy));
+
+    v3 = Implementation3(address(proxy));
+    assertEq(v3.getValue(1), 4);
+    v3.setValue(3);
+
+    v4 = new Implementation4();
+    payload = abi.encodeWithSignature("setValue(uint256)", 4);
+    _upgradeAndCallUUPS(proxy, address(v4), payload);
+    _testUUPSSlot(address(proxy), address(v4));
+    _testUUPSInitializeOnce(address(proxy));
+
+    v4 = Implementation4(address(proxy));
+    assertEq(v4.getValue(), 4);
+    v4.setValue(5);
+    assertEq(v4.getValue(), 5);
+    (bool status, ) = address(v4).call("");
+    assertEq(status, true);
+    assertEq(v4.getValue(), 1);
   }
 
-  function testProxyImplementation() public {
+  function testProxyImplementationSequential() public {
     v1 = new Implementation1();
     _upgradeUUPS(proxy, address(v1));
     _testUUPSSlot(address(proxy), address(v1));

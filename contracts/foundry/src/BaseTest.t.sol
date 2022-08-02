@@ -29,16 +29,30 @@ contract BaseTest is Test {
     v0 = new EmptyUUPS();
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    vm.expectEmit(true, true, false, true);
     emit Upgraded(address(v0));
+    emit OwnershipTransferred(address(0), address(this));
+    emit Initialized(1);
     emit AdminChanged(address(0), address(admin));
-    proxy = new LightProxy(address(v0), address(admin), "");
+    bytes memory initCalldata = abi.encodePacked(EmptyUUPS.initialize.selector);
+    proxy = new LightProxy(address(v0), address(admin), initCalldata);
 
     _testUUPSSlot(address(proxy), address(v0));
+  }
 
-    v0 = EmptyUUPS(address(proxy));
-    vm.expectEmit(true, false, false, true);
-    emit Initialized(1);
-    v0.initialize();
+  function testSetUpProxies() public {
+    setUpProxies();
+  }
+
+  function testProxyAdmin() public {
+    setUpProxies();
+
+    assertEq(admin.owner(), address(this));
+    vm.expectEmit(true, true, false, true);
+    emit OwnershipTransferred(address(this), address(0));
+    admin.renounceOwnership();
+    assertEq(admin.owner(), address(0));
   }
 
   function _testUUPSSlot(address _proxy, address _impl) internal {

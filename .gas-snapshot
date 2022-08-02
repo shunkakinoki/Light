@@ -1,4 +1,5 @@
 GreeterTest:testGreetIsHelloWorld() (gas: 9167)
 GreeterTest:testSetGreetingIsNewWorld() (gas: 13653)
 LightProxiesE2ETest:testProxyAdmin() (gas: 13780)
-LightProxiesE2ETest:testProxyImplementation() (gas: 533159)
+LightProxiesE2ETest:testProxyImplementation() (gas: 546905)
+RendererTest:testRenderer() (gas: 7420)

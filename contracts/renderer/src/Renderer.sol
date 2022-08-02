@@ -2,6 +2,9 @@
 
 pragma solidity ^0.8.13;
 
+/// @title  Light Renderer
+/// @author Shun Kakinoki <shunkakinoki@gmail.com>
+/// @author Design by Oz Hashimoto <hello@okazu.co>
 contract Renderer {
   string private greeting;
 

@@ -65,7 +65,6 @@ contract LightProxiesE2ETest is Test {
 
     v2 = new Implementation2();
     _upgradeUUPS(proxy, address(v2));
-
     _testUUPSSlot(address(proxy), address(v2));
     _testUUPSInitializeOnce(address(proxy));
 

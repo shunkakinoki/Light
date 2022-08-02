@@ -4,6 +4,7 @@ pragma solidity ^0.8.13;
 
 import "@lightdotso/proxies/LightProxy.sol";
 import "@lightdotso/proxies/LightProxyAdmin.sol";
+import { EmptyUUPS } from "@lightdotso/proxies/utils/EmptyUUPS.sol";
 import { Implementation } from "./mocks/Implementation.sol";
 import { Implementation1, Implementation2, Implementation3, Implementation4 } from "@openzeppelin/contracts/mocks/RegressionImplementation.sol";
 import "forge-std/Test.sol";
@@ -11,6 +12,7 @@ import "forge-std/Test.sol";
 contract LightProxiesE2ETest is Test {
   LightProxy internal proxy;
   LightProxyAdmin internal admin;
+  EmptyUUPS internal v0;
   Implementation1 internal v1;
   Implementation2 internal v2;
   Implementation3 internal v3;
@@ -29,20 +31,19 @@ contract LightProxiesE2ETest is Test {
     emit OwnershipTransferred(address(0), address(this));
     admin = new LightProxyAdmin();
 
-    v1 = new Implementation1();
+    v0 = new EmptyUUPS();
     vm.expectEmit(true, false, false, true);
-    emit Upgraded(address(v1));
     vm.expectEmit(true, true, false, true);
+    emit Upgraded(address(v0));
     emit AdminChanged(address(0), address(admin));
-    proxy = new LightProxy(address(v1), address(admin), "");
+    proxy = new LightProxy(address(v0), address(admin), "");
 
-    _testUUPSSlot(address(proxy), address(v1));
+    _testUUPSSlot(address(proxy), address(v0));
 
-    v1 = Implementation1(address(proxy));
+    v0 = EmptyUUPS(address(proxy));
     vm.expectEmit(true, false, false, true);
     emit Initialized(1);
-    v1.initialize();
-    v1.setValue(1);
+    v0.initialize();
   }
 
   function testProxyAdmin() public {
@@ -54,6 +55,17 @@ contract LightProxiesE2ETest is Test {
   }
 
   function testProxyImplementation() public {
+    v1 = new Implementation1();
+    vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(v1));
+    admin.upgrade(proxy, address(v1));
+
+    _testUUPSSlot(address(proxy), address(v1));
+    _testUUPSInitializeOnce(address(proxy));
+
+    v1 = Implementation1(address(proxy));
+    v1.setValue(1);
+
     v2 = new Implementation2();
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(v2));

@@ -39,6 +39,10 @@ contract ENSResolver is Initializable {
     s().node = _node;
   }
 
+  function getNode() public view returns (address) {
+    return s().node;
+  }
+
   function resolve(bytes32 node) public view returns (address) {
     ENSBaseResolver ens = ENSBaseResolver(s().node);
     Resolver resolver = ens.resolver(node);
@@ -47,7 +51,7 @@ contract ENSResolver is Initializable {
 }
 
 contract ENS is ENSResolver {
-  function initialize() public initializer {
-    __ENS_init(address(this));
+  function initialize(address _node) public initializer {
+    __ENS_init(address(_node));
   }
 }

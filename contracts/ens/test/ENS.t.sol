@@ -16,6 +16,11 @@ contract ENSTest is BaseTest {
     ens = new ENS();
     _upgradeUUPS(proxy, address(ens));
     _testUUPSSlot(address(proxy), address(ens));
-    _testUUPSInitializeOnce(address(proxy));
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    ENS(address(proxy)).initialize(address(0));
+
+    ens = ENS(address(proxy));
+    ens.setNode(address(0));
+    assertEq(ens.getNode(), address(0));
   }
 }

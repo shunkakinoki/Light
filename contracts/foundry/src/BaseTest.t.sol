@@ -70,4 +70,14 @@ contract BaseTest is Test {
     emit Upgraded(address(_impl));
     admin.upgrade(_proxy, _impl);
   }
+
+  function _upgradeAndCallUUPS(
+    TransparentUpgradeableProxy _proxy,
+    address _impl,
+    bytes memory _data
+  ) internal {
+    vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(_impl));
+    admin.upgradeAndCall(_proxy, _impl, _data);
+  }
 }

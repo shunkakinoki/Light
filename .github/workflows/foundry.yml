@@ -17,7 +17,6 @@ jobs:
           version: nightly
       - run: |
           forge install
-          forge snapshot --check
           forge test -vvvvv --gas-report
       - run: |
           forge test --gas-report > gasreport.ansi

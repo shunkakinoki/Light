@@ -4,12 +4,9 @@ pragma solidity ^0.8.13;
 
 import "@lightdotso/proxies/LightProxy.sol";
 import "@lightdotso/proxies/LightProxyAdmin.sol";
+import { Implementation } from "./mocks/Implementation.sol";
 import { Implementation1, Implementation2, Implementation3, Implementation4 } from "@openzeppelin/contracts/mocks/RegressionImplementation.sol";
 import "forge-std/Test.sol";
-
-interface Initializable {
-  function initialize() public;
-}
 
 contract LightProxiesE2ETest is Test {
   LightProxy internal proxy;
@@ -66,9 +63,6 @@ contract LightProxiesE2ETest is Test {
     _testUUPSInitializeOnce(address(proxy));
 
     v2 = Implementation2(address(proxy));
-    vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    v2.initialize();
-
     assertEq(v2.getValue(), 1);
     v2.setValue(2);
     assertEq(v2.getValue(), 2);
@@ -82,9 +76,6 @@ contract LightProxiesE2ETest is Test {
     _testUUPSInitializeOnce(address(proxy));
 
     v3 = Implementation3(address(proxy));
-    vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    v3.initialize();
-
     assertEq(v3.getValue(1), 3);
     v3.setValue(3);
 
@@ -97,9 +88,6 @@ contract LightProxiesE2ETest is Test {
     _testUUPSInitializeOnce(address(proxy));
 
     v4 = Implementation4(address(proxy));
-    vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    v4.initialize();
-
     assertEq(v4.getValue(), 3);
     v4.setValue(4);
     assertEq(v4.getValue(), 4);
@@ -122,6 +110,9 @@ contract LightProxiesE2ETest is Test {
   }
 
   function _testUUPSInitializeOnce(address _proxy) internal {
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    Implementation(_proxy).initialize();
+
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
     (bool status, ) = _proxy.call(abi.encodeWithSignature("initialize()"));
     assertEq(status, true);

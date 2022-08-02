@@ -58,6 +58,7 @@ contract LightProxiesE2ETest is Test {
     admin.upgrade(proxy, address(v2));
 
     _testUUPSSlot(address(proxy), address(v2));
+    _testUUPSInitializeOnce(address(proxy));
 
     v2 = Implementation2(address(proxy));
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
@@ -72,6 +73,7 @@ contract LightProxiesE2ETest is Test {
     admin.upgrade(proxy, address(v3));
 
     _testUUPSSlot(address(proxy), address(v3));
+    _testUUPSInitializeOnce(address(proxy));
 
     v3 = Implementation3(address(proxy));
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
@@ -85,6 +87,7 @@ contract LightProxiesE2ETest is Test {
     admin.upgrade(proxy, address(v4));
 
     _testUUPSSlot(address(proxy), address(v4));
+    _testUUPSInitializeOnce(address(proxy));
 
     v4 = Implementation4(address(proxy));
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
@@ -108,5 +111,11 @@ contract LightProxiesE2ETest is Test {
       addr := mload(0)
     }
     assertEq(addr, address(_impl));
+  }
+
+  function _testUUPSInitializeOnce(address _proxy) internal {
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    (bool success, ) = _proxy.call(abi.encodeWithSignature("initialize()"));
+    assertEq(success, true);
   }
 }

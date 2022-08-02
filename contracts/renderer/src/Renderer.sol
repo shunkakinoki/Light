@@ -12,6 +12,6 @@ contract Renderer {
     uint256,
     string calldata
   ) public pure returns (string memory) {
-    return "Hellow from renderer";
+    return "Hello from renderer";
   }
 }

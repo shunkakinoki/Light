@@ -12,7 +12,7 @@ contract ENSTest is BaseTest {
     setUpProxies();
   }
 
-  function testENSProxyImplementationZ() public {
+  function testENSProxyImplementation() public {
     ens = new ENS();
     bytes memory payload = abi.encodeWithSignature(
       "setNode(address)",

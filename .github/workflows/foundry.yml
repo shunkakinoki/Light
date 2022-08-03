@@ -23,8 +23,6 @@ jobs:
           forge test --gas-report --fuzz-seed 0 | tee gasreport.ansi
       - id: gas
         uses: Rubilmax/foundry-gas-diff@v3.8
-        with:
-          workflowId: foundry.yml
       - if: github.event_name == 'pull_request' || github.event_name == 'pull_request_target'
         uses: marocchino/sticky-pull-request-comment@v2
         with:

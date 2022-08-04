@@ -55,6 +55,13 @@ contract TwoStepOwnableUpgradeableTest is BaseTest {
     v02.acceptOwnership();
   }
 
+  function testTwoStepOwnableAcceptOwnershipFailNotPotentialOwner() public {
+    v02.transferOwnership(address(1));
+    vm.prank(address(2));
+    vm.expectRevert(bytes("TwoStepOwnable: caller is not the potential owner"));
+    v02.acceptOwnership();
+  }
+
   function testTwoStepOwnableCancelTransferOwnership() public {
     v02.transferOwnership(address(1));
     vm.expectEmit(true, false, false, true);

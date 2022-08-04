@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: GPL-3.0
-// Code from: https://github.com/jameswenzel/utility-contracts/blob/main/test/TwoStepOwnable.t.sol
 
 pragma solidity ^0.8.13;
 

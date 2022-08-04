@@ -9,9 +9,9 @@ import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/O
 contract EmptyUUPSBeacon is UUPSUpgradeable, OwnableUpgradeable {
   UpgradeableBeacon private upgradeableBeacon;
 
-  function initialize(address _implementationAddress) external initializer {
+  function initialize(address implementationAddress_) external initializer {
     OwnableUpgradeable.__Ownable_init();
-    upgradeableBeacon = new UpgradeableBeacon(_implementationAddress);
+    upgradeableBeacon = new UpgradeableBeacon(implementationAddress_);
   }
 
   function _authorizeUpgrade(address) internal override onlyOwner {}

@@ -8,8 +8,11 @@ import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
 contract LightSpaceController is UUPSUpgradeable, OwnableUpgradeable {
-  function initialize() external initializer {
+  UpgradeableBeacon private upgradeableBeacon;
+
+  function initialize(address _implementationAddress) external initializer {
     OwnableUpgradeable.__Ownable_init();
+    upgradeableBeacon = new UpgradeableBeacon(_implementationAddress);
   }
 
   function _authorizeUpgrade(address) internal override onlyOwner {}

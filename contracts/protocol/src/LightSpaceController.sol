@@ -15,5 +15,12 @@ contract LightSpaceController is UUPSUpgradeable, OwnableUpgradeable {
     upgradeableBeacon = new UpgradeableBeacon(implementationAddress_);
   }
 
+  function _upgradeLightSpaces(address newImplementationAddress_)
+    external
+    onlyOwner
+  {
+    upgradeableBeacon.upgradeTo(newImplementationAddress_);
+  }
+
   function _authorizeUpgrade(address) internal override onlyOwner {}
 }

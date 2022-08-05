@@ -12,6 +12,7 @@ import { Empty } from "@lightdotso/proxies/utils/Empty.sol";
 import { EmptyUUPS } from "@lightdotso/proxies/utils/EmptyUUPS.sol";
 import { EmptyUUPSBeacon } from "@lightdotso/proxies/utils/EmptyUUPSBeacon.sol";
 import { Implementation } from "./mocks/Implementation.sol";
+import { TransparentUpgradeableProxy } from "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol";
 
 contract BaseTest is Test {
   Empty internal empty;
@@ -42,18 +43,23 @@ contract BaseTest is Test {
     string memory label_
   ) public returns (address proxyAddress) {
     /// Internal variables.
-    LightProxy proxy;
+    TransparentUpgradeableProxy proxy;
 
     /// Deploy the LightProxy with EmptyUUPS and initialize calldata.
+    vm.prank(address(lightProxyAdmin));
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, true, false, true);
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, true, false, true);
     emit Upgraded(implementation_);
-    emit OwnershipTransferred(address(0), address(this));
+    emit OwnershipTransferred(address(0), address(lightProxyAdmin));
     emit Initialized(1);
     emit AdminChanged(address(0), address(lightProxyAdmin));
-    proxy = new LightProxy(implementation_, address(lightProxyAdmin), data_);
+    proxy = new TransparentUpgradeableProxy(
+      implementation_,
+      address(lightProxyAdmin),
+      data_
+    );
 
     /// Console log deploy and label.
     console2.log("Deployed", address(proxy), "with label", label_);
@@ -78,9 +84,10 @@ contract BaseTest is Test {
   }
 
   function upgradeLightProxy(address proxy_, address implementation_) public {
-    TransparentUpgradeableProxy(payable(proxy_)).upgradeTo(
-      address(implementation_)
-    );
+    vm.prank(address(lightProxyAdmin));
+    vm.expectEmit(true, false, false, true);
+    emit Upgraded(implementation_);
+    TransparentUpgradeableProxy(payable(proxy_)).upgradeTo(implementation_);
   }
 
   function setUpProxies() public {
@@ -117,19 +124,35 @@ contract BaseTest is Test {
       emptyUUPSInitializeCalldata,
       "LightOrb Proxy"
     );
+    assertEq(
+      (EmptyUUPS(payable(lightOrbProxy))).owner(),
+      address(lightProxyAdmin)
+    );
     lightSpaceProxy = deployLightProxy(
       address(emptyUUPS),
       emptyUUPSInitializeCalldata,
       "LightSpace Proxy"
+    );
+    assertEq(
+      (EmptyUUPS(payable(lightSpaceProxy))).owner(),
+      address(lightProxyAdmin)
     );
     lightSpaceFactoryProxy = deployLightProxy(
       address(emptyBeacon),
       emptyBeaconInitializeCalldata,
       "LightSpaceFactory Proxy"
     );
+    assertEq(
+      (EmptyUUPSBeacon(payable(lightSpaceProxy))).owner(),
+      address(lightProxyAdmin)
+    );
 
     /// Upgrade the proxies to corresponding origin implementations.
     upgradeLightProxy(lightOrbProxy, address(lightOrb));
+    assertEq(
+      (LightOrb(payable(lightOrbProxy))).owner(),
+      address(lightProxyAdmin)
+    );
     upgradeLightProxy(lightSpaceProxy, address(lightSpace));
     upgradeLightProxy(lightSpaceFactoryProxy, address(lightSpaceFactory));
   }
@@ -190,7 +213,7 @@ contract BaseTest is Test {
     bytes32 beaconSlot = bytes32(
       uint256(keccak256("eip1967.proxy.beacon")) - 1
     );
-    bytes32 proxySlot = vm.load(address(_proxy), bytes32(uint256(0)));
+    bytes32 proxySlot = vm.load(address(_proxy), beaconSlot);
     address addr;
     assembly {
       mstore(0, proxySlot)

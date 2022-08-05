@@ -85,6 +85,10 @@ contract BaseTest is Test {
     bytes memory emptyUUPSInitializeCalldata = abi.encodePacked(
       EmptyUUPS.initialize.selector
     );
+    bytes memory emptyBeaconInitializeCalldata = abi.encodeWithSelector(
+      EmptyUUPSBeacon.initialize.selector,
+      address(empty)
+    );
 
     deployLightProxy(
       address(emptyUUPS),
@@ -121,8 +125,8 @@ contract BaseTest is Test {
       "LightSpace Proxy"
     );
     lightSpaceFactoryProxy = deployLightProxy(
-      address(emptyUUPS),
-      emptyUUPSInitializeCalldata,
+      address(emptyBeacon),
+      emptyBeaconInitializeCalldata,
       "LightSpaceFactory Proxy"
     );
   }

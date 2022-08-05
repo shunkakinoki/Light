@@ -130,6 +130,8 @@ contract BaseTest is Test {
 
     /// Upgrade the proxies to corresponding origin implementations.
     upgradeLightProxy(lightOrbProxy, address(lightOrb));
+    upgradeLightProxy(lightSpaceProxy, address(lightSpace));
+    upgradeLightProxy(lightSpaceFactoryProxy, address(lightSpaceFactory));
   }
 
   function testSetUpProxies() public {

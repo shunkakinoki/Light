@@ -6,4 +6,6 @@ import { UpgradeableBeacon } from "@openzeppelin/contracts/proxy/beacon/Upgradea
 
 contract LightSpaceFactoryStorage {
   UpgradeableBeacon public upgradeableBeacon;
+
+  uint256[49] private __gap;
 }

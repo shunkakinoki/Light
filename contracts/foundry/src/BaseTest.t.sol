@@ -45,7 +45,6 @@ contract BaseTest is Test {
     LightProxy proxy;
 
     /// Deploy the LightProxy with EmptyUUPS and initialize calldata.
-    // emptyUUPS = new EmptyUUPS();
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, true, false, true);
     vm.expectEmit(true, false, false, true);
@@ -69,8 +68,19 @@ contract BaseTest is Test {
     /// Test the proxy implementation slot.
     _testUUPSSlot(address(proxy), implementation_);
     _testProxyAdminSlot(address(proxy), address(lightProxyAdmin));
+    _testArbitrarySlot(
+      address(proxy),
+      bytes32(uint256(0)),
+      bytes32(uint256(1))
+    );
 
     return address(proxy);
+  }
+
+  function upgradeLightProxy(address proxy_, address implementation_) public {
+    TransparentUpgradeableProxy(payable(proxy_)).upgradeTo(
+      address(implementation_)
+    );
   }
 
   function setUpProxies() public {
@@ -79,33 +89,10 @@ contract BaseTest is Test {
     emit OwnershipTransferred(address(0), address(this));
     lightProxyAdmin = new LightProxyAdmin();
 
+    /// Deploy the origin empty contracts for bytecode.
     empty = new Empty();
     emptyUUPS = new EmptyUUPS();
     emptyBeacon = new EmptyUUPSBeacon();
-
-    bytes memory emptyUUPSInitializeCalldata = abi.encodePacked(
-      EmptyUUPS.initialize.selector
-    );
-    bytes memory emptyBeaconInitializeCalldata = abi.encodeWithSelector(
-      EmptyUUPSBeacon.initialize.selector,
-      address(empty)
-    );
-
-    deployLightProxy(
-      address(emptyUUPS),
-      emptyUUPSInitializeCalldata,
-      "Light Proxy A"
-    );
-    deployLightProxy(
-      address(emptyUUPS),
-      emptyUUPSInitializeCalldata,
-      "Light Proxy B"
-    );
-    deployLightProxy(
-      address(emptyUUPS),
-      emptyUUPSInitializeCalldata,
-      "Light Proxy C"
-    );
 
     /// Implement origin contracts and labels.
     lightOrb = new LightOrb();
@@ -115,6 +102,16 @@ contract BaseTest is Test {
     lightSpaceFactory = new LightSpaceFactory();
     vm.label(address(lightSpaceFactory), "LightSpaceFactory");
 
+    /// Initialize calldata for proxy deployment.
+    bytes memory emptyUUPSInitializeCalldata = abi.encodePacked(
+      EmptyUUPS.initialize.selector
+    );
+    bytes memory emptyBeaconInitializeCalldata = abi.encodeWithSelector(
+      EmptyUUPSBeacon.initialize.selector,
+      address(empty)
+    );
+
+    /// Deploy the proxies with corresponding implementations and calldata.
     lightOrbProxy = deployLightProxy(
       address(emptyUUPS),
       emptyUUPSInitializeCalldata,
@@ -130,6 +127,13 @@ contract BaseTest is Test {
       emptyBeaconInitializeCalldata,
       "LightSpaceFactory Proxy"
     );
+
+    /// Upgrade the proxies to corresponding origin implementations.
+    upgradeLightProxy(lightOrbProxy, address(lightOrb));
+  }
+
+  function testSetUpProxies() public {
+    setUpProxies();
   }
 
   function testLightProxyAdmin() public {
@@ -140,10 +144,6 @@ contract BaseTest is Test {
     emit OwnershipTransferred(address(this), address(0));
     lightProxyAdmin.renounceOwnership();
     assertEq(lightProxyAdmin.owner(), address(0));
-  }
-
-  function testSetUpProxies() public {
-    setUpProxies();
   }
 
   function _testArbitrarySlot(
@@ -176,6 +176,19 @@ contract BaseTest is Test {
   function _testProxyAdminSlot(address _proxy, address _impl) internal {
     bytes32 adminSlot = bytes32(uint256(keccak256("eip1967.proxy.admin")) - 1);
     bytes32 proxySlot = vm.load(address(_proxy), adminSlot);
+    address addr;
+    assembly {
+      mstore(0, proxySlot)
+      addr := mload(0)
+    }
+    assertEq(addr, address(_impl));
+  }
+
+  function _testProxyBeaconSlot(address _proxy, address _impl) internal {
+    bytes32 beaconSlot = bytes32(
+      uint256(keccak256("eip1967.proxy.beacon")) - 1
+    );
+    bytes32 proxySlot = vm.load(address(_proxy), bytes32(uint256(0)));
     address addr;
     assembly {
       mstore(0, proxySlot)

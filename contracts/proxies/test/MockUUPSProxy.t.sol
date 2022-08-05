@@ -37,6 +37,12 @@ contract MockUUPSProxyTest is Test, SlotTest {
     assertEq(wrappedProxyV1.x(), 100);
   }
 
+  function testMockUUPSProxyV1InitializeOnlyOnce() public {
+    mockUUPSProxyV1Initialize(100);
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    wrappedProxyV1.initialize(1);
+  }
+
   function testMockUUPSProxyV1Owner() public {
     assertEq(wrappedProxyV1.owner(), address(0));
     mockUUPSProxyV1Initialize(100);
@@ -82,5 +88,11 @@ contract MockUUPSProxyTest is Test, SlotTest {
       bytes32(uint256(0)),
       bytes32(uint256(1))
     );
+  }
+
+  function testMockUUPSProxyV2InitializeOnlyOnce() public {
+    mockUUPSProxyV2Upgrade(100);
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    wrappedProxyV2.initialize();
   }
 }

@@ -68,6 +68,7 @@ contract BaseTest is Test {
 
     /// Test the proxy implementation slot.
     _testUUPSSlot(address(proxy), implementation_);
+    _testProxyAdminSlot(address(proxy), address(lightProxyAdmin));
 
     return address(proxy);
   }
@@ -164,6 +165,17 @@ contract BaseTest is Test {
       uint256(keccak256("eip1967.proxy.implementation")) - 1
     );
     bytes32 proxySlot = vm.load(address(_proxy), implSlot);
+    address addr;
+    assembly {
+      mstore(0, proxySlot)
+      addr := mload(0)
+    }
+    assertEq(addr, address(_impl));
+  }
+
+  function _testProxyAdminSlot(address _proxy, address _impl) internal {
+    bytes32 adminSlot = bytes32(uint256(keccak256("eip1967.proxy.admin")) - 1);
+    bytes32 proxySlot = vm.load(address(_proxy), adminSlot);
     address addr;
     assembly {
       mstore(0, proxySlot)

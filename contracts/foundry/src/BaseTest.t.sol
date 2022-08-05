@@ -38,9 +38,6 @@ contract BaseTest is Test {
     /// Internal variables.
     LightProxy proxy;
 
-    /// Checks for internal testing.
-    require(address(admin) != address(0), "LightAdminProxy not set");
-
     /// Deploy the LightProxy with EmptyUUPS and initialize calldata.
     emptyUUPS = new EmptyUUPS();
     vm.expectEmit(true, false, false, true);
@@ -55,7 +52,8 @@ contract BaseTest is Test {
     proxy = new LightProxy(address(emptyUUPS), address(admin), initCalldata);
 
     /// Console log deploy and label.
-    console2.log("Deployed", label_, "at", address(proxy));
+    console2.log("Deployed", address(proxy), "with label", label_);
+    console2.log("Deployed", address(proxy), "with admin", address(admin));
     vm.label(address(proxy), label_);
 
     /// Test the proxy implementation slot.
@@ -67,24 +65,16 @@ contract BaseTest is Test {
   function setUpProxies() public {
     deployLightProxyAdmin();
 
-    address a = deployLightProxy("Light Proxy A");
-    address b = deployLightProxy("Light Proxy B");
+    deployLightProxy("Light Proxy A");
+    deployLightProxy("Light Proxy B");
+    deployLightProxy("Light Proxy C");
 
     empty = new Empty();
     emptyBeacon = new EmptyUUPSBeacon();
   }
 
-  function testSetUpProxies() public {
-    setUpProxies();
-  }
-
-  function testDeployLightProxyFailLightProxyAdminNotExist() public {
-    vm.expectRevert(bytes("LightAdminProxy not set"));
-    deployLightProxy("");
-  }
-
-  function testProxyAdmin() public {
-    setUpProxies();
+  function testLightProxyAdmin() public {
+    deployLightProxyAdmin();
 
     assertEq(admin.owner(), address(this));
     vm.expectEmit(true, true, false, true);

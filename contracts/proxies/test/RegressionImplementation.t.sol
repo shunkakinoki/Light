@@ -26,6 +26,7 @@ contract LightProxiesE2ETest is BaseTest {
     proxy = deployLightProxy(
       address(emptyUUPS),
       emptyUUPSInitializeCalldata,
+      proxy,
       "Light Proxy"
     );
   }

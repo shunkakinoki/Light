@@ -19,10 +19,13 @@ contract BaseTest is Test {
   EmptyUUPS internal emptyUUPS;
   EmptyUUPSBeacon internal emptyBeacon;
 
-  address lightOrbProxy;
-  address lightProxyAminProxy;
-  address lightSpaceProxy;
-  address lightSpaceFactoryProxy;
+  address deployer = address(bytes20(keccak256("deployer")));
+  address lightOrbProxy = address(bytes20(keccak256("lightOrbProxy")));
+  address lightProxyAdminProxy =
+    address(bytes20(keccak256("lightProxyAdminProxy")));
+  address lightSpaceProxy = address(bytes20(keccak256("lightSpaceProxy")));
+  address lightSpaceFactoryProxy =
+    address(bytes20(keccak256("lightSpaceFactoryProxy")));
 
   LightOrb internal lightOrb;
   LightProxyAdmin internal lightProxyAdmin;
@@ -40,40 +43,71 @@ contract BaseTest is Test {
   function deployLightProxy(
     address implementation_,
     bytes memory data_,
+    address etch_,
     string memory label_
   ) public returns (address proxyAddress) {
     /// Internal variables.
     TransparentUpgradeableProxy proxy;
 
     /// Deploy the LightProxy with EmptyUUPS and initialize calldata.
-    vm.prank(address(lightProxyAdmin));
+    vm.prank(deployer);
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, true, false, true);
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, true, false, true);
     emit Upgraded(implementation_);
-    emit OwnershipTransferred(address(0), address(lightProxyAdmin));
+    emit OwnershipTransferred(address(0), deployer);
     emit Initialized(1);
-    emit AdminChanged(address(0), address(lightProxyAdmin));
-    proxy = new TransparentUpgradeableProxy(
-      implementation_,
-      address(lightProxyAdmin),
-      data_
+    emit AdminChanged(address(0), deployer);
+    proxy = new TransparentUpgradeableProxy(implementation_, deployer, data_);
+
+    bytes32 proxySlot;
+    bytes32 implSlot = bytes32(
+      uint256(keccak256("eip1967.proxy.implementation")) - 1
     );
+    bytes32 adminSlot = bytes32(uint256(keccak256("eip1967.proxy.admin")) - 1);
+
+    address addr;
+    proxySlot = vm.load(address(proxy), implSlot);
+    assembly {
+      mstore(0, proxySlot)
+      addr := mload(0)
+    }
+    assertEq(addr, implementation_);
+
+    vm.etch(etch_, address(proxy).code);
+    vm.store(etch_, implSlot, bytes32(abi.encode(implementation_)));
+
+    proxySlot = vm.load(etch_, adminSlot);
+    assembly {
+      mstore(0, proxySlot)
+      addr := mload(0)
+    }
+
+    proxySlot = vm.load(address(proxy), adminSlot);
+    assembly {
+      mstore(0, proxySlot)
+      addr := mload(0)
+    }
+    assertEq(addr, deployer);
+
+    vm.etch(etch_, address(proxy).code);
+    vm.store(etch_, implSlot, bytes32(abi.encode(implementation_)));
+
+    proxySlot = vm.load(etch_, implSlot);
+    assembly {
+      mstore(0, proxySlot)
+      addr := mload(0)
+    }
 
     /// Console log deploy and label.
     console2.log("Deployed", address(proxy), "with label", label_);
-    console2.log(
-      "Deployed",
-      address(proxy),
-      "with lightProxyAdmin",
-      address(lightProxyAdmin)
-    );
-    vm.label(address(proxy), label_);
+    console2.log("Deployed", address(proxy), "with admin", deployer);
+    vm.label(address(etch_), label_);
 
     /// Test the proxy implementation slot.
     _testUUPSSlot(address(proxy), implementation_);
-    _testProxyAdminSlot(address(proxy), address(lightProxyAdmin));
+    _testProxyAdminSlot(address(proxy), deployer);
     _testArbitrarySlot(
       address(proxy),
       bytes32(uint256(0)),
@@ -84,16 +118,20 @@ contract BaseTest is Test {
   }
 
   function upgradeLightProxy(address proxy_, address implementation_) public {
-    vm.prank(address(lightProxyAdmin));
+    vm.prank(deployer);
     vm.expectEmit(true, false, false, true);
     emit Upgraded(implementation_);
     TransparentUpgradeableProxy(payable(proxy_)).upgradeTo(implementation_);
+    assertEq(EmptyUUPS(payable(proxy_)).owner(), deployer);
   }
 
   function setUpProxies() public {
+    vm.label(deployer, "deployer");
+
     /// Deploy the LightProxyAdmin and set lightProxyAdmin.
+    vm.prank(deployer);
     vm.expectEmit(true, true, false, true);
-    emit OwnershipTransferred(address(0), address(this));
+    emit OwnershipTransferred(address(0), deployer);
     lightProxyAdmin = new LightProxyAdmin();
 
     /// Deploy the origin empty contracts for bytecode.
@@ -122,37 +160,30 @@ contract BaseTest is Test {
     lightOrbProxy = deployLightProxy(
       address(emptyUUPS),
       emptyUUPSInitializeCalldata,
+      lightOrbProxy,
       "LightOrb Proxy"
     );
-    assertEq(
-      (EmptyUUPS(payable(lightOrbProxy))).owner(),
-      address(lightProxyAdmin)
-    );
+    assertEq((EmptyUUPS(payable(lightOrbProxy))).owner(), address(deployer));
     lightSpaceProxy = deployLightProxy(
       address(emptyUUPS),
       emptyUUPSInitializeCalldata,
+      lightSpaceProxy,
       "LightSpace Proxy"
     );
-    assertEq(
-      (EmptyUUPS(payable(lightSpaceProxy))).owner(),
-      address(lightProxyAdmin)
-    );
+    assertEq((EmptyUUPS(payable(lightSpaceProxy))).owner(), address(deployer));
     lightSpaceFactoryProxy = deployLightProxy(
       address(emptyBeacon),
       emptyBeaconInitializeCalldata,
+      lightSpaceFactoryProxy,
       "LightSpaceFactory Proxy"
     );
     assertEq(
       (EmptyUUPSBeacon(payable(lightSpaceProxy))).owner(),
-      address(lightProxyAdmin)
+      address(deployer)
     );
 
     /// Upgrade the proxies to corresponding origin implementations.
     upgradeLightProxy(lightOrbProxy, address(lightOrb));
-    assertEq(
-      (LightOrb(payable(lightOrbProxy))).owner(),
-      address(lightProxyAdmin)
-    );
     upgradeLightProxy(lightSpaceProxy, address(lightSpace));
     upgradeLightProxy(lightSpaceFactoryProxy, address(lightSpaceFactory));
   }
@@ -164,9 +195,10 @@ contract BaseTest is Test {
   function testLightProxyAdmin() public {
     setUpProxies();
 
-    assertEq(lightProxyAdmin.owner(), address(this));
+    // assertEq(lightProxyAdmin.owner(), deployer);
+    vm.prank(deployer);
     vm.expectEmit(true, true, false, true);
-    emit OwnershipTransferred(address(this), address(0));
+    emit OwnershipTransferred(deployer, address(0));
     lightProxyAdmin.renounceOwnership();
     assertEq(lightProxyAdmin.owner(), address(0));
   }

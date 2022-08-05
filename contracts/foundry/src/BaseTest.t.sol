@@ -5,13 +5,18 @@ pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
 import "@lightdotso/proxies/LightProxy.sol";
 import "@lightdotso/proxies/LightProxyAdmin.sol";
+import "@lightdotso/protocol/LightOrb.sol";
+import "@lightdotso/protocol/LightSpace.sol";
+import "@lightdotso/protocol/LightSpaceFactory.sol";
 import { Empty } from "@lightdotso/proxies/utils/Empty.sol";
 import { EmptyUUPS } from "@lightdotso/proxies/utils/EmptyUUPS.sol";
 import { EmptyUUPSBeacon } from "@lightdotso/proxies/utils/EmptyUUPSBeacon.sol";
 import { Implementation } from "./mocks/Implementation.sol";
 
 contract BaseTest is Test {
+  LightOrb internal lightOrb;
   LightProxyAdmin internal admin;
+
   Empty internal empty;
   EmptyUUPS internal emptyUUPS;
   EmptyUUPSBeacon internal emptyBeacon;

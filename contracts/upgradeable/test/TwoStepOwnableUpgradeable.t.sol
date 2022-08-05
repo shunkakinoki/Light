@@ -3,7 +3,6 @@
 pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.t.sol";
-import "@lightdotso/ens/ENS.sol";
 import "@lightdotso/proxies/utils/EmptyUUPSTwo.sol";
 
 contract TwoStepOwnableUpgradeableTest is BaseTest {

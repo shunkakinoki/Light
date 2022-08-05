@@ -3,6 +3,7 @@
 pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.t.sol";
+import "@lightdotso/protocol/LightSpace.sol";
 import "@lightdotso/protocol/LightSpaceFactory.sol";
 import { Empty } from "@lightdotso/proxies/utils/Empty.sol";
 import { EmptyUUPSBeacon } from "@lightdotso/proxies/utils/EmptyUUPSBeacon.sol";
@@ -10,9 +11,11 @@ import { EmptyUUPSBeacon } from "@lightdotso/proxies/utils/EmptyUUPSBeacon.sol";
 contract LightSpaceFactoryTest is BaseTest {
   Empty private empty;
   EmptyUUPSBeacon private emptyBeacon;
+  LightSpace private lightSpace;
   LightSpaceFactory private lightSpaceFactory;
 
   function setUp() public {
+    lightSpace = new LightSpace();
     lightSpaceFactory = new LightSpaceFactory();
     empty = new Empty();
     emptyBeacon = new EmptyUUPSBeacon();
@@ -27,5 +30,6 @@ contract LightSpaceFactoryTest is BaseTest {
   function testLightSpaceFactory() public {
     lightSpaceFactory.initialize(address(emptyBeacon));
     assert(lightSpaceFactory.implementation() == address(emptyBeacon));
+    lightSpaceFactory._upgradeLightSpaces(address(lightSpace));
   }
 }

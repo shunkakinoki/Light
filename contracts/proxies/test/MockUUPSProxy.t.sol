@@ -20,23 +20,30 @@ contract MockUUPSProxyTest is Test, SlotTest {
     wrappedProxyV1 = MockUUPSProxyV1(address(proxy));
   }
 
+  function mockUUPSProxyV1Initialize(uint256 _x) public {
+    wrappedProxyV1.initialize(_x);
+  }
+
+  function mockUUPSProxyV2Upgrade(uint256 _x) public {
+    mockUUPSProxyV1Initialize(_x);
+
+    implementationV2 = new MockUUPSProxyV2();
+    wrappedProxyV1.upgradeTo(address(implementationV2));
+    wrappedProxyV2 = MockUUPSProxyV2(address(proxy));
+  }
+
   function testMockUUPSProxyV1Initialize() public {
-    /// Test successful initialization
-    wrappedProxyV1.initialize(100);
+    mockUUPSProxyV1Initialize(100);
     assertEq(wrappedProxyV1.x(), 100);
   }
 
   function testMockUUPSProxyV1Owner() public {
-    /// Owner is empty before initialization
     assertEq(wrappedProxyV1.owner(), address(0));
-
-    /// Owner is set after initialization
-    wrappedProxyV1.initialize(100);
+    mockUUPSProxyV1Initialize(100);
     assertEq(wrappedProxyV1.owner(), address(this));
   }
 
   function testMockUUPSProxyV1Slot() public {
-    /// Test that the implementation slot is set correctly
     _testProxyImplementationSlot(
       address(wrappedProxyV1),
       address(implementationV1)
@@ -47,7 +54,7 @@ contract MockUUPSProxyTest is Test, SlotTest {
       bytes32(uint256(0))
     );
 
-    wrappedProxyV1.initialize(100);
+    mockUUPSProxyV1Initialize(100);
     _testArbitrarySlot(
       address(wrappedProxyV1),
       bytes32(uint256(0)),
@@ -56,12 +63,7 @@ contract MockUUPSProxyTest is Test, SlotTest {
   }
 
   function testMockUUPSProxyV2Upgrade() public {
-    wrappedProxyV1.initialize(100);
-
-    implementationV2 = new MockUUPSProxyV2();
-    wrappedProxyV1.upgradeTo(address(implementationV2));
-    wrappedProxyV2 = MockUUPSProxyV2(address(proxy));
-
+    mockUUPSProxyV2Upgrade(100);
     assertEq(wrappedProxyV2.x(), 100);
 
     wrappedProxyV2.setY(200);
@@ -69,13 +71,8 @@ contract MockUUPSProxyTest is Test, SlotTest {
   }
 
   function testMockUUPSProxyV2Slot() public {
-    wrappedProxyV1.initialize(100);
+    mockUUPSProxyV2Upgrade(100);
 
-    implementationV2 = new MockUUPSProxyV2();
-    wrappedProxyV1.upgradeTo(address(implementationV2));
-    wrappedProxyV2 = MockUUPSProxyV2(address(proxy));
-
-    /// Test that the implementation slot is set correctly
     _testProxyImplementationSlot(
       address(wrappedProxyV2),
       address(implementationV2)

@@ -5,20 +5,19 @@ pragma solidity ^0.8.13;
 import "@lightdotso/foundry/BaseTest.t.sol";
 import "@lightdotso/protocol/LightSpace.sol";
 import "@lightdotso/protocol/LightSpaceFactory.sol";
-import { Empty } from "@lightdotso/proxies/utils/Empty.sol";
-import { EmptyUUPSBeacon } from "@lightdotso/proxies/utils/EmptyUUPSBeacon.sol";
 
 contract LightSpaceFactoryTest is BaseTest {
-  Empty private empty;
-  EmptyUUPSBeacon private emptyBeacon;
   LightSpace private lightSpace;
   LightSpaceFactory private lightSpaceFactory;
 
   function setUp() public {
+    setUpProxies();
+
     lightSpace = new LightSpace();
+    vm.label(address(lightSpace), "LightSpace");
     lightSpaceFactory = new LightSpaceFactory();
-    empty = new Empty();
-    emptyBeacon = new EmptyUUPSBeacon();
+    vm.label(address(lightSpaceFactory), "LightSpaceFactory");
+
     assertEq((EmptyUUPSBeacon(address(emptyBeacon))).owner(), address(0));
     vm.expectEmit(true, true, false, true);
     vm.expectEmit(true, false, false, true);
@@ -30,6 +29,9 @@ contract LightSpaceFactoryTest is BaseTest {
   function testLightSpaceFactory() public {
     lightSpaceFactory.initialize(address(emptyBeacon));
     assert(lightSpaceFactory.implementation() == address(emptyBeacon));
+    vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(lightSpace));
     lightSpaceFactory._upgradeLightSpaces(address(lightSpace));
+    assert(lightSpaceFactory.implementation() == address(lightSpace));
   }
 }

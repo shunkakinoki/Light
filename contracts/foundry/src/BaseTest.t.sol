@@ -5,13 +5,17 @@ pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
 import "@lightdotso/proxies/LightProxy.sol";
 import "@lightdotso/proxies/LightProxyAdmin.sol";
+import { Empty } from "@lightdotso/proxies/utils/Empty.sol";
 import { EmptyUUPS } from "@lightdotso/proxies/utils/EmptyUUPS.sol";
+import { EmptyUUPSBeacon } from "@lightdotso/proxies/utils/EmptyUUPSBeacon.sol";
 import { Implementation } from "./mocks/Implementation.sol";
 
 contract BaseTest is Test {
   LightProxy internal proxy;
   LightProxyAdmin internal admin;
+  Empty internal empty;
   EmptyUUPS internal v0;
+  EmptyUUPSBeacon internal emptyBeacon;
 
   event AdminChanged(address previousAdmin, address newAdmin);
   event OwnershipTransferred(
@@ -39,6 +43,9 @@ contract BaseTest is Test {
     proxy = new LightProxy(address(v0), address(admin), initCalldata);
 
     _testUUPSSlot(address(proxy), address(v0));
+
+    empty = new Empty();
+    emptyBeacon = new EmptyUUPSBeacon();
   }
 
   function testSetUpProxies() public {

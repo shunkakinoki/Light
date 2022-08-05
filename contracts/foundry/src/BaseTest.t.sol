@@ -68,14 +68,15 @@ contract BaseTest is Test {
   }
 
   function setUpProxies() public {
+    empty = new Empty();
+    emptyUUPS = new EmptyUUPS();
+    emptyBeacon = new EmptyUUPSBeacon();
+
     deployLightProxyAdmin();
 
     deployLightProxy("Light Proxy A");
     deployLightProxy("Light Proxy B");
     deployLightProxy("Light Proxy C");
-
-    empty = new Empty();
-    emptyBeacon = new EmptyUUPSBeacon();
   }
 
   function testLightProxyAdmin() public {
@@ -86,6 +87,10 @@ contract BaseTest is Test {
     emit OwnershipTransferred(address(this), address(0));
     admin.renounceOwnership();
     assertEq(admin.owner(), address(0));
+  }
+
+  function testSetUpProxies() public {
+    setUpProxies();
   }
 
   function _testArbitrarySlot(

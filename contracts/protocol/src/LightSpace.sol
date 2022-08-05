@@ -2,13 +2,19 @@
 
 pragma solidity ^0.8.13;
 
-import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
+import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-contract LightSpace is UUPSUpgradeable, OwnableUpgradeable {
+contract LightSpace is Initializable, OwnableUpgradeable, UUPSUpgradeable {
+  /// @custom:oz-upgrades-unsafe-allow constructor
+  constructor() {
+    _disableInitializers();
+  }
+
   function initialize() external initializer {
-    OwnableUpgradeable.__Ownable_init();
+    __Ownable_init();
+    __UUPSUpgradeable_init();
   }
 
   function _authorizeUpgrade(address) internal override onlyOwner {}

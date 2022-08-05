@@ -4,17 +4,25 @@ pragma solidity ^0.8.13;
 
 import { LightSpaceFactoryStorage, UpgradeableBeacon } from "./storages/LightSpaceFactoryStorage.sol";
 
+import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { BeaconProxy } from "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
 contract LightSpaceFactory is
-  LightSpaceFactoryStorage,
+  Initializable,
+  OwnableUpgradeable,
   UUPSUpgradeable,
-  OwnableUpgradeable
+  LightSpaceFactoryStorage
 {
+  /// @custom:oz-upgrades-unsafe-allow constructor
+  constructor() {
+    _disableInitializers();
+  }
+
   function initialize(address implementationAddress_) external initializer {
-    OwnableUpgradeable.__Ownable_init();
+    __Ownable_init();
+    __UUPSUpgradeable_init();
     upgradeableBeacon = new UpgradeableBeacon(implementationAddress_);
   }
 

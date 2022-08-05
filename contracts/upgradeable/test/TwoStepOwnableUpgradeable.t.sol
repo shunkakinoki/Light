@@ -3,18 +3,18 @@
 pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.t.sol";
-import "@lightdotso/proxies/utils/EmptyUUPSTwo.sol";
+import "@lightdotso/proxies/utils/EmptyUUPSTwoStep.sol";
 
 contract TwoStepOwnableUpgradeableTest is BaseTest {
   LightProxy lightProxy;
-  EmptyUUPSTwo private v02;
+  EmptyUUPSTwoStep private v02;
 
   event PotentialOwnerUpdated(address newPotentialOwner);
 
   function setUp() public {
     setUpProxies();
 
-    v02 = new EmptyUUPSTwo();
+    v02 = new EmptyUUPSTwoStep();
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, true, false, true);
     vm.expectEmit(true, false, false, true);
@@ -24,14 +24,14 @@ contract TwoStepOwnableUpgradeableTest is BaseTest {
     emit Initialized(1);
     emit AdminChanged(address(0), address(lightProxyAdmin));
     bytes memory initCalldata = abi.encodePacked(
-      EmptyUUPSTwo.initialize.selector
+      EmptyUUPSTwoStep.initialize.selector
     );
     lightProxy = new LightProxy(
       address(v02),
       address(lightProxyAdmin),
       initCalldata
     );
-    v02 = EmptyUUPSTwo(address(lightProxy));
+    v02 = EmptyUUPSTwoStep(address(lightProxy));
   }
 
   function testTwoStepOwnableOwner() public {

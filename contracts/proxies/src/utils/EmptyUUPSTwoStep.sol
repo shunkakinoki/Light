@@ -6,7 +6,7 @@ import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/I
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { TwoStepOwnableUpgradeable } from "@lightdotso/upgradeable/TwoStepOwnableUpgradeable.sol";
 
-contract EmptyUUPSTwo is
+contract EmptyUUPSTwoStep is
   Initializable,
   TwoStepOwnableUpgradeable,
   UUPSUpgradeable

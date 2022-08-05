@@ -20,7 +20,14 @@ contract LightProxiesE2ETest is BaseTest {
 
   function setUp() public {
     setUpProxies();
-    proxy = deployLightProxy(address(emptyUUPS), "Light Proxy");
+    bytes memory emptyUUPSInitializeCalldata = abi.encodePacked(
+      EmptyUUPS.initialize.selector
+    );
+    proxy = deployLightProxy(
+      address(emptyUUPS),
+      emptyUUPSInitializeCalldata,
+      "Light Proxy"
+    );
   }
 
   function testProxyImplementation() public {

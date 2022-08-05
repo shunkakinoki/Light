@@ -36,17 +36,11 @@ contract BaseTest is Test {
   event Initialized(uint8 version);
   event Upgraded(address indexed implementation);
 
-  function deployLightProxyAdmin() public {
-    /// Deploy the LightProxyAdmin and set lightProxyAdmin.
-    vm.expectEmit(true, true, false, true);
-    emit OwnershipTransferred(address(0), address(this));
-    lightProxyAdmin = new LightProxyAdmin();
-  }
-
-  function deployLightProxy(address implementation_, string memory label_)
-    public
-    returns (address proxyAddress)
-  {
+  function deployLightProxy(
+    address implementation_,
+    bytes memory data_,
+    string memory label_
+  ) public returns (address proxyAddress) {
     /// Internal variables.
     LightProxy proxy;
 
@@ -60,12 +54,7 @@ contract BaseTest is Test {
     emit OwnershipTransferred(address(0), address(this));
     emit Initialized(1);
     emit AdminChanged(address(0), address(lightProxyAdmin));
-    bytes memory initCalldata = abi.encodePacked(EmptyUUPS.initialize.selector);
-    proxy = new LightProxy(
-      implementation_,
-      address(lightProxyAdmin),
-      initCalldata
-    );
+    proxy = new LightProxy(implementation_, address(lightProxyAdmin), data_);
 
     /// Console log deploy and label.
     console2.log("Deployed", address(proxy), "with label", label_);
@@ -84,15 +73,34 @@ contract BaseTest is Test {
   }
 
   function setUpProxies() public {
+    /// Deploy the LightProxyAdmin and set lightProxyAdmin.
+    vm.expectEmit(true, true, false, true);
+    emit OwnershipTransferred(address(0), address(this));
+    lightProxyAdmin = new LightProxyAdmin();
+
     empty = new Empty();
     emptyUUPS = new EmptyUUPS();
     emptyBeacon = new EmptyUUPSBeacon();
 
-    deployLightProxyAdmin();
+    bytes memory emptyUUPSInitializeCalldata = abi.encodePacked(
+      EmptyUUPS.initialize.selector
+    );
 
-    deployLightProxy(address(emptyUUPS), "Light Proxy A");
-    deployLightProxy(address(emptyUUPS), "Light Proxy B");
-    deployLightProxy(address(emptyUUPS), "Light Proxy C");
+    deployLightProxy(
+      address(emptyUUPS),
+      emptyUUPSInitializeCalldata,
+      "Light Proxy A"
+    );
+    deployLightProxy(
+      address(emptyUUPS),
+      emptyUUPSInitializeCalldata,
+      "Light Proxy B"
+    );
+    deployLightProxy(
+      address(emptyUUPS),
+      emptyUUPSInitializeCalldata,
+      "Light Proxy C"
+    );
 
     /// Implement origin contracts and labels.
     lightOrb = new LightOrb();
@@ -102,16 +110,25 @@ contract BaseTest is Test {
     lightSpaceFactory = new LightSpaceFactory();
     vm.label(address(lightSpaceFactory), "LightSpaceFactory");
 
-    lightOrbProxy = deployLightProxy(address(emptyUUPS), "LightOrb Proxy");
-    lightSpaceProxy = deployLightProxy(address(emptyUUPS), "LightSpace Proxy");
+    lightOrbProxy = deployLightProxy(
+      address(emptyUUPS),
+      emptyUUPSInitializeCalldata,
+      "LightOrb Proxy"
+    );
+    lightSpaceProxy = deployLightProxy(
+      address(emptyUUPS),
+      emptyUUPSInitializeCalldata,
+      "LightSpace Proxy"
+    );
     lightSpaceFactoryProxy = deployLightProxy(
       address(emptyUUPS),
+      emptyUUPSInitializeCalldata,
       "LightSpaceFactory Proxy"
     );
   }
 
   function testLightProxyAdmin() public {
-    deployLightProxyAdmin();
+    setUpProxies();
 
     assertEq(lightProxyAdmin.owner(), address(this));
     vm.expectEmit(true, true, false, true);

@@ -15,22 +15,24 @@ contract LightProxiesE2ETest is BaseTest {
   Implementation3 internal v3;
   Implementation4 internal v4;
 
+  address proxy;
   bytes payload;
 
   function setUp() public {
     setUpProxies();
+    proxy = deployLightProxy("Light Proxy");
   }
 
   function testProxyImplementation() public {
     v1 = new Implementation1();
     payload = abi.encodeWithSignature("setValue(uint256)", 1);
-    _upgradeAndCallUUPS(proxy, address(v1), payload);
+    _upgradeAndCallUUPS(payable(address(proxy)), address(v1), payload);
     _testUUPSSlot(address(proxy), address(v1));
     _testUUPSInitializeOnce(address(proxy));
 
     v2 = new Implementation2();
     payload = abi.encodeWithSignature("setValue(uint256)", 2);
-    _upgradeAndCallUUPS(proxy, address(v2), payload);
+    _upgradeAndCallUUPS(payable(address(proxy)), address(v2), payload);
     _testUUPSSlot(address(proxy), address(v2));
     _testUUPSInitializeOnce(address(proxy));
 
@@ -39,7 +41,7 @@ contract LightProxiesE2ETest is BaseTest {
 
     v3 = new Implementation3();
     payload = abi.encodeWithSignature("setValue(uint256)", 3);
-    _upgradeAndCallUUPS(proxy, address(v3), payload);
+    _upgradeAndCallUUPS(payable(address(proxy)), address(v3), payload);
     _testUUPSSlot(address(proxy), address(v3));
     _testUUPSInitializeOnce(address(proxy));
 
@@ -49,7 +51,7 @@ contract LightProxiesE2ETest is BaseTest {
 
     v4 = new Implementation4();
     payload = abi.encodeWithSignature("setValue(uint256)", 4);
-    _upgradeAndCallUUPS(proxy, address(v4), payload);
+    _upgradeAndCallUUPS(payable(address(proxy)), address(v4), payload);
     _testUUPSSlot(address(proxy), address(v4));
     _testUUPSInitializeOnce(address(proxy));
 
@@ -64,7 +66,7 @@ contract LightProxiesE2ETest is BaseTest {
 
   function testProxyImplementationSequential() public {
     v1 = new Implementation1();
-    _upgradeUUPS(proxy, address(v1));
+    _upgradeUUPS(payable(address(proxy)), address(v1));
     _testUUPSSlot(address(proxy), address(v1));
     _testUUPSInitializeOnce(address(proxy));
 
@@ -72,7 +74,7 @@ contract LightProxiesE2ETest is BaseTest {
     v1.setValue(1);
 
     v2 = new Implementation2();
-    _upgradeUUPS(proxy, address(v2));
+    _upgradeUUPS(payable(address(proxy)), address(v2));
     _testUUPSSlot(address(proxy), address(v2));
     _testUUPSInitializeOnce(address(proxy));
 
@@ -82,7 +84,7 @@ contract LightProxiesE2ETest is BaseTest {
     assertEq(v2.getValue(), 2);
 
     v3 = new Implementation3();
-    _upgradeUUPS(proxy, address(v3));
+    _upgradeUUPS(payable(address(proxy)), address(v3));
     _testUUPSSlot(address(proxy), address(v3));
     _testUUPSInitializeOnce(address(proxy));
 
@@ -91,7 +93,7 @@ contract LightProxiesE2ETest is BaseTest {
     v3.setValue(3);
 
     v4 = new Implementation4();
-    _upgradeUUPS(proxy, address(v4));
+    _upgradeUUPS(payable(address(proxy)), address(v4));
     _testUUPSSlot(address(proxy), address(v4));
     _testUUPSInitializeOnce(address(proxy));
 

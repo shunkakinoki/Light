@@ -11,10 +11,9 @@ import { EmptyUUPSBeacon } from "@lightdotso/proxies/utils/EmptyUUPSBeacon.sol";
 import { Implementation } from "./mocks/Implementation.sol";
 
 contract BaseTest is Test {
-  LightProxy internal proxy;
   LightProxyAdmin internal admin;
   Empty internal empty;
-  EmptyUUPS internal v0;
+  EmptyUUPS internal emptyUUPS;
   EmptyUUPSBeacon internal emptyBeacon;
 
   event AdminChanged(address previousAdmin, address newAdmin);
@@ -25,24 +24,40 @@ contract BaseTest is Test {
   event Initialized(uint8 version);
   event Upgraded(address indexed implementation);
 
+  function deployLightProxy(string memory label_)
+    public
+    returns (address proxyAddress)
+  {
+    LightProxy proxy;
+
+    emptyUUPS = new EmptyUUPS();
+    vm.expectEmit(true, false, false, true);
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    vm.expectEmit(true, true, false, true);
+    emit Upgraded(address(emptyUUPS));
+    emit OwnershipTransferred(address(0), address(this));
+    emit Initialized(1);
+    emit AdminChanged(address(0), address(admin));
+    bytes memory initCalldata = abi.encodePacked(EmptyUUPS.initialize.selector);
+    proxy = new LightProxy(address(emptyUUPS), address(admin), initCalldata);
+
+    /// Console and label
+    console2.log("Deployed", label_, "at", address(proxy));
+    vm.label(address(proxy), label_);
+
+    _testUUPSSlot(address(proxy), address(emptyUUPS));
+
+    return address(proxy);
+  }
+
   function setUpProxies() public {
     vm.expectEmit(true, true, false, true);
     emit OwnershipTransferred(address(0), address(this));
     admin = new LightProxyAdmin();
 
-    v0 = new EmptyUUPS();
-    vm.expectEmit(true, false, false, true);
-    vm.expectEmit(true, true, false, true);
-    vm.expectEmit(true, false, false, true);
-    vm.expectEmit(true, true, false, true);
-    emit Upgraded(address(v0));
-    emit OwnershipTransferred(address(0), address(this));
-    emit Initialized(1);
-    emit AdminChanged(address(0), address(admin));
-    bytes memory initCalldata = abi.encodePacked(EmptyUUPS.initialize.selector);
-    proxy = new LightProxy(address(v0), address(admin), initCalldata);
-
-    _testUUPSSlot(address(proxy), address(v0));
+    address a = deployLightProxy("Light Proxy A");
+    address b = deployLightProxy("Light Proxy B");
 
     empty = new Empty();
     emptyBeacon = new EmptyUUPSBeacon();
@@ -84,21 +99,19 @@ contract BaseTest is Test {
     assertEq(status, true);
   }
 
-  function _upgradeUUPS(TransparentUpgradeableProxy _proxy, address _impl)
-    internal
-  {
+  function _upgradeUUPS(address payable _proxy, address _impl) internal {
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(_impl));
-    admin.upgrade(_proxy, _impl);
+    admin.upgrade(TransparentUpgradeableProxy(_proxy), _impl);
   }
 
   function _upgradeAndCallUUPS(
-    TransparentUpgradeableProxy _proxy,
+    address payable _proxy,
     address _impl,
     bytes memory _data
   ) internal {
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(_impl));
-    admin.upgradeAndCall(_proxy, _impl, _data);
+    admin.upgradeAndCall(TransparentUpgradeableProxy(_proxy), _impl, _data);
   }
 }

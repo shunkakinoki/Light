@@ -19,7 +19,7 @@ contract LightProxiesE2ETest is BaseTest {
   bytes payload;
 
   function setUp() public {
-    setUpProxies();
+    deployLightProxyAdmin();
     proxy = deployLightProxy("Light Proxy");
   }
 

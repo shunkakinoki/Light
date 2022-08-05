@@ -83,6 +83,20 @@ contract BaseTest is Test {
     assertEq(admin.owner(), address(0));
   }
 
+  function _testArbitrarySlot(
+    address _proxy,
+    bytes32 _slot,
+    bytes32 _expected
+  ) internal {
+    bytes32 proxySlot = vm.load(address(_proxy), _slot);
+    bytes32 target;
+    assembly {
+      mstore(0, proxySlot)
+      target := mload(0)
+    }
+    assertEq(target, _expected);
+  }
+
   function _testUUPSSlot(address _proxy, address _impl) internal {
     bytes32 implSlot = bytes32(
       uint256(keccak256("eip1967.proxy.implementation")) - 1

@@ -20,11 +20,11 @@ contract MockUUPSProxyTest is Test, SlotTest {
     wrappedProxyV1 = MockUUPSProxyV1(address(proxy));
   }
 
-  function mockUUPSProxyV1Initialize(uint256 _x) public {
+  function mockUUPSProxyV1Initialize(uint256 _x) internal {
     wrappedProxyV1.initialize(_x);
   }
 
-  function mockUUPSProxyV2Upgrade(uint256 _x) public {
+  function mockUUPSProxyV2Upgrade(uint256 _x) internal {
     mockUUPSProxyV1Initialize(_x);
 
     implementationV2 = new MockUUPSProxyV2();
@@ -32,24 +32,24 @@ contract MockUUPSProxyTest is Test, SlotTest {
     wrappedProxyV2 = MockUUPSProxyV2(address(proxy));
   }
 
-  function testMockUUPSProxyV1Initialize() public {
-    mockUUPSProxyV1Initialize(100);
-    assertEq(wrappedProxyV1.x(), 100);
+  function testMockUUPSProxyV1Initialize(uint256 x_) public {
+    mockUUPSProxyV1Initialize(x_);
+    assertEq(wrappedProxyV1.x(), x_);
   }
 
-  function testMockUUPSProxyV1InitializeOnlyOnce() public {
-    mockUUPSProxyV1Initialize(100);
+  function testMockUUPSProxyV1InitializeOnlyOnce(uint256 x_) public {
+    mockUUPSProxyV1Initialize(x_);
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    wrappedProxyV1.initialize(1);
+    wrappedProxyV1.initialize(x_);
   }
 
-  function testMockUUPSProxyV1Owner() public {
+  function testMockUUPSProxyV1Owner(uint256 x_) public {
     assertEq(wrappedProxyV1.owner(), address(0));
-    mockUUPSProxyV1Initialize(100);
+    mockUUPSProxyV1Initialize(x_);
     assertEq(wrappedProxyV1.owner(), address(this));
   }
 
-  function testMockUUPSProxyV1Slot() public {
+  function testMockUUPSProxyV1Slot(uint256 x_) public {
     _testProxyImplementationSlot(
       address(wrappedProxyV1),
       address(implementationV1)
@@ -60,7 +60,7 @@ contract MockUUPSProxyTest is Test, SlotTest {
       bytes32(uint256(0))
     );
 
-    mockUUPSProxyV1Initialize(100);
+    mockUUPSProxyV1Initialize(x_);
     _testArbitrarySlot(
       address(wrappedProxyV1),
       bytes32(uint256(0)),
@@ -68,16 +68,16 @@ contract MockUUPSProxyTest is Test, SlotTest {
     );
   }
 
-  function testMockUUPSProxyV2Upgrade() public {
-    mockUUPSProxyV2Upgrade(100);
-    assertEq(wrappedProxyV2.x(), 100);
+  function testMockUUPSProxyV2Upgrade(uint256 x_, uint256 y_) public {
+    mockUUPSProxyV2Upgrade(x_);
+    assertEq(wrappedProxyV2.x(), x_);
 
-    wrappedProxyV2.setY(200);
-    assertEq(wrappedProxyV2.y(), 200);
+    wrappedProxyV2.setY(y_);
+    assertEq(wrappedProxyV2.y(), y_);
   }
 
-  function testMockUUPSProxyV2UpgradeFailNotOwner() public {
-    mockUUPSProxyV1Initialize(100);
+  function testMockUUPSProxyV2UpgradeFailNotOwner(uint256 x_) public {
+    mockUUPSProxyV1Initialize(x_);
 
     implementationV2 = new MockUUPSProxyV2();
     vm.prank(address(1));
@@ -85,8 +85,8 @@ contract MockUUPSProxyTest is Test, SlotTest {
     wrappedProxyV1.upgradeTo(address(implementationV2));
   }
 
-  function testMockUUPSProxyV2Slot() public {
-    mockUUPSProxyV2Upgrade(100);
+  function testMockUUPSProxyV2Slot(uint256 x_) public {
+    mockUUPSProxyV2Upgrade(x_);
 
     _testProxyImplementationSlot(
       address(wrappedProxyV2),
@@ -99,8 +99,8 @@ contract MockUUPSProxyTest is Test, SlotTest {
     );
   }
 
-  function testMockUUPSProxyV2InitializeOnlyOnce() public {
-    mockUUPSProxyV2Upgrade(100);
+  function testMockUUPSProxyV2InitializeOnlyOnce(uint256 x_) public {
+    mockUUPSProxyV2Upgrade(x_);
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
     wrappedProxyV2.initialize();
   }

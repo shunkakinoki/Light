@@ -10,12 +10,6 @@ contract LightSpaceFactoryTest is BaseTest {
   function setUp() public {
     setUpProxies();
 
-    /// Implement origin contracts and labels.
-    lightSpace = new LightSpace();
-    vm.label(address(lightSpace), "LightSpace");
-    lightSpaceFactory = new LightSpaceFactory();
-    vm.label(address(lightSpaceFactory), "LightSpaceFactory");
-
     /// Check that EmptyUUPSBeacon's owner is set to the proxy's owner.
     assertEq((EmptyUUPSBeacon(address(emptyBeacon))).owner(), address(0));
     vm.expectEmit(true, true, false, true);

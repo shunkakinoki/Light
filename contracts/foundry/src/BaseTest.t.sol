@@ -14,6 +14,10 @@ import { EmptyUUPSBeacon } from "@lightdotso/proxies/utils/EmptyUUPSBeacon.sol";
 import { Implementation } from "./mocks/Implementation.sol";
 
 contract BaseTest is Test {
+  Empty internal empty;
+  EmptyUUPS internal emptyUUPS;
+  EmptyUUPSBeacon internal emptyBeacon;
+
   address lightOrbProxy;
   address lightProxyAminProxy;
   address lightSpaceProxy;
@@ -23,10 +27,6 @@ contract BaseTest is Test {
   LightProxyAdmin internal lightProxyAdmin;
   LightSpace internal lightSpace;
   LightSpaceFactory internal lightSpaceFactory;
-
-  Empty internal empty;
-  EmptyUUPS internal emptyUUPS;
-  EmptyUUPSBeacon internal emptyBeacon;
 
   event AdminChanged(address previousAdmin, address newAdmin);
   event OwnershipTransferred(
@@ -43,7 +43,7 @@ contract BaseTest is Test {
     lightProxyAdmin = new LightProxyAdmin();
   }
 
-  function deployLightProxy(string memory label_, address implementation_)
+  function deployLightProxy(address implementation_, string memory label_)
     public
     returns (address proxyAddress)
   {
@@ -90,9 +90,24 @@ contract BaseTest is Test {
 
     deployLightProxyAdmin();
 
-    deployLightProxy("Light Proxy A", address(emptyUUPS));
-    deployLightProxy("Light Proxy B", address(emptyUUPS));
-    deployLightProxy("Light Proxy C", address(emptyUUPS));
+    deployLightProxy(address(emptyUUPS), "Light Proxy A");
+    deployLightProxy(address(emptyUUPS), "Light Proxy B");
+    deployLightProxy(address(emptyUUPS), "Light Proxy C");
+
+    /// Implement origin contracts and labels.
+    lightOrb = new LightOrb();
+    vm.label(address(lightOrb), "LightOrb");
+    lightSpace = new LightSpace();
+    vm.label(address(lightSpace), "LightSpace");
+    lightSpaceFactory = new LightSpaceFactory();
+    vm.label(address(lightSpaceFactory), "LightSpaceFactory");
+
+    lightOrbProxy = deployLightProxy(address(emptyUUPS), "LightOrb Proxy");
+    lightSpaceProxy = deployLightProxy(address(emptyUUPS), "LightSpace Proxy");
+    lightSpaceFactoryProxy = deployLightProxy(
+      address(emptyUUPS),
+      "LightSpaceFactory Proxy"
+    );
   }
 
   function testLightProxyAdmin() public {

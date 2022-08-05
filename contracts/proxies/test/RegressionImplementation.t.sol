@@ -20,7 +20,7 @@ contract LightProxiesE2ETest is BaseTest {
 
   function setUp() public {
     setUpProxies();
-    proxy = deployLightProxy("Light Proxy", address(emptyUUPS));
+    proxy = deployLightProxy(address(emptyUUPS), "Light Proxy");
   }
 
   function testProxyImplementation() public {

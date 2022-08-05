@@ -54,4 +54,36 @@ contract MockUUPSProxyTest is Test, SlotTest {
       bytes32(uint256(1))
     );
   }
+
+  function testMockUUPSProxyV2Upgrade() public {
+    wrappedProxyV1.initialize(100);
+
+    implementationV2 = new MockUUPSProxyV2();
+    wrappedProxyV1.upgradeTo(address(implementationV2));
+    wrappedProxyV2 = MockUUPSProxyV2(address(proxy));
+
+    assertEq(wrappedProxyV2.x(), 100);
+
+    wrappedProxyV2.setY(200);
+    assertEq(wrappedProxyV2.y(), 200);
+  }
+
+  function testMockUUPSProxyV2Slot() public {
+    wrappedProxyV1.initialize(100);
+
+    implementationV2 = new MockUUPSProxyV2();
+    wrappedProxyV1.upgradeTo(address(implementationV2));
+    wrappedProxyV2 = MockUUPSProxyV2(address(proxy));
+
+    /// Test that the implementation slot is set correctly
+    _testProxyImplementationSlot(
+      address(wrappedProxyV2),
+      address(implementationV2)
+    );
+    _testArbitrarySlot(
+      address(wrappedProxyV2),
+      bytes32(uint256(0)),
+      bytes32(uint256(1))
+    );
+  }
 }

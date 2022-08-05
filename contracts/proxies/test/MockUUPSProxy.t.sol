@@ -61,10 +61,29 @@ contract MockUUPSProxyTest is Test, SlotTest {
     );
 
     mockUUPSProxyV1Initialize(x_);
+    // Initializable
     _testArbitrarySlot(
       address(wrappedProxyV1),
       bytes32(uint256(0)),
       bytes32(uint256(1))
+    );
+    // OwnableUpgradeable
+    _testArbitrarySlot(
+      address(wrappedProxyV1),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+    // UUPSUpgradeable
+    _testArbitrarySlot(
+      address(wrappedProxyV1),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// MockUUPSProxyV1.sol: x
+    _testArbitrarySlot(
+      address(wrappedProxyV1),
+      bytes32(uint256(201)),
+      bytes32(uint256(x_))
     );
   }
 
@@ -85,17 +104,42 @@ contract MockUUPSProxyTest is Test, SlotTest {
     wrappedProxyV1.upgradeTo(address(implementationV2));
   }
 
-  function testMockUUPSProxyV2Slot(uint256 x_) public {
+  function testMockUUPSProxyV2Slot(uint256 x_, uint256 y_) public {
     mockUUPSProxyV2Upgrade(x_);
-
+    wrappedProxyV2.setY(y_);
     _testProxyImplementationSlot(
       address(wrappedProxyV2),
       address(implementationV2)
     );
+    // Initializable
     _testArbitrarySlot(
       address(wrappedProxyV2),
       bytes32(uint256(0)),
       bytes32(uint256(1))
+    );
+    // OwnableUpgradeable
+    _testArbitrarySlot(
+      address(wrappedProxyV1),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+    // UUPSUpgradeable
+    _testArbitrarySlot(
+      address(wrappedProxyV1),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// MockUUPSProxyV1.sol: x
+    _testArbitrarySlot(
+      address(wrappedProxyV1),
+      bytes32(uint256(201)),
+      bytes32(uint256(x_))
+    );
+    /// MockUUPSProxyV1.sol: y
+    _testArbitrarySlot(
+      address(wrappedProxyV1),
+      bytes32(uint256(202)),
+      bytes32(uint256(y_))
     );
   }
 

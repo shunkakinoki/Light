@@ -24,12 +24,24 @@ contract BaseTest is Test {
   event Initialized(uint8 version);
   event Upgraded(address indexed implementation);
 
+  function deployLightProxyAdmin() public {
+    /// Deploy the LightProxyAdmin and set admin.
+    vm.expectEmit(true, true, false, true);
+    emit OwnershipTransferred(address(0), address(this));
+    admin = new LightProxyAdmin();
+  }
+
   function deployLightProxy(string memory label_)
     public
     returns (address proxyAddress)
   {
+    /// Internal variables.
     LightProxy proxy;
 
+    /// Checks for internal testing.
+    require(address(admin) != address(0), "LightAdminProxy not set");
+
+    /// Deploy the LightProxy with EmptyUUPS and initialize calldata.
     emptyUUPS = new EmptyUUPS();
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, true, false, true);
@@ -42,19 +54,18 @@ contract BaseTest is Test {
     bytes memory initCalldata = abi.encodePacked(EmptyUUPS.initialize.selector);
     proxy = new LightProxy(address(emptyUUPS), address(admin), initCalldata);
 
-    /// Console and label
+    /// Console log deploy and label.
     console2.log("Deployed", label_, "at", address(proxy));
     vm.label(address(proxy), label_);
 
+    /// Test the proxy implementation slot.
     _testUUPSSlot(address(proxy), address(emptyUUPS));
 
     return address(proxy);
   }
 
   function setUpProxies() public {
-    vm.expectEmit(true, true, false, true);
-    emit OwnershipTransferred(address(0), address(this));
-    admin = new LightProxyAdmin();
+    deployLightProxyAdmin();
 
     address a = deployLightProxy("Light Proxy A");
     address b = deployLightProxy("Light Proxy B");
@@ -65,6 +76,11 @@ contract BaseTest is Test {
 
   function testSetUpProxies() public {
     setUpProxies();
+  }
+
+  function testDeployLightProxyFailLightProxyAdminNotExist() public {
+    vm.expectRevert(bytes("LightAdminProxy not set"));
+    deployLightProxy("");
   }
 
   function testProxyAdmin() public {

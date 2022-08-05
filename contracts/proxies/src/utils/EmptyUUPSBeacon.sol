@@ -7,7 +7,7 @@ import { UpgradeableBeacon } from "@openzeppelin/contracts/proxy/beacon/Upgradea
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-contract EmptyUUPSBeacon is Initializable, UUPSUpgradeable, OwnableUpgradeable {
+contract EmptyUUPSBeacon is Initializable, OwnableUpgradeable, UUPSUpgradeable {
   UpgradeableBeacon private upgradeableBeacon;
 
   /// @custom:oz-upgrades-unsafe-allow constructor

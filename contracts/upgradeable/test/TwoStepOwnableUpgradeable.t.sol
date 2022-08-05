@@ -22,11 +22,15 @@ contract TwoStepOwnableUpgradeableTest is BaseTest {
     emit Upgraded(address(v02));
     emit OwnershipTransferred(address(0), address(this));
     emit Initialized(1);
-    emit AdminChanged(address(0), address(admin));
+    emit AdminChanged(address(0), address(lightProxyAdmin));
     bytes memory initCalldata = abi.encodePacked(
       EmptyUUPSTwo.initialize.selector
     );
-    lightProxy = new LightProxy(address(v02), address(admin), initCalldata);
+    lightProxy = new LightProxy(
+      address(v02),
+      address(lightProxyAdmin),
+      initCalldata
+    );
     v02 = EmptyUUPSTwo(address(lightProxy));
   }
 

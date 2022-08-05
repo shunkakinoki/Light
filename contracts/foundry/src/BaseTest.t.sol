@@ -14,8 +14,15 @@ import { EmptyUUPSBeacon } from "@lightdotso/proxies/utils/EmptyUUPSBeacon.sol";
 import { Implementation } from "./mocks/Implementation.sol";
 
 contract BaseTest is Test {
+  address lightOrbProxy;
+  address lightProxyAminProxy;
+  address lightSpaceProxy;
+  address lightSpaceFactoryProxy;
+
   LightOrb internal lightOrb;
-  LightProxyAdmin internal admin;
+  LightProxyAdmin internal lightProxyAdmin;
+  LightSpace internal lightSpace;
+  LightSpaceFactory internal lightSpaceFactory;
 
   Empty internal empty;
   EmptyUUPS internal emptyUUPS;
@@ -30,13 +37,13 @@ contract BaseTest is Test {
   event Upgraded(address indexed implementation);
 
   function deployLightProxyAdmin() public {
-    /// Deploy the LightProxyAdmin and set admin.
+    /// Deploy the LightProxyAdmin and set lightProxyAdmin.
     vm.expectEmit(true, true, false, true);
     emit OwnershipTransferred(address(0), address(this));
-    admin = new LightProxyAdmin();
+    lightProxyAdmin = new LightProxyAdmin();
   }
 
-  function deployLightProxy(string memory label_)
+  function deployLightProxy(string memory label_, address implementation_)
     public
     returns (address proxyAddress)
   {
@@ -44,25 +51,34 @@ contract BaseTest is Test {
     LightProxy proxy;
 
     /// Deploy the LightProxy with EmptyUUPS and initialize calldata.
-    emptyUUPS = new EmptyUUPS();
+    // emptyUUPS = new EmptyUUPS();
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, true, false, true);
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, true, false, true);
-    emit Upgraded(address(emptyUUPS));
+    emit Upgraded(implementation_);
     emit OwnershipTransferred(address(0), address(this));
     emit Initialized(1);
-    emit AdminChanged(address(0), address(admin));
+    emit AdminChanged(address(0), address(lightProxyAdmin));
     bytes memory initCalldata = abi.encodePacked(EmptyUUPS.initialize.selector);
-    proxy = new LightProxy(address(emptyUUPS), address(admin), initCalldata);
+    proxy = new LightProxy(
+      implementation_,
+      address(lightProxyAdmin),
+      initCalldata
+    );
 
     /// Console log deploy and label.
     console2.log("Deployed", address(proxy), "with label", label_);
-    console2.log("Deployed", address(proxy), "with admin", address(admin));
+    console2.log(
+      "Deployed",
+      address(proxy),
+      "with lightProxyAdmin",
+      address(lightProxyAdmin)
+    );
     vm.label(address(proxy), label_);
 
     /// Test the proxy implementation slot.
-    _testUUPSSlot(address(proxy), address(emptyUUPS));
+    _testUUPSSlot(address(proxy), implementation_);
 
     return address(proxy);
   }
@@ -74,19 +90,19 @@ contract BaseTest is Test {
 
     deployLightProxyAdmin();
 
-    deployLightProxy("Light Proxy A");
-    deployLightProxy("Light Proxy B");
-    deployLightProxy("Light Proxy C");
+    deployLightProxy("Light Proxy A", address(emptyUUPS));
+    deployLightProxy("Light Proxy B", address(emptyUUPS));
+    deployLightProxy("Light Proxy C", address(emptyUUPS));
   }
 
   function testLightProxyAdmin() public {
     deployLightProxyAdmin();
 
-    assertEq(admin.owner(), address(this));
+    assertEq(lightProxyAdmin.owner(), address(this));
     vm.expectEmit(true, true, false, true);
     emit OwnershipTransferred(address(this), address(0));
-    admin.renounceOwnership();
-    assertEq(admin.owner(), address(0));
+    lightProxyAdmin.renounceOwnership();
+    assertEq(lightProxyAdmin.owner(), address(0));
   }
 
   function testSetUpProxies() public {
@@ -132,7 +148,7 @@ contract BaseTest is Test {
   function _upgradeUUPS(address payable _proxy, address _impl) internal {
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(_impl));
-    admin.upgrade(TransparentUpgradeableProxy(_proxy), _impl);
+    lightProxyAdmin.upgrade(TransparentUpgradeableProxy(_proxy), _impl);
   }
 
   function _upgradeAndCallUUPS(
@@ -142,6 +158,10 @@ contract BaseTest is Test {
   ) internal {
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(_impl));
-    admin.upgradeAndCall(TransparentUpgradeableProxy(_proxy), _impl, _data);
+    lightProxyAdmin.upgradeAndCall(
+      TransparentUpgradeableProxy(_proxy),
+      _impl,
+      _data
+    );
   }
 }

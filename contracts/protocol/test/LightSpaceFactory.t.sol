@@ -7,9 +7,6 @@ import "@lightdotso/protocol/LightSpace.sol";
 import "@lightdotso/protocol/LightSpaceFactory.sol";
 
 contract LightSpaceFactoryTest is BaseTest {
-  LightSpace private lightSpace;
-  LightSpaceFactory private lightSpaceFactory;
-
   function setUp() public {
     setUpProxies();
 

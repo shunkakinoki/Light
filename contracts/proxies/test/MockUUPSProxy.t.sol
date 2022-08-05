@@ -76,6 +76,15 @@ contract MockUUPSProxyTest is Test, SlotTest {
     assertEq(wrappedProxyV2.y(), 200);
   }
 
+  function testMockUUPSProxyV2UpgradeFailNotOwner() public {
+    mockUUPSProxyV1Initialize(100);
+
+    implementationV2 = new MockUUPSProxyV2();
+    vm.prank(address(1));
+    vm.expectRevert(bytes("Ownable: caller is not the owner"));
+    wrappedProxyV1.upgradeTo(address(implementationV2));
+  }
+
   function testMockUUPSProxyV2Slot() public {
     mockUUPSProxyV2Upgrade(100);
 

@@ -8,11 +8,13 @@ import "@lightdotso/foundry/SlotTest.t.sol";
 import "./mocks/MockUUPSProxy.sol";
 
 contract MockUUPSProxyTest is Test, SlotTest {
-  MockUUPSProxyV1 implementationV1;
-  MockUUPSProxyV2 implementationV2;
-  UUPSProxy proxy;
-  MockUUPSProxyV1 wrappedProxyV1;
-  MockUUPSProxyV2 wrappedProxyV2;
+  UUPSProxy internal proxy;
+
+  MockUUPSProxyV1 internal implementationV1;
+  MockUUPSProxyV2 internal implementationV2;
+
+  MockUUPSProxyV1 internal wrappedProxyV1;
+  MockUUPSProxyV2 internal wrappedProxyV2;
 
   function setUp() public {
     implementationV1 = new MockUUPSProxyV1();

@@ -1,82 +1,74 @@
-// // SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: GPL-3.0
 
-// pragma solidity ^0.8.13;
+pragma solidity ^0.8.13;
 
-// import "@lightdotso/foundry/BaseTest.t.sol";
-// import "@lightdotso/proxies/utils/EmptyUUPSTwoStep.sol";
+import "@lightdotso/foundry/BaseTest.sol";
+import "@lightdotso/proxies/utils/EmptyUUPSTwoStep.sol";
 
-// contract TwoStepOwnableUpgradeableTest is BaseTest {
-//   LightProxy lightProxy;
-//   EmptyUUPSTwoStep private v02;
+contract TwoStepOwnableUpgradeableTest is BaseTest {
+  UUPSProxy internal proxy;
 
-//   event PotentialOwnerUpdated(address newPotentialOwner);
+  EmptyUUPSTwoStep internal emptyUUPSTwoStep;
+  EmptyUUPSTwoStep internal wrappedEmptyUUPSTwoStep;
 
-//   function setUp() public {
-//     setUpProxies();
+  event PotentialOwnerUpdated(address newPotentialOwner);
 
-//     v02 = new EmptyUUPSTwoStep();
-//     vm.expectEmit(true, false, false, true);
-//     vm.expectEmit(true, true, false, true);
-//     vm.expectEmit(true, false, false, true);
-//     vm.expectEmit(true, true, false, true);
-//     emit Upgraded(address(v02));
-//     emit OwnershipTransferred(address(0), address(this));
-//     emit Initialized(1);
-//     emit AdminChanged(address(0), address(lightProxyAdmin));
-//     bytes memory initCalldata = abi.encodePacked(
-//       EmptyUUPSTwoStep.initialize.selector
-//     );
-//     lightProxy = new LightProxy(
-//       address(v02),
-//       address(lightProxyAdmin),
-//       initCalldata
-//     );
-//     v02 = EmptyUUPSTwoStep(address(lightProxy));
-//   }
+  function setUp() public {
+    emptyUUPSTwoStep = new EmptyUUPSTwoStep();
+    proxy = new UUPSProxy(address(emptyUUPSTwoStep), "");
 
-//   function testTwoStepOwnableOwner() public {
-//     assertEq(v02.owner(), address(this));
-//   }
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    emit OwnershipTransferred(address(0), address(this));
+    emit Initialized(1);
+    EmptyUUPSTwoStep(address(proxy)).initialize();
 
-//   function testTwoStepOwnableRenounceOwnership() public {
-//     assertEq(v02.owner(), address(this));
-//     v02.renounceOwnership();
-//     assertEq(v02.owner(), address(0));
-//   }
+    wrappedEmptyUUPSTwoStep = EmptyUUPSTwoStep(address(proxy));
+  }
 
-//   function testTwoStepOwnableTransferOwnership() public {
-//     assertEq(v02.owner(), address(this));
-//     vm.expectEmit(true, false, false, true);
-//     emit PotentialOwnerUpdated(address(1));
-//     v02.transferOwnership(address(1));
-//     assertEq(v02.owner(), address(this));
-//     assertEq(v02.potentialOwner(), address(1));
-//     vm.prank(address(1));
-//     vm.expectEmit(true, false, false, true);
-//     vm.expectEmit(true, true, false, true);
-//     emit PotentialOwnerUpdated(address(0));
-//     emit OwnershipTransferred(address(this), address(1));
-//     v02.acceptOwnership();
-//   }
+  function testTwoStepOwnableOwner() public {
+    assertEq(wrappedEmptyUUPSTwoStep.owner(), address(this));
+  }
 
-//   function testTwoStepOwnableAcceptOwnershipFailNotPotentialOwner() public {
-//     v02.transferOwnership(address(1));
-//     vm.prank(address(2));
-//     vm.expectRevert(bytes("TwoStepOwnable: caller is not the potential owner"));
-//     v02.acceptOwnership();
-//   }
+  function testTwoStepOwnableRenounceOwnership() public {
+    assertEq(wrappedEmptyUUPSTwoStep.owner(), address(this));
+    wrappedEmptyUUPSTwoStep.renounceOwnership();
+    assertEq(wrappedEmptyUUPSTwoStep.owner(), address(0));
+  }
 
-//   function testTwoStepOwnableCancelTransferOwnership() public {
-//     v02.transferOwnership(address(1));
-//     vm.expectEmit(true, false, false, true);
-//     emit PotentialOwnerUpdated(address(0));
-//     v02.cancelTransferOwnership();
-//   }
+  function testTwoStepOwnableTransferOwnership() public {
+    assertEq(wrappedEmptyUUPSTwoStep.owner(), address(this));
+    vm.expectEmit(true, false, false, true);
+    emit PotentialOwnerUpdated(address(1));
+    wrappedEmptyUUPSTwoStep.transferOwnership(address(1));
+    assertEq(wrappedEmptyUUPSTwoStep.owner(), address(this));
+    assertEq(wrappedEmptyUUPSTwoStep.potentialOwner(), address(1));
+    vm.prank(address(1));
+    vm.expectEmit(true, false, false, true);
+    vm.expectEmit(true, true, false, true);
+    emit PotentialOwnerUpdated(address(0));
+    emit OwnershipTransferred(address(this), address(1));
+    wrappedEmptyUUPSTwoStep.acceptOwnership();
+  }
 
-//   function testTwoStepOwnableCancelTransferOwnershipFailNotOwner() public {
-//     v02.transferOwnership(address(1));
-//     vm.prank(address(1));
-//     vm.expectRevert(bytes("TwoStepOwnable: caller is not the owner"));
-//     v02.cancelTransferOwnership();
-//   }
-// }
+  function testTwoStepOwnableAcceptOwnershipFailNotPotentialOwner() public {
+    wrappedEmptyUUPSTwoStep.transferOwnership(address(1));
+    vm.prank(address(2));
+    vm.expectRevert(bytes("TwoStepOwnable: caller is not the potential owner"));
+    wrappedEmptyUUPSTwoStep.acceptOwnership();
+  }
+
+  function testTwoStepOwnableCancelTransferOwnership() public {
+    wrappedEmptyUUPSTwoStep.transferOwnership(address(1));
+    vm.expectEmit(true, false, false, true);
+    emit PotentialOwnerUpdated(address(0));
+    wrappedEmptyUUPSTwoStep.cancelTransferOwnership();
+  }
+
+  function testTwoStepOwnableCancelTransferOwnershipFailNotOwner() public {
+    wrappedEmptyUUPSTwoStep.transferOwnership(address(1));
+    vm.prank(address(1));
+    vm.expectRevert(bytes("TwoStepOwnable: caller is not the owner"));
+    wrappedEmptyUUPSTwoStep.cancelTransferOwnership();
+  }
+}

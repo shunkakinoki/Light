@@ -38,18 +38,19 @@ contract BaseTest is Test, SlotTest {
   event Initialized(uint8 version);
   event Upgraded(address indexed implementation);
 
-  function setUpLightProxies() public {
-    implementationLightOrb = new LightOrb();
-    implementationLightSpace = new LightSpace();
-    implementationLightSpaceFactory = new LightSpaceFactory();
-
+  function setUpEmpties() public {
+    empty = new Empty();
     emptyUUPS = new EmptyUUPS();
-    proxyLightOrb = new UUPSProxy(address(emptyUUPS), "");
-    emptyUUPS = new EmptyUUPS();
-    proxyLightSpace = new UUPSProxy(address(emptyUUPS), "");
     emptyUUPSBeacon = new EmptyUUPSBeacon();
-    proxyLightSpaceFactory = new UUPSProxy(address(emptyUUPSBeacon), "");
+  }
 
+  function setUpEmptyProxies() public {
+    proxyLightOrb = new UUPSProxy(address(emptyUUPS), "");
+    proxyLightSpace = new UUPSProxy(address(emptyUUPS), "");
+    proxyLightSpaceFactory = new UUPSProxy(address(emptyUUPSBeacon), "");
+  }
+
+  function setUpEmptyProxyInitializations() public {
     vm.expectEmit(true, true, false, true);
     vm.expectEmit(true, false, false, true);
     emit OwnershipTransferred(address(0), address(this));
@@ -68,7 +69,15 @@ contract BaseTest is Test, SlotTest {
     emit OwnershipTransferred(address(0), address(this));
     emit Initialized(1);
     EmptyUUPSBeacon(address(proxyLightSpaceFactory)).initialize(address(empty));
+  }
 
+  function setUpLightImplementations() public {
+    implementationLightOrb = new LightOrb();
+    implementationLightSpace = new LightSpace();
+    implementationLightSpaceFactory = new LightSpaceFactory();
+  }
+
+  function setUpLightProxyUpgrades() public {
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(implementationLightOrb));
     EmptyUUPS(address(proxyLightOrb)).upgradeTo(
@@ -84,11 +93,22 @@ contract BaseTest is Test, SlotTest {
     EmptyUUPSBeacon(address(proxyLightSpaceFactory)).upgradeTo(
       address(implementationLightSpaceFactory)
     );
+  }
 
+  function setUpWrappedLightProxies() public {
     wrappedLightOrb = LightOrb(address(proxyLightOrb));
     wrappedLightSpace = LightSpace(address(proxyLightSpace));
     wrappedLightSpaceFactory = LightSpaceFactory(
       address(proxyLightSpaceFactory)
     );
+  }
+
+  function setUpLightProxies() public {
+    setUpEmpties();
+    setUpEmptyProxies();
+    setUpLightImplementations();
+    setUpEmptyProxyInitializations();
+    setUpLightProxyUpgrades();
+    setUpWrappedLightProxies();
   }
 }

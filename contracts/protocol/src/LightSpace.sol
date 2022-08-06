@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: GPL-3.0
 
 pragma solidity ^0.8.13;
 
@@ -6,13 +6,13 @@ import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/I
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-contract EmptyUUPS is Initializable, OwnableUpgradeable, UUPSUpgradeable {
+contract LightSpace is Initializable, OwnableUpgradeable, UUPSUpgradeable {
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {
     _disableInitializers();
   }
 
-  function initialize() external initializer {
+  function initializeLightSpace() external reinitializer(2) {
     __Ownable_init();
     __UUPSUpgradeable_init();
   }

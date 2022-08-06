@@ -79,7 +79,8 @@
     "hardhat-preprocessor": "^0.1.4",
     "hardhat-spdx-license-identifier": "^2.0.3",
     "hardhat-watcher": "^2.3.0",
-    "solc": "^0.8.15"
+    "solc": "^0.8.15",
+    "toml": "^3.0.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.1",

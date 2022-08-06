@@ -804,8 +804,12 @@ importers:
     specifiers:
       '@ethersproject/abi': ^5.6.4
       '@ethersproject/providers': ^5.6.8
+      '@lightdotso/ens': workspace:*
       '@lightdotso/protocol': workspace:*
+      '@lightdotso/proxies': workspace:*
+      '@lightdotso/renderer': workspace:*
       '@lightdotso/tsconfig': workspace:*
+      '@lightdotso/upgradeable': workspace:*
       '@nomiclabs/hardhat-ethers': ^2.1.0
       '@nomiclabs/hardhat-etherscan': ^3.1.0
       '@nomiclabs/hardhat-waffle': ^2.0.3
@@ -825,14 +829,19 @@ importers:
       hardhat-spdx-license-identifier: ^2.0.3
       hardhat-watcher: ^2.3.0
       solc: ^0.8.15
+      toml: ^3.0.0
       ts-node: ^10.9.1
       tsconfig-paths: ^4.0.0
       typechain: ^8.1.0
     dependencies:
       '@ethersproject/abi': 5.6.4
       '@ethersproject/providers': 5.6.8
+      '@lightdotso/ens': link:../../contracts/ens
       '@lightdotso/protocol': link:../../contracts/protocol
+      '@lightdotso/proxies': link:../../contracts/proxies
+      '@lightdotso/renderer': link:../../contracts/renderer
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
+      '@lightdotso/upgradeable': link:../../contracts/upgradeable
       '@nomiclabs/hardhat-ethers': 2.1.0_72jgnctblym52z6vqt46lbuldu
       '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.1
       '@nomiclabs/hardhat-waffle': 2.0.3_q2ktf46bpuaddom63xwo7uqczm
@@ -850,6 +859,7 @@ importers:
       hardhat-spdx-license-identifier: 2.0.3_hardhat@2.10.1
       hardhat-watcher: 2.3.0_hardhat@2.10.1
       solc: 0.8.15
+      toml: 3.0.0
     devDependencies:
       dotenv: 16.0.1
       ethereum-waffle: 3.4.4
@@ -5652,6 +5662,7 @@ packages:
       tsutils: 3.21.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
 
   /@typescript-eslint/parser/5.32.0_eslint@8.21.0:
     resolution: {integrity: sha512-IxRtsehdGV9GFQ35IGm5oKKR2OGcazUoiNBxhRV160iF9FoyuXxjY+rIqs1gfnd+4eL98OjeGnMpE7RF/NBb3A==}
@@ -10932,6 +10943,7 @@ packages:
       eslint: 8.21.0
       eslint-config-prettier: 8.5.0_eslint@8.21.0
       prettier-linter-helpers: 1.0.0
+    dev: false
 
   /eslint-plugin-react-hooks/4.6.0_eslint@8.21.0:
     resolution: {integrity: sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==}
@@ -22887,6 +22899,10 @@ packages:
   /toidentifier/1.0.1:
     resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==}
     engines: {node: '>=0.6'}
+
+  /toml/3.0.0:
+    resolution: {integrity: sha512-y/mWCZinnvxjTKYhJ+pYxwD0mRLVvOtdS2Awbgxln6iEnt4rk0yBxeSBHkGJcPucRiG0e55mwWp+g/05rsrd6w==}
+    dev: false
 
   /tough-cookie/2.5.0:
     resolution: {integrity: sha512-nlLsUzgm1kfLXSXfRZMc1KLAugd4hqJHDTvc2hDIwS3mZAfMEuMbc03SujMF+GEcpaX/qboeycw6iO8JwVv2+g==}

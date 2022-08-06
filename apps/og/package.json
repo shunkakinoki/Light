@@ -22,8 +22,8 @@
   "dependencies": {
     "@lightdotso/core": "workspace:*",
     "@lightdotso/styles": "workspace:*",
-    "@sentry/integrations": "^7.8.1",
-    "@sentry/nextjs": "^7.8.1",
+    "@sentry/integrations": "^7.9.0",
+    "@sentry/nextjs": "^7.9.0",
     "clsx": "^1.2.1",
     "copy-to-clipboard": "^3.3.2",
     "next": "^12.2.4",

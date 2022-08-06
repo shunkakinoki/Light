@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
 import "@lightdotso/proxies/UUPSProxy.sol";
-import "@lightdotso/foundry/SlotTest.t.sol";
+import "@lightdotso/foundry/SlotTest.sol";
 import "./mocks/MockUUPSProxy.sol";
 
 contract MockUUPSProxyTest is Test, SlotTest {

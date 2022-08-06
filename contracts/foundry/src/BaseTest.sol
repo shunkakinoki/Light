@@ -38,7 +38,7 @@ contract BaseTest is Test, SlotTest {
   event Initialized(uint8 version);
   event Upgraded(address indexed implementation);
 
-  function deployLightProxies() public {
+  function setUpLightProxies() public {
     implementationLightOrb = new LightOrb();
     implementationLightSpace = new LightSpace();
     implementationLightSpaceFactory = new LightSpaceFactory();

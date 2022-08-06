@@ -5,11 +5,11 @@ import "../src/BaseTest.sol";
 
 contract BaseTestTest is BaseTest {
   function testDeployLightProxies() public {
-    deployLightProxies();
+    setUpLightProxies();
   }
 
   function testLightOrbProxySlot() public {
-    deployLightProxies();
+    setUpLightProxies();
 
     _testProxyImplementationSlot(
       address(proxyLightOrb),
@@ -29,6 +29,8 @@ contract BaseTestTest is BaseTest {
       bytes32(uint256(uint160(address(this))))
     );
 
+    vm.expectEmit(true, false, false, true);
+    emit Initialized(2);
     wrappedLightOrb.initializeLightOrb();
 
     // Initializable
@@ -61,7 +63,7 @@ contract BaseTestTest is BaseTest {
   }
 
   function testLightSpaceProxySlot() public {
-    deployLightProxies();
+    setUpLightProxies();
 
     _testProxyImplementationSlot(
       address(proxyLightSpace),
@@ -81,6 +83,8 @@ contract BaseTestTest is BaseTest {
       bytes32(uint256(uint160(address(this))))
     );
 
+    vm.expectEmit(true, false, false, true);
+    emit Initialized(2);
     wrappedLightSpace.initializeLightSpace();
 
     // Initializable
@@ -98,38 +102,44 @@ contract BaseTestTest is BaseTest {
   }
 
   function testLightSpaceFactoryProxySlot() public {
-    deployLightProxies();
+    setUpLightProxies();
 
     // Initializable
     _testArbitrarySlot(
-      address(wrappedLightSpaceFactory),
+      address(proxyLightSpaceFactory),
       bytes32(uint256(0)),
       bytes32(uint256(1))
     );
     // OwnableUpgradeable
     _testArbitrarySlot(
-      address(wrappedLightSpaceFactory),
+      address(proxyLightSpaceFactory),
       bytes32(uint256(51)),
       bytes32(uint256(uint160(address(this))))
     );
 
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    emit OwnershipTransferred(address(this), address(this));
+    emit OwnershipTransferred(address(0), address(proxyLightSpaceFactory));
+    emit Initialized(2);
     wrappedLightSpaceFactory.initializeLightSpaceFactory(address(empty));
 
     // Initializable
     _testArbitrarySlot(
-      address(wrappedLightSpaceFactory),
+      address(proxyLightSpaceFactory),
       bytes32(uint256(0)),
       bytes32(uint256(2))
     );
     // OwnableUpgradeable
     _testArbitrarySlot(
-      address(wrappedLightSpaceFactory),
+      address(proxyLightSpaceFactory),
       bytes32(uint256(51)),
       bytes32(uint256(uint160(address(this))))
     );
 
     _testProxyImplementationSlot(
-      address(wrappedLightSpaceFactory),
+      address(proxyLightSpaceFactory),
       address(implementationLightSpaceFactory)
     );
   }

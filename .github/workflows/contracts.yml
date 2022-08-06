@@ -15,6 +15,11 @@ jobs:
       - uses: ./.github/actions/pnpm
         with:
           token: ${{ secrets.BOT_TOKEN }}
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+      - run: |
+          forge install
       - run: |
           pnpx turbo run build --scope=@lightdotso/contracts --include-dependencies --no-deps
         env:

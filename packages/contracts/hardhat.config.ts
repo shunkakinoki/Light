@@ -32,7 +32,7 @@ subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
 
 const getRemappings = () => {
   return fs
-    .readFileSync("remappings.txt", "utf8")
+    .readFileSync("../../remappings.txt", "utf8")
     .split("\n")
     .filter(Boolean)
     .map(line => {
@@ -130,7 +130,7 @@ const config: HardhatUserConfig = {
           if (line.match(/^\s*import /i)) {
             getRemappings().forEach(([find, replace]) => {
               if (line.match('"' + find)) {
-                line = line.replace('"' + find, '"' + replace);
+                line = line.replace('../../"' + find, '"' + replace);
               }
             });
           }

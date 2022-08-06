@@ -18,7 +18,7 @@ contract LightOrb is
     _disableInitializers();
   }
 
-  function initialize() external initializer {
+  function initializeLightOrb() external reinitializer(2) {
     __Ownable_init();
     __UUPSUpgradeable_init();
     __ERC721_init("Light Orb", "LORB");

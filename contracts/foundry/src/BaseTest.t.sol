@@ -4,10 +4,10 @@ pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
 import "./SlotTest.t.sol";
 
-import "@lightdotso/proxies/UUPSProxy.sol";
-import "@lightdotso/protocol/LightOrb.sol";
-import "@lightdotso/protocol/LightSpace.sol";
-import "@lightdotso/protocol/LightSpaceFactory.sol";
+import { UUPSProxy } from "@lightdotso/proxies/UUPSProxy.sol";
+import { LightOrb } from "@lightdotso/protocol/LightOrb.sol";
+import { LightSpace } from "@lightdotso/protocol/LightSpace.sol";
+import { LightSpaceFactory } from "@lightdotso/protocol/LightSpaceFactory.sol";
 
 import { Empty } from "@lightdotso/proxies/utils/Empty.sol";
 import { EmptyUUPS } from "@lightdotso/proxies/utils/EmptyUUPS.sol";
@@ -39,16 +39,15 @@ contract BaseTest is Test, SlotTest {
   event Upgraded(address indexed implementation);
 
   function deployLightProxies() public {
-    empty = new Empty();
-    emptyUUPS = new EmptyUUPS();
-    emptyUUPSBeacon = new EmptyUUPSBeacon();
-
     implementationLightOrb = new LightOrb();
     implementationLightSpace = new LightSpace();
     implementationLightSpaceFactory = new LightSpaceFactory();
 
+    emptyUUPS = new EmptyUUPS();
     proxyLightOrb = new UUPSProxy(address(emptyUUPS), "");
+    emptyUUPS = new EmptyUUPS();
     proxyLightSpace = new UUPSProxy(address(emptyUUPS), "");
+    emptyUUPSBeacon = new EmptyUUPSBeacon();
     proxyLightSpaceFactory = new UUPSProxy(address(emptyUUPSBeacon), "");
 
     vm.expectEmit(true, true, false, true);
@@ -56,11 +55,14 @@ contract BaseTest is Test, SlotTest {
     emit OwnershipTransferred(address(0), address(this));
     emit Initialized(1);
     EmptyUUPS(address(proxyLightOrb)).initialize();
+
     vm.expectEmit(true, true, false, true);
     vm.expectEmit(true, false, false, true);
     emit OwnershipTransferred(address(0), address(this));
     emit Initialized(1);
     EmptyUUPS(address(proxyLightSpace)).initialize();
+
+    empty = new Empty();
     vm.expectEmit(true, true, false, true);
     vm.expectEmit(true, false, false, true);
     emit OwnershipTransferred(address(0), address(this));
@@ -79,7 +81,7 @@ contract BaseTest is Test, SlotTest {
     );
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(implementationLightSpaceFactory));
-    EmptyUUPSBeacon(address(proxyLightOrb)).upgradeTo(
+    EmptyUUPSBeacon(address(proxyLightSpaceFactory)).upgradeTo(
       address(implementationLightSpaceFactory)
     );
 
@@ -92,5 +94,24 @@ contract BaseTest is Test, SlotTest {
 
   function testDeployLightProxies() public {
     deployLightProxies();
+  }
+
+  function testLightOrbProxySlot() public {
+    deployLightProxies();
+
+    _testProxyImplementationSlot(
+      address(proxyLightOrb),
+      address(implementationLightOrb)
+    );
+
+    _testProxyImplementationSlot(
+      address(wrappedLightSpace),
+      address(implementationLightSpace)
+    );
+
+    _testProxyImplementationSlot(
+      address(wrappedLightSpaceFactory),
+      address(implementationLightSpaceFactory)
+    );
   }
 }

@@ -20,7 +20,10 @@ contract LightSpaceFactory is
     _disableInitializers();
   }
 
-  function initialize(address implementationAddress_) external initializer {
+  function initializeLightSpaceFactory(address implementationAddress_)
+    external
+    reinitializer(2)
+  {
     __Ownable_init();
     __UUPSUpgradeable_init();
     upgradeableBeacon = new UpgradeableBeacon(implementationAddress_);

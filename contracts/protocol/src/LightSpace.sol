@@ -12,7 +12,7 @@ contract LightSpace is Initializable, OwnableUpgradeable, UUPSUpgradeable {
     _disableInitializers();
   }
 
-  function initialize() external initializer {
+  function initializeLightSpace() external reinitializer(2) {
     __Ownable_init();
     __UUPSUpgradeable_init();
   }

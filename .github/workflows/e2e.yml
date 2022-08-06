@@ -20,8 +20,9 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
       - run: |
-          pnpx turbo run e2e --scope=@lightdotso/${{ matrix.app }}
+          npx turbo-ignore || cd ../../ && pnpx turbo run e2e --scope=@lightdotso/${{ matrix.app }}
         continue-on-error: true
+        working-directory: apps/${{ matrix.app }}
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}

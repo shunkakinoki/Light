@@ -103,13 +103,14 @@ const config: HardhatUserConfig = {
     },
   },
   paths: {
-    artifacts: "artifacts",
-    cache: "cache",
-    deploy: "deploy",
-    deployments: "deployments",
-    imports: "imports",
-    sources: "src",
-    tests: "tests",
+    root: "../..",
+    artifacts: "packages/contracts/artifacts",
+    cache: "packages/contracts/cache",
+    deploy: "packages/contracts/deploy",
+    deployments: "packages/contracts/deployments",
+    imports: "packates/contracts/imports",
+    sources: "packages/contracts/src",
+    tests: "packages/contracts/tests",
   },
   abiExporter: {
     path: "./abi",
@@ -131,7 +132,7 @@ const config: HardhatUserConfig = {
   preprocess: {
     eachLine: hre => {
       return {
-        transform: (line: string) => {
+        transform: line => {
           if (
             hre.network.name !== "hardhat" &&
             hre.network.name !== "localhost"
@@ -140,8 +141,8 @@ const config: HardhatUserConfig = {
           }
           if (line.match(/^\s*import /i)) {
             getRemappings().forEach(([find, replace]) => {
-              if (line.match('"' + find)) {
-                line = line.replace('../../"' + find, '"' + replace);
+              if (line.match(find)) {
+                line = line.replace(find, replace);
               }
             });
           }

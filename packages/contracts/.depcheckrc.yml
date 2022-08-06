@@ -1,6 +1,10 @@
 ignores:
+  - "@lightdotso/ens"
   - "@lightdotso/protocol"
+  - "@lightdotso/proxies"
+  - "@lightdotso/renderer"
   - "@lightdotso/typechain"
+  - "@lightdotso/upgradeable"
   - "@lightdotso/tsconfig"
   - "@openzeppelin/contracts"
   - "@openzeppelin/contracts-upgradeable"

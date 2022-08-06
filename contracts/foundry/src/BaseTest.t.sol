@@ -51,18 +51,42 @@ contract BaseTest is Test, SlotTest {
     proxyLightSpace = new UUPSProxy(address(emptyUUPS), "");
     proxyLightSpaceFactory = new UUPSProxy(address(emptyUUPSBeacon), "");
 
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    emit OwnershipTransferred(address(0), address(this));
+    emit Initialized(1);
     EmptyUUPS(address(proxyLightOrb)).initialize();
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    emit OwnershipTransferred(address(0), address(this));
+    emit Initialized(1);
     EmptyUUPS(address(proxyLightSpace)).initialize();
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    emit OwnershipTransferred(address(0), address(this));
+    emit Initialized(1);
     EmptyUUPSBeacon(address(proxyLightSpaceFactory)).initialize(address(empty));
 
+    vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(implementationLightOrb));
     EmptyUUPS(address(proxyLightOrb)).upgradeTo(
       address(implementationLightOrb)
     );
+    vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(implementationLightSpace));
     EmptyUUPS(address(proxyLightSpace)).upgradeTo(
       address(implementationLightSpace)
     );
+    vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(implementationLightSpaceFactory));
     EmptyUUPSBeacon(address(proxyLightOrb)).upgradeTo(
       address(implementationLightSpaceFactory)
+    );
+
+    wrappedLightOrb = LightOrb(address(proxyLightOrb));
+    wrappedLightSpace = LightSpace(address(proxyLightSpace));
+    wrappedLightSpaceFactory = LightSpaceFactory(
+      address(proxyLightSpaceFactory)
     );
   }
 

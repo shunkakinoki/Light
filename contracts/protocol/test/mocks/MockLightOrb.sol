@@ -53,3 +53,23 @@ contract MockLightOrbV2 is
 
   function _authorizeUpgrade(address) internal override onlyOwner {}
 }
+
+contract MockLightOrbV3 is
+  Initializable,
+  OwnableUpgradeable,
+  UUPSUpgradeable,
+  ERC721Upgradeable
+{
+  /// @custom:oz-upgrades-unsafe-allow constructor
+  constructor() {
+    _disableInitializers();
+  }
+
+  function reinitialize() external reinitializer(4) {}
+
+  function getVersion() external pure returns (uint256) {
+    return 3;
+  }
+
+  function _authorizeUpgrade(address) internal override onlyOwner {}
+}

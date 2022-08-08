@@ -18,10 +18,13 @@ contract LightOrb is
     _disableInitializers();
   }
 
-  function initializeLightOrb() external reinitializer(2) {
+  function initialize(string calldata name_, string calldata symbol_)
+    external
+    reinitializer(2)
+  {
     __Ownable_init();
     __UUPSUpgradeable_init();
-    __ERC721_init("Light Orb", "LORB");
+    __ERC721_init(name_, symbol_);
   }
 
   function _authorizeUpgrade(address) internal override onlyOwner {}

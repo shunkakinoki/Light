@@ -4,38 +4,29 @@ pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.sol";
 import "@lightdotso/protocol/LightSpace.sol";
-import "@lightdotso/protocol/LightSpaceFactory.sol";
+import "@lightdotso/protocol/LightOrbFactory.sol";
 
-contract LightSpaceFactoryTest is BaseTest {
+contract LightOrbFactoryTest is BaseTest {
   function setUp() public {
     setUpLightProxies();
   }
 
-  /// Check that the LightSpaceFactory can be successfully upgraded.
-  function testLightSpaceFactory() public {
-    wrappedLightSpaceFactory.initializeLightSpaceFactory(
-      address(emptyUUPSBeacon)
-    );
-    assertEq(
-      wrappedLightSpaceFactory.implementation(),
-      address(emptyUUPSBeacon)
-    );
+  /// Check that the LightOrbFactory can be successfully upgraded.
+  function testLightOrbFactory() public {
+    wrappedLightOrbFactory.initializeLightOrbFactory(address(emptyUUPSBeacon));
+    assertEq(wrappedLightOrbFactory.implementation(), address(emptyUUPSBeacon));
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(wrappedLightSpace));
-    wrappedLightSpaceFactory._upgradeLightSpaces(address(wrappedLightSpace));
+    wrappedLightOrbFactory._upgradeLightSpaces(address(wrappedLightSpace));
     assertEq(
-      wrappedLightSpaceFactory.implementation(),
+      wrappedLightOrbFactory.implementation(),
       address(wrappedLightSpace)
     );
   }
 
-  function testLightSpaceFactoryCannotInitializeTwice() public {
-    wrappedLightSpaceFactory.initializeLightSpaceFactory(
-      address(emptyUUPSBeacon)
-    );
+  function testLightOrbFactoryCannotInitializeTwice() public {
+    wrappedLightOrbFactory.initializeLightOrbFactory(address(emptyUUPSBeacon));
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    wrappedLightSpaceFactory.initializeLightSpaceFactory(
-      address(emptyUUPSBeacon)
-    );
+    wrappedLightOrbFactory.initializeLightOrbFactory(address(emptyUUPSBeacon));
   }
 }

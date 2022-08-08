@@ -7,20 +7,20 @@ import { BeaconProxy } from "@openzeppelin/contracts/proxy/beacon/BeaconProxy.so
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-import { LightSpaceFactoryStorage, UpgradeableBeacon } from "./storages/LightSpaceFactoryStorage.sol";
+import { LightOrbFactoryStorage, UpgradeableBeacon } from "./storages/LightOrbFactoryStorage.sol";
 
-contract LightSpaceFactory is
+contract LightOrbFactory is
   Initializable,
   OwnableUpgradeable,
   UUPSUpgradeable,
-  LightSpaceFactoryStorage
+  LightOrbFactoryStorage
 {
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {
     _disableInitializers();
   }
 
-  function initializeLightSpaceFactory(address implementationAddress_)
+  function initializeLightOrbFactory(address implementationAddress_)
     external
     reinitializer(2)
   {

@@ -8,7 +8,9 @@ import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/O
 
 import { LightCoreStorage } from "./storages/LightCoreStorage.sol";
 
-/// @title Core contract for the Light protocol
+/// @title Core contract for the Light protocol.
+/// Keeps track of the current state of the protocol.
+/// Inherits the `LightCoreStorage` storage contract to store the state.
 /// @author Shun Kakinoki
 /// @notice This contract is used to manage the Light protocol.
 contract LightCore is

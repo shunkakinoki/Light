@@ -44,7 +44,7 @@ importers:
       npm-package-json-lint-config-default: ^5.0.0
       prettier: ^2.7.1
       prettier-plugin-packagejson: ^2.2.18
-      prettier-plugin-solidity: ^1.0.0-dev.23
+      prettier-plugin-solidity: ^1.0.0-beta.24
       prettier-plugin-sort-json: ^0.0.2
       prettier-plugin-tailwindcss: ^0.1.13
       release-it: ^15.2.0
@@ -289,7 +289,7 @@ importers:
       next-transpile-modules: ^9.0.0
       nprogress: ^0.2.0
       nyc: ^15.1.0
-      postcss: ^8.4.14
+      postcss: ^8.4.16
       prisma: ^4.1.1
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -369,7 +369,7 @@ importers:
       jest: 28.1.3
       jest-environment-jsdom: 28.1.3
       nyc: 15.1.0
-      postcss: 8.4.14
+      postcss: 8.4.16
       prisma: 4.1.1
       start-server-and-test: 1.14.0
       tailwindcss: 3.1.3
@@ -747,7 +747,7 @@ importers:
     specifiers:
       prettier: ^2.7.1
       prettier-plugin-packagejson: ^2.2.18
-      prettier-plugin-solidity: ^1.0.0-dev.23
+      prettier-plugin-solidity: ^1.0.0-beta.24
       prettier-plugin-sort-json: ^0.0.2
       prettier-plugin-tailwindcss: ^0.1.13
     dependencies:
@@ -831,7 +831,7 @@ importers:
       solc: ^0.8.15
       toml: ^3.0.0
       ts-node: ^10.9.1
-      tsconfig-paths: ^4.0.0
+      tsconfig-paths: ^4.1.0
       typechain: ^8.1.0
     dependencies:
       '@ethersproject/abi': 5.6.4
@@ -864,7 +864,7 @@ importers:
       dotenv: 16.0.1
       ethereum-waffle: 3.4.4
       ts-node: 10.9.1
-      tsconfig-paths: 4.0.0
+      tsconfig-paths: 4.1.0
       typechain: 8.1.0
 
   packages/middlewares:
@@ -5662,7 +5662,6 @@ packages:
       tsutils: 3.21.0
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@typescript-eslint/parser/5.32.0_eslint@8.21.0:
     resolution: {integrity: sha512-IxRtsehdGV9GFQ35IGm5oKKR2OGcazUoiNBxhRV160iF9FoyuXxjY+rIqs1gfnd+4eL98OjeGnMpE7RF/NBb3A==}
@@ -9210,7 +9209,7 @@ packages:
       css-select: 4.3.0
       parse5: 6.0.1
       parse5-htmlparser2-tree-adapter: 6.0.1
-      postcss: 8.4.14
+      postcss: 8.4.16
       pretty-bytes: 5.6.0
     dev: false
 
@@ -10943,7 +10942,6 @@ packages:
       eslint: 8.21.0
       eslint-config-prettier: 8.5.0_eslint@8.21.0
       prettier-linter-helpers: 1.0.0
-    dev: false
 
   /eslint-plugin-react-hooks/4.6.0_eslint@8.21.0:
     resolution: {integrity: sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==}
@@ -19629,6 +19627,14 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
+  /postcss/8.4.16:
+    resolution: {integrity: sha512-ipHE1XBvKzm5xI7hiHCZJCSugxvsdq2mPnsq5+UF+VHCjiBvtDrlxJfMBToWaP9D5XlgNmcFGqoHmUn0EYEaRQ==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.4
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
+
   /postinstall-postinstall/2.1.0:
     resolution: {integrity: sha512-7hQX6ZlZXIoRiWNrbMQaLzUUfH+sSx39u8EJ9HYuDc1kLo9IXKWjM5RSquZN1ad5GnH8CGFM78fsAAQi3OKEEQ==}
     requiresBuild: true
@@ -23135,6 +23141,15 @@ packages:
 
   /tsconfig-paths/4.0.0:
     resolution: {integrity: sha512-SLBg2GBKlR6bVtMgJJlud/o3waplKtL7skmLkExomIiaAtLGtVsoXIqP3SYdjbcH9lq/KVv7pMZeCBpLYOit6Q==}
+    dependencies:
+      json5: 2.2.1
+      minimist: 1.2.6
+      strip-bom: 3.0.0
+    dev: true
+
+  /tsconfig-paths/4.1.0:
+    resolution: {integrity: sha512-AHx4Euop/dXFC+Vx589alFba8QItjF+8hf8LtmuiCwHyI4rHXQtOOENaM8kvYf5fR0dRChy3wzWIZ9WbB7FWow==}
+    engines: {node: '>=6'}
     dependencies:
       json5: 2.2.1
       minimist: 1.2.6

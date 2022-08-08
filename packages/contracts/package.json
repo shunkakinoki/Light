@@ -86,7 +86,7 @@
     "dotenv": "^16.0.1",
     "ethereum-waffle": "^3.4.4",
     "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.0.0",
+    "tsconfig-paths": "^4.1.0",
     "typechain": "^8.1.0"
   },
   "publishConfig": {

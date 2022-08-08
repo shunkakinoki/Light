@@ -33,7 +33,7 @@ contract LightOrbFactory is
     return upgradeableBeacon.implementation();
   }
 
-  function _upgradeLightSpaces(address newImplementationAddress_)
+  function _upgradeLightOrbs(address newImplementationAddress_)
     external
     onlyOwner
   {

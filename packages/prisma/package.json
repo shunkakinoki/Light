@@ -33,7 +33,7 @@
   "dependencies": {
     "@prisma/client": "^4.2.0",
     "prisma": "^4.2.0",
-    "zod": "^3.17.10",
+    "zod": "^3.18.0",
     "zod-prisma": "^0.5.4"
   },
   "publishConfig": {

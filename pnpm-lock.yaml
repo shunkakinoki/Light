@@ -52,14 +52,14 @@ importers:
       shx: ^0.3.4
       tsconfig-paths-webpack-plugin: ^4.0.0
       tsup: ^6.2.1
-      turbo: ^1.4.2
+      turbo: ^1.4.3
       typescript: ^4.7.4
-      vercel: ^27.3.8
+      vercel: ^27.4.0
       webpack-dev-server: ^4.9.3
     dependencies:
       next: 12.2.4
       rimraf: 3.0.2
-      turbo: 1.4.2
+      turbo: 1.4.3
       typescript: 4.7.4
     devDependencies:
       '@changesets/cli': 2.24.2
@@ -103,7 +103,7 @@ importers:
       shx: 0.3.4
       tsconfig-paths-webpack-plugin: 4.0.0
       tsup: 6.2.1_typescript@4.7.4
-      vercel: 27.3.8
+      vercel: 27.4.0
       webpack-dev-server: 4.9.3
 
   apps/api:
@@ -169,7 +169,7 @@ importers:
       webpack-cli: ^4.10.0
       winston: ^3.8.1
       worktop: 0.8.0-next.14
-      zod: ^3.17.10
+      zod: ^3.18.0
       zod-prisma: ^0.5.4
     dependencies:
       '@bull-board/api': 4.2.2
@@ -216,8 +216,8 @@ importers:
       rxjs: 7.5.6
       winston: 3.8.1
       worktop: 0.8.0-next.14
-      zod: 3.17.10
-      zod-prisma: 0.5.4_prisma@4.2.0+zod@3.17.10
+      zod: 3.18.0
+      zod-prisma: 0.5.4_prisma@4.2.0+zod@3.18.0
     devDependencies:
       '@cloudflare/workers-types': 3.14.1
       '@cloudflare/wrangler': 1.19.12
@@ -303,7 +303,7 @@ importers:
       tailwindcss: ^3.0.24
       vanilla-tilt: ^1.7.2
       wagmi: ^0.2.28
-      zod: ^3.17.10
+      zod: ^3.18.0
       zod-prisma: ^0.5.4
     dependencies:
       '@cyberlab/cyberconnect': 4.5.0
@@ -348,8 +348,8 @@ importers:
       swr: 1.3.0_react@18.2.0
       vanilla-tilt: 1.7.2
       wagmi: 0.2.28_ethers@5.6.9+react@18.2.0
-      zod: 3.17.10
-      zod-prisma: 0.5.4_prisma@4.2.0+zod@3.17.10
+      zod: 3.18.0
+      zod-prisma: 0.5.4_prisma@4.2.0+zod@3.18.0
     devDependencies:
       '@cypress/code-coverage': 3.10.0_cypress@10.4.0
       '@cypress/react': 6.0.0_vmipcyn3i2d2tyh43ehez3oxiy
@@ -886,13 +886,13 @@ importers:
     specifiers:
       '@prisma/client': ^4.2.0
       prisma: ^4.2.0
-      zod: ^3.17.10
+      zod: ^3.18.0
       zod-prisma: ^0.5.4
     dependencies:
       '@prisma/client': 4.2.0_prisma@4.2.0
       prisma: 4.2.0
-      zod: 3.17.10
-      zod-prisma: 0.5.4_prisma@4.2.0+zod@3.17.10
+      zod: 3.18.0
+      zod-prisma: 0.5.4_prisma@4.2.0+zod@3.18.0
 
   packages/queries:
     specifiers:
@@ -956,12 +956,12 @@ importers:
       '@ethersproject/abstract-provider': ^5.6.1
       '@lightdotso/prisma': workspace:*
       '@lightdotso/tsconfig': workspace:*
-      zod: ^3.17.10
+      zod: ^3.18.0
     dependencies:
       '@ethersproject/abstract-provider': 5.6.1
       '@lightdotso/prisma': link:../prisma
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
-      zod: 3.17.10
+      zod: 3.18.0
 
 packages:
 
@@ -5609,7 +5609,7 @@ packages:
     resolution: {integrity: sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==}
     requiresBuild: true
     dependencies:
-      '@types/node': 18.6.4
+      '@types/node': 18.6.5
     dev: true
     optional: true
 
@@ -5842,16 +5842,16 @@ packages:
     resolution: {integrity: sha512-l6FWKyayVN1W8RlKMn42vWdqqcF84O8i8hArGg+O4RUqW2bNjis/cO5OU/UE9rUTp9R9oMyeMoUep+6xmT/7JQ==}
     dev: true
 
-  /@vercel/go/2.0.16:
-    resolution: {integrity: sha512-1tXmygGooR4DhAqXuKuCSXjnRVjVaVkDLIH8J0kjsq+OnRGLyUjJzHn3LkXzu6kB5c68wFS15p1dXZymlGup3A==}
+  /@vercel/go/2.1.0:
+    resolution: {integrity: sha512-poCg/0wZffB7fdVxiMnNJR7Cq6mVYBLmlv0PWtBTE7IigYoiIgEVWlpaotOX7GQNGvPRZ8oEdCOYZhDDuYkVng==}
     dev: true
 
   /@vercel/hydrogen/0.0.13:
     resolution: {integrity: sha512-PeiP8CszcaOoxDh4/zdZPJ5YKeiKQA8RR9WC/BUDxg15suHP8lOfbpHZUgRX2WF872YgsCs7y3nCOkGZq0YY0Q==}
     dev: true
 
-  /@vercel/next/3.1.16:
-    resolution: {integrity: sha512-cE50hXpxPCuUK4+QUHDrSEQZYv4lTEd00C41AfyjFeWCmQasuxhNph0op9GZXh/f/35MzQLOzlB7mvDQDK0/HQ==}
+  /@vercel/next/3.1.17:
+    resolution: {integrity: sha512-CWmWZZ8OItNBtAEw2cfzkzbIxoHldO5LGkJmiISbNPqNBSSy19lzfA8gHwcUO7wjj42aGYdkvtApFDUcp3nqPg==}
     dev: true
 
   /@vercel/nft/0.21.0:
@@ -23149,7 +23149,7 @@ packages:
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.10.0
-      tsconfig-paths: 4.0.0
+      tsconfig-paths: 4.1.0
     dev: true
 
   /tsconfig-paths/3.14.1:
@@ -23159,14 +23159,6 @@ packages:
       json5: 1.0.1
       minimist: 1.2.6
       strip-bom: 3.0.0
-
-  /tsconfig-paths/4.0.0:
-    resolution: {integrity: sha512-SLBg2GBKlR6bVtMgJJlud/o3waplKtL7skmLkExomIiaAtLGtVsoXIqP3SYdjbcH9lq/KVv7pMZeCBpLYOit6Q==}
-    dependencies:
-      json5: 2.2.1
-      minimist: 1.2.6
-      strip-bom: 3.0.0
-    dev: true
 
   /tsconfig-paths/4.1.0:
     resolution: {integrity: sha512-AHx4Euop/dXFC+Vx589alFba8QItjF+8hf8LtmuiCwHyI4rHXQtOOENaM8kvYf5fR0dRChy3wzWIZ9WbB7FWow==}
@@ -23279,137 +23271,137 @@ packages:
     dependencies:
       safe-buffer: 5.2.1
 
-  /turbo-android-arm64/1.4.2:
-    resolution: {integrity: sha512-h6PorJ+muKDQE3wETwrkx3NpqypAxjIFLP3b8RQaAoNvxYa1JTSC71VMtYxMbwuDk58A1KGbXLDteR4by8Lqew==}
+  /turbo-android-arm64/1.4.3:
+    resolution: {integrity: sha512-ZUvdoEHJkTkOFOO9PKWYrdONDBVqkNsvwEMufTVf07RXgqmbXDPkznzT4hcQm6xXyqWqJdjgSAMdlm+2nNE1Og==}
     cpu: [arm64]
     os: [android]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-darwin-64/1.4.2:
-    resolution: {integrity: sha512-HrXRwx+5FuKeR4r2ea2mWO5dImzxG7z987t4xZWytEWJ0gEujln1z1cjwotYU1l2pq8slJS8W3q9Qv3JRMrSkQ==}
+  /turbo-darwin-64/1.4.3:
+    resolution: {integrity: sha512-gapoVm5qbu2TJS4lJ6fM3o2eAkLyXSxHihw/4NRAYmwHCH3at1/cIAnRcctB/HLL3ZaB/p3HKb8mnI7k6xNHOw==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-darwin-arm64/1.4.2:
-    resolution: {integrity: sha512-/qkMqq1hdbM/I0gchx08/ZZucgnQVp6gd03tHHYnyG20z8a39f38MbX7+I5aLRpa3pQzBk8RgNx0o7G1T+KvzA==}
+  /turbo-darwin-arm64/1.4.3:
+    resolution: {integrity: sha512-XUe6FTsHamEH7FfNslYYO04yecAaguhZuwW4kE9B/BAP8MUYsmVqONauLPyE/YqM6pf2K0xwVe+RlEGf53CWbg==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-freebsd-64/1.4.2:
-    resolution: {integrity: sha512-bZcjR7GxpuE/0qz/aKg4gWDa+6eiuoV0cRnqCJ/rae14/iSmBt0MsMa+lUH5gZUFj581Dj8fQRoBeE+EOau5CA==}
+  /turbo-freebsd-64/1.4.3:
+    resolution: {integrity: sha512-1CAjXmDClgMXdWZXreUfAbGBB2WB9TZHfJIdsgnDqt4fIcFGChknzYqc+Fj3tGHAczMpinGjBbWIzFuxOq/ofQ==}
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-freebsd-arm64/1.4.2:
-    resolution: {integrity: sha512-dDx++7AELGAHuaMQjzNiKjSPu/xdDelUtRjWOzJWmwXzrgJlwNgQ93p+LYEA7LBWVZ8a32fpBE/VDait0alIJw==}
+  /turbo-freebsd-arm64/1.4.3:
+    resolution: {integrity: sha512-j5C7j/vwabPKpr5d6YlLgHGHBZCOcXj3HdkBshDHTQ0wghH0NuCUUaesYxI3wva/4/Ec0dhIrb20Laa/HMxXLA==}
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-linux-32/1.4.2:
-    resolution: {integrity: sha512-AAxsEYhgv6x4UXwCoiRe+iL2pd+ArsJQDMgJGsJn+Tb09ca6+i1rTgdOTgcCSyvRwbXt0LYzqXN9zp6FwG6VHQ==}
+  /turbo-linux-32/1.4.3:
+    resolution: {integrity: sha512-vnc+StXIoQEnxIU43j7rEz/J+v+RV4dbUdUolBq0k9gkUV8KMCcqPkIa753K47E2KLNGKXMaYDI6AHQX1GAQZg==}
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-linux-64/1.4.2:
-    resolution: {integrity: sha512-t7gGxp1ILmGwzymcf72Lw4Ca916Bi9j2C4xPnJ2CAqxMWQOJKCRvyOuUHC/uy1kFDjR2yszxMb+ZJL6P3nccfA==}
+  /turbo-linux-64/1.4.3:
+    resolution: {integrity: sha512-KAUeIa8Ejt6BLrBGbVurlrjDxqh62tu75D4cqKqKfzWspcbEtmdqlV6qthXfm8SlzGSNuQXX0+qXEWds2FIZXg==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-linux-arm/1.4.2:
-    resolution: {integrity: sha512-6Rri//bX3wPMa8D0sSie05Xuze+6jTUDt4qsKp+JoQVanUKkKmRaVDpyV4WuFfjDbC5iP4ocN20FeaXenMFxTA==}
+  /turbo-linux-arm/1.4.3:
+    resolution: {integrity: sha512-zZNoHUK5ioFyxAngh8tHe763Dzb22ne3LJkaZn0ExkFHJtWClWv536lPcDuQPpIH9W9iz5OwPKtN32DNpNwk8A==}
     cpu: [arm]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-linux-arm64/1.4.2:
-    resolution: {integrity: sha512-V7eBFUOrIvLvjrc81UE8C+NfqBRKADyKrrbKD9hMG5beE/piZZNGoHUwuEgLgsykCSfHjn1sQCidocVztuTMAw==}
+  /turbo-linux-arm64/1.4.3:
+    resolution: {integrity: sha512-rzB7w+RHCQkKr8aDxxozv/IzdN976CYyBiRocSf9QGU73uyAg8pCo3i0MiENSRjDC+tUbdbu2lEUwGXf9ziB9Q==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-linux-mips64le/1.4.2:
-    resolution: {integrity: sha512-C0JpzpwyvhW5ChWr6S7ulUd8a+1SBLe2mLBepTWaXTh/5+sFDU/AMwPNkhpfV5o0gEtz03UPm7Y4G6dqU3UCAQ==}
+  /turbo-linux-mips64le/1.4.3:
+    resolution: {integrity: sha512-Ztr1BM5NiUsHWjB7zpkP2RpRDA/fjbLaCbkyfyGlLmVkrSkh05NFBD03IWs2LSLy/wb6vRpL3MQ4FKcb97Tn8w==}
     cpu: [mipsel]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-linux-ppc64le/1.4.2:
-    resolution: {integrity: sha512-ipxyQCj3NXq/2V6a4lKoNDt8CjcufICgHAvOhAUmoAxz4kIEKRvA/75xsPpt2Ih/a4fWGxsbWFK6oA+ac0l3jQ==}
+  /turbo-linux-ppc64le/1.4.3:
+    resolution: {integrity: sha512-tJaFJWxwfy/iLd69VHZj6JcXy9hO8LQ+ZUOna/p/wiy5WrFVgEYlD+4gfECfRZ+52EIelMgXl97vACaN1WMhLw==}
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-windows-32/1.4.2:
-    resolution: {integrity: sha512-pCvsh8mPSw6ZFABQqeJzfercnsOwCj1LpbWTPW1QftDij6zw1OWU4jWU529Ub1f+GMBej+xm/ufJhT+8A3NhwA==}
+  /turbo-windows-32/1.4.3:
+    resolution: {integrity: sha512-w9LyYd+DW3PYFXu9vQiie5lfdqmVIKLV0h181C49hempkIXfgQAosXfaugYWDwBc0GEBoBIQB0vGQKE7gt5nzA==}
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-windows-64/1.4.2:
-    resolution: {integrity: sha512-GnvM8uGOA6idUloDDxiEgUpIx5o5ZJL0ARL7f+6r/vfwA+qlSe/F+4hDCmT3+Xkg7/7zDZix5ViKVoTDMBP/Ig==}
+  /turbo-windows-64/1.4.3:
+    resolution: {integrity: sha512-qPCqemxxOrXyqqig3fVQozRkOwo5oJSsQ3FTZE5YlNu2NwwWvY1mC0X4WTZIDsbj4oHqr0riqC7RGKbjQm1IIQ==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo-windows-arm64/1.4.2:
-    resolution: {integrity: sha512-2mCPiDnMLY924+M07mMo464cjOr0EITuIkK67IBm3EeEwSlunOmQk+LRc/Jq/Zx6Zuzp5XPZ2fZVvmmSFfogpQ==}
+  /turbo-windows-arm64/1.4.3:
+    resolution: {integrity: sha512-djnOOBjw33AnUx2SR6TMOpDr3nKLnVD+HcZvnQz70HyE331AKWjBoEE4rtUOteLAfViWAp3afbiljFSOnbU00Q==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: false
     optional: true
 
-  /turbo/1.4.2:
-    resolution: {integrity: sha512-ry1vUs5oHCIM+Sef8HED2XsbL28YAeclCrOtDp9zbZZMUX1r5s01COqOJjFJZfDiv2zSlUge9IIQXprM8BfrtA==}
+  /turbo/1.4.3:
+    resolution: {integrity: sha512-g08eD2HdO/XW5xGHnXr0cXGiWnrgFBI6pN/3u0EOTeerKAsWIZU0ZrpSnl3whRtImeBB/gQu7Eu1waM2VOxzgw==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-android-arm64: 1.4.2
-      turbo-darwin-64: 1.4.2
-      turbo-darwin-arm64: 1.4.2
-      turbo-freebsd-64: 1.4.2
-      turbo-freebsd-arm64: 1.4.2
-      turbo-linux-32: 1.4.2
-      turbo-linux-64: 1.4.2
-      turbo-linux-arm: 1.4.2
-      turbo-linux-arm64: 1.4.2
-      turbo-linux-mips64le: 1.4.2
-      turbo-linux-ppc64le: 1.4.2
-      turbo-windows-32: 1.4.2
-      turbo-windows-64: 1.4.2
-      turbo-windows-arm64: 1.4.2
+      turbo-android-arm64: 1.4.3
+      turbo-darwin-64: 1.4.3
+      turbo-darwin-arm64: 1.4.3
+      turbo-freebsd-64: 1.4.3
+      turbo-freebsd-arm64: 1.4.3
+      turbo-linux-32: 1.4.3
+      turbo-linux-64: 1.4.3
+      turbo-linux-arm: 1.4.3
+      turbo-linux-arm64: 1.4.3
+      turbo-linux-mips64le: 1.4.3
+      turbo-linux-ppc64le: 1.4.3
+      turbo-windows-32: 1.4.3
+      turbo-windows-64: 1.4.3
+      turbo-windows-arm64: 1.4.3
     dev: false
 
   /tweetnacl-util/0.15.1:
@@ -23994,16 +23986,16 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  /vercel/27.3.8:
-    resolution: {integrity: sha512-m8kJ78NZrxSrni7+hallEuORLcDcVsjifQRLMGI/riaxWx7Y2GE1kmFxqJDYgs+2DbO5wTW20Bj9qOHdbrvKIg==}
+  /vercel/27.4.0:
+    resolution: {integrity: sha512-HUDbq5L9ja4gXtS2orfjQYQG6VLN4FOym9dJ8AGZzTrKt5crIKTHpiR6eLB3k4QqATPggORGW7mS6lsmhpnjbQ==}
     engines: {node: '>= 14'}
     hasBin: true
     requiresBuild: true
     dependencies:
       '@vercel/build-utils': 5.3.0
-      '@vercel/go': 2.0.16
+      '@vercel/go': 2.1.0
       '@vercel/hydrogen': 0.0.13
-      '@vercel/next': 3.1.16
+      '@vercel/next': 3.1.17
       '@vercel/node': 2.5.7
       '@vercel/python': 3.1.8
       '@vercel/redwood': 1.0.17
@@ -25395,7 +25387,7 @@ packages:
       ethers: 5.6.9
     dev: false
 
-  /zod-prisma/0.5.4_prisma@4.2.0+zod@3.17.10:
+  /zod-prisma/0.5.4_prisma@4.2.0+zod@3.18.0:
     resolution: {integrity: sha512-5Ca4Qd1a1jy1T/NqCEpbr0c+EsbjJfJ/7euEHob3zDvtUK2rTuD1Rc/vfzH8q8PtaR2TZbysD88NHmrLwpv3Xg==}
     engines: {node: '>=14'}
     hasBin: true
@@ -25411,11 +25403,11 @@ packages:
       parenthesis: 3.1.8
       prisma: 4.2.0
       ts-morph: 13.0.3
-      zod: 3.17.10
+      zod: 3.18.0
     dev: false
 
-  /zod/3.17.10:
-    resolution: {integrity: sha512-IHXnQYQuOOOL/XgHhgl8YjNxBHi3xX0mVcHmqsvJgcxKkEczPshoWdxqyFwsARpf41E0v9U95WUROqsHHxt0UQ==}
+  /zod/3.18.0:
+    resolution: {integrity: sha512-gwTm8RfUCe8l9rDwN5r2A17DkAa8Ez4Yl4yXqc5VqeGaXaJahzYYXbTwvhroZi0SNBqTwh/bKm2N0mpCzuw4bA==}
     dev: false
 
   /zwitch/2.0.2:

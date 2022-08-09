@@ -36,7 +36,7 @@ contract LightOrbFactory is
   function _createLightOrb() external returns (address) {
     BeaconProxy orb = new BeaconProxy(
       address(upgradeableBeacon),
-      abi.encodeWithSelector(LightOrb.initialize.selector, "LightOrb", "LORB")
+      abi.encodeWithSelector(LightOrb.initialize.selector, "Light Orb", "LORB")
     );
     return address(orb);
   }

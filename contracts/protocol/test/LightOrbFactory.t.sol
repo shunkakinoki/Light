@@ -7,6 +7,8 @@ import "@lightdotso/protocol/LightSpace.sol";
 import "@lightdotso/protocol/LightOrbFactory.sol";
 
 contract LightOrbFactoryTest is BaseTest {
+  LightOrb wrappedBeaconLightOrb;
+
   function setUp() public {
     setUpLightProxies();
   }
@@ -16,9 +18,16 @@ contract LightOrbFactoryTest is BaseTest {
     wrappedLightOrbFactory.initialize(address(emptyUUPSBeacon));
     assertEq(wrappedLightOrbFactory.implementation(), address(emptyUUPSBeacon));
     vm.expectEmit(true, false, false, true);
-    emit Upgraded(address(wrappedLightOrb));
-    wrappedLightOrbFactory._upgradeLightOrbs(address(wrappedLightOrb));
-    assertEq(wrappedLightOrbFactory.implementation(), address(wrappedLightOrb));
+    emit Upgraded(address(implementationLightOrb));
+    wrappedLightOrbFactory._upgradeLightOrbs(address(implementationLightOrb));
+    assertEq(
+      wrappedLightOrbFactory.implementation(),
+      address(implementationLightOrb)
+    );
+
+    wrappedBeaconLightOrb = LightOrb(wrappedLightOrbFactory._createLightOrb());
+    assertEq(wrappedBeaconLightOrb.name(), "Light Orb");
+    assertEq(wrappedBeaconLightOrb.symbol(), "LORB");
   }
 
   function testLightOrbFactoryCannotInitializeTwice() public {

@@ -24,6 +24,7 @@ contract LightOrbTest is BaseTest {
     setUpEmpties();
     setUpEmptyProxies();
     setUpEmptyProxyInitializations();
+    setUpLightImplementations();
 
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(implmentationV1));
@@ -36,12 +37,12 @@ contract LightOrbTest is BaseTest {
 
     wrappedLightOrb = LightOrb(address(proxyLightOrb));
     wrappedLightOrbFactory = LightOrbFactory(address(proxyLightOrbFactory));
-
-    wrappedLightOrbFactory.initialize(address(wrappedLightOrb));
-    assertEq(wrappedLightOrbFactory.implementation(), address(wrappedLightOrb));
   }
 
-  function testGetVersionEmptyForImplementation() public {
+  function testMockCreateLightOrb() public {
+    wrappedLightOrbFactory.initialize(address(implmentationV1));
+    assertEq(wrappedLightOrbFactory.implementation(), address(implmentationV1));
+
     mockLightOrbV1 = MockLightOrbV1(
       address(wrappedLightOrbFactory.implementation())
     );

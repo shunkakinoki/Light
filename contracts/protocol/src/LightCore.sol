@@ -5,25 +5,28 @@ pragma solidity ^0.8.13;
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
-import { ERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 
-/// @title Space contract for the Light protocol.
+import { LightCoreStorage } from "./storages/LightCoreStorage.sol";
+
+/// @title Core contract for the Light protocol.
+/// @title Keeps track of the current state of the protocol.
+/// @title Inherits the `LightCoreStorage` storage contract to store the state variables in respected slots.
 /// @author Shun Kakinoki
-contract LightSpace is
+/// @notice This contract is used to manage the Light protocol.
+contract LightCore is
   Initializable,
   OwnableUpgradeable,
   UUPSUpgradeable,
-  ERC721Upgradeable
+  LightCoreStorage
 {
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {
     _disableInitializers();
   }
 
-  function initializeLightSpace() external reinitializer(2) {
+  function initializeLightCore() external reinitializer(2) {
     __Ownable_init();
     __UUPSUpgradeable_init();
-    __ERC721_init("Light Space", "LIGHTSPACE");
   }
 
   function _authorizeUpgrade(address) internal override onlyOwner {}

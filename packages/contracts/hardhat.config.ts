@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs, { readFileSync } from "fs";
 
 import * as dotenv from "dotenv";
 
@@ -7,6 +7,8 @@ import "tsconfig-paths/register";
 import { removeConsoleLog } from "hardhat-preprocessor";
 import { TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS } from "hardhat/builtin-tasks/task-names";
 import type { HardhatUserConfig } from "hardhat/config";
+import { subtask } from "hardhat/config";
+import * as toml from "toml";
 
 import "@nomiclabs/hardhat-ethers";
 import "@nomiclabs/hardhat-etherscan";
@@ -18,7 +20,6 @@ import "hardhat-deploy";
 import "hardhat-gas-reporter";
 import "hardhat-spdx-license-identifier";
 import "hardhat-watcher";
-import { subtask } from "hardhat/config";
 
 subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
   async (_, __, runSuper) => {
@@ -30,9 +31,11 @@ subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
   },
 );
 
+let foundry = toml.parse(readFileSync("../../foundry.toml").toString());
+
 const getRemappings = () => {
   return fs
-    .readFileSync("remappings.txt", "utf8")
+    .readFileSync("../../remappings.txt", "utf8")
     .split("\n")
     .filter(Boolean)
     .map(line => {
@@ -50,7 +53,15 @@ const accounts =
     : [];
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.15",
+  solidity: {
+    version: foundry?.profile?.default?.solc_version,
+    settings: {
+      optimizer: {
+        enabled: foundry?.profile?.default?.optimizer || true,
+        runs: foundry?.profile?.default?.optimizer_runs || 200,
+      },
+    },
+  },
   defaultNetwork: "hardhat",
   namedAccounts: {
     deployer: {
@@ -92,13 +103,14 @@ const config: HardhatUserConfig = {
     },
   },
   paths: {
-    artifacts: "artifacts",
-    cache: "cache",
-    deploy: "deploy",
-    deployments: "deployments",
-    imports: "imports",
-    sources: "src",
-    tests: "tests",
+    root: "../..",
+    artifacts: "packages/contracts/artifacts",
+    cache: "packages/contracts/cache",
+    deploy: "packages/contracts/deploy",
+    deployments: "packages/contracts/deployments",
+    imports: "packates/contracts/imports",
+    sources: "contracts",
+    tests: "packages/contracts/tests",
   },
   abiExporter: {
     path: "./abi",
@@ -113,14 +125,14 @@ const config: HardhatUserConfig = {
     apiKey: process.env.ETHERSCAN_API_KEY,
   },
   typechain: {
-    outDir: "../typechain/src",
+    outDir: "packages/typechain/src",
     target: "ethers-v5",
     alwaysGenerateOverloads: true,
   },
   preprocess: {
     eachLine: hre => {
       return {
-        transform: (line: string) => {
+        transform: line => {
           if (
             hre.network.name !== "hardhat" &&
             hre.network.name !== "localhost"
@@ -129,8 +141,8 @@ const config: HardhatUserConfig = {
           }
           if (line.match(/^\s*import /i)) {
             getRemappings().forEach(([find, replace]) => {
-              if (line.match('"' + find)) {
-                line = line.replace('"' + find, '"' + replace);
+              if (line.match(find)) {
+                line = line.replace(find, replace);
               }
             });
           }

@@ -32,4 +32,20 @@ contract SlotTest is Test {
     }
     assertEq(addr, address(_implementation));
   }
+
+  function _testBeaconImplementationSlot(
+    address _proxy,
+    address _implementation
+  ) internal {
+    bytes32 beaconSlot = bytes32(
+      uint256(keccak256("eip1967.proxy.beacon")) - 1
+    );
+    bytes32 proxySlot = vm.load(address(_proxy), beaconSlot);
+    address addr;
+    assembly {
+      mstore(0, proxySlot)
+      addr := mload(0)
+    }
+    assertEq(addr, address(_implementation));
+  }
 }

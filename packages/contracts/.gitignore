@@ -1,4 +1,5 @@
 .env
+src/**/*.sol
 
 abi
 artifacts

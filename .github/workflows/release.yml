@@ -16,6 +16,8 @@ jobs:
         with:
           version: nightly
       - run: |
+          forge install
+      - run: |
           pnpm run build
         env:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}

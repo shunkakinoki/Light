@@ -7,6 +7,9 @@ import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import { ERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 
+/// @title NFT contract for the Light protocol.
+/// @title Keeps track of the current state of the protocol.
+/// @author Shun Kakinoki
 contract LightOrb is
   Initializable,
   OwnableUpgradeable,
@@ -18,8 +21,13 @@ contract LightOrb is
     _disableInitializers();
   }
 
-  function initializeLightOrb() external reinitializer(2) {
-    __ERC721_init("Light Orb", "LORB");
+  function initialize(string calldata name_, string calldata symbol_)
+    external
+    reinitializer(2)
+  {
+    __Ownable_init();
+    __UUPSUpgradeable_init();
+    __ERC721_init(name_, symbol_);
   }
 
   function _authorizeUpgrade(address) internal override onlyOwner {}

@@ -10,11 +10,13 @@ runs:
     - if: github.event_name == 'push'
       uses: actions/checkout@v3
       with:
+        fetch-depth: 3
         repository: LightDotSo/LightDotSo
         token: ${{ inputs.token }}
     - if: github.event_name == 'pull_request'
       uses: actions/checkout@v3
       with:
+        fetch-depth: 3
         repository: LightDotSo/LightDotSo
         token: ${{ inputs.token }}
     - id: nvm

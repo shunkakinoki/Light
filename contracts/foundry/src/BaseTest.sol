@@ -6,8 +6,8 @@ import "./SlotTest.sol";
 
 import { UUPSProxy } from "@lightdotso/proxies/UUPSProxy.sol";
 import { LightOrb } from "@lightdotso/protocol/LightOrb.sol";
+import { LightOrbFactory } from "@lightdotso/protocol/LightOrbFactory.sol";
 import { LightSpace } from "@lightdotso/protocol/LightSpace.sol";
-import { LightSpaceFactory } from "@lightdotso/protocol/LightSpaceFactory.sol";
 
 import { Empty } from "@lightdotso/proxies/utils/Empty.sol";
 import { EmptyUUPS } from "@lightdotso/proxies/utils/EmptyUUPS.sol";
@@ -19,16 +19,16 @@ contract BaseTest is Test, SlotTest {
   EmptyUUPSBeacon internal emptyUUPSBeacon;
 
   UUPSProxy internal proxyLightOrb;
+  UUPSProxy internal proxyLightOrbFactory;
   UUPSProxy internal proxyLightSpace;
-  UUPSProxy internal proxyLightSpaceFactory;
 
   LightOrb internal implementationLightOrb;
+  LightOrbFactory internal implementationLightOrbFactory;
   LightSpace internal implementationLightSpace;
-  LightSpaceFactory internal implementationLightSpaceFactory;
 
   LightOrb internal wrappedLightOrb;
+  LightOrbFactory internal wrappedLightOrbFactory;
   LightSpace internal wrappedLightSpace;
-  LightSpaceFactory internal wrappedLightSpaceFactory;
 
   event AdminChanged(address previousAdmin, address newAdmin);
   event OwnershipTransferred(
@@ -46,8 +46,8 @@ contract BaseTest is Test, SlotTest {
 
   function setUpEmptyProxies() public {
     proxyLightOrb = new UUPSProxy(address(emptyUUPS), "");
+    proxyLightOrbFactory = new UUPSProxy(address(emptyUUPSBeacon), "");
     proxyLightSpace = new UUPSProxy(address(emptyUUPS), "");
-    proxyLightSpaceFactory = new UUPSProxy(address(emptyUUPSBeacon), "");
   }
 
   function setUpEmptyProxyInitializations() public {
@@ -57,24 +57,24 @@ contract BaseTest is Test, SlotTest {
     emit Initialized(1);
     EmptyUUPS(address(proxyLightOrb)).initialize();
 
-    vm.expectEmit(true, true, false, true);
-    vm.expectEmit(true, false, false, true);
-    emit OwnershipTransferred(address(0), address(this));
-    emit Initialized(1);
-    EmptyUUPS(address(proxyLightSpace)).initialize();
-
     empty = new Empty();
     vm.expectEmit(true, true, false, true);
     vm.expectEmit(true, false, false, true);
     emit OwnershipTransferred(address(0), address(this));
     emit Initialized(1);
-    EmptyUUPSBeacon(address(proxyLightSpaceFactory)).initialize(address(empty));
+    EmptyUUPSBeacon(address(proxyLightOrbFactory)).initialize(address(empty));
+
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    emit OwnershipTransferred(address(0), address(this));
+    emit Initialized(1);
+    EmptyUUPS(address(proxyLightSpace)).initialize();
   }
 
   function setUpLightImplementations() public {
     implementationLightOrb = new LightOrb();
+    implementationLightOrbFactory = new LightOrbFactory();
     implementationLightSpace = new LightSpace();
-    implementationLightSpaceFactory = new LightSpaceFactory();
   }
 
   function setUpLightProxyUpgrades() public {
@@ -84,23 +84,21 @@ contract BaseTest is Test, SlotTest {
       address(implementationLightOrb)
     );
     vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(implementationLightOrbFactory));
+    EmptyUUPSBeacon(address(proxyLightOrbFactory)).upgradeTo(
+      address(implementationLightOrbFactory)
+    );
+    vm.expectEmit(true, false, false, true);
     emit Upgraded(address(implementationLightSpace));
     EmptyUUPS(address(proxyLightSpace)).upgradeTo(
       address(implementationLightSpace)
-    );
-    vm.expectEmit(true, false, false, true);
-    emit Upgraded(address(implementationLightSpaceFactory));
-    EmptyUUPSBeacon(address(proxyLightSpaceFactory)).upgradeTo(
-      address(implementationLightSpaceFactory)
     );
   }
 
   function setUpWrappedLightProxies() public {
     wrappedLightOrb = LightOrb(address(proxyLightOrb));
+    wrappedLightOrbFactory = LightOrbFactory(address(proxyLightOrbFactory));
     wrappedLightSpace = LightSpace(address(proxyLightSpace));
-    wrappedLightSpaceFactory = LightSpaceFactory(
-      address(proxyLightSpaceFactory)
-    );
   }
 
   function setUpLightProxies() public {

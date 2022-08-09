@@ -6,21 +6,24 @@ import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/I
 import { BeaconProxy } from "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import { LightOrb } from "./LightOrb.sol";
+import { LightOrbFactoryStorage, UpgradeableBeacon } from "./storages/LightOrbFactoryStorage.sol";
 
-import { LightSpaceFactoryStorage, UpgradeableBeacon } from "./storages/LightSpaceFactoryStorage.sol";
-
-contract LightSpaceFactory is
+/// @title Factory contract for generating Light Orbs.
+/// @title Inherits the `LightOrbFactoryStorage` storage contract to store the state variables in respected slots.
+/// @author Shun Kakinoki
+contract LightOrbFactory is
   Initializable,
   OwnableUpgradeable,
   UUPSUpgradeable,
-  LightSpaceFactoryStorage
+  LightOrbFactoryStorage
 {
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {
     _disableInitializers();
   }
 
-  function initializeLightSpaceFactory(address implementationAddress_)
+  function initialize(address implementationAddress_)
     external
     reinitializer(2)
   {
@@ -33,7 +36,18 @@ contract LightSpaceFactory is
     return upgradeableBeacon.implementation();
   }
 
-  function _upgradeLightSpaces(address newImplementationAddress_)
+  function _createLightOrb(string calldata name_, string calldata symbol_)
+    external
+    returns (address)
+  {
+    BeaconProxy orb = new BeaconProxy(
+      address(upgradeableBeacon),
+      abi.encodeWithSelector(LightOrb.initialize.selector, name_, symbol_)
+    );
+    return address(orb);
+  }
+
+  function _upgradeBeaconProxy(address newImplementationAddress_)
     external
     onlyOwner
   {

@@ -2,13 +2,19 @@
 
 pragma solidity ^0.8.13;
 
-import "forge-std/Test.sol";
+import "@lightdotso/foundry/BaseTest.sol";
 import "@lightdotso/protocol/LightOrb.sol";
 
-contract LightOrbTest is Test {
-  LightOrb private lightorb;
+contract LightOrbTest is BaseTest {
+  LightOrb private lightOrb;
 
   function setUp() public {
-    lightorb = new LightOrb();
+    lightOrb = new LightOrb();
+  }
+
+  function testLightSpaceAssertions() public {
+    lightOrb.initialize("Light Orb", "LORB");
+    assertEq(lightOrb.name(), "Light Orb");
+    assertEq(lightOrb.symbol(), "LORB");
   }
 }

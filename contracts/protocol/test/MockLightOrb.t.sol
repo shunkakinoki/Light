@@ -54,7 +54,7 @@ contract LightOrbTest is BaseTest {
     assertEq(wrappedBeaconImplementationV1.name(), "Mock Light Orb");
     assertEq(wrappedBeaconImplementationV1.symbol(), "MLORB");
 
-    wrappedLightOrbFactory._upgradeLightOrbs(address(implmentationV2));
+    wrappedLightOrbFactory._upgradeBeaconProxy(address(implmentationV2));
     wrappedBeaconImplementationV2 = MockLightOrbV2(
       address(wrappedBeaconImplementationV1)
     );
@@ -62,7 +62,7 @@ contract LightOrbTest is BaseTest {
     assertEq(wrappedBeaconImplementationV2.name(), "Mock Light Orb");
     assertEq(wrappedBeaconImplementationV2.symbol(), "MLORB");
 
-    wrappedLightOrbFactory._upgradeLightOrbs(address(implmentationV3));
+    wrappedLightOrbFactory._upgradeBeaconProxy(address(implmentationV3));
     wrappedBeaconImplementationV3 = MockLightOrbV3(
       address(wrappedBeaconImplementationV1)
     );

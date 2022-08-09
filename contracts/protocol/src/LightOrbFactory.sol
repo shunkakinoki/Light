@@ -44,7 +44,7 @@ contract LightOrbFactory is
     return address(orb);
   }
 
-  function _upgradeLightOrbs(address newImplementationAddress_)
+  function _upgradeBeaconProxy(address newImplementationAddress_)
     external
     onlyOwner
   {

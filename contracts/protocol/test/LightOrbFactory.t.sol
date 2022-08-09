@@ -19,7 +19,7 @@ contract LightOrbFactoryTest is BaseTest {
     assertEq(wrappedLightOrbFactory.implementation(), address(emptyUUPSBeacon));
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(implementationLightOrb));
-    wrappedLightOrbFactory._upgradeLightOrbs(address(implementationLightOrb));
+    wrappedLightOrbFactory._upgradeBeaconProxy(address(implementationLightOrb));
     assertEq(
       wrappedLightOrbFactory.implementation(),
       address(implementationLightOrb)

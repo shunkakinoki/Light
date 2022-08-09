@@ -9,6 +9,9 @@ import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/O
 import { LightOrb } from "./LightOrb.sol";
 import { LightOrbFactoryStorage, UpgradeableBeacon } from "./storages/LightOrbFactoryStorage.sol";
 
+/// @title Factory contract for generating Light Orbs.
+/// @title Inherits the `LightOrbFactoryStorage` storage contract to store the state variables in respected slots.
+/// @author Shun Kakinoki
 contract LightOrbFactory is
   Initializable,
   OwnableUpgradeable,

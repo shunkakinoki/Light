@@ -7,6 +7,8 @@ import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import { ERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 
+/// @title Space contract for the Light protocol.
+/// @author Shun Kakinoki
 contract LightSpace is
   Initializable,
   OwnableUpgradeable,

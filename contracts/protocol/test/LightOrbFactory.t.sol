@@ -25,7 +25,9 @@ contract LightOrbFactoryTest is BaseTest {
       address(implementationLightOrb)
     );
 
-    wrappedBeaconLightOrb = LightOrb(wrappedLightOrbFactory._createLightOrb());
+    wrappedBeaconLightOrb = LightOrb(
+      wrappedLightOrbFactory._createLightOrb("Light Orb", "LORB")
+    );
     assertEq(wrappedBeaconLightOrb.name(), "Light Orb");
     assertEq(wrappedBeaconLightOrb.symbol(), "LORB");
   }

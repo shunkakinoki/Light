@@ -33,10 +33,13 @@ contract LightOrbFactory is
     return upgradeableBeacon.implementation();
   }
 
-  function _createLightOrb() external returns (address) {
+  function _createLightOrb(string calldata name_, string calldata symbol_)
+    external
+    returns (address)
+  {
     BeaconProxy orb = new BeaconProxy(
       address(upgradeableBeacon),
-      abi.encodeWithSelector(LightOrb.initialize.selector, "Light Orb", "LORB")
+      abi.encodeWithSelector(LightOrb.initialize.selector, name_, symbol_)
     );
     return address(orb);
   }

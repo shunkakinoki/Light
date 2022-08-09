@@ -84,7 +84,7 @@ contract BaseTestTest is BaseTest {
     emit OwnershipTransferred(address(this), address(this));
     emit OwnershipTransferred(address(0), address(proxyLightOrbFactory));
     emit Initialized(2);
-    wrappedLightOrbFactory.initializeLightOrbFactory(address(empty));
+    wrappedLightOrbFactory.initialize(address(empty));
 
     // Initializable
     _testArbitrarySlot(

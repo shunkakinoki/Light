@@ -6,7 +6,7 @@ import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/I
 import { BeaconProxy } from "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
-
+import { LightOrb } from "./LightOrb.sol";
 import { LightOrbFactoryStorage, UpgradeableBeacon } from "./storages/LightOrbFactoryStorage.sol";
 
 contract LightOrbFactory is
@@ -20,7 +20,7 @@ contract LightOrbFactory is
     _disableInitializers();
   }
 
-  function initializeLightOrbFactory(address implementationAddress_)
+  function initialize(address implementationAddress_)
     external
     reinitializer(2)
   {
@@ -31,6 +31,14 @@ contract LightOrbFactory is
 
   function implementation() external view returns (address) {
     return upgradeableBeacon.implementation();
+  }
+
+  function _createLightOrb() external returns (address) {
+    BeaconProxy orb = new BeaconProxy(
+      address(upgradeableBeacon),
+      abi.encodeWithSelector(LightOrb.initialize.selector, "LightOrb", "LORB")
+    );
+    return address(orb);
   }
 
   function _upgradeLightOrbs(address newImplementationAddress_)

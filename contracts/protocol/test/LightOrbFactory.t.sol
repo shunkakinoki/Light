@@ -13,7 +13,7 @@ contract LightOrbFactoryTest is BaseTest {
 
   /// Check that the LightOrbFactory can be successfully upgraded.
   function testLightOrbFactory() public {
-    wrappedLightOrbFactory.initializeLightOrbFactory(address(emptyUUPSBeacon));
+    wrappedLightOrbFactory.initialize(address(emptyUUPSBeacon));
     assertEq(wrappedLightOrbFactory.implementation(), address(emptyUUPSBeacon));
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(wrappedLightOrb));
@@ -22,8 +22,8 @@ contract LightOrbFactoryTest is BaseTest {
   }
 
   function testLightOrbFactoryCannotInitializeTwice() public {
-    wrappedLightOrbFactory.initializeLightOrbFactory(address(emptyUUPSBeacon));
+    wrappedLightOrbFactory.initialize(address(emptyUUPSBeacon));
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    wrappedLightOrbFactory.initializeLightOrbFactory(address(emptyUUPSBeacon));
+    wrappedLightOrbFactory.initialize(address(emptyUUPSBeacon));
   }
 }

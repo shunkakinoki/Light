@@ -37,11 +37,11 @@ contract LightOrbTest is BaseTest {
     wrappedLightOrb = LightOrb(address(proxyLightOrb));
     wrappedLightOrbFactory = LightOrbFactory(address(proxyLightOrbFactory));
 
-    wrappedLightOrbFactory.initializeLightOrbFactory(address(wrappedLightOrb));
+    wrappedLightOrbFactory.initialize(address(wrappedLightOrb));
     assertEq(wrappedLightOrbFactory.implementation(), address(wrappedLightOrb));
   }
 
-  function testGetVersion() public {
+  function testGetVersionEmptyForImplementation() public {
     mockLightOrbV1 = MockLightOrbV1(
       address(wrappedLightOrbFactory.implementation())
     );

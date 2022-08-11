@@ -3,7 +3,7 @@
 pragma solidity ^0.8.13;
 
 /// @title Library for storing light orbs data
-/// @author Shun Kakinoki <shunkakinoki@gmail.com>
+/// @author Code by Shun Kakinoki <shunkakinoki@gmail.com>
 /// @author Design by Oz Hashimoto <hello@okazu.co>
 library LightOrbData {
   /// 16 types
@@ -100,5 +100,39 @@ library LightOrbData {
     ];
 
     return bazels[_bazelId];
+  }
+
+  function getOrb(uint256 _orbId) public pure returns (Orb memory) {
+    Orb[16] memory orbs = [
+      Orb(OrbId.Pink, "Pink"),
+      Orb(OrbId.Purple, "Purple"),
+      Orb(OrbId.Blue, "Blue"),
+      Orb(OrbId.SkyBlue, "SkyBlue"),
+      Orb(OrbId.Teal, "Teal"),
+      Orb(OrbId.Green, "Green"),
+      Orb(OrbId.Yellow, "Yellow"),
+      Orb(OrbId.Orange, "Orange"),
+      Orb(OrbId.Red, "Red"),
+      Orb(OrbId.Gray, "Gray"),
+      Orb(OrbId.DeepPurple, "DeepPurple"),
+      Orb(OrbId.Gold, "Gold"),
+      Orb(OrbId.EverGreen, "EverGreen"),
+      Orb(OrbId.Emerald, "Emerald"),
+      Orb(OrbId.Sapphire, "Sapphire"),
+      Orb(OrbId.Diamond, "Diamond")
+    ];
+
+    return orbs[_orbId];
+  }
+
+  function getSparkle(uint256 _sparkleId) public pure returns (Sparkle memory) {
+    Sparkle[4] memory sparkles = [
+      Sparkle(SparkleId.Normal, "Normal"),
+      Sparkle(SparkleId.Special, "Special"),
+      Sparkle(SparkleId.Unique, "Unique"),
+      Sparkle(SparkleId.Legendary, "Legendary")
+    ];
+
+    return sparkles[_sparkleId];
   }
 }

@@ -7,7 +7,7 @@ pragma solidity ^0.8.13;
 /// @author Design by Oz Hashimoto <hello@okazu.co>
 library LightOrbData {
   /// 16 types
-  enum BazelId {
+  enum BezelId {
     Special,
     Gold,
     Silver,
@@ -59,8 +59,8 @@ library LightOrbData {
     Tornado
   }
 
-  struct Bazel {
-    BazelId id;
+  struct Bezel {
+    BezelId id;
     string name;
   }
 
@@ -79,27 +79,27 @@ library LightOrbData {
     string name;
   }
 
-  function getBazel(uint256 _bazelId) public pure returns (Bazel memory) {
-    Bazel[16] memory bazels = [
-      Bazel(BazelId.Special, "Special"),
-      Bazel(BazelId.Gold, "Gold"),
-      Bazel(BazelId.Silver, "Silver"),
-      Bazel(BazelId.MetalGray, "MetalGray"),
-      Bazel(BazelId.MetalBlack, "MetalBlack"),
-      Bazel(BazelId.White, "White"),
-      Bazel(BazelId.Pink, "Pink"),
-      Bazel(BazelId.Purple, "Purple"),
-      Bazel(BazelId.Turqoise, "Turqoise"),
-      Bazel(BazelId.Blue, "Blue"),
-      Bazel(BazelId.SkyBlue, "SkyBlue"),
-      Bazel(BazelId.Teal, "Teal"),
-      Bazel(BazelId.Green, "Green"),
-      Bazel(BazelId.Yellow, "Yellow"),
-      Bazel(BazelId.Orange, "Orange"),
-      Bazel(BazelId.Red, "Red")
+  function getBezel(uint256 _bezelId) public pure returns (Bezel memory) {
+    Bezel[16] memory bezels = [
+      Bezel(BezelId.Special, "Special"),
+      Bezel(BezelId.Gold, "Gold"),
+      Bezel(BezelId.Silver, "Silver"),
+      Bezel(BezelId.MetalGray, "MetalGray"),
+      Bezel(BezelId.MetalBlack, "MetalBlack"),
+      Bezel(BezelId.White, "White"),
+      Bezel(BezelId.Pink, "Pink"),
+      Bezel(BezelId.Purple, "Purple"),
+      Bezel(BezelId.Turqoise, "Turqoise"),
+      Bezel(BezelId.Blue, "Blue"),
+      Bezel(BezelId.SkyBlue, "SkyBlue"),
+      Bezel(BezelId.Teal, "Teal"),
+      Bezel(BezelId.Green, "Green"),
+      Bezel(BezelId.Yellow, "Yellow"),
+      Bezel(BezelId.Orange, "Orange"),
+      Bezel(BezelId.Red, "Red")
     ];
 
-    return bazels[_bazelId];
+    return bezels[_bezelId];
   }
 
   function getOrb(uint256 _orbId) public pure returns (Orb memory) {

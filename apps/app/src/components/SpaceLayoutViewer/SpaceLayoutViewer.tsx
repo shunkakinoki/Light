@@ -9,7 +9,7 @@ export const SpaceLayoutViewer: FC = () => {
 
   return (
     <div className="relative flex w-full rounded-md ">
-      <img className="absolute z-40" src={`/bazels/black.svg`} alt="black" />
+      <img className="absolute z-40" src={`/bezels/black.svg`} alt="black" />
       <img
         className="absolute z-30"
         src={`/lights/${configLayout?.Light ?? 1}.svg`}

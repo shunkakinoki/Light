@@ -25,15 +25,13 @@ contract LightOrb is
     _disableInitializers();
   }
 
-  function initialize(
-    string calldata name_,
-    string calldata symbol_,
-    address admin_
-  ) external reinitializer(2) {
+  function initialize(string calldata name_, string calldata symbol_)
+    external
+    reinitializer(2)
+  {
     __Ownable_init();
     __UUPSUpgradeable_init();
     __ERC721_init(name_, symbol_);
-    _setupRole(DEFAULT_ADMIN_ROLE, admin_);
   }
 
   function supportsInterface(bytes4 interfaceId)

@@ -13,7 +13,7 @@ contract LightOrbTest is BaseTest {
   }
 
   function testLightOrbAssertions() public {
-    wrappedLightOrb.initialize("Light Orb", "LORB", address(this));
+    wrappedLightOrb.initialize("Light Orb", "LORB");
     assertEq(wrappedLightOrb.name(), "Light Orb");
     assertEq(wrappedLightOrb.symbol(), "LORB");
   }
@@ -21,6 +21,6 @@ contract LightOrbTest is BaseTest {
   function testLightOrbDisableInitializersOnImplementation() public {
     lightOrb = new LightOrb();
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    lightOrb.initialize("Light Orb", "LORB", address(this));
+    lightOrb.initialize("Light Orb", "LORB");
   }
 }

@@ -31,7 +31,7 @@ contract BaseTestTest is BaseTest {
 
     vm.expectEmit(true, false, false, true);
     emit Initialized(2);
-    wrappedLightOrb.initialize("Light Orb", "LORB", address(this));
+    wrappedLightOrb.initialize("Light Orb", "LORB");
 
     // Initializable
     _testArbitrarySlot(

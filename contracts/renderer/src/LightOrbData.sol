@@ -56,7 +56,12 @@ library LightOrbData {
 
   /// 6 types
   enum SpiralId {
-    Tornado
+    Tornado,
+    Rapid,
+    Shuriken,
+    Cross,
+    Hex,
+    Oct
   }
 
   struct Bezel {
@@ -134,5 +139,18 @@ library LightOrbData {
     ];
 
     return sparkles[_sparkleId];
+  }
+
+  function getSpiral(uint256 _spiralId) public pure returns (Spiral memory) {
+    Spiral[6] memory spirals = [
+      Spiral(SpiralId.Tornado, "Tornado"),
+      Spiral(SpiralId.Rapid, "Rapid"),
+      Spiral(SpiralId.Shuriken, "Shuriken"),
+      Spiral(SpiralId.Cross, "Cross"),
+      Spiral(SpiralId.Hex, "Hex"),
+      Spiral(SpiralId.Oct, "Oct")
+    ];
+
+    return spirals[_spiralId];
   }
 }

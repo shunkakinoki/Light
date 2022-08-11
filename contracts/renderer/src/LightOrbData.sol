@@ -2,6 +2,8 @@
 
 pragma solidity ^0.8.13;
 
+import "./Utils.sol";
+
 /// @title Library for storing light orbs data
 /// @author Code by Shun Kakinoki <shunkakinoki@gmail.com>
 /// @author Design by Oz Hashimoto <hello@okazu.co>

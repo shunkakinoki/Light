@@ -45,4 +45,14 @@ library LightOrbData {
     Sapphire,
     Diamond
   }
+
+  struct Bazel {
+    BazelId id;
+    string name;
+  }
+
+  struct Orb {
+    OrbId id;
+    string name;
+  }
 }

@@ -20,10 +20,12 @@ contract LightOrbRenderer {
     uint8 spiralId;
   }
 
+  /// Credits
   string constant AUTHOR = "Oz Hashimoto";
   string constant DESIGN = "Zypsy DAO";
   string constant PRODUCT = "Light";
 
+  /// Constants for bit masks
   uint256 constant BEZEL_PART_BASE = 1_000_000;
   uint256 constant ORB_PART_BASE = 10_000;
   uint256 constant SPARKLE_PART_BASE = 100;

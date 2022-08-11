@@ -78,6 +78,7 @@
     "depcheck": "^1.4.3",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-config-turbo": "^0.0.3",
     "eslint-import-resolver-typescript": "^3.4.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.26.0",

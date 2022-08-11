@@ -19,6 +19,7 @@ module.exports = {
     "plugin:@next/next/recommended",
     "plugin:tailwindcss/recommended",
     "prettier",
+    "turbo",
   ],
   globals: {
     React: true,
@@ -142,6 +143,7 @@ module.exports = {
     "tailwindcss/no-arbitrary-value": "off",
     "tailwindcss/no-custom-classname": "error",
     "tailwindcss/no-contradicting-classname": "error",
+    "turbo/no-undeclared-env-vars": "error",
   },
   settings: {
     "import/parsers": {

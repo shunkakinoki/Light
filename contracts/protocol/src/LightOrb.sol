@@ -7,14 +7,17 @@ import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import { ERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 
+import { LightOrbStorage } from "./storages/LightOrbStorage.sol";
+
 /// @title NFT contract for the Light protocol.
-/// @title Keeps track of the current state of the protocol.
+/// @title Responsible for managing the rendering of the NFTs.
 /// @author Shun Kakinoki
 contract LightOrb is
   Initializable,
   OwnableUpgradeable,
   UUPSUpgradeable,
-  ERC721Upgradeable
+  ERC721Upgradeable,
+  LightOrbStorage
 {
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {

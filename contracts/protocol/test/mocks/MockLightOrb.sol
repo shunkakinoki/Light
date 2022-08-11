@@ -18,13 +18,13 @@ contract MockLightOrbV1 is
     _disableInitializers();
   }
 
-  function initialize(string calldata name_, string calldata symbol_)
+  function initialize(string calldata _name, string calldata _symbol)
     external
     reinitializer(2)
   {
     __Ownable_init();
     __UUPSUpgradeable_init();
-    __ERC721_init(name_, symbol_);
+    __ERC721_init(_name, _symbol);
   }
 
   function getVersion() external pure returns (uint256) {

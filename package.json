@@ -68,7 +68,7 @@
     "@lightdotso/prettier": "workspace:*",
     "@lightdotso/tailwindcss": "workspace:*",
     "@next/eslint-plugin-next": "^12.2.4",
-    "@release-it/keep-a-changelog": "^3.0.0",
+    "@release-it/keep-a-changelog": "^3.1.0",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
     "autoprefixer": "^10.4.8",
@@ -104,7 +104,7 @@
     "tsconfig-paths-webpack-plugin": "^4.0.0",
     "tsup": "^6.2.1",
     "vercel": "^27.4.0",
-    "webpack-dev-server": "^4.9.3"
+    "webpack-dev-server": "^4.10.0"
   },
   "packageManager": "pnpm@6.30.0"
 }

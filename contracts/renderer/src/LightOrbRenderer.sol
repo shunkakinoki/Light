@@ -20,6 +20,8 @@ contract LightOrbRenderer {
     uint8 spiralId;
   }
 
+  string constant AUTHOR = "Oz Hashimoto";
+
   uint256 constant BEZEL_PART_BASE = 1_000_000;
   uint256 constant ORB_PART_BASE = 10_000;
   uint256 constant SPARKLE_PART_BASE = 100;

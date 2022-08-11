@@ -46,6 +46,19 @@ library LightOrbData {
     Diamond
   }
 
+  /// 4 types
+  enum SparkleId {
+    Normal,
+    Special,
+    Unique,
+    Legendary
+  }
+
+  /// 6 types
+  enum SpiralId {
+    Tornado
+  }
+
   struct Bazel {
     BazelId id;
     string name;
@@ -54,5 +67,38 @@ library LightOrbData {
   struct Orb {
     OrbId id;
     string name;
+  }
+
+  struct Sparkle {
+    SparkleId id;
+    string name;
+  }
+
+  struct Spiral {
+    SpiralId id;
+    string name;
+  }
+
+  function getBazel(uint256 _bazelId) public pure returns (Bazel memory) {
+    Bazel[16] memory bazels = [
+      Bazel(BazelId.Special, "Special"),
+      Bazel(BazelId.Gold, "Gold"),
+      Bazel(BazelId.Silver, "Silver"),
+      Bazel(BazelId.MetalGray, "MetalGray"),
+      Bazel(BazelId.MetalBlack, "MetalBlack"),
+      Bazel(BazelId.White, "White"),
+      Bazel(BazelId.Pink, "Pink"),
+      Bazel(BazelId.Purple, "Purple"),
+      Bazel(BazelId.Turqoise, "Turqoise"),
+      Bazel(BazelId.Blue, "Blue"),
+      Bazel(BazelId.SkyBlue, "SkyBlue"),
+      Bazel(BazelId.Teal, "Teal"),
+      Bazel(BazelId.Green, "Green"),
+      Bazel(BazelId.Yellow, "Yellow"),
+      Bazel(BazelId.Orange, "Orange"),
+      Bazel(BazelId.Red, "Red")
+    ];
+
+    return bazels[_bazelId];
   }
 }

@@ -3,16 +3,15 @@
 pragma solidity ^0.8.13;
 
 /// @title Light SVG Renderer
-/// @author Shun Kakinoki <shunkakinoki@gmail.com>
+/// @author Code by Shun Kakinoki <shunkakinoki@gmail.com>
 /// @author Design by Oz Hashimoto <hello@okazu.co>
+/// @dev Heavily inspired by WatchFacesWorld (https://www.watchfaces.world/)
+/// @dev Referenced code in the section.
 contract LightOrbRenderer {
-  string private greeting;
-
-  function render(
-    uint256,
-    address,
-    string calldata
-  ) public pure returns (string memory) {
-    return "Hello from renderer";
+  struct LightOrbConfiguration {
+    uint8 bezelId;
+    uint8 orbId;
+    uint8 sparkId;
+    uint8 spiralId;
   }
 }

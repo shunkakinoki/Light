@@ -9,7 +9,7 @@ import "./LightOrbData.sol";
 /// @dev Code heavily taken from WatchFacesWorld's (https://www.watchfaces.world/) Metadata library.
 /// @dev Referenced code in the section.
 library LightOrbMetadata {
-  function getJSON(
+  function getMetadataJSON(
     uint8 _bezelId,
     uint8 _orbId,
     uint8 _sparkleId,

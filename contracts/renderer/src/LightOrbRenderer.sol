@@ -21,6 +21,8 @@ contract LightOrbRenderer {
   }
 
   string constant AUTHOR = "Oz Hashimoto";
+  string constant DESIGN = "Zypsy DAO";
+  string constant PRODUCT = "Light";
 
   uint256 constant BEZEL_PART_BASE = 1_000_000;
   uint256 constant ORB_PART_BASE = 10_000;
@@ -52,6 +54,17 @@ contract LightOrbRenderer {
           )
         )
       );
+  }
+
+  function renderRaw(
+    uint256 _tokenId,
+    address _owner,
+    uint256 _timestamp
+  ) public pure returns (string memory) {
+    LightOrbConfiguration memory configuration = parseTokenId(_tokenId);
+    string memory raw = renderSVG(configuration, _owner, _timestamp);
+
+    return raw;
   }
 
   function parseTokenId(uint256 _tokenId)

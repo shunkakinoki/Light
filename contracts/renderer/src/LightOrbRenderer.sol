@@ -4,13 +4,14 @@ pragma solidity ^0.8.13;
 
 import "base64-sol/base64.sol";
 import "./LightOrbMetadata.sol";
+import { IRenderer } from "@lightdotso/renderer/IRenderer.sol";
 
 /// @title Light SVG Renderer
 /// @author Code by Shun Kakinoki <shunkakinoki@gmail.com>
 /// @author Design by Oz Hashimoto <hello@okazu.co>
 /// @dev Heavily inspired by WatchFacesWorld (https://www.watchfaces.world/)
 /// @dev Referenced code in the section.
-contract LightOrbRenderer {
+contract LightOrbRenderer is IRenderer {
   error InvalidTokenId();
 
   struct LightOrbConfiguration {

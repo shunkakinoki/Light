@@ -23,35 +23,35 @@ contract LightOrbFactory is
     _disableInitializers();
   }
 
-  function initialize(address implementationAddress_)
+  function initialize(address _implementationAddress)
     external
     reinitializer(2)
   {
     __Ownable_init();
     __UUPSUpgradeable_init();
-    upgradeableBeacon = new UpgradeableBeacon(implementationAddress_);
+    upgradeableBeacon = new UpgradeableBeacon(_implementationAddress);
   }
 
   function implementation() external view returns (address) {
     return upgradeableBeacon.implementation();
   }
 
-  function _createLightOrb(string calldata name_, string calldata symbol_)
+  function _createLightOrb(string calldata _name, string calldata _symbol)
     external
     returns (address)
   {
     BeaconProxy orb = new BeaconProxy(
       address(upgradeableBeacon),
-      abi.encodeWithSelector(LightOrb.initialize.selector, name_, symbol_)
+      abi.encodeWithSelector(LightOrb.initialize.selector, _name, _symbol)
     );
     return address(orb);
   }
 
-  function _upgradeBeaconProxy(address newImplementationAddress_)
+  function _upgradeBeaconProxy(address new_implementationAddress)
     external
     onlyOwner
   {
-    upgradeableBeacon.upgradeTo(newImplementationAddress_);
+    upgradeableBeacon.upgradeTo(new_implementationAddress);
   }
 
   function _authorizeUpgrade(address) internal override onlyOwner {}

@@ -37,5 +37,8 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
+  },
+  "devDependencies": {
+    "eslint-config-turbo": "^0.0.3"
   }
 }

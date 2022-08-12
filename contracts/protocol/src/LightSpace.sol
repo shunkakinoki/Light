@@ -8,6 +8,7 @@ import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/O
 import { ERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 
 /// @title Space contract for the Light protocol.
+/// @dev Light spaces are a collective of orbs.
 /// @author Shun Kakinoki
 contract LightSpace is
   Initializable,

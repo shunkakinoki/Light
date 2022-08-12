@@ -18,7 +18,6 @@ jobs:
       - run: |
           forge install
           forge test -vvvvv --gas-report
-          forge snapshot --check
       - run: |
           forge test --gas-report --fuzz-seed 0 | tee gasreport.ansi
       - id: gas

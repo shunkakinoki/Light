@@ -35,15 +35,6 @@ const config = {
     forceSwcTransforms: !("CYPRESS_INSTRUMENT_CODE" in process.env),
     ignoreDuringBuilds: true,
   },
-  redirects: () => {
-    return [
-      {
-        source: "/home",
-        destination: "https://light.so",
-        statusCode: 301,
-      },
-    ];
-  },
   webpack: (config, { webpack }) => {
     config.plugins.push(
       new webpack.DefinePlugin({

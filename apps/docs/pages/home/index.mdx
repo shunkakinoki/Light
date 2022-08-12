@@ -4,7 +4,7 @@ import { useEffect } from "react";
 export const Redirect = () => {
   const router = useRouter();
   useEffect(() => {
-    router.reload();
+    window.location.reload(true);
   }, []);
 };
 

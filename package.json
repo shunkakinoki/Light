@@ -56,7 +56,7 @@
     "tailwindcss": "^3.0.24"
   },
   "dependencies": {
-    "next": "^12.2.4",
+    "next": "^12.2.5",
     "rimraf": "^3.0.2",
     "turbo": "^1.4.3",
     "typescript": "^4.7.4"
@@ -67,7 +67,7 @@
     "@lightdotso/eslint-config": "workspace:*",
     "@lightdotso/prettier": "workspace:*",
     "@lightdotso/tailwindcss": "workspace:*",
-    "@next/eslint-plugin-next": "^12.2.4",
+    "@next/eslint-plugin-next": "^12.2.5",
     "@release-it/keep-a-changelog": "^3.1.0",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
@@ -103,8 +103,8 @@
     "release-it": "^15.3.0",
     "shx": "^0.3.4",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
-    "tsup": "^6.2.1",
-    "vercel": "^27.4.0",
+    "tsup": "^6.2.2",
+    "vercel": "^28.0.0",
     "webpack-dev-server": "^4.10.0"
   },
   "packageManager": "pnpm@6.30.0"

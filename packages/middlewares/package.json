@@ -27,11 +27,11 @@
   "dependencies": {
     "@lightdotso/const": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
-    "next": "^12.2.4",
+    "next": "^12.2.5",
     "next-compose-middleware": "^2.0.6"
   },
   "devDependencies": {
-    "@types/node": "^18.7.1"
+    "@types/node": "^18.7.2"
   },
   "publishConfig": {
     "access": "public",

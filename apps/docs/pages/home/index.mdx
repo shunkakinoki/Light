@@ -1,3 +1,16 @@
+import { useRouter } from "next/router";
+
+export const Redirect = () => {
+  const router = useRouter();
+  if (typeof window !== "undefined") {
+    router.push("https://light.so");
+  }
+};
+
 ---
-title: Explore
----
+
+## Home
+
+Redirecting to home...
+
+<Redirect />

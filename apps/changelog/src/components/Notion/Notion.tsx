@@ -15,14 +15,15 @@ export const Text = ({ text }) => {
     return null;
   }
 
-  return text.map(value => {
+  return text.map((value, i) => {
     const {
       annotations: { bold, code, color, italic, strikethrough, underline },
       text,
     } = value;
+
     return (
       <span
-        key={text.id}
+        key={i}
         className={[
           bold ? styles.bold : "",
           code ? styles.code : "",

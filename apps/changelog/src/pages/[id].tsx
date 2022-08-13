@@ -107,7 +107,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
       number: number,
       title: title,
     },
-    revalidate: 1,
+    revalidate: 300,
   };
 };
 
@@ -117,10 +117,6 @@ export const IdPage = ({
   number,
   title,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
-  if (!page || !blocks) {
-    return <div />;
-  }
-
   return (
     <>
       <Header />

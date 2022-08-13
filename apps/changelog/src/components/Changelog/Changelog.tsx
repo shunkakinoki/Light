@@ -5,10 +5,6 @@ import { NotionImage } from "@lightdotso/changelog/components/NotionImage";
 import { leftNumberPad } from "@lightdotso/changelog/utils/leftNumberPad";
 
 export const Changelog = ({ posts }) => {
-  if (!posts) {
-    return <div />;
-  }
-
   return (
     <div className="mx-auto max-w-2xl px-3">
       <div className="mt-16">

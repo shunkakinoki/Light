@@ -1,6 +1,6 @@
 import { Footer } from "@lightdotso/core";
 
-import type { InferGetStaticPropsType, GetStaticProps } from "next";
+import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 
 import { Header } from "@lightdotso/changelog/components/Header";
@@ -19,7 +19,7 @@ export type Props = {
   posts: any;
 };
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const database = await getDatabase(NOTION_CHANGELOG_ID);
 
   const posts = database.filter(post => {
@@ -72,13 +72,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       posts: posts,
     },
-    revalidate: 300,
   };
 };
 
 export const SlugPage = ({
   posts,
-}: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
+}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
   return (
     <>
       <Header />

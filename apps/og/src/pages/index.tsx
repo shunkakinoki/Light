@@ -1,3 +1,4 @@
+import { ClientOnly } from "@lightdotso/core";
 import type { FC } from "react";
 
 import { Config } from "@lightdotso/og/components/Config";
@@ -12,8 +13,10 @@ export const Index: FC = () => {
         </h1>
       </header>
       <section className="grid grid-cols-1 gap-y-8 px-4 md:grid-cols-3 md:gap-8">
-        <Config />
-        <Viewer />
+        <ClientOnly>
+          <Config />
+          <Viewer />
+        </ClientOnly>
       </section>
     </main>
   );

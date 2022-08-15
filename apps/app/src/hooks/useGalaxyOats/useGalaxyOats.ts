@@ -18,6 +18,6 @@ export const useGalaxyOats = (address?: string) => {
   return {
     isLoading: !error && !data,
     isError: !!error,
-    oats: data?.addressInfo?.recentParticipation?.list,
+    oats: data?.data?.addressInfo?.recentParticipation?.list,
   };
 };

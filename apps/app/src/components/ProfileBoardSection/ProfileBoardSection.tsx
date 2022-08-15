@@ -57,7 +57,7 @@ export const ProfileBoardSection: FC<ProfileBoardSectionProps> = ({
   defaultOpen = false,
 }) => {
   const isGrid = useMemo(() => {
-    return type === "nft" || type === "poap";
+    return type === "nft" || type === "oat" || type === "poap";
   }, [type]);
   const isToken = useMemo(() => {
     return type === "token";

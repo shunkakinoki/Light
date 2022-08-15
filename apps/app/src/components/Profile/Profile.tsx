@@ -5,6 +5,7 @@ import { FollowListFollowers } from "@lightdotso/app/components/FollowListFollow
 import { FollowListFollowing } from "@lightdotso/app/components/FollowListFollowing";
 import type { ProfileBoardSectionNFTProps } from "@lightdotso/app/components/ProfileBoardSectionNFT";
 import { ProfileBoardSectionNFT } from "@lightdotso/app/components/ProfileBoardSectionNFT";
+import { ProfileBoardSectionOAT } from "@lightdotso/app/components/ProfileBoardSectionOAT";
 import type { ProfileBoardSectionPoapProps } from "@lightdotso/app/components/ProfileBoardSectionPoap";
 import { ProfileBoardSectionPoap } from "@lightdotso/app/components/ProfileBoardSectionPoap";
 import { ProfileBoardSectionTokens } from "@lightdotso/app/components/ProfileBoardSectionTokens";
@@ -53,6 +54,7 @@ export const Profile: FC<ProfileProps> = ({ active, follow, address }) => {
         {active === "Board" && (
           <div className="mx-auto space-y-6 py-5 md:py-12 lg:max-w-container">
             <ProfileBoardSectionNFT address={address} />
+            <ProfileBoardSectionOAT address={address} />
             <ProfileBoardSectionPoap address={address} />
             <ProfileBoardSectionTokens address={address} />
           </div>

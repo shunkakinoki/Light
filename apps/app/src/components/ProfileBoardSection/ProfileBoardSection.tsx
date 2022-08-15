@@ -10,6 +10,7 @@ import { ProfileBoardSectionTokenLoading } from "@lightdotso/app/components/Prof
 
 export enum ProfileBoardKeysArray {
   "nft" = "NFTs",
+  "oat" = "OATs",
   "poap" = "POAPs",
   "dao" = "DAOs",
   "mirror" = "Mirror",

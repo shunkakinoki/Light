@@ -13,3 +13,13 @@ export const GALAXY_OAT_QUERY = /* GraphQL */ `
     }
   }
 `;
+
+export const GALAXY_CREDENTIAL_QUERY = /* GraphQL */ `
+  query lookup($id: String!) {
+    campaign(id: $id) {
+      id
+      name
+      thumbnail
+    }
+  }
+`;

@@ -1,0 +1,1 @@
+export { useGalaxyOats } from "./useGalaxyOats";

@@ -31,7 +31,7 @@
     "next-compose-middleware": "^2.0.6"
   },
   "devDependencies": {
-    "@types/node": "^18.7.2"
+    "@types/node": "^18.7.5"
   },
   "publishConfig": {
     "access": "public",

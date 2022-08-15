@@ -1,0 +1,1 @@
+export { ProfileBoardItemOAT } from "./ProfileBoardItemOAT";

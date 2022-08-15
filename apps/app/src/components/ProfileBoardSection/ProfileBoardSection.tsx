@@ -83,6 +83,9 @@ export const ProfileBoardSection: FC<ProfileBoardSectionProps> = ({
                   {type === "poap" && (
                     <IconPoap className="mr-2 fill-contrast-high group-hover:fill-contrast-higher" />
                   )}
+                  {type === "oat" && (
+                    <IconPoap className="mr-2 fill-contrast-high group-hover:fill-contrast-higher" />
+                  )}
                   {type === "token" && (
                     <IconTokens className="mr-2 fill-contrast-high group-hover:fill-contrast-higher" />
                   )}

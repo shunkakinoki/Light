@@ -6,6 +6,7 @@ import { useContext } from "wagmi";
 
 import { Modal } from "@lightdotso/app/components/Modal";
 import { PlaceholderProfile } from "@lightdotso/app/components/PlaceholderProfile";
+import { useClientOnly } from "@lightdotso/app/hooks/useClientOnly";
 import { useCyberConnectIdentity } from "@lightdotso/app/hooks/useCyberConnectIdentity";
 import { useEns } from "@lightdotso/app/hooks/useEns";
 import { useModalTwitterVerify } from "@lightdotso/app/hooks/useModalTwitterVerify";
@@ -25,6 +26,7 @@ export const ModalTwitterVerify = () => {
   const [twitterHandle, setTwitterHandle] = useState("");
   const context = useContext();
   const { mutate: mutateIdentity } = useCyberConnectIdentity();
+  const isClient = useClientOnly();
 
   const verifyText = useMemo(() => {
     if (!modalTwitterVerifyState.sig) {
@@ -47,7 +49,7 @@ export const ModalTwitterVerify = () => {
       setModalTwitterVerifyState({ ...modalTwitterVerifyState, sig: sig });
       return;
     }
-    if (typeof window === "undefined") {
+    if (isClient) {
       return;
     }
     if (!modalTwitterVerifyState.hasTweeted) {
@@ -79,6 +81,7 @@ export const ModalTwitterVerify = () => {
     address,
     closeModalTwitterVerify,
     context.state.connector,
+    isClient,
     modalTwitterVerifyState,
     mutateIdentity,
     setModalTwitterVerifyState,

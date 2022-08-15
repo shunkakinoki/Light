@@ -9,6 +9,7 @@ import { WalletBar } from "@lightdotso/app/components/WalletBar";
 import { Coinbase } from "@lightdotso/app/components/WalletLogo/Coinbase";
 import { Metamask } from "@lightdotso/app/components/WalletLogo/Metamask";
 import { WalletConnect } from "@lightdotso/app/components/WalletLogo/WalletConnect";
+import { useClientOnly } from "@lightdotso/app/hooks/useClientOnly";
 import { useWallet } from "@lightdotso/app/hooks/useWallet";
 
 export type WalletProps = {
@@ -24,6 +25,7 @@ export const Wallet: FC<WalletProps> = ({ onClose }) => {
     },
     connect,
   ] = useConnect();
+  const isClient = useClientOnly();
 
   return (
     <div className="flex w-full max-w-xl flex-col">
@@ -65,7 +67,7 @@ export const Wallet: FC<WalletProps> = ({ onClose }) => {
                   return;
                 }
                 if (!connector.ready && connector.id === "injected") {
-                  if (typeof window === "undefined") {
+                  if (isClient) {
                     return;
                   }
                   return window.open(

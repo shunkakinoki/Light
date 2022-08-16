@@ -57,7 +57,7 @@ export const ProfileBoardSection: FC<ProfileBoardSectionProps> = ({
   defaultOpen = false,
 }) => {
   const isGrid = useMemo(() => {
-    return type === "nft" || type === "poap";
+    return type === "nft" || type === "oat" || type === "poap";
   }, [type]);
   const isToken = useMemo(() => {
     return type === "token";
@@ -81,6 +81,9 @@ export const ProfileBoardSection: FC<ProfileBoardSectionProps> = ({
                     <IconNFT className="mr-2 fill-contrast-high group-hover:fill-contrast-higher" />
                   )}
                   {type === "poap" && (
+                    <IconPoap className="mr-2 fill-contrast-high group-hover:fill-contrast-higher" />
+                  )}
+                  {type === "oat" && (
                     <IconPoap className="mr-2 fill-contrast-high group-hover:fill-contrast-higher" />
                   )}
                   {type === "token" && (

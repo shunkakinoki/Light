@@ -11,13 +11,13 @@ export const useGalaxyOats = (address?: string) => {
   };
 
   const { data, error } = useSWR<GalaxyOats>(
-    address ? [SwrKeys.POAP_ACTIONS, address] : null,
+    address ? [SwrKeys.GALAXY_OATS, address] : null,
     oatsFetcher,
   );
 
   return {
     isLoading: !error && !data,
     isError: !!error,
-    oats: data?.addressInfo?.recentParticipation?.list,
+    oats: data?.data?.addressInfo?.recentParticipation?.list,
   };
 };

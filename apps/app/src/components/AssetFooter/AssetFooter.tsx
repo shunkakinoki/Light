@@ -10,8 +10,7 @@ export const AssetFooter: FC = () => {
       <div className="grow" />
       <div className="box-border flex justify-between">
         <p className="text-xs leading-none text-contrast-low">
-          Copyright © {new Date().getFullYear()} Sentrei Inc. All rights
-          reserved.
+          Copyright © {new Date().getFullYear()} Light Inc. All rights reserved.
         </p>
       </div>
     </div>

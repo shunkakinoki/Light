@@ -15,7 +15,7 @@ export const AssetDetailsOAT: FC<AssetDetailsOATProps> = ({
   address,
   oat: {
     data: {
-      campaign: { id, name, thumbnail },
+      campaign: { name },
     },
   },
   oatId,

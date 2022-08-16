@@ -1,10 +1,17 @@
+import type { GalaxyCampaign } from "@lightdotso/types";
 import type { FC } from "react";
 
 import { NextImage } from "@lightdotso/app/components/NextImage";
 
-export type BaseOATProps = { thumbnail: string };
+export type BaseOATProps = { oat: GalaxyCampaign };
 
-export const BaseOAT: FC<BaseOATProps> = ({ thumbnail }) => {
+export const BaseOAT: FC<BaseOATProps> = ({
+  oat: {
+    data: {
+      campaign: { thumbnail },
+    },
+  },
+}) => {
   return (
     <NextImage
       layout="fill"

@@ -1,12 +1,16 @@
 import CyberConnect from "@cyberlab/cyberconnect";
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { useProvider } from "wagmi";
 
 export const useProviderCyberConnect = () => {
   const provider = useProvider();
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return useMemo<CyberConnect>(() => {
-    if (!provider) {
+    if (!provider || !isClient) {
       return;
     }
 
@@ -15,5 +19,5 @@ export const useProviderCyberConnect = () => {
       namespace: "Light",
       signingMessageEntity: "Light",
     });
-  }, [provider]);
+  }, [isClient, provider]);
 };

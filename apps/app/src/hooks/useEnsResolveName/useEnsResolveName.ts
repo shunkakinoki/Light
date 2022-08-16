@@ -14,7 +14,7 @@ export const useEnsResolveName = (name: string) => {
     if (isLoading || !data) {
       return name;
     }
-    return data;
+    return data.address;
   };
 
   const { data: address, mutate } = useSWR(

@@ -15,7 +15,7 @@ export const GALAXY_OAT_QUERY = /* GraphQL */ `
 `;
 
 export const GALAXY_CAMPAIGN_QUERY = /* GraphQL */ `
-  query lookup($oatId: String!) {
+  query lookup($oatId: ID!) {
     campaign(id: $oatId) {
       id
       name

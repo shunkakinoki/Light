@@ -3,7 +3,8 @@ import type { FC, ReactNode } from "react";
 
 import ReactTimeAgo from "react-time-ago";
 
-import { useEns } from "@lightdotso/app/hooks/useEns";
+import { useEnsName } from "wagmi";
+
 import { splitAddress } from "@lightdotso/app/utils/splitAddress";
 
 export type TimelineBannerProps = {
@@ -20,7 +21,9 @@ export const TimelineBanner: FC<TimelineBannerProps> = ({
   date,
   ens: initialEns,
 }) => {
-  const { ens, isLoading: isEnsLoading } = useEns(address, initialEns);
+  const { data: ens, isLoading: isEnsLoading } = useEnsName({
+    address: address,
+  });
   const truncatedAddress = splitAddress(address);
   const slug = isEnsLoading ? truncatedAddress : ens ?? truncatedAddress;
 

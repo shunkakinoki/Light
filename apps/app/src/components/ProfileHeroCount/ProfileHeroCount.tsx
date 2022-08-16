@@ -3,8 +3,9 @@ import type { FC } from "react";
 
 import { useMemo } from "react";
 
+import { useEnsName } from "wagmi";
+
 import { LoadingText } from "@lightdotso/app/components/LoadingText";
-import { useEns } from "@lightdotso/app/hooks/useEns";
 import { useWallet } from "@lightdotso/app/hooks/useWallet";
 
 export type ProfileHeroCountProps = {
@@ -20,7 +21,7 @@ export const ProfileHeroCount: FC<ProfileHeroCountProps> = ({
   followingCount,
 }) => {
   const { address: walletAddress } = useWallet();
-  const { ens } = useEns(address);
+  const { data: ens } = useEnsName({ address: address });
 
   const slug = useMemo(() => {
     const slug = address === walletAddress ? "profile" : ens ?? address;

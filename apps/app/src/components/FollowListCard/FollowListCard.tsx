@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import type { FC } from "react";
 import { useEffect, useMemo } from "react";
 
+import { useEnsName } from "wagmi";
+
 import type { FollowBannerProps } from "@lightdotso/app/components/FollowBanner";
 import { FollowBanner } from "@lightdotso/app/components/FollowBanner";
 import type { FollowButtonProps } from "@lightdotso/app/components/FollowButton";
@@ -10,7 +12,6 @@ import { FollowButton } from "@lightdotso/app/components/FollowButton";
 import { NetworkStack } from "@lightdotso/app/components/NetworkStack";
 import { PlaceholderAvatar } from "@lightdotso/app/components/PlaceholderAvatar";
 import { PlaceholderBlur } from "@lightdotso/app/components/PlaceholderBlur";
-import { useEns } from "@lightdotso/app/hooks/useEns";
 import { useHover } from "@lightdotso/app/hooks/useHover";
 
 export type FollowListCardProps = {
@@ -26,7 +27,7 @@ export const FollowListCard: FC<FollowListCardProps> = ({
 }) => {
   const router = useRouter();
   const [hoverRef, isHovered] = useHover<HTMLButtonElement>();
-  const { ens } = useEns(address, initialEns);
+  const { data: ens } = useEnsName({ address: address });
 
   const slug = useMemo(() => {
     if (ens) {

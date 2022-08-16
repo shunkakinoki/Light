@@ -1,1 +1,0 @@
-export { useEnsAvatar } from "./useEnsAvatar";

@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import type { FC } from "react";
 
+import { useEnsName, useEnsAvatar } from "wagmi";
+
 import type { NextImageProps } from "@lightdotso/app/components/NextImage";
 import { NextImage } from "@lightdotso/app/components/NextImage";
 import type { PlaceholderOrbProps } from "@lightdotso/app/components/PlaceholderOrb";
 import { PlaceholderOrb } from "@lightdotso/app/components/PlaceholderOrb";
-import { useEns } from "@lightdotso/app/hooks/useEns";
-import { useEnsAvatar } from "@lightdotso/app/hooks/useEnsAvatar";
 
 export type PlaceholderAvatarProps = PlaceholderOrbProps &
   Partial<Pick<NextImageProps, "height" | "width">>;
@@ -17,8 +17,8 @@ export const PlaceholderAvatar: FC<PlaceholderAvatarProps> = ({
   height = 48,
   className,
 }) => {
-  const { ens } = useEns(address);
-  const { avatar } = useEnsAvatar(ens);
+  const { data: ens } = useEnsName({ address: address });
+  const { data: avatar } = useEnsAvatar({ addressOrName: ens ?? address });
 
   if (avatar) {
     return (

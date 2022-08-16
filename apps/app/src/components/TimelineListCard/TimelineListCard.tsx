@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import type { FC } from "react";
 import { useEffect, useMemo } from "react";
 
+import { useEnsName } from "wagmi";
+
 import { PlaceholderAvatar } from "@lightdotso/app/components/PlaceholderAvatar";
 import { PlaceholderBlur } from "@lightdotso/app/components/PlaceholderBlur";
 import { TimelineActionNFT } from "@lightdotso/app/components/TimelineActionNFT";
@@ -18,7 +20,6 @@ import { TimelineDigest } from "@lightdotso/app/components/TimelineDigest";
 import { TimelineListItemNFT } from "@lightdotso/app/components/TimelineListItemNFT";
 import { TimelineListItemPoap } from "@lightdotso/app/components/TimelineListItemPoap";
 import { TimelineListItemSnapshot } from "@lightdotso/app/components/TimelineListItemSnapshot";
-import { useEns } from "@lightdotso/app/hooks/useEns";
 import { useHover } from "@lightdotso/app/hooks/useHover";
 
 export type TimelineListCardProps = Omit<TimelineBannerProps, "banner"> & {
@@ -33,7 +34,7 @@ export const TimelineListCard: FC<TimelineListCardProps> = ({
 }) => {
   const router = useRouter();
   const [hoverRef, isHovered] = useHover<HTMLDivElement>();
-  const { ens } = useEns(address, initialEns);
+  const { data: ens } = useEnsName({ address: address });
 
   const slug = useMemo(() => {
     if (ens) {

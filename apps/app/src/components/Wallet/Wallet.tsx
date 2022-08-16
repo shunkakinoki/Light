@@ -19,12 +19,7 @@ export type WalletProps = {
 export const Wallet: FC<WalletProps> = ({ onClose }) => {
   const plausible = usePlausible<PlausibleEvents>();
   const { address } = useWallet();
-  const [
-    {
-      data: { connectors },
-    },
-    connect,
-  ] = useConnect();
+  const { connect, connectors } = useConnect();
   const isClient = useClientOnly();
 
   return (
@@ -75,7 +70,7 @@ export const Wallet: FC<WalletProps> = ({ onClose }) => {
                     "_blank",
                   );
                 }
-                connect(connector);
+                connect({ connector });
                 plausible("ConnectWallet", { props: { id: connector.id } });
               }}
             >

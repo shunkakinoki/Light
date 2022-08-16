@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import type { FC } from "react";
 import { useEffect, useState } from "react";
 
+import { useEnsName } from "wagmi";
+
 import { Error } from "@lightdotso/app/components/Error";
 import { FollowButton } from "@lightdotso/app/components/FollowButton";
 import { PlaceholderAvatar } from "@lightdotso/app/components/PlaceholderAvatar";
@@ -14,7 +16,6 @@ import type { ProfileHeroTabsProps } from "@lightdotso/app/components/ProfileHer
 import { ProfileHeroTwitter } from "@lightdotso/app/components/ProfileHeroTwitter";
 import { KAKI_WALLET_ADDRESS } from "@lightdotso/app/config/Default";
 import { useCyberConnectIdentity } from "@lightdotso/app/hooks/useCyberConnectIdentity";
-import { useEns } from "@lightdotso/app/hooks/useEns";
 import { useProfileAddress } from "@lightdotso/app/hooks/useProfileAddress";
 import { useQueueAddress } from "@lightdotso/app/hooks/useQueueAddress";
 
@@ -48,7 +49,7 @@ const ProfileHeroAddress = dynamic(
 export const ProfileHero: FC<ProfileHeroProps> = ({ active, address }) => {
   const { profileAddress, isLoading: isProfileAddressLoading } =
     useProfileAddress(address);
-  const { ens } = useEns(profileAddress);
+  const { data: ens } = useEnsName({ address: profileAddress });
   useQueueAddress(profileAddress);
   const [hasEnsInitial, setHasEnsInitial] = useState(false);
   const router = useRouter();

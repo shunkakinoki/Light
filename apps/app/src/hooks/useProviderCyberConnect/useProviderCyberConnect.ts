@@ -1,21 +1,22 @@
 import CyberConnect from "@cyberlab/cyberconnect";
 import { useMemo } from "react";
-import { useContext } from "wagmi";
+import { useProvider } from "wagmi";
+
+import { useIsMounted } from "@lightdotso/app/hooks/useIsMounted";
 
 export const useProviderCyberConnect = () => {
-  const context = useContext();
+  const isMounted = useIsMounted();
+  const provider = useProvider();
 
   return useMemo<CyberConnect>(() => {
-    if (!context.state.connector) {
+    if (!provider || !isMounted) {
       return;
     }
-
-    const provider = context.state.connector?.getProvider();
 
     return new CyberConnect({
       provider,
       namespace: "Light",
       signingMessageEntity: "Light",
     });
-  }, [context.state.connector]);
+  }, [isMounted, provider]);
 };

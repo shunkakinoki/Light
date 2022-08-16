@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { FC } from "react";
 
+import { useEnsName } from "wagmi";
+
 import type { PlaceholderAvatarProps } from "@lightdotso/app/components/PlaceholderAvatar";
 import { PlaceholderAvatar } from "@lightdotso/app/components/PlaceholderAvatar";
 import { PlaceholderBlur } from "@lightdotso/app/components/PlaceholderBlur";
-import { useEns } from "@lightdotso/app/hooks/useEns";
 
 export type PlaceholderProfileProps = { ens?: string } & PlaceholderAvatarProps;
 
@@ -12,7 +13,7 @@ export const PlaceholderProfile: FC<PlaceholderProfileProps> = ({
   address,
   ens: initialEns,
 }) => {
-  const { ens } = useEns(address, initialEns);
+  const { data: ens } = useEnsName({ address: address });
 
   return (
     <Link passHref href={`/${ens ?? address}`}>

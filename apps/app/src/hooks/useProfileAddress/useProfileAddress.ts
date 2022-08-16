@@ -2,19 +2,20 @@ import { utils } from "ethers";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
 
-import { useEnsResolveName } from "@lightdotso/app/hooks/useEnsResolveName";
+import { useEnsResolver } from "wagmi";
+
 import { useWallet } from "@lightdotso/app/hooks/useWallet";
 
 export const useProfileAddress = (address?: string) => {
-  const { address: walletAddress, isLoading: isWalletLoading } = useWallet();
+  const { address: walletAddress, isConnecting: isWalletLoading } = useWallet();
   const { asPath } = useRouter();
 
   const slug = useMemo(() => {
     return asPath.split("/").pop();
   }, [asPath]);
 
-  const { address: routerAddress, isLoading: isEnsResolverLoading } =
-    useEnsResolveName(slug);
+  const { data: routerAddress, isLoading: isEnsResolverLoading } =
+    useEnsResolver({ name: slug });
 
   const profileAddress = useMemo(() => {
     return address ?? asPath.startsWith("/profile")

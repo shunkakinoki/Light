@@ -4,9 +4,8 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useCallback, useState } from "react";
 import { SiweMessage } from "siwe";
-import { useNetwork, useSignMessage } from "wagmi";
+import { useNetwork, useSignMessage, useEnsName } from "wagmi";
 
-import { useEns } from "@lightdotso/app/hooks/useEns";
 import { useIsFirst } from "@lightdotso/app/hooks/useIsFirst";
 import { useIsMounted } from "@lightdotso/app/hooks/useIsMounted";
 import { useSession } from "@lightdotso/app/hooks/useSession";
@@ -17,19 +16,19 @@ export const useAuth = (guard?: boolean) => {
   const { address, disconnect } = useWallet();
   const router = useRouter();
   const { isFallback } = useRouter();
-  const [{ data: networkData }] = useNetwork();
+  const { chain: activeChain } = useNetwork();
   const isMounted = useIsMounted();
   const { isFirst, setIsFirst } = useIsFirst();
   const [isOnly, setIsOnly] = useState(true);
   const { session, mutate: mutateSession } = useSession();
-  const { ens } = useEns(session?.address);
+  const { data: ens } = useEnsName({ address: session?.address });
 
-  const [, signMessage] = useSignMessage();
+  const { signMessageAsync } = useSignMessage();
 
   const signInWithEthereum = useCallback(async () => {
     setIsOnly(false);
 
-    const chainId = networkData?.chain?.id;
+    const chainId = activeChain?.id;
     if (!address || !chainId || !isMounted) {
       return;
     }
@@ -45,15 +44,22 @@ export const useAuth = (guard?: boolean) => {
         chainId,
         nonce: await nonceRes.text(),
       });
-      const signRes = await signMessage({ message: message.prepareMessage() });
-      if (signRes.error) {
-        throw signRes.error;
-      }
+      const signature = await signMessageAsync({
+        message: message.prepareMessage(),
+      });
+      const verifyRes = await fetch("/api/verify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message, signature }),
+      });
+      if (!verifyRes.ok) throw new Error("Error verifying message");
 
       await signIn("web3", {
         address: address,
         message: JSON.stringify(message),
-        signature: signRes.data,
+        signature: signature,
         redirect: false,
       });
 
@@ -71,13 +77,13 @@ export const useAuth = (guard?: boolean) => {
       router.push("/");
     }
   }, [
+    activeChain?.id,
     address,
     disconnect,
     isMounted,
     mutateSession,
-    networkData?.chain?.id,
     router,
-    signMessage,
+    signMessageAsync,
   ]);
 
   useEffect(() => {

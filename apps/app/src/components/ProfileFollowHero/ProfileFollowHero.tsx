@@ -1,5 +1,7 @@
 import type { FC } from "react";
 
+import { useEnsName } from "wagmi";
+
 import { Error } from "@lightdotso/app/components/Error";
 import { LoadingText } from "@lightdotso/app/components/LoadingText";
 import { PlaceholderAvatar } from "@lightdotso/app/components/PlaceholderAvatar";
@@ -7,7 +9,6 @@ import { PlaceholderProfileLoading } from "@lightdotso/app/components/Placeholde
 import { ProfileFollowHeroButton } from "@lightdotso/app/components/ProfileFollowHeroButton";
 import { ProfileFollowHeroTabs } from "@lightdotso/app/components/ProfileFollowHeroTabs";
 import type { ProfileFollowHeroTabsProps } from "@lightdotso/app/components/ProfileFollowHeroTabs";
-import { useEns } from "@lightdotso/app/hooks/useEns";
 import { useProfileAddress } from "@lightdotso/app/hooks/useProfileAddress";
 import { splitAddress } from "@lightdotso/app/utils/splitAddress";
 
@@ -19,7 +20,7 @@ export const ProfileFollowHero: FC<ProfileFollowHeroProps> = ({
   follow,
   address,
 }) => {
-  const { ens } = useEns(address);
+  const { data: ens } = useEnsName({ address: address });
   const { profileAddress, isLoading: isProfileAddressLoading } =
     useProfileAddress(address);
 

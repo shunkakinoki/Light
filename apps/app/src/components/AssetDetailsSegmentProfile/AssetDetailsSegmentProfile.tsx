@@ -2,8 +2,9 @@ import { ArrowUpIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import type { FC } from "react";
 
+import { useEnsName } from "wagmi";
+
 import { PlaceholderProfile } from "@lightdotso/app/components/PlaceholderProfile";
-import { useEns } from "@lightdotso/app/hooks/useEns";
 
 export type AssetDetailsSegmentProfileProps = {
   address: string;
@@ -14,7 +15,7 @@ import { splitAddress } from "@lightdotso/app/utils/splitAddress";
 export const AssetDetailsSegmentProfile: FC<
   AssetDetailsSegmentProfileProps
 > = ({ address }) => {
-  const { ens } = useEns(address);
+  const { data: ens } = useEnsName({ address: address });
 
   return (
     <div className="flex items-center">

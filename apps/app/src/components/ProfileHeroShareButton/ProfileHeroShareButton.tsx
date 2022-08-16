@@ -2,7 +2,8 @@ import { useRouter } from "next/router";
 import type { FC } from "react";
 import { FiShare } from "react-icons/fi";
 
-import { useEns } from "@lightdotso/app/hooks/useEns";
+import { useEnsName } from "wagmi";
+
 import { useModalShare } from "@lightdotso/app/hooks/useModalShare";
 
 export type ProfileHeroShareButtonProps = {
@@ -13,7 +14,7 @@ export const ProfileHeroShareButton: FC<ProfileHeroShareButtonProps> = ({
   address,
 }) => {
   const { setModalShareState } = useModalShare();
-  const { ens } = useEns(address);
+  const { data: ens } = useEnsName({ address: address });
   const { asPath } = useRouter();
 
   return (

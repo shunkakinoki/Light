@@ -1,17 +1,18 @@
 import { Menu } from "@headlessui/react";
 import type { FC } from "react";
 
+import { useEnsName } from "wagmi";
+
 import { HeaderMenu } from "@lightdotso/app/components/HeaderMenu";
 import { HeaderPillAddress } from "@lightdotso/app/components/HeaderPillAddress";
 import { HeaderPillConnect } from "@lightdotso/app/components/HeaderPillConnect";
 import { PlaceholderBlur } from "@lightdotso/app/components/PlaceholderBlur";
-import { useEns } from "@lightdotso/app/hooks/useEns";
 import { useModalWallet } from "@lightdotso/app/hooks/useModalWallet";
 import { useWallet } from "@lightdotso/app/hooks/useWallet";
 
 export const HeaderPill: FC = () => {
   const { address, disconnect } = useWallet();
-  const { ens } = useEns(address);
+  const { data: ens } = useEnsName({ address: address });
 
   const { openModalWallet } = useModalWallet();
 

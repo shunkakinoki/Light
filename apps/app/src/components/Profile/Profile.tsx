@@ -1,6 +1,8 @@
 import dynamic from "next/dynamic";
 import type { FC } from "react";
 
+import { useEnsName } from "wagmi";
+
 import { FollowListFollowers } from "@lightdotso/app/components/FollowListFollowers";
 import { FollowListFollowing } from "@lightdotso/app/components/FollowListFollowing";
 import type { ProfileBoardSectionNFTProps } from "@lightdotso/app/components/ProfileBoardSectionNFT";
@@ -17,7 +19,6 @@ import type { ProfileHeroTabsProps } from "@lightdotso/app/components/ProfileHer
 import { SeoBase } from "@lightdotso/app/components/SeoBase";
 import { SeoLight } from "@lightdotso/app/components/SeoLight";
 import { TimelineListAddress } from "@lightdotso/app/components/TimelineListAddress";
-import { useEns } from "@lightdotso/app/hooks/useEns";
 
 export type ProfileProps = ProfileHeroTabsProps &
   ProfileFollowHeroTabsProps &
@@ -44,7 +45,7 @@ const ModalTwitterVerify = dynamic(() => {
 });
 
 export const Profile: FC<ProfileProps> = ({ active, follow, address }) => {
-  const { ens } = useEns(address);
+  const { data: ens } = useEnsName({ address: address });
 
   return (
     <>

@@ -4,9 +4,10 @@ import Link from "next/link";
 import type { FC } from "react";
 import { useMemo } from "react";
 
+import { useEnsName } from "wagmi";
+
 import type { TimelineListItemProps } from "@lightdotso/app/components/TimelineListItem";
 import { ZERO_WALLET_ADDRESS } from "@lightdotso/app/config/Default";
-import { useEns } from "@lightdotso/app/hooks/useEns";
 import { splitAddress } from "@lightdotso/app/utils/splitAddress";
 
 export type TimelineActionNFTProps = {
@@ -20,7 +21,7 @@ export const TimelineActionNFT: FC<TimelineActionNFTProps> = ({ data }) => {
     }
   }, [data?.to_account?.address]);
 
-  const { ens } = useEns(address);
+  const { data: ens } = useEnsName({ address: address });
 
   const slug = useMemo(() => {
     if (ens) {

@@ -4,7 +4,7 @@ import type { FC } from "react";
 
 import { useMemo } from "react";
 
-import { useEns } from "@lightdotso/app/hooks/useEns";
+import { useEnsName } from "wagmi";
 
 type ProfileFollowHeroButtonProps = {
   address?: string;
@@ -13,7 +13,7 @@ type ProfileFollowHeroButtonProps = {
 export const ProfileFollowHeroButton: FC<ProfileFollowHeroButtonProps> = ({
   address,
 }) => {
-  const { ens } = useEns(address);
+  const { data: ens } = useEnsName({ address: address });
   const profileSlug = useMemo(() => {
     return ens ?? address;
   }, [address, ens]);

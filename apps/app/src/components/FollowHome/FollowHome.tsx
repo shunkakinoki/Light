@@ -2,7 +2,6 @@ import { SocialLinks } from "@lightdotso/const";
 import dynamic from "next/dynamic";
 import type { FC } from "react";
 
-import { BannerProfile } from "@lightdotso/app/components/BannerProfile";
 import { FollowContainer } from "@lightdotso/app/components/FollowContainer";
 import { FollowGrid } from "@lightdotso/app/components/FollowGrid";
 import { SeoBase } from "@lightdotso/app/components/SeoBase";
@@ -14,13 +13,22 @@ const ModalNetwork = dynamic(() => {
   });
 });
 
+const BannerProfile = dynamic(
+  () => {
+    return import("@lightdotso/app/components/BannerProfile").then(mod => {
+      return mod.BannerProfile;
+    });
+  },
+  { ssr: false },
+);
+
 export const FollowHome: FC = () => {
   const { address } = useWallet();
 
   return (
     <>
       <SeoBase base="Home" />
-      <FollowContainer small={!!address}>
+      <FollowContainer address={address}>
         {address && <BannerProfile />}
         <div className="sm:text-center lg:text-left">
           <div className="mt-3">

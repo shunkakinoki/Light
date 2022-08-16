@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import type { FC } from "react";
 
-import { BannerProfile } from "@lightdotso/app/components/BannerProfile";
 import { FollowContainer } from "@lightdotso/app/components/FollowContainer";
 import { FollowSnapPopular } from "@lightdotso/app/components/FollowSnapPopular";
 import { FollowSnapRankings } from "@lightdotso/app/components/FollowSnapRankings";
@@ -15,13 +14,22 @@ const ModalNetwork = dynamic(() => {
   });
 });
 
+const BannerProfile = dynamic(
+  () => {
+    return import("@lightdotso/app/components/BannerProfile").then(mod => {
+      return mod.BannerProfile;
+    });
+  },
+  { ssr: false },
+);
+
 export const FollowExplore: FC = () => {
   const { address } = useWallet();
 
   return (
     <>
       <SeoBase base="Explore" />
-      <FollowContainer small={!!address}>
+      <FollowContainer address={address}>
         {address && <BannerProfile />}
         <FollowSnapPopular />
         <div className="py-8" />

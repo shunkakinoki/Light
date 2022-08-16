@@ -1,5 +1,6 @@
 import { HeaderPanel } from "@lightdotso/core";
 import clsx from "clsx";
+import dynamic from "next/dynamic";
 import type { FC } from "react";
 import { useState } from "react";
 
@@ -7,13 +8,21 @@ import type { HeaderActionsProps } from "@lightdotso/app/components/HeaderAction
 import { HeaderActions } from "@lightdotso/app/components/HeaderActions";
 import { HeaderButton } from "@lightdotso/app/components/HeaderButton";
 import { HeaderLogo } from "@lightdotso/app/components/HeaderLogo";
-import { HeaderPill } from "@lightdotso/app/components/HeaderPill";
 import { HeaderSearchBar } from "@lightdotso/app/components/HeaderSearchBar";
 
 export type HeaderProps = {
   border?: boolean;
   adaptive?: boolean;
 } & HeaderActionsProps;
+
+const HeaderPill = dynamic(
+  () => {
+    return import("@lightdotso/app/components/HeaderPill").then(mod => {
+      return mod.HeaderPill;
+    });
+  },
+  { ssr: false },
+);
 
 export const Header: FC<HeaderProps> = ({
   active,

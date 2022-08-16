@@ -14,10 +14,7 @@ export const HeaderPillAddress: FC<HeaderPillAddressProps> = ({
   ens,
 }) => {
   return (
-    <Menu.Button
-      as="div"
-      className="relative flex items-center justify-center rounded-full border border-contrast-lower bg-bg-lighter px-2 ring-offset-2 ring-offset-bg focus:outline-none focus:ring-2 focus:ring-primary"
-    >
+    <Menu.Button className="relative flex items-center justify-center rounded-full border border-contrast-lower bg-bg-lighter px-2 ring-offset-2 ring-offset-bg focus:outline-none focus:ring-2 focus:ring-primary">
       <div className="w-full sm:max-w-xs md:max-w-md lg:max-w-lg">
         <label htmlFor="search" className="sr-only">
           Address

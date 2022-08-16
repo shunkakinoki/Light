@@ -1,3 +1,2 @@
 upgrade: true
 reject:
-  - wagmi

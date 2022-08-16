@@ -11,6 +11,9 @@ export const useEnsResolveName = (name: string) => {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const fetchEnsResolveName = async (_key, name) => {
+    if (isLoading || !data) {
+      return name;
+    }
     return data;
   };
 

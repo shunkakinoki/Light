@@ -1,28 +1,29 @@
 import useSWR from "swr";
-import { useEnsAvatar as useWagmiEnsAvatar } from "wagmi";
+import { useEnsAvatar as useEnsAvatarWagmi } from "wagmi";
 
 import { SwrKeys } from "@lightdotso/app/config/SwrKeys";
 
 export const useEnsAvatar = (ens?: string) => {
-  const [, getEnsAvatar] = useWagmiEnsAvatar();
+  const { data, isError, isLoading } = useEnsAvatarWagmi({
+    addressOrName: ens,
+  });
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const fetchEns = async (key, ens) => {
-    const result = await getEnsAvatar({ addressOrName: ens });
-    if (typeof result === "string") {
-      return result;
+    if (typeof data === "string") {
+      return data;
     }
     return null;
   };
 
-  const {
-    data: avatar,
-    error,
-    mutate,
-  } = useSWR(ens ? [SwrKeys.ENS_AVATAR, ens] : null, fetchEns);
+  const { data: avatar, mutate } = useSWR(
+    ens ? [SwrKeys.ENS_AVATAR, ens] : null,
+    fetchEns,
+  );
 
   return {
-    isLoading: !error && !avatar,
-    isError: !!error,
+    isLoading: isLoading,
+    isError: isError,
     avatar: avatar,
     mutate: mutate,
   };

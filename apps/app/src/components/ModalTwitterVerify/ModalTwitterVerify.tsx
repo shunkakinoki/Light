@@ -2,7 +2,7 @@ import { twitterAuthorize, twitterVerify } from "@cyberlab/social-verifier";
 
 import { useCallback, useMemo, useState } from "react";
 
-import { useContext } from "wagmi";
+import { useProvider } from "wagmi";
 
 import { Modal } from "@lightdotso/app/components/Modal";
 import { PlaceholderProfile } from "@lightdotso/app/components/PlaceholderProfile";
@@ -24,7 +24,7 @@ export const ModalTwitterVerify = () => {
   const { address } = useWallet();
   const { ens } = useEns(address);
   const [twitterHandle, setTwitterHandle] = useState("");
-  const context = useContext();
+  const provider = useProvider();
   const { mutate: mutateIdentity } = useCyberConnectIdentity();
   const isClient = useClientOnly();
 
@@ -44,7 +44,6 @@ export const ModalTwitterVerify = () => {
       return;
     }
     if (!modalTwitterVerifyState.sig) {
-      const provider = context.state.connector?.getProvider();
       const sig = await twitterAuthorize(provider, address, twitterHandle);
       setModalTwitterVerifyState({ ...modalTwitterVerifyState, sig: sig });
       return;
@@ -80,10 +79,10 @@ export const ModalTwitterVerify = () => {
   }, [
     address,
     closeModalTwitterVerify,
-    context.state.connector,
     isClient,
     modalTwitterVerifyState,
     mutateIdentity,
+    provider,
     setModalTwitterVerifyState,
     twitterHandle,
     verifyText,

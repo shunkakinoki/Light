@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { useEffect, useState } from "react";
 
-export const ClientOnly: FC = ({ children }) => {
+export const ClientOnly: FC = ({ children, ...rest }) => {
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
     setIsClient(true);
@@ -11,5 +11,5 @@ export const ClientOnly: FC = ({ children }) => {
     return null;
   }
 
-  return children;
+  return <div {...rest}>{children}</div>;
 };

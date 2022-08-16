@@ -10,7 +10,7 @@ import type { BaseOATProps } from "@lightdotso/app/components/BaseOAT";
 import { BaseOAT } from "@lightdotso/app/components/BaseOAT";
 import { useGalaxyCampaign } from "@lightdotso/app/hooks/useGalaxyCampaign";
 
-export type AssetOATProps = Partial<Omit<BaseOATProps, "thumbnail">> &
+export type AssetOATProps = Partial<Omit<BaseOATProps, "oat">> &
   AssetDetailsOATProps;
 
 export const AssetOAT: FC<AssetOATProps> = ({
@@ -24,11 +24,13 @@ export const AssetOAT: FC<AssetOATProps> = ({
       base={
         <>
           {isLoading && <BaseLoading />}
-          {campaign && <BaseOAT thumbnail={campaign.campaign.thumbnail} />}
+          {campaign && <BaseOAT oat={campaign.data.campaign} />}
         </>
       }
     >
-      {campaign && <AssetDetailsOAT address={address} oatId={oatId} />}
+      {campaign && (
+        <AssetDetailsOAT address={address} oatId={oatId} oat={campaign} />
+      )}
       {isLoading && <AssetDetailsOATLoading />}
     </AssetGrid>
   );

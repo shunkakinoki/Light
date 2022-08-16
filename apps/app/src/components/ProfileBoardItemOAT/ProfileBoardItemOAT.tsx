@@ -14,7 +14,7 @@ export type ProfileBoardItemOATProps = ProfileBoardItemProps &
 
 export const ProfileBoardItemOAT: FC<ProfileBoardItemOATProps> = ({
   className,
-  thumbnail,
+  oat,
   oatId,
 }) => {
   return (
@@ -23,7 +23,7 @@ export const ProfileBoardItemOAT: FC<ProfileBoardItemOATProps> = ({
     >
       <Link passHref href={`/asset/oat/${oatId}`}>
         <a>
-          <BaseOAT thumbnail={thumbnail} />
+          <BaseOAT oat={oat} />
         </a>
       </Link>
     </ProfileBoardItem>

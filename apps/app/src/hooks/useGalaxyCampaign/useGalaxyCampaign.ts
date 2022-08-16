@@ -24,6 +24,6 @@ export const useGalaxyCampaign = (
   return {
     isLoading: !error && !data,
     isError: !!error,
-    campaign: data?.data,
+    campaign: data,
   };
 };

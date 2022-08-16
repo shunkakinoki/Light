@@ -29,7 +29,7 @@ export const ProfileBoardSectionOAT: FC<ProfileBoardSectionOATProps> = ({
               return (
                 <ProfileBoardItemOAT
                   key={index}
-                  thumbnail={OAT.campaign.thumbnail}
+                  oat={OAT.campaign}
                   oatId={OAT.campaign.id}
                 />
               );
@@ -46,7 +46,7 @@ export const ProfileBoardSectionOAT: FC<ProfileBoardSectionOATProps> = ({
           return (
             <ProfileBoardItemOAT
               key={index}
-              thumbnail={OAT.campaign.thumbnail}
+              oat={OAT.campaign}
               oatId={OAT.campaign.id}
             />
           );

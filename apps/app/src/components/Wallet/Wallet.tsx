@@ -77,10 +77,10 @@ export const Wallet: FC<WalletProps> = ({ onClose }) => {
               {connector.id === "injected" && (
                 <Metamask className="h-5 w-5 rounded-full" />
               )}
-              {connector.id === "coinbaseWallet" && (
+              {connector.id === "walletConnect" && (
                 <WalletConnect className="h-5 w-5 rounded-full" />
               )}
-              {connector.id === "walletLink" && (
+              {connector.id === "coinbaseWallet" && (
                 <Coinbase className="h-5 w-5 rounded-full" />
               )}
             </WalletBar>

@@ -4,6 +4,7 @@ export const errors = {
   VALIDATION: { message: "Validation Error", status: 400 },
   INVALID_PATH_PARAM: { message: "Invalid Path Param Error", status: 400 },
   INVALID_PARAMS: { message: "Invalid Params Error", status: 400 },
+  INVALID_TYPE: { message: "Invalid Type Error", status: 400 },
   UNAUTHORIZED: { message: "Unauthorized Error", status: 401 },
   FORBIDDEN: { message: "Forbidden Error", status: 403 },
   NOT_FOUND: { message: "Not Found Error", status: 404 },
@@ -20,14 +21,17 @@ export class HttpError extends Error {
     this.message = errors[key].message;
     this.status = errors[key].status;
   }
-  serialize() {
-    return { message: this.message, status: this.status };
-  }
 }
 
 export class InvalidPathParamError extends HttpError {
   constructor() {
     super("INVALID_PATH_PARAM");
+  }
+}
+
+export class InvalidTypeError extends HttpError {
+  constructor() {
+    super("INVALID_TYPE");
   }
 }
 

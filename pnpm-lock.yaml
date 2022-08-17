@@ -930,6 +930,8 @@ importers:
       ethers: ^5.6.9
       graphql: ^16.6.0
       graphql-request: ^4.3.0
+      neverthrow: ^5.0.0
+      zod: ^3.18.0
     dependencies:
       '@lightdotso/const': link:../const
       '@lightdotso/queries': link:../queries
@@ -938,6 +940,8 @@ importers:
       ethers: 5.6.9
       graphql: 16.6.0
       graphql-request: 4.3.0_graphql@16.6.0
+      neverthrow: 5.0.0
+      zod: 3.18.0
     devDependencies:
       '@types/node': 18.7.6
 
@@ -18418,6 +18422,10 @@ packages:
     resolution: {integrity: sha512-dBpDMdxv9Irdq66304OLfEmQ9tbNRFnFTuZiLo+bD+r332bBmMJ8GBLXklIXXgxd3+v9+KUnZaUR5PJMa75Gsg==}
     engines: {node: '>= 0.4.0'}
     dev: true
+
+  /neverthrow/5.0.0:
+    resolution: {integrity: sha512-JQAB+oyPwbqBRwRZCcH5Yi4ejb24Ul1vIQwwtWTveIZADQTmIpcnh9uQttW45wPnt8sVBxOuh73hCAMmUhXBiQ==}
+    dev: false
 
   /new-github-release-url/2.0.0:
     resolution: {integrity: sha512-NHDDGYudnvRutt/VhKFlX26IotXe1w0cmkDm6JGquh5bz/bDTw0LufSmH/GxTjEdpHEO+bVKFTwdrcGa/9XlKQ==}

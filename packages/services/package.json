@@ -31,7 +31,9 @@
     "@lightdotso/types": "workspace:*",
     "ethers": "^5.6.9",
     "graphql": "^16.6.0",
-    "graphql-request": "^4.3.0"
+    "graphql-request": "^4.3.0",
+    "neverthrow": "^5.0.0",
+    "zod": "^3.18.0"
   },
   "devDependencies": {
     "@types/node": "^18.7.6"

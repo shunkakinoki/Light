@@ -2,7 +2,6 @@ import type { GalaxyCampaign } from "@lightdotso/types";
 import type { FC } from "react";
 
 import { AssetDetailsSegmentHero } from "@lightdotso/app/components/AssetDetailsSegmentHero";
-import { AssetDetailsSegmentMeta } from "@lightdotso/app/components/AssetDetailsSegmentMeta";
 import type { PlaceholderProfileProps } from "@lightdotso/app/components/PlaceholderProfile";
 
 export type AssetDetailsOATProps = PlaceholderProfileProps & {
@@ -11,7 +10,6 @@ export type AssetDetailsOATProps = PlaceholderProfileProps & {
 };
 
 export const AssetDetailsOAT: FC<AssetDetailsOATProps> = ({
-  address,
   oat: {
     data: {
       campaign: { name },
@@ -20,17 +18,12 @@ export const AssetDetailsOAT: FC<AssetDetailsOATProps> = ({
   oatId,
 }) => {
   return (
-    <div className="px-3">
+    <div className="px-3 pt-8">
       <AssetDetailsSegmentHero
         name={name}
         collectionName={oatId}
         description={oatId}
       />
-      <AssetDetailsSegmentMeta
-        address={address}
-        contractAddress={address}
-        tokenId={oatId}
-      />{" "}
     </div>
   );
 };

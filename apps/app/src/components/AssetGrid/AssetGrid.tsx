@@ -15,7 +15,7 @@ const AssetGridLayout: FC = ({ children }) => {
   return (
     <div
       className={clsx(
-        "grid h-full w-full max-w-container grid-flow-col ",
+        "grid h-full w-full max-w-container grid-flow-col",
         isIframe ? "pb-10" : "p-6 sm:p-10 md:p-16",
       )}
     >

@@ -22,7 +22,7 @@ export const ProfileBoardSectionOAT: FC<ProfileBoardSectionOATProps> = ({
     <ProfileBoardSection
       base={
         <>
-          {!oats && <ProfileBoardItemEmpty />}
+          {oats && oats?.length === 0 && <ProfileBoardItemEmpty />}
           {oats &&
             typeof oats[0] !== "undefined" &&
             oats?.slice(0, BOARD_SECTION_NUMBER).map((OAT, index) => {

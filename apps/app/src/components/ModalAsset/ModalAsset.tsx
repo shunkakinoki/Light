@@ -11,7 +11,7 @@ export const ModalAsset = () => {
 
   return (
     <Modal show={modalAssetState?.open} onClose={closeModalAsset}>
-      <div className="w-full max-w-[calc(100vw-10px)] md:max-w-6xl">
+      <div className="max-h-[calc(100vh-150px)] w-full max-w-[calc(100vw-300px)] md:max-w-6xl">
         <div className="block w-[9999px]" />
         <div className="flex w-full items-center justify-between p-8">
           <ModalCloseButton
@@ -24,7 +24,7 @@ export const ModalAsset = () => {
           />
           <ModalAssetButton src={modalAssetState.src} />
         </div>
-        <div className="h-[calc(100vh-300px)]">
+        <div className="h-[calc(100vh-150px)]">
           <iframe
             className={clsx(
               "h-full w-full bg-bg",

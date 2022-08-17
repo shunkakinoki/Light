@@ -1,4 +1,7 @@
+import useSWR from "swr";
 import { useEnsName } from "wagmi";
+
+import { SwrKeys } from "@lightdotso/app/config/SwrKeys";
 
 export const useEns = (address?: string, initialEns?: string) => {
   const { data, isError, isLoading } = useEnsName({
@@ -7,24 +10,25 @@ export const useEns = (address?: string, initialEns?: string) => {
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // const fetchEns = (key, address) => {
-  //   if (isLoading || !data) {
-  //     return null;
-  //   }
-  //   return data;
-  // };
+  const fetchEns = (key, address) => {
+    if (isLoading || !data) {
+      return null;
+    }
+    return data;
+  };
 
-  // const { data: ens, mutate } = useSWR(
-  //   address ? [SwrKeys.ENS, address] : null,
-  //   fetchEns,
-  //   {
-  //     fallbackData: initialEns,
-  //   },
-  // );
+  const { data: ens, mutate } = useSWR(
+    address ? [SwrKeys.ENS, address] : null,
+    fetchEns,
+    {
+      fallbackData: initialEns,
+    },
+  );
 
   return {
     isLoading: isLoading,
     isError: isError,
-    ens: data ?? initialEns,
+    ens: ens,
+    mutate: mutate,
   };
 };

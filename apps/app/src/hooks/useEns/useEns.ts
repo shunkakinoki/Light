@@ -17,16 +17,16 @@ export const useEns = (address?: string, initialEns?: string) => {
     return data;
   };
 
-  const { data: ens, mutate } = useSWR(
-    address ? [SwrKeys.ENS, address] : null,
-    fetchEns,
-    {
-      fallbackData: initialEns,
-    },
-  );
+  const {
+    data: ens,
+    error,
+    mutate,
+  } = useSWR(address ? [SwrKeys.ENS, address] : null, fetchEns, {
+    fallbackData: initialEns,
+  });
 
   return {
-    isLoading: isLoading,
+    isLoading: (!error && !ens) ?? isLoading,
     isError: isError,
     ens: ens,
     mutate: mutate,

@@ -4,10 +4,8 @@ import type { FC } from "react";
 import { useEffect, useState } from "react";
 
 import { Error } from "@lightdotso/app/components/Error";
-import { FollowButton } from "@lightdotso/app/components/FollowButton";
 import { PlaceholderAvatar } from "@lightdotso/app/components/PlaceholderAvatar";
 import { ProfileHeroAddressLoading } from "@lightdotso/app/components/ProfileHeroAddressLoading";
-import { ProfileHeroCount } from "@lightdotso/app/components/ProfileHeroCount";
 import { ProfileHeroShareButton } from "@lightdotso/app/components/ProfileHeroShareButton";
 import { ProfileHeroTabs } from "@lightdotso/app/components/ProfileHeroTabs";
 import type { ProfileHeroTabsProps } from "@lightdotso/app/components/ProfileHeroTabs";
@@ -19,6 +17,17 @@ import { useProfileAddress } from "@lightdotso/app/hooks/useProfileAddress";
 import { useQueueAddress } from "@lightdotso/app/hooks/useQueueAddress";
 
 export type ProfileHeroProps = { address?: string } & ProfileHeroTabsProps;
+
+const FollowButton = dynamic(
+  () => {
+    return import("@lightdotso/app/components/FollowButton").then(mod => {
+      return mod.FollowButton;
+    });
+  },
+  {
+    ssr: false,
+  },
+);
 
 const NetworkStack = dynamic(
   () => {
@@ -42,6 +51,17 @@ const ProfileHeroAddress = dynamic(
     loading: () => {
       return <ProfileHeroAddressLoading />;
     },
+  },
+);
+
+const ProfileHeroCount = dynamic(
+  () => {
+    return import("@lightdotso/app/components/ProfileHeroCount").then(mod => {
+      return mod.ProfileHeroCount;
+    });
+  },
+  {
+    ssr: false,
   },
 );
 

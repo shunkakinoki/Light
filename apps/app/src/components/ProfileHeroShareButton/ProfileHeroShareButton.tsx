@@ -25,7 +25,7 @@ export const ProfileHeroShareButton: FC<ProfileHeroShareButtonProps> = ({
           address: address,
           name: ens ?? null,
           open: true,
-          type: asPath.startsWith("/profile") ? "profileSelf" : "profileLight",
+          type: asPath === `/${address}` ? "profileSelf" : "profileLight",
         });
       }}
     >

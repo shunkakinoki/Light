@@ -17,12 +17,12 @@ export const useProfileAddress = (address?: string) => {
     useEnsResolveName(slug);
 
   const profileAddress: string = useMemo(() => {
-    return address ?? asPath.startsWith("/profile")
+    return address === walletAddress
       ? walletAddress
       : utils.isAddress(slug)
       ? slug
       : routerAddress;
-  }, [address, asPath, walletAddress, slug, routerAddress]);
+  }, [address, walletAddress, slug, routerAddress]);
 
   return {
     isLoading: !profileAddress ?? isWalletLoading ?? isEnsResolverLoading,

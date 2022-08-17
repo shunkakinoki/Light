@@ -2,10 +2,12 @@ import Link from "next/link";
 import type { FC } from "react";
 
 import { PlaceholderProfile } from "@lightdotso/app/components/PlaceholderProfile";
+import { useEns } from "@lightdotso/app/hooks/useEns";
 import { useWallet } from "@lightdotso/app/hooks/useWallet";
 
 export const BannerProfile: FC = () => {
   const { address } = useWallet();
+  const { ens } = useEns(address);
 
   return (
     <div className="pb-5 sm:pb-8">
@@ -24,7 +26,7 @@ export const BannerProfile: FC = () => {
               </p>
             </div>
             <div className="order-3 mt-2 w-full shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
-              <Link href="/profile">
+              <Link href={`/${ens ?? address}`}>
                 <a className="flex items-center justify-center rounded-md border border-transparent bg-contrast-higher py-2 px-4 text-sm font-medium text-contrast-lower shadow-sm ring-offset-bg-lighter hover:bg-contrast-medium focus:border-transparent focus:ring-2 focus:ring-primary-light focus:ring-offset-2 ">
                   Go to your profile
                 </a>

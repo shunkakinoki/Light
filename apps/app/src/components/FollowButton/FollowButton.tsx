@@ -10,7 +10,6 @@ import { useCyberConnectStatus } from "@lightdotso/app/hooks/useCyberConnectStat
 import { useHover } from "@lightdotso/app/hooks/useHover";
 import { useModalWallet } from "@lightdotso/app/hooks/useModalWallet";
 import { useProviderCyberConnect } from "@lightdotso/app/hooks/useProviderCyberConnect";
-// import { useProviderCyberConnectDefault } from "@lightdotso/app/hooks/useProviderCyberConnectDefault";
 import { useWallet } from "@lightdotso/app/hooks/useWallet";
 import { error } from "@lightdotso/app/libs/toast/error";
 
@@ -27,7 +26,6 @@ export const FollowButton: FC<FollowButtonProps> = ({
   ...rest
 }) => {
   const cyberconnectProvider = useProviderCyberConnect();
-  // const cyberconnectProviderDefault = useProviderCyberConnectDefault();
   const plausible = usePlausible<PlausibleEvents>();
   const { openModalWallet } = useModalWallet();
   const [isLoading, setIsLoading] = useState<boolean>();
@@ -54,16 +52,11 @@ export const FollowButton: FC<FollowButtonProps> = ({
         if (isFollowing) {
           try {
             await cyberconnectProvider.disconnect(address);
-          } catch (e) {
+          } catch (err) {
+            console.error(err);
             console.error("Light Unfollow Error");
+            error(err?.message);
           }
-          // try {
-          //   setTimeout(() => {
-          //     cyberconnectProviderDefault.disconnect(address);
-          //   });
-          // } catch (e) {
-          //   console.error("Default Unfollow Error");
-          // }
           mutateStatus({ followStatus: { isFollowing: false } });
           mutateIdentity({
             identity: { followingCount: identity?.followingCount - 1 },
@@ -74,16 +67,11 @@ export const FollowButton: FC<FollowButtonProps> = ({
         } else {
           try {
             await cyberconnectProvider.connect(address);
-          } catch (e) {
+          } catch (err) {
+            console.error(err);
             console.error("Light Follow Error");
+            error(err?.message);
           }
-          // try {
-          //   setTimeout(() => {
-          //     cyberconnectProviderDefault.connect(address), 3000;
-          //   });
-          // } catch (e) {
-          //   console.error("Default Follow Error");
-          // }
           mutateStatus({ followStatus: { isFollowing: true } });
           mutateIdentity({
             identity: { followingCount: identity?.followingCount + 1 },

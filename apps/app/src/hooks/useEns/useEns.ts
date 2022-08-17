@@ -10,23 +10,23 @@ export const useEns = (address?: string, initialEns?: string) => {
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const fetchEns = async (key, address) => {
+  const fetchEns = (key, address) => {
     if (isLoading || !data) {
-      return address;
+      return null;
     }
     return data;
   };
 
-  const {
-    data: ens,
-    error,
-    mutate,
-  } = useSWR(address ? [SwrKeys.ENS, address] : null, fetchEns, {
-    fallbackData: initialEns,
-  });
+  const { data: ens, mutate } = useSWR(
+    address ? [SwrKeys.ENS, address] : null,
+    fetchEns,
+    {
+      fallbackData: initialEns,
+    },
+  );
 
   return {
-    isLoading: (!error && !ens) ?? isLoading,
+    isLoading: isLoading,
     isError: isError,
     ens: ens,
     mutate: mutate,

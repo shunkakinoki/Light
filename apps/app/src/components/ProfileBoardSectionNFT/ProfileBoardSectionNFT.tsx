@@ -29,13 +29,13 @@ export const ProfileBoardSectionNFT: FC<ProfileBoardSectionNFTProps> = ({
             })}
         </>
       }
-      disabled={assets?.length <= 6}
+      disabled={assets?.length <= BOARD_SECTION_NUMBER}
       isLoading={isLoading}
       type="nft"
     >
       {assets &&
         typeof assets[0] !== "undefined" &&
-        assets.slice(BOARD_SECTION_NUMBER, -1).map((asset, index) => {
+        assets.slice(BOARD_SECTION_NUMBER).map((asset, index) => {
           return <ProfileBoardItemNFT key={index} asset={asset} />;
         })}
     </ProfileBoardSection>

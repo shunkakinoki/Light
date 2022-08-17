@@ -19,7 +19,7 @@ export const AssetDetailsSegmentHero: FC<AssetDetailsSegmentHeroProps> = ({
       <h2 className="mt-6 text-lg leading-4 text-contrast-higher line-clamp-2">
         {collectionName}
       </h2>
-      <p className="mt-6 text-base leading-normal text-contrast-medium line-clamp-6">
+      <p className="mt-6 text-base leading-normal text-contrast-medium line-clamp-3">
         {description}
       </p>
     </div>

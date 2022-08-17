@@ -1,7 +1,15 @@
 import { Logo } from "@lightdotso/core";
 import type { FC } from "react";
 
+import { useIsIframe } from "@lightdotso/app/hooks/useIsIframe";
+
 export const AssetFooter: FC = () => {
+  const isIsIframe = useIsIframe();
+
+  if (isIsIframe) {
+    return null;
+  }
+
   return (
     <div className="flex h-20 flex-col items-center space-y-3 px-4 pb-4 md:flex-row md:px-8 lg:px-8">
       <a className="inline-flex flex-1 items-center pb-3">

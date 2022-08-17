@@ -1,15 +1,24 @@
 import { Transition } from "@headlessui/react";
+import clsx from "clsx";
 import type { FC, ReactNode } from "react";
 import { useEffect } from "react";
 
 import { Center } from "@lightdotso/app/components/Center";
 import { useAssetTransition } from "@lightdotso/app/hooks/useAssetTransition";
+import { useIsIframe } from "@lightdotso/app/hooks/useIsIframe";
 
 export type AssetGridProps = { base: ReactNode };
 
 const AssetGridLayout: FC = ({ children }) => {
+  const isIframe = useIsIframe();
+
   return (
-    <div className="grid h-full w-full max-w-container grid-flow-col p-6 sm:p-10 md:p-16">
+    <div
+      className={clsx(
+        "grid h-full w-full max-w-container grid-flow-col ",
+        isIframe ? "pb-10" : "p-6 sm:p-10 md:p-16",
+      )}
+    >
       <div className="grid grid-cols-1 gap-y-8 md:grid-cols-2 md:gap-x-24 lg:gap-x-36">
         {children}
       </div>

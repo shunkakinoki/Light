@@ -1,6 +1,7 @@
 import { Analytics, Seo, ThemeScript, ThemeProvider } from "@lightdotso/core";
 import type { AppProps } from "next/app";
 import type { FC } from "react";
+import { useEffect, useState } from "react";
 import { RecoilRoot } from "recoil";
 import { SWRConfig } from "swr";
 import "@lightdotso/app/styles/index.css";
@@ -10,6 +11,16 @@ import { NProgress } from "@lightdotso/app/components/NProgress";
 import { Web3Provider } from "@lightdotso/app/components/Web3Provider";
 
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
+  const [showChild, setShowChild] = useState(false);
+
+  useEffect(() => {
+    setShowChild(true);
+  }, []);
+
+  if (!showChild) {
+    return null;
+  }
+
   return (
     <>
       <ThemeScript />

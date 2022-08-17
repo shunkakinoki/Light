@@ -55,7 +55,7 @@ importers:
       tsup: ^6.2.2
       turbo: ^1.4.3
       typescript: ^4.7.4
-      vercel: ^28.0.2
+      vercel: ^28.1.0
       webpack-dev-server: ^4.10.0
     dependencies:
       next: 12.2.5
@@ -105,7 +105,7 @@ importers:
       shx: 0.3.4
       tsconfig-paths-webpack-plugin: 4.0.0
       tsup: 6.2.2_typescript@4.7.4
-      vercel: 28.0.2
+      vercel: 28.1.0
       webpack-dev-server: 4.10.0
 
   apps/api:
@@ -137,9 +137,9 @@ importers:
       '@nestjs/testing': ^9.0.11
       '@ntegral/nestjs-sentry': ^3.0.7
       '@prisma/client': ^4.2.1
-      '@sentry/integrations': ^7.10.0
-      '@sentry/nextjs': ^7.10.0
-      '@sentry/node': ^7.10.0
+      '@sentry/integrations': ^7.11.0
+      '@sentry/nextjs': ^7.11.0
+      '@sentry/node': ^7.11.0
       '@testing-library/cypress': ^8.0.3
       '@types/bull': ^3.15.9
       '@types/passport': ^1.0.10
@@ -147,11 +147,11 @@ importers:
       '@types/react': ^17.0.43
       bull: ^4.8.5
       cross-fetch: ^3.1.5
-      cypress: ^10.5.0
+      cypress: ^10.6.0
       ethers: ^5.6.9
       ethers-multicall: ^0.2.3
       graphql: ^16.6.0
-      jose: ^4.8.3
+      jose: ^4.9.0
       miniflare: ^2.6.0
       nanoid: ^4.0.0
       nest-winston: ^1.7.0
@@ -194,17 +194,17 @@ importers:
       '@nestjs/platform-express': 9.0.11_khr6mt6ojlxbw7bo55fknouh34
       '@nestjs/schedule': 2.1.0_fvppslgepxggj3fnmtlnh4cori
       '@nestjs/terminus': 9.1.1_mr622mjrz7hsw5sxbt7k6brday
-      '@ntegral/nestjs-sentry': 3.0.7_2nzb5mhsah2s3gubmxltofi6m4
+      '@ntegral/nestjs-sentry': 3.0.7_pgoxrecbicdc63gr2vfdonpnq4
       '@prisma/client': 4.2.1_prisma@4.2.1
-      '@sentry/integrations': 7.10.0
-      '@sentry/nextjs': 7.10.0_fuiduvg7dnusfr7wpxwzjiagsm
-      '@sentry/node': 7.10.0
+      '@sentry/integrations': 7.11.0
+      '@sentry/nextjs': 7.11.0_fuiduvg7dnusfr7wpxwzjiagsm
+      '@sentry/node': 7.11.0
       bull: 4.8.5
       cross-fetch: 3.1.5
       ethers: 5.6.9
       ethers-multicall: 0.2.3
       graphql: 16.6.0
-      jose: 4.8.3
+      jose: 4.9.0
       nanoid: 4.0.0
       nest-winston: 1.7.0_ybilpkvbjfvt6xvkey7jrnh6c4
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
@@ -223,15 +223,15 @@ importers:
     devDependencies:
       '@cloudflare/workers-types': 3.14.1
       '@cloudflare/wrangler': 1.19.12
-      '@cypress/react': 6.1.1_lko76ppzw7b5tqpkyph4lovnxa
+      '@cypress/react': 6.1.1_spy7crjcbvwd2kediquctjo2v4
       '@nestjs/cli': 9.0.0_webpack-cli@4.10.0
       '@nestjs/testing': 9.0.11_z6gh3n3qpn6ig2eqi2q57zofvq
-      '@testing-library/cypress': 8.0.3_cypress@10.5.0
+      '@testing-library/cypress': 8.0.3_cypress@10.6.0
       '@types/bull': 3.15.9
       '@types/passport': 1.0.10
       '@types/passport-http': 0.3.9
       '@types/react': 17.0.47
-      cypress: 10.5.0
+      cypress: 10.6.0
       miniflare: 2.6.0
       supertest: 6.2.4
       ts-loader: 9.3.1_webpack@5.74.0
@@ -258,8 +258,8 @@ importers:
       '@lightdotso/types': workspace:*
       '@popperjs/core': ^2.11.6
       '@prisma/client': ^4.2.1
-      '@sentry/integrations': ^7.10.0
-      '@sentry/nextjs': ^7.10.0
+      '@sentry/integrations': ^7.11.0
+      '@sentry/nextjs': ^7.11.0
       '@tailwindcss/aspect-ratio': ^0.4.0
       '@tailwindcss/forms': ^0.5.2
       '@tailwindcss/line-clamp': ^0.4.0
@@ -274,7 +274,7 @@ importers:
       clsx: ^1.2.1
       copy-to-clipboard: ^3.3.2
       critters: ^0.0.16
-      cypress: ^10.5.0
+      cypress: ^10.6.0
       ethers: ^5.6.9
       framer-motion: ^7.2.0
       javascript-time-ago: ^2.5.7
@@ -322,8 +322,8 @@ importers:
       '@lightdotso/types': link:../../packages/types
       '@popperjs/core': 2.11.6
       '@prisma/client': 4.2.1_prisma@4.2.1
-      '@sentry/integrations': 7.10.0
-      '@sentry/nextjs': 7.10.0_next@12.2.5+react@18.2.0
+      '@sentry/integrations': 7.11.0
+      '@sentry/nextjs': 7.11.0_next@12.2.5+react@18.2.0
       clsx: 1.2.1
       copy-to-clipboard: 3.3.2
       critters: 0.0.16
@@ -353,21 +353,21 @@ importers:
       zod: 3.18.0
       zod-prisma: 0.5.4_prisma@4.2.1+zod@3.18.0
     devDependencies:
-      '@cypress/code-coverage': 3.10.0_cypress@10.5.0
-      '@cypress/react': 6.1.1_lko76ppzw7b5tqpkyph4lovnxa
+      '@cypress/code-coverage': 3.10.0_cypress@10.6.0
+      '@cypress/react': 6.1.1_spy7crjcbvwd2kediquctjo2v4
       '@jest/globals': 28.1.3
       '@tailwindcss/aspect-ratio': 0.4.0_tailwindcss@3.1.3
       '@tailwindcss/forms': 0.5.2_tailwindcss@3.1.3
       '@tailwindcss/line-clamp': 0.4.0_tailwindcss@3.1.3
       '@tailwindcss/typography': 0.5.4_tailwindcss@3.1.3
-      '@testing-library/cypress': 8.0.3_cypress@10.5.0
+      '@testing-library/cypress': 8.0.3_cypress@10.6.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
       '@types/jest': 28.1.7
       '@types/nprogress': 0.2.0
       '@types/react': 17.0.47
       babel-plugin-istanbul: 6.1.1
-      cypress: 10.5.0
+      cypress: 10.6.0
       jest: 28.1.3
       jest-environment-jsdom: 28.1.3
       nyc: 15.1.0
@@ -388,8 +388,8 @@ importers:
       '@lightdotso/tailwindcss': workspace:*
       '@lightdotso/tsconfig': workspace:*
       '@notionhq/client': ^2.1.1
-      '@sentry/integrations': ^7.10.0
-      '@sentry/nextjs': ^7.10.0
+      '@sentry/integrations': ^7.11.0
+      '@sentry/nextjs': ^7.11.0
       '@tailwindcss/aspect-ratio': ^0.4.0
       '@tailwindcss/forms': ^0.5.2
       '@tailwindcss/line-clamp': ^0.4.0
@@ -402,7 +402,7 @@ importers:
       babel-plugin-istanbul: ^6.1.1
       clsx: ^1.2.1
       critters: ^0.0.16
-      cypress: ^10.5.0
+      cypress: ^10.6.0
       jest: ^28.1.3
       jest-environment-jsdom: ^28.1.3
       next: ^12.2.5
@@ -421,8 +421,8 @@ importers:
       '@lightdotso/middlewares': link:../../packages/middlewares
       '@lightdotso/tailwindcss': link:../../configurations/tailwindcss
       '@notionhq/client': 2.1.1
-      '@sentry/integrations': 7.10.0
-      '@sentry/nextjs': 7.10.0_next@12.2.5+react@18.2.0
+      '@sentry/integrations': 7.11.0
+      '@sentry/nextjs': 7.11.0_next@12.2.5+react@18.2.0
       clsx: 1.2.1
       critters: 0.0.16
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
@@ -434,8 +434,8 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
-      '@cypress/code-coverage': 3.10.0_cypress@10.5.0
-      '@cypress/react': 6.1.1_lko76ppzw7b5tqpkyph4lovnxa
+      '@cypress/code-coverage': 3.10.0_cypress@10.6.0
+      '@cypress/react': 6.1.1_spy7crjcbvwd2kediquctjo2v4
       '@jest/globals': 28.1.3
       '@lightdotso/styles': link:../../packages/styles
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
@@ -443,13 +443,13 @@ importers:
       '@tailwindcss/forms': 0.5.2
       '@tailwindcss/line-clamp': 0.4.0
       '@tailwindcss/typography': 0.5.4
-      '@testing-library/cypress': 8.0.3_cypress@10.5.0
+      '@testing-library/cypress': 8.0.3_cypress@10.6.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
       '@types/jest': 28.1.7
       '@types/react': 17.0.47
       babel-plugin-istanbul: 6.1.1
-      cypress: 10.5.0
+      cypress: 10.6.0
       jest: 28.1.3
       jest-environment-jsdom: 28.1.3
       nyc: 15.1.0
@@ -465,15 +465,15 @@ importers:
       '@lightdotso/tailwindcss': workspace:*
       '@lightdotso/tsconfig': workspace:*
       '@reach/skip-nav': ^0.17.0
-      '@sentry/integrations': ^7.10.0
-      '@sentry/nextjs': ^7.10.0
+      '@sentry/integrations': ^7.11.0
+      '@sentry/nextjs': ^7.11.0
       '@testing-library/cypress': ^8.0.3
       '@testing-library/jest-dom': ^5.16.5
       '@testing-library/react': ^13.3.0
       '@types/jest': ^28.1.7
       '@types/react': ^17.0.43
       babel-plugin-istanbul: ^6.1.1
-      cypress: ^10.5.0
+      cypress: ^10.6.0
       jest: ^28.1.3
       jest-environment-jsdom: ^28.1.3
       next: ^12.2.5
@@ -492,8 +492,8 @@ importers:
       '@lightdotso/middlewares': link:../../packages/middlewares
       '@lightdotso/tailwindcss': link:../../configurations/tailwindcss
       '@reach/skip-nav': 0.17.0_biqbaboplfbrettd7655fr4n2y
-      '@sentry/integrations': 7.10.0
-      '@sentry/nextjs': 7.10.0_next@12.2.5+react@18.2.0
+      '@sentry/integrations': 7.11.0
+      '@sentry/nextjs': 7.11.0_next@12.2.5+react@18.2.0
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
       next-compose-plugins: 2.2.1
       next-plausible: 3.2.0_3xcjr4wz26biff45sz3jtokgje
@@ -504,17 +504,17 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
-      '@cypress/code-coverage': 3.10.0_cypress@10.5.0
-      '@cypress/react': 6.1.1_lko76ppzw7b5tqpkyph4lovnxa
+      '@cypress/code-coverage': 3.10.0_cypress@10.6.0
+      '@cypress/react': 6.1.1_spy7crjcbvwd2kediquctjo2v4
       '@jest/globals': 28.1.3
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
-      '@testing-library/cypress': 8.0.3_cypress@10.5.0
+      '@testing-library/cypress': 8.0.3_cypress@10.6.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
       '@types/jest': 28.1.7
       '@types/react': 17.0.47
       babel-plugin-istanbul: 6.1.1
-      cypress: 10.5.0
+      cypress: 10.6.0
       jest: 28.1.3
       jest-environment-jsdom: 28.1.3
       nyc: 15.1.0
@@ -534,8 +534,8 @@ importers:
       '@lightdotso/tailwindcss': workspace:*
       '@lightdotso/tsconfig': workspace:*
       '@lightdotso/types': workspace:*
-      '@sentry/integrations': ^7.10.0
-      '@sentry/nextjs': ^7.10.0
+      '@sentry/integrations': ^7.11.0
+      '@sentry/nextjs': ^7.11.0
       '@tailwindcss/aspect-ratio': ^0.4.0
       '@tailwindcss/forms': ^0.5.2
       '@tailwindcss/line-clamp': ^0.4.0
@@ -547,7 +547,7 @@ importers:
       babel-plugin-istanbul: ^6.1.1
       clsx: ^1.2.1
       critters: ^0.0.16
-      cypress: ^10.5.0
+      cypress: ^10.6.0
       jest: ^28.1.3
       jest-environment-jsdom: ^28.1.3
       next: ^12.2.5
@@ -571,8 +571,8 @@ importers:
       '@lightdotso/core': link:../../components/core
       '@lightdotso/middlewares': link:../../packages/middlewares
       '@lightdotso/tailwindcss': link:../../configurations/tailwindcss
-      '@sentry/integrations': 7.10.0
-      '@sentry/nextjs': 7.10.0_next@12.2.5+react@18.2.0
+      '@sentry/integrations': 7.11.0
+      '@sentry/nextjs': 7.11.0_next@12.2.5+react@18.2.0
       clsx: 1.2.1
       critters: 0.0.16
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
@@ -588,8 +588,8 @@ importers:
       swiper: 8.3.2
       tailwindcss: 3.1.6
     devDependencies:
-      '@cypress/code-coverage': 3.10.0_cypress@10.5.0
-      '@cypress/react': 6.1.1_lko76ppzw7b5tqpkyph4lovnxa
+      '@cypress/code-coverage': 3.10.0_cypress@10.6.0
+      '@cypress/react': 6.1.1_spy7crjcbvwd2kediquctjo2v4
       '@jest/globals': 28.1.3
       '@lightdotso/styles': link:../../packages/styles
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
@@ -603,7 +603,7 @@ importers:
       '@types/jest': 28.1.7
       '@types/react': 17.0.47
       babel-plugin-istanbul: 6.1.1
-      cypress: 10.5.0
+      cypress: 10.6.0
       jest: 28.1.3
       jest-environment-jsdom: 28.1.3
       nyc: 15.1.0
@@ -618,8 +618,8 @@ importers:
       '@lightdotso/styles': workspace:*
       '@lightdotso/tailwindcss': workspace:*
       '@lightdotso/tsconfig': workspace:*
-      '@sentry/integrations': ^7.10.0
-      '@sentry/nextjs': ^7.10.0
+      '@sentry/integrations': ^7.11.0
+      '@sentry/nextjs': ^7.11.0
       '@tailwindcss/aspect-ratio': ^0.4.0
       '@tailwindcss/forms': ^0.5.2
       '@tailwindcss/line-clamp': ^0.4.0
@@ -632,7 +632,7 @@ importers:
       babel-plugin-istanbul: ^6.1.1
       clsx: ^1.2.1
       copy-to-clipboard: ^3.3.2
-      cypress: ^10.5.0
+      cypress: ^10.6.0
       jest: ^28.1.3
       jest-environment-jsdom: ^28.1.3
       next: ^12.2.5
@@ -649,8 +649,8 @@ importers:
     dependencies:
       '@lightdotso/core': link:../../components/core
       '@lightdotso/styles': link:../../packages/styles
-      '@sentry/integrations': 7.10.0
-      '@sentry/nextjs': 7.10.0_next@12.2.5+react@18.2.0
+      '@sentry/integrations': 7.11.0
+      '@sentry/nextjs': 7.11.0_next@12.2.5+react@18.2.0
       clsx: 1.2.1
       copy-to-clipboard: 3.3.2
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
@@ -663,8 +663,8 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       recoil: 0.7.5_biqbaboplfbrettd7655fr4n2y
     devDependencies:
-      '@cypress/code-coverage': 3.10.0_cypress@10.5.0
-      '@cypress/react': 6.1.1_lko76ppzw7b5tqpkyph4lovnxa
+      '@cypress/code-coverage': 3.10.0_cypress@10.6.0
+      '@cypress/react': 6.1.1_spy7crjcbvwd2kediquctjo2v4
       '@jest/globals': 28.1.3
       '@lightdotso/tailwindcss': link:../../configurations/tailwindcss
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
@@ -672,13 +672,13 @@ importers:
       '@tailwindcss/forms': 0.5.2
       '@tailwindcss/line-clamp': 0.4.0
       '@tailwindcss/typography': 0.5.4
-      '@testing-library/cypress': 8.0.3_cypress@10.5.0
+      '@testing-library/cypress': 8.0.3_cypress@10.6.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
       '@types/jest': 28.1.7
       '@types/react': 17.0.47
       babel-plugin-istanbul: 6.1.1
-      cypress: 10.5.0
+      cypress: 10.6.0
       jest: 28.1.3
       jest-environment-jsdom: 28.1.3
       nyc: 15.1.0
@@ -2117,14 +2117,14 @@ packages:
       - encoding
     dev: false
 
-  /@cypress/code-coverage/3.10.0_cypress@10.5.0:
+  /@cypress/code-coverage/3.10.0_cypress@10.6.0:
     resolution: {integrity: sha512-K5pW2KPpK4vKMXqxd6vuzo6m9BNgpAv1LcrrtmqAtOJ1RGoEILXYZVost0L6Q+V01NyY7n7jXIIfS7LR3nP6YA==}
     peerDependencies:
       cypress: '*'
     dependencies:
       '@cypress/webpack-preprocessor': 5.12.0
       chalk: 4.1.2
-      cypress: 10.5.0
+      cypress: 10.6.0
       dayjs: 1.10.7
       debug: 4.3.4
       execa: 4.1.0
@@ -2140,7 +2140,7 @@ packages:
       - webpack
     dev: true
 
-  /@cypress/react/6.1.1_lko76ppzw7b5tqpkyph4lovnxa:
+  /@cypress/react/6.1.1_spy7crjcbvwd2kediquctjo2v4:
     resolution: {integrity: sha512-yCKVIXfFfHm9Nk5qM1yhATR2YvmUSFoc09Gf5rUwfFjv08FNtYoSn1HN+oQiHWlUHlxjVUlGPjoW4UnslyuRKw==}
     peerDependencies:
       '@types/react': ^16.9.16 || ^17.0.0
@@ -2152,7 +2152,7 @@ packages:
         optional: true
     dependencies:
       '@types/react': 17.0.47
-      cypress: 10.5.0
+      cypress: 10.6.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: true
@@ -4281,7 +4281,7 @@ packages:
       - supports-color
     dev: true
 
-  /@ntegral/nestjs-sentry/3.0.7_2nzb5mhsah2s3gubmxltofi6m4:
+  /@ntegral/nestjs-sentry/3.0.7_pgoxrecbicdc63gr2vfdonpnq4:
     resolution: {integrity: sha512-D319UQyX+Xcn68D8lvV0vla++RFM9pe+EnunWZLaay+SG1Myl9PDh1DcehZKjM3WaPgGDWBZZKh/J062Yycsmw==}
     peerDependencies:
       '@nestjs/common': ^8.0.2
@@ -4294,7 +4294,7 @@ packages:
     dependencies:
       '@nestjs/common': 9.0.11_j5hagqx4mwzscud4kyjdvubauy
       '@nestjs/core': 9.0.11_psficsz3mqirqwo2ujbfhdr2aa
-      '@sentry/node': 7.10.0
+      '@sentry/node': 7.11.0
       reflect-metadata: 0.1.13
       rxjs: 7.5.6
     optionalDependencies:
@@ -4660,13 +4660,13 @@ packages:
       '@scure/base': 1.1.1
     dev: false
 
-  /@sentry/browser/7.10.0:
-    resolution: {integrity: sha512-RNOKCRonqzUOqyM/JcjxjCOMosfS0MRmzkBKWewfyXse9AqfqC9+y8BI5J7wFmpYCypQP72JROKPBaxi7rvOFw==}
+  /@sentry/browser/7.11.0:
+    resolution: {integrity: sha512-HgDoee4zj7Z2L0LsChS8BUT+KrlFcDaURA8nzTq3aNU6zYTpxunsbOSjOM2JYo/5B0AKWLw/l8IHgL/BPSuImg==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/core': 7.10.0
-      '@sentry/types': 7.10.0
-      '@sentry/utils': 7.10.0
+      '@sentry/core': 7.11.0
+      '@sentry/types': 7.11.0
+      '@sentry/utils': 7.11.0
       tslib: 1.14.1
     dev: false
 
@@ -4699,13 +4699,13 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /@sentry/core/7.10.0:
-    resolution: {integrity: sha512-uq6oUXPH+6cjsEL5/j/xSW91mVrJo7knTqax7E5MDiA5j98BPK4budGiBiPO7GEB856QhA7N+pOO0lccii5QYQ==}
+  /@sentry/core/7.11.0:
+    resolution: {integrity: sha512-W4/Klb5CbpH8C/bvRAsNx0w6I7XoIMf8US79aSAwykhQRrhGSo7bwKOk1dPEMbEg6jbNWDNeTGnZUeYrDNkpUw==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/hub': 7.10.0
-      '@sentry/types': 7.10.0
-      '@sentry/utils': 7.10.0
+      '@sentry/hub': 7.11.0
+      '@sentry/types': 7.11.0
+      '@sentry/utils': 7.11.0
       tslib: 1.14.1
     dev: false
 
@@ -4718,21 +4718,21 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /@sentry/hub/7.10.0:
-    resolution: {integrity: sha512-9Appy7J87EU7Xu2BDY1cLK79nsuE72geeYmG71lgdttTD3XOMcQBOxET4/2sAI+d/ansurXnURx+DAQ9FOKT+w==}
+  /@sentry/hub/7.11.0:
+    resolution: {integrity: sha512-bNOKpifRRSdYmqltiwKVtEaG/vv/ArKLgCrWNGeQ22yBbKFCWHG2nulHqiN0rjbptRdG0VhKtbm4t5WnYEVjrg==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/types': 7.10.0
-      '@sentry/utils': 7.10.0
+      '@sentry/types': 7.11.0
+      '@sentry/utils': 7.11.0
       tslib: 1.14.1
     dev: false
 
-  /@sentry/integrations/7.10.0:
-    resolution: {integrity: sha512-pP4DYhyhtTYS8C5kinIXXn1icD4UmZD8Dh3Qd+SArHZiWgRnrsWPLzrtoQEa8RN8tmQ8ekU9nLnWua5rRWiSBA==}
+  /@sentry/integrations/7.11.0:
+    resolution: {integrity: sha512-aw1XM1MdXubeddoHV5zLbFrM02SDjwrG1/nhE2ntpQPqZx8ijLds6QCZWCPdRktEoPO2KuCCXxkoDqYrRve4CQ==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/types': 7.10.0
-      '@sentry/utils': 7.10.0
+      '@sentry/types': 7.11.0
+      '@sentry/utils': 7.11.0
       localforage: 1.10.0
       tslib: 1.14.1
     dev: false
@@ -4746,8 +4746,8 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /@sentry/nextjs/7.10.0_fuiduvg7dnusfr7wpxwzjiagsm:
-    resolution: {integrity: sha512-e0csRmRGNxStK8A48hM8/4f/B00EkAnwpZC6qR4JlxOTTgMpm88pydiIchBeB3yAivTsc7WI1Ia17/wLiRNthw==}
+  /@sentry/nextjs/7.11.0_fuiduvg7dnusfr7wpxwzjiagsm:
+    resolution: {integrity: sha512-4LLh03xwBVnIOl6JNd6bYvosWRo2sDx5wk24Bs/si81Wy3D1pHnBWSg1nY2ef7IQrn0P+p6TnX8ffWhYTN0b+Q==}
     engines: {node: '>=8'}
     peerDependencies:
       next: ^10.0.8 || ^11.0 || ^12.0
@@ -4758,14 +4758,14 @@ packages:
         optional: true
     dependencies:
       '@babel/parser': 7.18.11
-      '@sentry/core': 7.10.0
-      '@sentry/hub': 7.10.0
-      '@sentry/integrations': 7.10.0
-      '@sentry/node': 7.10.0
-      '@sentry/react': 7.10.0_react@18.2.0
-      '@sentry/tracing': 7.10.0
-      '@sentry/types': 7.10.0
-      '@sentry/utils': 7.10.0
+      '@sentry/core': 7.11.0
+      '@sentry/hub': 7.11.0
+      '@sentry/integrations': 7.11.0
+      '@sentry/node': 7.11.0
+      '@sentry/react': 7.11.0_react@18.2.0
+      '@sentry/tracing': 7.11.0
+      '@sentry/types': 7.11.0
+      '@sentry/utils': 7.11.0
       '@sentry/webpack-plugin': 1.19.0
       jscodeshift: 0.13.1
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
@@ -4778,8 +4778,8 @@ packages:
       - supports-color
     dev: false
 
-  /@sentry/nextjs/7.10.0_next@12.2.5+react@18.2.0:
-    resolution: {integrity: sha512-e0csRmRGNxStK8A48hM8/4f/B00EkAnwpZC6qR4JlxOTTgMpm88pydiIchBeB3yAivTsc7WI1Ia17/wLiRNthw==}
+  /@sentry/nextjs/7.11.0_next@12.2.5+react@18.2.0:
+    resolution: {integrity: sha512-4LLh03xwBVnIOl6JNd6bYvosWRo2sDx5wk24Bs/si81Wy3D1pHnBWSg1nY2ef7IQrn0P+p6TnX8ffWhYTN0b+Q==}
     engines: {node: '>=8'}
     peerDependencies:
       next: ^10.0.8 || ^11.0 || ^12.0
@@ -4790,14 +4790,14 @@ packages:
         optional: true
     dependencies:
       '@babel/parser': 7.18.11
-      '@sentry/core': 7.10.0
-      '@sentry/hub': 7.10.0
-      '@sentry/integrations': 7.10.0
-      '@sentry/node': 7.10.0
-      '@sentry/react': 7.10.0_react@18.2.0
-      '@sentry/tracing': 7.10.0
-      '@sentry/types': 7.10.0
-      '@sentry/utils': 7.10.0
+      '@sentry/core': 7.11.0
+      '@sentry/hub': 7.11.0
+      '@sentry/integrations': 7.11.0
+      '@sentry/node': 7.11.0
+      '@sentry/react': 7.11.0_react@18.2.0
+      '@sentry/tracing': 7.11.0
+      '@sentry/types': 7.11.0
+      '@sentry/utils': 7.11.0
       '@sentry/webpack-plugin': 1.19.0
       jscodeshift: 0.13.1
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
@@ -4826,14 +4826,14 @@ packages:
       - supports-color
     dev: false
 
-  /@sentry/node/7.10.0:
-    resolution: {integrity: sha512-L/DSEJ7Biy8ovvlCyfu5MpCYG108FIGVbJ1h0NBGr5+uLxTNg2WJWojJoiQNiRcWl4s0dcIXrRdi0HR2Sx+DUw==}
+  /@sentry/node/7.11.0:
+    resolution: {integrity: sha512-5UpbQaIK7uQLmutB81hwXrYrdSsd0qD/qXZ1x5mhVvVV5iGnwcBkSlcFufaFxUZ8AvKvWyHQ/1VELJ9+0dOhnQ==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/core': 7.10.0
-      '@sentry/hub': 7.10.0
-      '@sentry/types': 7.10.0
-      '@sentry/utils': 7.10.0
+      '@sentry/core': 7.11.0
+      '@sentry/hub': 7.11.0
+      '@sentry/types': 7.11.0
+      '@sentry/utils': 7.11.0
       cookie: 0.4.2
       https-proxy-agent: 5.0.1
       lru_map: 0.3.3
@@ -4842,15 +4842,15 @@ packages:
       - supports-color
     dev: false
 
-  /@sentry/react/7.10.0_react@18.2.0:
-    resolution: {integrity: sha512-/iuj6/P4rE6n+hoOatMpJr8y366hQcmMQU8Ln4Q8jERSiOb6giBW/gajG012p6SwAT5wQ2nVQm8aAay9xC/PxQ==}
+  /@sentry/react/7.11.0_react@18.2.0:
+    resolution: {integrity: sha512-OCO7jKGgvGCKe91ch6FGc39L/fJnIFxjsitKr8I9Tdhgriukuur1awjKG3uPBbOuSVwVPLnAfkgn8n1vhRYE9Q==}
     engines: {node: '>=8'}
     peerDependencies:
       react: 15.x || 16.x || 17.x || 18.x
     dependencies:
-      '@sentry/browser': 7.10.0
-      '@sentry/types': 7.10.0
-      '@sentry/utils': 7.10.0
+      '@sentry/browser': 7.11.0
+      '@sentry/types': 7.11.0
+      '@sentry/utils': 7.11.0
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
       tslib: 1.14.1
@@ -4867,13 +4867,13 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /@sentry/tracing/7.10.0:
-    resolution: {integrity: sha512-ojuBYS1bL/IGWKt/ItY4HmC8NElJrYtTUvm73VbhylhIO4zcn5ICHmgMFj1lqL9gQ1nCnAlifKiWIjL9qUatTA==}
+  /@sentry/tracing/7.11.0:
+    resolution: {integrity: sha512-LaPFOHuFuEFm07EY7qWg6s+mr4uCRQcZqRuUe0kZu2i7r1UWbKTUaJVCXg49NTv3JRhAPvqNDElS6dkK3zDIeg==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/hub': 7.10.0
-      '@sentry/types': 7.10.0
-      '@sentry/utils': 7.10.0
+      '@sentry/hub': 7.11.0
+      '@sentry/types': 7.11.0
+      '@sentry/utils': 7.11.0
       tslib: 1.14.1
     dev: false
 
@@ -4882,8 +4882,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /@sentry/types/7.10.0:
-    resolution: {integrity: sha512-1UBwdbS0xXzANzp63g4eNQly/qKIXp0swP5OTKWoADvKBtL4anroLUA/l8ADMtuwFZYtVANc8WRGxM2+YmaXtg==}
+  /@sentry/types/7.11.0:
+    resolution: {integrity: sha512-0xhfH9nHi68fstZpEGBS/q7a4hRRb99shh2EmP6KSM+eGkjLsr89XXBoI0NZzoHDsu0WsM9Ygpdu9wuXXBJ8CQ==}
     engines: {node: '>=8'}
     dev: false
 
@@ -4895,11 +4895,11 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /@sentry/utils/7.10.0:
-    resolution: {integrity: sha512-/aD2DnfyOhV0Wdbb6VF78vu4fQIZJyuReDpBI7MV/EqcEB6FxUKq2YjinfKZF/exHEPig6Ag/Yt+CRFgvtVFuw==}
+  /@sentry/utils/7.11.0:
+    resolution: {integrity: sha512-c24q0JGxphvrwHQ7TJNH30bmLzGc3VeD8idtM5pcakmrZbOtXtL+HGoLIxd6YAyNNh3frKdqFHJnaQ3lN6gv3g==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/types': 7.10.0
+      '@sentry/types': 7.11.0
       tslib: 1.14.1
     dev: false
 
@@ -5150,7 +5150,7 @@ packages:
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: false
 
-  /@testing-library/cypress/8.0.3_cypress@10.5.0:
+  /@testing-library/cypress/8.0.3_cypress@10.6.0:
     resolution: {integrity: sha512-nY2YaSbmuPo5k6kL0iLj/pGPPfka3iwb3kpTx8QN/vOCns92Saz9wfACqB8FJzcR7+lfA4d5HUOWqmTddBzczg==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
@@ -5158,7 +5158,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.18.3
       '@testing-library/dom': 8.14.0
-      cypress: 10.5.0
+      cypress: 10.6.0
     dev: true
 
   /@testing-library/dom/8.14.0:
@@ -5356,7 +5356,7 @@ packages:
   /@types/bonjour/3.5.10:
     resolution: {integrity: sha512-p7ienRMiS41Nu2/igbJxxLDWrSZ0WxM8UQgCeO9KhoVF7cOVFkrKsiDr1EsJIla8vV3oEEjGcz11jc5yimhzZw==}
     dependencies:
-      '@types/node': 18.7.5
+      '@types/node': 18.7.6
     dev: true
 
   /@types/bull/3.15.9:
@@ -5388,7 +5388,7 @@ packages:
     resolution: {integrity: sha512-h8QJa8xSb1WD4fpKBDcATDNGXghFj6/3GRWG6dhmRcu0RX1Ubasur2Uvx5aeEwlf0MwblEC2bMzzMQntxnw/Cw==}
     dependencies:
       '@types/express-serve-static-core': 4.17.29
-      '@types/node': 18.7.5
+      '@types/node': 18.7.6
     dev: true
 
   /@types/connect/3.4.35:
@@ -5487,7 +5487,7 @@ packages:
   /@types/ioredis/4.28.10:
     resolution: {integrity: sha512-69LyhUgrXdgcNDv7ogs1qXZomnfOEnSmrmMFqKgt1XMJxmoOSG/u3wYy13yACIfKuMJ8IhKgHafDO3sx19zVQQ==}
     dependencies:
-      '@types/node': 18.7.2
+      '@types/node': 18.7.6
     dev: true
 
   /@types/is-ci/3.0.0:
@@ -5698,7 +5698,7 @@ packages:
   /@types/redis/2.8.32:
     resolution: {integrity: sha512-7jkMKxcGq9p242exlbsVzuJb57KqHRhNl4dHoQu2Y5v9bCAbtIXXH0R3HleSQW4CTOqpHIYUW3t6tpUj4BVQ+w==}
     dependencies:
-      '@types/node': 18.7.2
+      '@types/node': 18.7.6
     dev: true
 
   /@types/resolve/0.0.8:
@@ -5737,7 +5737,7 @@ packages:
     resolution: {integrity: sha512-nCkHGI4w7ZgAdNkrEu0bv+4xNV/XDqW+DydknebMOQwkpDGx8G+HTlj7R7ABI8i8nKxVw0wtKPi1D+lPOkh4YQ==}
     dependencies:
       '@types/mime': 1.3.2
-      '@types/node': 18.7.5
+      '@types/node': 18.7.6
     dev: true
 
   /@types/sinon-chai/3.2.8:
@@ -5768,7 +5768,7 @@ packages:
   /@types/sockjs/0.3.33:
     resolution: {integrity: sha512-f0KEEe05NvUnat+boPTZ0dgaLZ4SfSouXUgv5noUiefG2ajgKjmETo9ZJyuqsl7dfl2aHlLJUiki6B4ZYldiiw==}
     dependencies:
-      '@types/node': 18.7.5
+      '@types/node': 18.7.6
     dev: true
 
   /@types/stack-trace/0.0.29:
@@ -5816,7 +5816,7 @@ packages:
   /@types/ws/8.5.3:
     resolution: {integrity: sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==}
     dependencies:
-      '@types/node': 18.7.5
+      '@types/node': 18.7.6
     dev: true
 
   /@types/yargs-parser/21.0.0:
@@ -6067,16 +6067,16 @@ packages:
     resolution: {integrity: sha512-i+O40FAFgDSNPQbBA5pNQURukA+4E0e560ylamPytNgPjiaj83fR1uV1XYxUAZFxlRNG93HSrKEwG6/Xx3F3bg==}
     dev: true
 
-  /@vercel/go/2.1.1:
-    resolution: {integrity: sha512-+QASVfvE7Ruc+mP7bknsL1z0Izl9ito1Gk328ExqRtNpfVxanEzRDbEzPnflUIBchifJWyxW21S2DvWdz/+LNQ==}
+  /@vercel/go/2.2.0:
+    resolution: {integrity: sha512-RYli1dln9FKLhfRsx90Qw+PyG317Vs/Vun41FP+fk827vbC4cGeI9toYE3TkYN9Lyrws2y3ID+5Rl94cZF4NuQ==}
     dev: true
 
   /@vercel/hydrogen/0.0.14:
     resolution: {integrity: sha512-aMChId8/dSGN5U5xRsrCCOcUYcQuYJYDXhdswCvO1owYhCise4hoXM79sf4clohnh9P/t9wgC3TgKG8jALMV1g==}
     dev: true
 
-  /@vercel/next/3.1.18:
-    resolution: {integrity: sha512-Up0E+jcMybkSN2ihsiMMNxa3ETk3avCVqOwGxG6f8XdTbleFVluAOJyiRFffhcJtrpW7HWdqLjJ5jJSpI1Nyvw==}
+  /@vercel/next/3.1.19:
+    resolution: {integrity: sha512-ht1cEK4XbLvGUTpsLElJRXmb0SCT1eURIlO7/KdSlpsrsB+FLvijc35OtezVVFvxNKgIMByYgm5G5mXfYgOpOQ==}
     dev: true
 
   /@vercel/nft/0.21.0:
@@ -9630,8 +9630,8 @@ packages:
       stream-transform: 2.1.3
     dev: true
 
-  /cypress/10.5.0:
-    resolution: {integrity: sha512-m1oP/2Au+81moyHGg6Mxro8wo5F5rXjtea9SPXn7ezUT3qNHk43bif3K/6Wz7nuaNUiN9/UM+B4c03kCp8vniw==}
+  /cypress/10.6.0:
+    resolution: {integrity: sha512-6sOpHjostp8gcLO34p6r/Ci342lBs8S5z9/eb3ZCQ22w2cIhMWGUoGKkosabPBfKcvRS9BE4UxybBtlIs8gTQA==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     requiresBuild: true
@@ -15781,6 +15781,10 @@ packages:
 
   /jose/4.8.3:
     resolution: {integrity: sha512-7rySkpW78d8LBp4YU70Wb7+OTgE3OwAALNVZxhoIhp4Kscp+p/fBkdpxGAMKxvCAMV4QfXBU9m6l9nX/vGwd2g==}
+    dev: false
+
+  /jose/4.9.0:
+    resolution: {integrity: sha512-RgaqEOZLkVO+ViN3KkN44XJt9g7+wMveUv59sVLaTxONcUPc8ZpfqOCeLphVBZyih2dgkvZ0Ap1CNcokvY7Uyw==}
     dev: false
 
   /joycon/3.1.1:
@@ -24612,16 +24616,16 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  /vercel/28.0.2:
-    resolution: {integrity: sha512-rZptGgqCx0gwgLZWaBpI3Mo17aZKp1IJ8KqGv8WGyjaIe82CnixcJGmQ2p8HkEscCQ3SdRbK+2iwgFAo2f3PhA==}
+  /vercel/28.1.0:
+    resolution: {integrity: sha512-AorSrhLIpAIUxHdeEsL4LUp5WHE4wMzlul7ACA8WUBGx1oPyy4EkC6XCszQNsmmVhOPpIQzWX7Xg5ABJVto9RQ==}
     engines: {node: '>= 14'}
     hasBin: true
     requiresBuild: true
     dependencies:
       '@vercel/build-utils': 5.3.1
-      '@vercel/go': 2.1.1
+      '@vercel/go': 2.2.0
       '@vercel/hydrogen': 0.0.14
-      '@vercel/next': 3.1.18
+      '@vercel/next': 3.1.19
       '@vercel/node': 2.5.8
       '@vercel/python': 3.1.9
       '@vercel/redwood': 1.0.18

@@ -104,7 +104,7 @@
     "shx": "^0.3.4",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
     "tsup": "^6.2.2",
-    "vercel": "^28.0.2",
+    "vercel": "^28.1.0",
     "webpack-dev-server": "^4.10.0"
   },
   "packageManager": "pnpm@6.30.0"

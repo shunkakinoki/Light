@@ -42,7 +42,7 @@ export const Modal: FC<ModalProps> = ({ children, show, onClose }) => {
             leaveTo="opacity-0 scale-95"
           >
             <div className="relative inline-block w-full overflow-hidden rounded-xl border border-contrast-lower bg-bg shadow-xl transition-all focus:outline-none">
-              <div className="w-full max-w-xl">{children}</div>
+              {children}
             </div>
           </Transition.Child>
         </div>

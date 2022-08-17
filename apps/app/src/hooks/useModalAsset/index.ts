@@ -1,0 +1,1 @@
+export { useModalAsset } from "./useModalAsset";

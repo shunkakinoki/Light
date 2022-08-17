@@ -3,7 +3,6 @@ import type { FC } from "react";
 
 import { AssetDetailsSegmentHero } from "@lightdotso/app/components/AssetDetailsSegmentHero";
 import { AssetDetailsSegmentMeta } from "@lightdotso/app/components/AssetDetailsSegmentMeta";
-import { AssetDetailsSegmentProfile } from "@lightdotso/app/components/AssetDetailsSegmentProfile";
 import type { PlaceholderProfileProps } from "@lightdotso/app/components/PlaceholderProfile";
 
 export type AssetDetailsOATProps = PlaceholderProfileProps & {
@@ -22,7 +21,6 @@ export const AssetDetailsOAT: FC<AssetDetailsOATProps> = ({
 }) => {
   return (
     <div className="px-3">
-      <AssetDetailsSegmentProfile address={address} />
       <AssetDetailsSegmentHero
         name={name}
         collectionName={oatId}

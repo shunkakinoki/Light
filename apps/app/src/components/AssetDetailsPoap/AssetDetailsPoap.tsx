@@ -4,7 +4,6 @@ import type { FC } from "react";
 import { AssetDetailsInternalButton } from "@lightdotso/app/components/AssetDetailsInternalButton";
 import { AssetDetailsSegmentHero } from "@lightdotso/app/components/AssetDetailsSegmentHero";
 import { AssetDetailsSegmentMeta } from "@lightdotso/app/components/AssetDetailsSegmentMeta";
-import { AssetDetailsSegmentProfile } from "@lightdotso/app/components/AssetDetailsSegmentProfile";
 import type { PlaceholderProfileProps } from "@lightdotso/app/components/PlaceholderProfile";
 
 export type AssetDetailsPoapProps = PlaceholderProfileProps & {
@@ -21,7 +20,6 @@ export const AssetDetailsPoap: FC<AssetDetailsPoapProps> = ({
 }) => {
   return (
     <div className="px-3">
-      <AssetDetailsSegmentProfile address={address} />
       <AssetDetailsSegmentHero
         name={name}
         collectionName={tokenId}

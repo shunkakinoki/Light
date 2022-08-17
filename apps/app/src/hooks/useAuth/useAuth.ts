@@ -17,19 +17,21 @@ export const useAuth = (guard?: boolean) => {
   const { address, disconnect } = useWallet();
   const router = useRouter();
   const { isFallback } = useRouter();
-  const [{ data: networkData }] = useNetwork();
+  const { chain, chains } = useNetwork();
   const isMounted = useIsMounted();
   const { isFirst, setIsFirst } = useIsFirst();
   const [isOnly, setIsOnly] = useState(true);
   const { session, mutate: mutateSession } = useSession();
   const { ens } = useEns(session?.address);
 
-  const [, signMessage] = useSignMessage();
-
+  const { data, isError, isLoading, isSuccess, signMessage, signMessageAsync } =
+    useSignMessage({
+      message: "gm wagmi frens",
+    });
   const signInWithEthereum = useCallback(async () => {
     setIsOnly(false);
 
-    const chainId = networkData?.chain?.id;
+    const chainId = chain?.id;
     if (!address || !chainId || !isMounted) {
       return;
     }
@@ -45,15 +47,22 @@ export const useAuth = (guard?: boolean) => {
         chainId,
         nonce: await nonceRes.text(),
       });
-      const signRes = await signMessage({ message: message.prepareMessage() });
-      if (signRes.error) {
-        throw signRes.error;
-      }
+      const signature = await signMessageAsync({
+        message: message.prepareMessage(),
+      });
+      // const verifyRes = await fetch("/api/verify", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ message, signature }),
+      // });
+      // if (!verifyRes.ok) throw new Error("Error verifying message");
 
       await signIn("web3", {
         address: address,
         message: JSON.stringify(message),
-        signature: signRes.data,
+        signature: signature,
         redirect: false,
       });
 
@@ -72,12 +81,12 @@ export const useAuth = (guard?: boolean) => {
     }
   }, [
     address,
+    chain?.id,
     disconnect,
     isMounted,
     mutateSession,
-    networkData?.chain?.id,
     router,
-    signMessage,
+    signMessageAsync,
   ]);
 
   useEffect(() => {

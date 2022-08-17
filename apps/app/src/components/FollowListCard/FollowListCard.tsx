@@ -25,7 +25,7 @@ export const FollowListCard: FC<FollowListCardProps> = ({
   initialStatus,
 }) => {
   const router = useRouter();
-  const [hoverRef, isHovered] = useHover<HTMLButtonElement>();
+  const [hoverRef, isHovered] = useHover<HTMLDivElement>();
   const { ens } = useEns(address, initialEns);
 
   const slug = useMemo(() => {
@@ -45,7 +45,8 @@ export const FollowListCard: FC<FollowListCardProps> = ({
   }, [isHovered]);
 
   return (
-    <button
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+    <div
       ref={hoverRef}
       className="flex w-full cursor-pointer items-center rounded-lg border border-contrast-lower bg-bg-lighter p-4 hover:bg-bg-light"
       onClick={e => {
@@ -69,6 +70,6 @@ export const FollowListCard: FC<FollowListCardProps> = ({
       <div className="shrink-0 text-contrast-medium">
         <FollowButton address={address} initialStatus={initialStatus} />
       </div>
-    </button>
+    </div>
   );
 };

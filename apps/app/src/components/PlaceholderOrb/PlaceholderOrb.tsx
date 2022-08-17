@@ -3,6 +3,8 @@ import type { FC, InsHTMLAttributes } from "react";
 
 import s from "./PlaceholderOrb.module.css";
 
+import { DEAD_WALLET_ADDRESS } from "@lightdotso/app/config/Default";
+
 export type PlaceholderOrbProps = {
   address: string;
 } & InsHTMLAttributes<HTMLSpanElement>;
@@ -24,10 +26,10 @@ const colors = [
 ];
 
 export const PlaceholderOrb: FC<PlaceholderOrbProps> = ({
-  address,
+  address = DEAD_WALLET_ADDRESS,
   className,
 }) => {
-  const color = colors[address[41].charCodeAt(0) % colors.length];
+  const color = colors[address[41]?.charCodeAt(0) % colors.length];
 
   return (
     <span

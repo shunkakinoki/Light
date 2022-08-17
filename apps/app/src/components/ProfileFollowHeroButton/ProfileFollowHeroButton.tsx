@@ -19,7 +19,7 @@ export const ProfileFollowHeroButton: FC<ProfileFollowHeroButtonProps> = ({
   }, [address, ens]);
 
   return (
-    <Link href={address ? `/${profileSlug}` : "/profile"}>
+    <Link href={address ? `/${profileSlug}` : "/"}>
       <a className="rounded-full border border-contrast-lower p-4 hover:bg-bg-light">
         <ArrowLeftIcon className="h-3.5 w-3.5 text-contrast-higher" />
       </a>

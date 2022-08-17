@@ -1,21 +1,25 @@
 import CyberConnect from "@cyberlab/cyberconnect";
-import { useMemo } from "react";
-import { useContext } from "wagmi";
+import { useMemo, useEffect, useState } from "react";
+import { useConnect } from "wagmi";
 
 export const useProviderCyberConnect = () => {
-  const context = useContext();
+  const { connectors } = useConnect();
+  const [provider, setProvider] = useState(false);
+
+  useEffect(() => {
+    const loadProvider = async () => {
+      setProvider(await connectors[0].getProvider());
+    };
+    loadProvider();
+  }, [connectors]);
 
   return useMemo<CyberConnect>(() => {
-    if (!context.state.connector) {
-      return;
+    if (provider) {
+      return new CyberConnect({
+        provider: provider,
+        namespace: "Light",
+        signingMessageEntity: "Light",
+      });
     }
-
-    const provider = context.state.connector?.getProvider();
-
-    return new CyberConnect({
-      provider,
-      namespace: "Light",
-      signingMessageEntity: "Light",
-    });
-  }, [context.state.connector]);
+  }, [provider]);
 };

@@ -3,6 +3,8 @@
   "compilerOptions": {
     "allowJs": true,
     "esModuleInterop": true,
+    "declaration": false,
+    "declarationMap": false,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "isolatedModules": true,

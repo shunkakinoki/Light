@@ -3,19 +3,13 @@ import {
   ViewListIcon,
   GlobeAltIcon,
   SearchIcon,
-  UserIcon,
 } from "@heroicons/react/solid";
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type { FC, SVGProps } from "react";
 
-export type MobileNavigationTab =
-  | "Home"
-  | "Explore"
-  | "Search"
-  | "Profile"
-  | "More";
+export type MobileNavigationTab = "Home" | "Explore" | "Search" | "More";
 
 const tabs: {
   name: string;
@@ -32,11 +26,6 @@ const tabs: {
     name: "Search",
     href: "/search",
     icon: SearchIcon,
-  },
-  {
-    name: "Profile",
-    href: "/profile",
-    icon: UserIcon,
   },
   {
     name: "More",

@@ -1,58 +1,55 @@
 import type { FC } from "react";
 import {
-  Provider,
-  chain,
+  configureChains,
+  createClient,
   defaultChains,
-  defaultL2Chains,
-  developmentChains,
+  WagmiConfig,
 } from "wagmi";
+import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
-import { WalletLinkConnector } from "wagmi/connectors/walletLink";
+import { alchemyProvider } from "wagmi/providers/alchemy";
+import { infuraProvider } from "wagmi/providers/infura";
+import { publicProvider } from "wagmi/providers/public";
 
-import { useProviderWeb3 } from "@lightdotso/app/hooks/useProviderWeb3";
-import { useProviderWebSocket } from "@lightdotso/app/hooks/useProviderWebSocket";
+const { chains, provider, webSocketProvider } = configureChains(
+  defaultChains,
+  [
+    infuraProvider({ apiKey: process.env.NEXT_PUBLIC_INFURA_ID }),
+    // eslint-disable-next-line turbo/no-undeclared-env-vars
+    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY }),
+    publicProvider(),
+  ],
+  { targetQuorum: 1, minQuorum: 1 },
+);
 
-const chains = [...defaultChains, ...defaultL2Chains, ...developmentChains];
-
-type Config = { chainId?: number };
-const connectors = ({ chainId }: Config) => {
-  const rpcUrl =
-    chains.find(x => {
-      return x.id === chainId;
-    })?.rpcUrls?.[0] ?? chain.mainnet.rpcUrls[0];
-  return [
-    new InjectedConnector({ chains }),
+const client = createClient({
+  autoConnect: true,
+  connectors: [
+    new InjectedConnector({
+      chains,
+      options: {
+        name: "Injected",
+        shimDisconnect: true,
+      },
+    }),
+    new CoinbaseWalletConnector({
+      chains,
+      options: {
+        appName: "light",
+      },
+    }),
     new WalletConnectConnector({
       chains,
       options: {
-        infuraId: process.env.NEXT_PUBLIC_INFURA_ID as string,
         qrcode: true,
       },
     }),
-    new WalletLinkConnector({
-      chains,
-      options: {
-        appName: "light.so",
-        jsonRpcUrl: `${rpcUrl}/${process.env.NEXT_PUBLIC_INFURA_ID as string}`,
-      },
-    }),
-  ];
-};
+  ],
+  provider,
+  webSocketProvider,
+});
 
 export const Web3Provider: FC = ({ children }) => {
-  const provider = useProviderWeb3();
-  const webSocketProvider = useProviderWebSocket();
-
-  return (
-    <Provider
-      autoConnect
-      connectorStorageKey="light.so"
-      connectors={connectors}
-      provider={provider}
-      webSocketProvider={webSocketProvider}
-    >
-      {children}
-    </Provider>
-  );
+  return <WagmiConfig client={client}>{children}</WagmiConfig>;
 };

@@ -4,6 +4,7 @@ import type { FC, MouseEventHandler } from "react";
 import { Fragment } from "react";
 
 import { HeaderMenuLink } from "@lightdotso/app/components/HeaderMenu/HeaderMenuLink";
+import { useEns } from "@lightdotso/app/hooks/useEns";
 import { useWallet } from "@lightdotso/app/hooks/useWallet";
 
 export type HeaderMenuProps = {
@@ -12,6 +13,7 @@ export type HeaderMenuProps = {
 
 export const HeaderMenu: FC<HeaderMenuProps> = () => {
   const { address, disconnect } = useWallet();
+  const { ens } = useEns(address);
 
   return (
     <Transition
@@ -27,7 +29,7 @@ export const HeaderMenu: FC<HeaderMenuProps> = () => {
         <div className="space-y-1 p-1">
           <Menu.Item>
             <HeaderMenuLink
-              href="/profile"
+              href={`/${ens ?? address}`}
               className="group flex w-full items-center rounded-md py-2 px-4 text-sm text-contrast-medium hover:bg-emphasis-medium focus:ring-2 focus:ring-primary"
             >
               <UserCircleIcon

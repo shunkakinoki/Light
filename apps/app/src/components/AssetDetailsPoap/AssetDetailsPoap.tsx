@@ -3,9 +3,8 @@ import type { FC } from "react";
 
 import { AssetDetailsInternalButton } from "@lightdotso/app/components/AssetDetailsInternalButton";
 import { AssetDetailsSegmentHero } from "@lightdotso/app/components/AssetDetailsSegmentHero";
-import type { PlaceholderProfileProps } from "@lightdotso/app/components/PlaceholderProfile";
 
-export type AssetDetailsPoapProps = PlaceholderProfileProps & {
+export type AssetDetailsPoapProps = {
   token?: PoapToken;
   tokenId: string;
 };

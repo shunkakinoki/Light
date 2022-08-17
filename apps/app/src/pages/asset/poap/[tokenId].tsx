@@ -13,7 +13,6 @@ import type {
 import { AssetFooter } from "@lightdotso/app/components/AssetFooter";
 import { AssetHeader } from "@lightdotso/app/components/AssetHeader";
 import { AssetPoap } from "@lightdotso/app/components/AssetPoap";
-import { DEAD_ADDRESS } from "@lightdotso/app/dummy";
 import { validateQuery } from "@lightdotso/app/libs/api/validateQuery";
 import { validateSchema } from "@lightdotso/app/libs/api/validateSchema";
 
@@ -25,7 +24,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export type Props = {
-  address: string;
   tokenId: string;
   token: PoapToken;
 };
@@ -52,7 +50,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 
     return {
       props: {
-        address: DEAD_ADDRESS,
         token: token ?? null,
         tokenId: parsedTokenId,
       },
@@ -66,14 +63,13 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 };
 
 export const TokenIdPage = ({
-  address,
   token,
   tokenId,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   return (
     <>
       <AssetHeader />
-      <AssetPoap token={token} address={address} tokenId={tokenId} />
+      <AssetPoap token={token} tokenId={tokenId} />
       <AssetFooter />
     </>
   );

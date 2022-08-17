@@ -6,7 +6,6 @@ import { AssetDetailsSegmentHero } from "@lightdotso/app/components/AssetDetails
 import { AssetDetailsSegmentMeta } from "@lightdotso/app/components/AssetDetailsSegmentMeta";
 import { AssetDetailsSegmentProfile } from "@lightdotso/app/components/AssetDetailsSegmentProfile";
 import type { PlaceholderProfileProps } from "@lightdotso/app/components/PlaceholderProfile";
-import { DEAD_ADDRESS } from "@lightdotso/app/dummy";
 
 export type AssetDetailsNFTProps = PlaceholderProfileProps & {
   asset: OpenseaAsset;
@@ -34,7 +33,7 @@ export const AssetDetailsNFT: FC<AssetDetailsNFTProps> = ({
       />
       <AssetDetailsSegmentMeta
         address={ownerAddress}
-        contractAddress={contractAddress ?? creator?.address ?? DEAD_ADDRESS}
+        contractAddress={contractAddress ?? creator?.address}
         tokenId={tokenId}
       />
       {permalink && (

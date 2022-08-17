@@ -13,11 +13,7 @@ import { useGalaxyCampaign } from "@lightdotso/app/hooks/useGalaxyCampaign";
 export type AssetOATProps = Partial<Omit<BaseOATProps, "oat">> &
   AssetDetailsOATProps;
 
-export const AssetOAT: FC<AssetOATProps> = ({
-  oat: initialToken,
-  address,
-  oatId,
-}) => {
+export const AssetOAT: FC<AssetOATProps> = ({ oat: initialToken, oatId }) => {
   const { campaign, isLoading } = useGalaxyCampaign(oatId, initialToken);
   return (
     <AssetGrid
@@ -28,9 +24,7 @@ export const AssetOAT: FC<AssetOATProps> = ({
         </>
       }
     >
-      {campaign && (
-        <AssetDetailsOAT address={address} oatId={oatId} oat={campaign} />
-      )}
+      {campaign && <AssetDetailsOAT oatId={oatId} oat={campaign} />}
       {isLoading && <AssetDetailsOATLoading />}
     </AssetGrid>
   );

@@ -1,9 +1,10 @@
 import { Footer } from "@lightdotso/core";
 
 import type {
-  GetServerSidePropsContext,
-  GetServerSideProps,
-  InferGetServerSidePropsType,
+  GetStaticPaths,
+  GetStaticPropsContext,
+  GetStaticProps,
+  InferGetStaticPropsType,
 } from "next";
 
 import { Header } from "@lightdotso/changelog/components/Header";
@@ -27,9 +28,16 @@ const parseStringArray = (stringArray: string | string[]) => {
   return Array.isArray(stringArray) ? stringArray[0] : stringArray;
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    fallback: true,
+    paths: [],
+  };
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({
   params: { id },
-}: GetServerSidePropsContext) => {
+}: GetStaticPropsContext) => {
   const parsedId = parseStringArray(id);
 
   const result = await queryDatabase(NOTION_CHANGELOG_ID, {
@@ -107,7 +115,7 @@ export const IdPage = ({
   blocks,
   number,
   title,
-}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
+}: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   return (
     <>
       <Header />

@@ -19,6 +19,17 @@ export const useEnsAvatar = (ens?: string) => {
   const { data: avatar, mutate } = useSWR(
     ens ? [SwrKeys.ENS_AVATAR, ens] : null,
     fetchEns,
+    {
+      onSuccess: () => {
+        if (isLoading) {
+          setTimeout(() => {
+            return mutate();
+          }, 300);
+        } else {
+          return mutate(data, false);
+        }
+      },
+    },
   );
 
   return {

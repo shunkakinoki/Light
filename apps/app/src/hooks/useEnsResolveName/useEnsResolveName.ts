@@ -20,6 +20,17 @@ export const useEnsResolveName = (name: string) => {
   const { data: address, mutate } = useSWR(
     name ? [SwrKeys.ENS_RESOLVER, name] : null,
     fetchEnsResolveName,
+    {
+      onSuccess: () => {
+        if (isLoading) {
+          setTimeout(() => {
+            return mutate();
+          }, 300);
+        } else {
+          return mutate(data, false);
+        }
+      },
+    },
   );
 
   return {

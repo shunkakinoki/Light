@@ -109,6 +109,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({
     return block;
   });
 
+  if (!page || !blocks || !number || !title) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       page: JSON.stringify(page),
@@ -116,6 +122,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
       number: JSON.stringify(number),
       title: JSON.stringify(title),
     },
+    revalidate: 300,
   };
 };
 

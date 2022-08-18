@@ -1,13 +1,13 @@
 import { atom } from "recoil";
 
-export interface ModalAsset {
+export interface DrawerAsset {
   src: string;
   open: boolean;
   show: boolean;
 }
 
-export const modalAssetAtom = atom<ModalAsset>({
-  key: "modalAsset",
+export const drawerAssetAtom = atom<DrawerAsset>({
+  key: "drawerAsset",
   default: {
     src: "",
     open: false,

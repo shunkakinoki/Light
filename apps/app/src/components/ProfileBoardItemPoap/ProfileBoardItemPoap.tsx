@@ -7,7 +7,7 @@ import type { BasePoapProps } from "@lightdotso/app/components/BasePoap";
 import { BasePoap } from "@lightdotso/app/components/BasePoap";
 import type { ProfileBoardItemProps } from "@lightdotso/app/components/ProfileBoardItem";
 import { ProfileBoardItem } from "@lightdotso/app/components/ProfileBoardItem";
-import { useModalAsset } from "@lightdotso/app/hooks/useModalAsset";
+import { useDrawerAsset } from "@lightdotso/app/hooks/useDrawerAsset";
 
 export type ProfileBoardItemPoapProps = ProfileBoardItemProps &
   BasePoapProps & { tokenId: string };
@@ -17,7 +17,7 @@ export const ProfileBoardItemPoap: FC<ProfileBoardItemPoapProps> = ({
   event,
   tokenId,
 }) => {
-  const { setModalAssetState } = useModalAsset();
+  const { setDrawerAssetState } = useDrawerAsset();
 
   return (
     <ProfileBoardItem
@@ -25,7 +25,7 @@ export const ProfileBoardItemPoap: FC<ProfileBoardItemPoapProps> = ({
     >
       <button
         onClick={() => {
-          setModalAssetState({
+          setDrawerAssetState({
             src: `/asset/poap/${tokenId}`,
             open: true,
             show: false,

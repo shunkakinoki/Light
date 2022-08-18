@@ -7,7 +7,7 @@ import type { BaseOATProps } from "@lightdotso/app/components/BaseOAT";
 import { BaseOAT } from "@lightdotso/app/components/BaseOAT";
 import type { ProfileBoardItemProps } from "@lightdotso/app/components/ProfileBoardItem";
 import { ProfileBoardItem } from "@lightdotso/app/components/ProfileBoardItem";
-import { useModalAsset } from "@lightdotso/app/hooks/useModalAsset";
+import { useDrawerAsset } from "@lightdotso/app/hooks/useDrawerAsset";
 
 export type ProfileBoardItemOATProps = ProfileBoardItemProps &
   BaseOATProps & { oatId: string };
@@ -17,7 +17,7 @@ export const ProfileBoardItemOAT: FC<ProfileBoardItemOATProps> = ({
   oat,
   oatId,
 }) => {
-  const { setModalAssetState } = useModalAsset();
+  const { setDrawerAssetState } = useDrawerAsset();
 
   return (
     <ProfileBoardItem
@@ -25,7 +25,7 @@ export const ProfileBoardItemOAT: FC<ProfileBoardItemOATProps> = ({
     >
       <button
         onClick={() => {
-          setModalAssetState({
+          setDrawerAssetState({
             src: `/asset/oat/${oatId}`,
             open: true,
             show: false,

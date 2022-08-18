@@ -25,9 +25,9 @@ export type ProfileProps = ProfileHeroTabsProps &
   ProfileBoardSectionOATProps &
   ProfileBoardSectionPoapProps;
 
-const ModalAsset = dynamic(() => {
-  return import("@lightdotso/app/components/ModalAsset").then(mod => {
-    return mod.ModalAsset;
+const DrawerAsset = dynamic(() => {
+  return import("@lightdotso/app/components/DrawerAsset").then(mod => {
+    return mod.DrawerAsset;
   });
 });
 
@@ -71,7 +71,7 @@ export const Profile: FC<ProfileProps> = ({ active, follow, address }) => {
         {follow === "following" && <FollowListFollowing address={address} />}
         {follow === "followers" && <FollowListFollowers address={address} />}
       </div>
-      <ModalAsset />
+      <DrawerAsset />
       <ModalNetwork />
       <ModalShare />
       <ModalTwitterVerify />

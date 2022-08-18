@@ -1,1 +1,0 @@
-export { ModalAsset } from "./ModalAsset";

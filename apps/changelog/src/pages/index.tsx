@@ -21,7 +21,7 @@ const Changelog = dynamic(
 );
 
 export type Props = {
-  posts: any;
+  posts: string;
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
@@ -75,7 +75,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
   return {
     props: {
-      posts: posts,
+      posts: JSON.stringify(posts),
     },
   };
 };
@@ -86,7 +86,7 @@ export const SlugPage = ({
   return (
     <>
       <Header />
-      <Changelog posts={posts} />
+      <Changelog posts={JSON.parse(posts)} />
       <Footer />
     </>
   );

@@ -27,9 +27,9 @@ const Notion = dynamic(
 );
 
 export type Props = {
-  page: any;
-  blocks: any;
-  number: number;
+  page: string;
+  blocks: string;
+  number: string;
   title: string;
 };
 
@@ -111,10 +111,10 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 
   return {
     props: {
-      page: page,
-      blocks: blocksWithChildren,
-      number: number,
-      title: title,
+      page: JSON.stringify(page),
+      blocks: JSON.stringify(blocksWithChildren),
+      number: JSON.stringify(number),
+      title: JSON.stringify(title),
     },
   };
 };
@@ -128,7 +128,12 @@ export const IdPage = ({
   return (
     <>
       <Header />
-      <Notion blocks={blocks} page={page} number={number} title={title} />
+      <Notion
+        blocks={JSON.parse(blocks)}
+        page={JSON.parse(page)}
+        number={JSON.parse(number)}
+        title={JSON.parse(title)}
+      />
       <Footer />
     </>
   );

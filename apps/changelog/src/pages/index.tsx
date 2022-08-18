@@ -10,10 +10,15 @@ import {
   getPropertyValue,
 } from "@lightdotso/changelog/libs/services/notion";
 
-const Changelog = dynamic(async () => {
-  const mod = await import("@lightdotso/changelog/components/Changelog");
-  return mod.Changelog;
-});
+const Changelog = dynamic(
+  async () => {
+    const mod = await import("@lightdotso/changelog/components/Changelog");
+    return mod.Changelog;
+  },
+  {
+    ssr: false,
+  },
+);
 
 export type Props = {
   posts: any;

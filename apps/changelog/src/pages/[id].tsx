@@ -1,14 +1,13 @@
 import { Footer } from "@lightdotso/core";
-
 import type {
   GetStaticPaths,
   GetStaticPropsContext,
   GetStaticProps,
   InferGetStaticPropsType,
 } from "next";
+import dynamic from "next/dynamic";
 
 import { Header } from "@lightdotso/changelog/components/Header";
-import { Notion } from "@lightdotso/changelog/components/Notion";
 import { NOTION_CHANGELOG_ID } from "@lightdotso/changelog/config/Notion";
 import {
   getPage,
@@ -16,6 +15,16 @@ import {
   getPropertyValue,
   queryDatabase,
 } from "@lightdotso/changelog/libs/services/notion";
+
+const Notion = dynamic(
+  async () => {
+    const mod = await import("@lightdotso/changelog/components/Notion");
+    return mod.Notion;
+  },
+  {
+    ssr: false,
+  },
+);
 
 export type Props = {
   page: any;

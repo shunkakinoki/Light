@@ -109,7 +109,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
     return block;
   });
 
-  if (!page || !blocks || !number || !title) {
+  if (page === null || blocks === null || number === null || title === null) {
     return {
       notFound: true,
     };

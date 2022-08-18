@@ -1,8 +1,8 @@
 import { Footer } from "@lightdotso/core";
 
 import type { InferGetStaticPropsType, GetStaticProps } from "next";
-import dynamic from "next/dynamic";
 
+import { Changelog } from "@lightdotso/changelog/components/Changelog/Changelog";
 import { Header } from "@lightdotso/changelog/components/Header";
 import { NOTION_CHANGELOG_ID } from "@lightdotso/changelog/config/Notion";
 import {
@@ -10,18 +10,8 @@ import {
   getPropertyValue,
 } from "@lightdotso/changelog/libs/services/notion";
 
-const Changelog = dynamic(
-  async () => {
-    const mod = await import("@lightdotso/changelog/components/Changelog");
-    return mod.Changelog;
-  },
-  {
-    ssr: false,
-  },
-);
-
 export type Props = {
-  posts: string;
+  posts: any;
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
@@ -73,9 +63,15 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     page.number = number;
   }
 
+  if (posts === null) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
-      posts: JSON.stringify(posts),
+      posts: posts,
     },
     revalidate: 300,
   };
@@ -87,7 +83,7 @@ export const SlugPage = ({
   return (
     <>
       <Header />
-      <Changelog posts={JSON.parse(posts)} />
+      <Changelog posts={posts} />
       <Footer />
     </>
   );

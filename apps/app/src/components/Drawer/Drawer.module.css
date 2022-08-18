@@ -1,0 +1,6 @@
+.root {
+  @apply fixed inset-0 z-10 flex items-center justify-center overflow-y-auto;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}

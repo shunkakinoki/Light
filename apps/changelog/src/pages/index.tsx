@@ -61,6 +61,21 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     const number = numberPropertyItem.number;
     //@ts-expect-error
     page.number = number;
+
+    //@ts-expect-error
+    const digestPropertyId = page.properties["Digest"].id;
+    const digestPropertyItem = await getPropertyValue({
+      pageId,
+      propertyId: digestPropertyId,
+    });
+    const digest = digestPropertyItem
+      //@ts-expect-error
+      .map(propertyItem => {
+        return propertyItem.rich_text.plain_text;
+      })
+      .join("");
+    //@ts-expect-error
+    page.digest = digest;
   }
 
   if (posts === null) {

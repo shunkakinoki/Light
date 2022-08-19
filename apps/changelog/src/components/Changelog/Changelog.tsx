@@ -1,5 +1,4 @@
 import { SocialLinks } from "@lightdotso/const";
-import Link from "next/link";
 
 import { NotionImage } from "@lightdotso/changelog/components/NotionImage";
 import { leftNumberPad } from "@lightdotso/changelog/utils/leftNumberPad";
@@ -33,30 +32,30 @@ export const Changelog = ({ posts }) => {
             year: "numeric",
           });
           return (
-            <Link
+            <a
               key={post.id}
-              passHref
-              href={`/${leftNumberPad(post.number)}`}
+              href={`https://mirror.xyz/lightdotso.eth/${post.digest}`}
+              className="group"
+              target="_blank"
+              rel="noreferrer"
             >
-              <a className="group">
-                <div className="aspect-w-16 aspect-h-9 duration-1000 hover:opacity-80">
-                  <NotionImage src={post.cover.external.url} alt={post.id} />
-                </div>
-                <div className="mt-6 w-full items-start justify-between">
-                  <div className="flex w-full justify-between">
-                    <h3 className="text-base font-bold text-contrast-medium group-hover:text-contrast-low sm:text-lg">
-                      Changelog #{leftNumberPad(post.number)}
-                    </h3>
-                    <h3 className="text-base text-contrast-medium group-hover:text-contrast-low sm:text-lg">
-                      {date}
-                    </h3>
-                  </div>
-                  <h3 className="mt-3 text-xl font-bold text-contrast-higher group-hover:text-contrast-high sm:text-3xl">
-                    {post.name}
+              <div className="aspect-w-16 aspect-h-9 duration-1000 hover:opacity-80">
+                <NotionImage src={post.cover.external.url} alt={post.id} />
+              </div>
+              <div className="mt-6 w-full items-start justify-between">
+                <div className="flex w-full justify-between">
+                  <h3 className="text-base font-bold text-contrast-medium group-hover:text-contrast-low sm:text-lg">
+                    Changelog #{leftNumberPad(post.number)}
+                  </h3>
+                  <h3 className="text-base text-contrast-medium group-hover:text-contrast-low sm:text-lg">
+                    {date}
                   </h3>
                 </div>
-              </a>
-            </Link>
+                <h3 className="mt-3 text-xl font-bold text-contrast-higher group-hover:text-contrast-high sm:text-3xl">
+                  {post.name}
+                </h3>
+              </div>
+            </a>
           );
         })}
       </div>

@@ -1,7 +1,9 @@
 import { atom } from "recoil";
 
 export interface DrawerAsset {
-  src: string;
+  address?: string;
+  id?: string;
+  type?: "NFT" | "POAP" | "OAT";
   open: boolean;
   show: boolean;
 }
@@ -9,7 +11,9 @@ export interface DrawerAsset {
 export const drawerAssetAtom = atom<DrawerAsset>({
   key: "drawerAsset",
   default: {
-    src: "",
+    address: null,
+    id: null,
+    type: null,
     open: false,
     show: false,
   },

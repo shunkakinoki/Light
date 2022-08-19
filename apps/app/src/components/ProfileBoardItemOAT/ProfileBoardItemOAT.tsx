@@ -26,7 +26,8 @@ export const ProfileBoardItemOAT: FC<ProfileBoardItemOATProps> = ({
       <button
         onClick={() => {
           setDrawerAssetState({
-            src: `/asset/oat/${oatId}`,
+            id: oatId,
+            type: "OAT",
             open: true,
             show: false,
           });

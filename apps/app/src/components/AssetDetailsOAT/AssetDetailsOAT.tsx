@@ -8,21 +8,16 @@ export type AssetDetailsOATProps = {
   oatId: string;
 };
 
-export const AssetDetailsOAT: FC<AssetDetailsOATProps> = ({
-  oat: {
-    data: {
-      campaign: { name },
-    },
-  },
-  oatId,
-}) => {
+export const AssetDetailsOAT: FC<AssetDetailsOATProps> = ({ oat, oatId }) => {
   return (
     <div className="px-3 pt-8">
-      <AssetDetailsSegmentHero
-        name={name}
-        collectionName={oatId}
-        description={oatId}
-      />
+      {oat?.data?.campaign?.name && (
+        <AssetDetailsSegmentHero
+          name={oat?.data?.campaign?.name}
+          collectionName={oatId}
+          description={oatId}
+        />
+      )}
     </div>
   );
 };

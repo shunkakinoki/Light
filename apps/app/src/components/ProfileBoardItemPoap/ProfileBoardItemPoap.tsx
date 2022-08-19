@@ -26,7 +26,8 @@ export const ProfileBoardItemPoap: FC<ProfileBoardItemPoapProps> = ({
       <button
         onClick={() => {
           setDrawerAssetState({
-            src: `/asset/poap/${tokenId}`,
+            id: tokenId,
+            type: "POAP",
             open: true,
             show: false,
           });

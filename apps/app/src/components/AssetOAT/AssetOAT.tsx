@@ -20,7 +20,9 @@ export const AssetOAT: FC<AssetOATProps> = ({ oat: initialToken, oatId }) => {
       base={
         <>
           {isLoading && <BaseLoading />}
-          {campaign && <BaseOAT oat={campaign.data.campaign} />}
+          {campaign?.data?.campaign && (
+            <BaseOAT oat={campaign?.data?.campaign} />
+          )}
         </>
       }
     >

@@ -29,7 +29,9 @@ export const ProfileBoardItemNFT: FC<ProfileBoardItemNFTProps> = ({
       <button
         onClick={() => {
           setDrawerAssetState({
-            src: `/asset/nft/${address}/${token_id}`,
+            address: address,
+            id: token_id,
+            type: "NFT",
             open: true,
             show: false,
           });

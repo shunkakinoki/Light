@@ -28,7 +28,7 @@ export const ProfileHeroCount: FC<ProfileHeroCountProps> = ({
   }, [address, ens, walletAddress]);
 
   return (
-    <div className="flex justify-center sm:mx-auto md:justify-start">
+    <div className="flex justify-start">
       <Link passHref href={`/${slug}/following`}>
         <a className="group flex items-center border-0 border-r border-contrast-low pr-2">
           {isLoading && <LoadingText />}

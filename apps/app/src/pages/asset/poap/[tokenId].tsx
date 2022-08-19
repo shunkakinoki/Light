@@ -1,6 +1,6 @@
 /* eslint-disable no-empty */
 
-import { fetchPoapToken } from "@lightdotso/services";
+import { safeFetchPoapToken } from "@lightdotso/services";
 import { poapTokenQuerySchema, poapTokenSchema } from "@lightdotso/types";
 import type { PoapToken } from "@lightdotso/types";
 import type {
@@ -43,15 +43,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({
       tokenId: parsedTokenId,
     });
 
-    try {
-      const tokenResult = await fetchPoapToken(tokenId);
-      token = validateSchema(poapTokenSchema, tokenResult);
-    } catch (e) {}
+    const tokenResult = await safeFetchPoapToken(tokenId);
 
     return {
       props: {
         token: token ?? null,
-        tokenId: parsedTokenId,
+        tokenId: tokenResult.unwrapOr(null),
       },
       revalidate: 300,
     };

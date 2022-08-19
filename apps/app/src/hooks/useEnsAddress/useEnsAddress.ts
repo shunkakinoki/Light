@@ -1,25 +1,25 @@
 import useSWR from "swr";
-import { useEnsResolver as useEnsResolverWagmi } from "wagmi";
+import { useEnsAddress as useWagmiEnsAddress } from "wagmi";
 
 import { SwrKeys } from "@lightdotso/app/config/SwrKeys";
 
-export const useEnsResolveName = (name: string) => {
-  const { data, isError, isLoading } = useEnsResolverWagmi({
+export const useEnsAddress = (name?: string, initialEns?: string) => {
+  const { data, isError, isLoading } = useWagmiEnsAddress({
     name: name,
     chainId: 1,
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const fetchEnsResolveName = async (_key, name) => {
+  const fetchEns = (key, address) => {
     if (isLoading || !data) {
       return null;
     }
-    return data.address;
+    return data;
   };
 
   const { data: address, mutate } = useSWR(
-    name ? [SwrKeys.ENS_RESOLVER, name] : null,
-    fetchEnsResolveName,
+    name ? [SwrKeys.ENS_ADDRESS, name] : null,
+    fetchEns,
     {
       onSuccess: () => {
         if (isLoading) {
@@ -30,13 +30,14 @@ export const useEnsResolveName = (name: string) => {
           return mutate(data, false);
         }
       },
+      fallbackData: initialEns,
     },
   );
 
   return {
+    address: address,
     isLoading: isLoading,
     isError: isError,
-    address: address,
     mutate: mutate,
   };
 };

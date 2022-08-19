@@ -1,1 +1,0 @@
-export { useEnsResolveName } from "./useEnsResolveName";

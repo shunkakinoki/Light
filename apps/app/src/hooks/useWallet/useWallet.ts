@@ -25,7 +25,6 @@ export const useWallet = () => {
       return;
     }
     setIsFirst(true);
-    // mutateSession(null);
     eraseCookie("__Host-next-auth.csrf-token");
     eraseCookie("next-auth.csrf-token");
   }, [disconnect, mutateSession, setIsFirst]);

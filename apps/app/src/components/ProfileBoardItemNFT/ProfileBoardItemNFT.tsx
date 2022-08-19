@@ -32,6 +32,7 @@ export const ProfileBoardItemNFT: FC<ProfileBoardItemNFTProps> = ({
             address: address,
             id: token_id,
             type: "NFT",
+            url: `/asset/nft/${address}/${token_id}`,
             open: true,
             show: false,
           });

@@ -28,6 +28,7 @@ export const ProfileBoardItemPoap: FC<ProfileBoardItemPoapProps> = ({
           setDrawerAssetState({
             id: tokenId,
             type: "POAP",
+            url: `/asset/poap/${tokenId}`,
             open: true,
             show: false,
           });

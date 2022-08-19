@@ -28,6 +28,7 @@ export const ProfileBoardItemOAT: FC<ProfileBoardItemOATProps> = ({
           setDrawerAssetState({
             id: oatId,
             type: "OAT",
+            url: `/asset/oat/${oatId}`,
             open: true,
             show: false,
           });

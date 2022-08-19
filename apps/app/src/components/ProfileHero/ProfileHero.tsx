@@ -78,7 +78,7 @@ export const ProfileHero: FC<ProfileHeroProps> = ({ active, address }) => {
   useEffect(() => {
     if (router.pathname === "/[slug]" && ens && !hasEnsInitial) {
       if (ens) {
-        router.replace(`/${ens}`);
+        router.push(`/${ens}`, undefined, { shallow: true });
         setHasEnsInitial(true);
       }
     }

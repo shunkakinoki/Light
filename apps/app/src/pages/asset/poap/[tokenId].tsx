@@ -14,7 +14,6 @@ import { AssetFooter } from "@lightdotso/app/components/AssetFooter";
 import { AssetHeader } from "@lightdotso/app/components/AssetHeader";
 import { AssetPoap } from "@lightdotso/app/components/AssetPoap";
 import { validateQuery } from "@lightdotso/app/libs/api/validateQuery";
-import { validateSchema } from "@lightdotso/app/libs/api/validateSchema";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -36,19 +35,24 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   params: { tokenId },
 }: GetStaticPropsContext) => {
   const parsedTokenId = parseStringArray(tokenId);
-  let token: PoapToken;
-
   try {
     const { tokenId } = validateQuery(poapTokenQuerySchema, {
       tokenId: parsedTokenId,
     });
 
-    const tokenResult = await safeFetchPoapToken(tokenId);
+    const tokenResult = await safeFetchPoapToken(
+      tokenId,
+      poapTokenSchema.safeParse,
+    );
+
+    if (tokenResult.isErr()) {
+      console.error(tokenResult.error);
+    }
 
     return {
       props: {
-        token: token ?? null,
-        tokenId: tokenResult.unwrapOr(null),
+        token: tokenResult.unwrapOr(null),
+        tokenId: tokenId,
       },
       revalidate: 300,
     };

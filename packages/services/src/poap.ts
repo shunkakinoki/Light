@@ -10,7 +10,8 @@ import type {
 import { request } from "graphql-request";
 
 import { fetcher } from "./fetcher";
-import { fromPromiseWithError } from "./result";
+import type { Validator } from "./result";
+import { fromPromise, validate } from "./result";
 
 export const poapHeaders = process.env.POAP_API_KEY
   ? new Headers({
@@ -25,8 +26,15 @@ export const fetchPoapToken = (tokenId: string) => {
   });
 };
 
-export const safeFetchPoapToken = async (tokenId: string) => {
-  return fromPromiseWithError<PoapToken>(fetchPoapToken(tokenId));
+export const safeFetchPoapToken = async (
+  tokenId: string,
+  validator?: Validator<PoapToken>,
+) => {
+  const result = fromPromise<PoapToken>(fetchPoapToken(tokenId));
+  if (validator) {
+    return validate(validator)(result);
+  }
+  return result;
 };
 
 export const fetchPoapActions = (address: string) => {
@@ -36,8 +44,15 @@ export const fetchPoapActions = (address: string) => {
   });
 };
 
-export const safeFetchPoapActions = async (address: string) => {
-  return fromPromiseWithError<PoapActions>(fetchPoapActions(address));
+export const safeFetchPoapActions = async (
+  address: string,
+  validator?: Validator<PoapActions>,
+) => {
+  const result = fromPromise<PoapActions>(fetchPoapActions(address));
+  if (validator) {
+    return validate(validator)(result);
+  }
+  return result;
 };
 
 export const fetchPoapEvent = (eventId: string) => {
@@ -47,8 +62,15 @@ export const fetchPoapEvent = (eventId: string) => {
   });
 };
 
-export const safeFetchPoapEvent = async (eventId: string) => {
-  return fromPromiseWithError<PoapEvent>(fetchPoapEvent(eventId));
+export const safeFetchPoapEvent = async (
+  eventId: string,
+  validator?: Validator<PoapEvent>,
+) => {
+  const result = fromPromise<PoapEvent>(fetchPoapEvent(eventId));
+  if (validator) {
+    return validate(validator)(result);
+  }
+  return result;
 };
 
 export const fetchPoapEventTokens = (
@@ -71,10 +93,15 @@ export const safeFetchPoapEventTokens = async (
   eventId: string,
   offset: number,
   limit?: number,
+  validator?: Validator<PoapEventTokens>,
 ) => {
-  return fromPromiseWithError<PoapEventTokens>(
+  const result = fromPromise<PoapEventTokens>(
     fetchPoapEventTokens(eventId, offset, limit),
   );
+  if (validator) {
+    return validate(validator)(result);
+  }
+  return result;
 };
 
 export const fetchPoapGraph = (address: string) => {
@@ -83,6 +110,13 @@ export const fetchPoapGraph = (address: string) => {
   });
 };
 
-export const safeFetchPoapGraph = async (address: string) => {
-  return fromPromiseWithError<PoapGraph>(fetchPoapGraph(address));
+export const safeFetchPoapGraph = async (
+  address: string,
+  validator?: Validator<PoapGraph>,
+) => {
+  const result = fromPromise<PoapGraph>(fetchPoapGraph(address));
+  if (validator) {
+    return validate(validator)(result);
+  }
+  return result;
 };

@@ -20,10 +20,7 @@ export const AssetDetailsSegmentProfile: FC<
     <div className="flex items-center">
       <PlaceholderProfile address={address} />
       <Link href={`/${ens ?? address}`}>
-        <a
-          target="_parent"
-          className="group ml-4 text-xl font-bold text-contrast-higher hover:underline"
-        >
+        <a className="group ml-4 text-xl font-bold text-contrast-higher hover:underline">
           {ens ?? splitAddress(address)}
         </a>
       </Link>

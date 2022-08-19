@@ -29,6 +29,7 @@ export const FollowButton: FC<FollowButtonProps> = ({
   const plausible = usePlausible<PlausibleEvents>();
   const { openModalWallet } = useModalWallet();
   const [isLoading, setIsLoading] = useState<boolean>();
+  const [isOwnFollow, setIsOwnFollow] = useState<boolean>(false);
   const { address: walletAddress } = useWallet();
   const {
     isFollowing,
@@ -103,7 +104,13 @@ export const FollowButton: FC<FollowButtonProps> = ({
     setIsLoading(isCyberConnectLoading);
   }, [isCyberConnectLoading]);
 
-  if (address === walletAddress) {
+  useEffect(() => {
+    if (address == walletAddress) {
+      setIsOwnFollow(true);
+    }
+  }, [address, walletAddress]);
+
+  if (isOwnFollow) {
     return null;
   }
 

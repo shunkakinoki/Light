@@ -46,7 +46,7 @@ export const DrawerAsset = () => {
         {drawerAssetState?.type === "POAP" && (
           <AssetPoap tokenId={drawerAssetState?.id} />
         )}
-        {drawerAssetState?.type === "NFT" && (
+        {drawerAssetState?.type === "OAT" && (
           <AssetOAT oatId={drawerAssetState?.id} />
         )}
       </div>

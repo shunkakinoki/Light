@@ -408,7 +408,6 @@ importers:
       next: ^12.2.5
       next-compose-plugins: ^2.2.1
       next-plausible: ^3.2.0
-      next-seo: ^5.5.0
       next-themes: ^0.2.0
       next-transpile-modules: ^9.0.0
       nyc: ^15.1.0
@@ -428,7 +427,6 @@ importers:
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
       next-compose-plugins: 2.2.1
       next-plausible: 3.2.0_3xcjr4wz26biff45sz3jtokgje
-      next-seo: 5.5.0_3xcjr4wz26biff45sz3jtokgje
       next-themes: 0.2.0_3xcjr4wz26biff45sz3jtokgje
       next-transpile-modules: 9.0.0
       react: 18.2.0

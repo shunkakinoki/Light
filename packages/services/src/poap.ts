@@ -3,7 +3,6 @@ import { POAP_GRAPH_QUERY } from "@lightdotso/queries";
 import type {
   PoapActions,
   PoapEvent,
-  PoapToken,
   PoapGraph,
   PoapEventTokens,
 } from "@lightdotso/types";
@@ -26,7 +25,7 @@ export const fetchPoapToken = (tokenId: string) => {
   });
 };
 
-export const safeFetchPoapToken = (tokenId: string) => {
+export const safeFetchPoapToken = <PoapToken>(tokenId: string) => {
   return (validator?: Validator<PoapToken>) => {
     return safeParse(fetchPoapToken)(tokenId)(validator);
   };

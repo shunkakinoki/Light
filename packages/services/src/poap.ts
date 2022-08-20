@@ -39,15 +39,10 @@ export const fetchPoapActions = (address: string) => {
   });
 };
 
-export const safeFetchPoapActions = async (
-  address: string,
-  validator?: Validator<PoapActions>,
-) => {
-  const result = fromPromise<PoapActions>(fetchPoapActions(address));
-  if (validator) {
-    return zodValidate(validator)(result);
-  }
-  return result;
+export const safeFetchPoapActions = (address: string) => {
+  return (validator?: Validator<PoapActions>) => {
+    return safeParse<PoapActions>(fetchPoapActions)(address)(validator);
+  };
 };
 
 export const fetchPoapEvent = (eventId: string) => {
@@ -57,15 +52,10 @@ export const fetchPoapEvent = (eventId: string) => {
   });
 };
 
-export const safeFetchPoapEvent = async (
-  eventId: string,
-  validator?: Validator<PoapEvent>,
-) => {
-  const result = fromPromise<PoapEvent>(fetchPoapEvent(eventId));
-  if (validator) {
-    return zodValidate(validator)(result);
-  }
-  return result;
+export const safeFetchPoapEvent = (eventId: string) => {
+  return (validator?: Validator<PoapEvent>) => {
+    return safeParse<PoapEvent>(fetchPoapEvent)(eventId)(validator);
+  };
 };
 
 export const fetchPoapEventTokens = (
@@ -84,19 +74,18 @@ export const fetchPoapEventTokens = (
   );
 };
 
-export const safeFetchPoapEventTokens = async (
+export const safeFetchPoapEventTokens = (
   eventId: string,
   offset: number,
   limit?: number,
-  validator?: Validator<PoapEventTokens>,
 ) => {
-  const result = fromPromise<PoapEventTokens>(
-    fetchPoapEventTokens(eventId, offset, limit),
-  );
-  if (validator) {
-    return zodValidate(validator)(result);
-  }
-  return result;
+  return (validator?: Validator<PoapEventTokens>) => {
+    return safeParse<PoapEventTokens>(fetchPoapEventTokens)(
+      eventId,
+      offset,
+      limit,
+    )(validator);
+  };
 };
 
 export const fetchPoapGraph = (address: string) => {
@@ -105,13 +94,8 @@ export const fetchPoapGraph = (address: string) => {
   });
 };
 
-export const safeFetchPoapGraph = async (
-  address: string,
-  validator?: Validator<PoapGraph>,
-) => {
-  const result = fromPromise<PoapGraph>(fetchPoapGraph(address));
-  if (validator) {
-    return zodValidate(validator)(result);
-  }
-  return result;
+export const safeFetchPoapGraph = (address: string) => {
+  return (validator?: Validator<PoapGraph>) => {
+    return safeParse<PoapGraph>(fetchPoapEventTokens)(address)(validator);
+  };
 };

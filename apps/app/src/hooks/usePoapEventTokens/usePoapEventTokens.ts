@@ -33,7 +33,6 @@ export const usePoapEventTokens = (eventId?: string, limit?: number) => {
         obj?.offset,
         obj?.limit,
       );
-      //@ts-expect-error
       if (result.error) {
         const backupResult = await fetcher(url);
         return backupResult;
@@ -46,7 +45,6 @@ export const usePoapEventTokens = (eventId?: string, limit?: number) => {
       obj?.offset,
       obj?.limit,
     );
-    //@ts-expect-error
     if (result.error) {
       const backupResult = await fetcher(url);
       return backupResult;

@@ -70,6 +70,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 
     const assetsResult = await safeFetchOpenseaAssets(
       address,
+      undefined,
       openseaAssetsSchema.safeParse,
     );
 

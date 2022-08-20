@@ -40,8 +40,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
       tokenId: parsedTokenId,
     });
 
-    const tokenResult = await safeFetchPoapToken(
-      tokenId,
+    const tokenResult = await safeFetchPoapToken(tokenId)(
       poapTokenSchema.safeParse,
     );
 

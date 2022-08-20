@@ -11,7 +11,7 @@ import { request } from "graphql-request";
 
 import { fetcher } from "./fetcher";
 import type { Validator } from "./result";
-import { fromPromise, zodValidate } from "./result";
+import { fromPromise, zodValidate, safeParse } from "./result";
 
 export const poapHeaders = process.env.POAP_API_KEY
   ? new Headers({
@@ -26,15 +26,10 @@ export const fetchPoapToken = (tokenId: string) => {
   });
 };
 
-export const safeFetchPoapToken = async (
-  tokenId: string,
-  validator?: Validator<PoapToken>,
-) => {
-  const result = fromPromise<PoapToken>(fetchPoapToken(tokenId));
-  if (validator) {
-    return zodValidate(validator)(result);
-  }
-  return result;
+export const safeFetchPoapToken = (tokenId: string) => {
+  return (validator?: Validator<PoapToken>) => {
+    return safeParse(fetchPoapToken)(tokenId)(validator);
+  };
 };
 
 export const fetchPoapActions = (address: string) => {

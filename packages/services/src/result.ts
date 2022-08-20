@@ -17,3 +17,15 @@ export const zodValidate = <T>(validator: Validator<T>) => {
     return result.success ? ok(result.data) : err(result.error);
   };
 };
+
+export const safeParse = <T>(fetcher: (...args: any[]) => Promise<T>) => {
+  return (...args: any[]) => {
+    return (validator?: Validator<T>) => {
+      const result = fromPromise<T>(fetcher(...args));
+      if (validator) {
+        return zodValidate(validator)(result);
+      }
+      return result;
+    };
+  };
+};

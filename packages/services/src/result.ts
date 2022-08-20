@@ -11,7 +11,7 @@ export const fromPromise = <T, E = Error>(
 
 export type Validator<T> = (data: unknown) => SafeParseReturnType<unknown, T>;
 
-export const validate = <T>(validator: Validator<T>) => {
+export const zodValidate = <T>(validator: Validator<T>) => {
   return async (data: ResultAsync<T, Error>) => {
     const result = validator(await data.unwrapOr(null));
     return result.success ? ok(result.data) : err(result.error);

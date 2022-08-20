@@ -3,11 +3,11 @@
 import { Footer } from "@lightdotso/core";
 import {
   fetchPoapActions,
-  fetchOpenseaAssets,
+  safeFetchOpenseaAssets,
   resolveEns,
 } from "@lightdotso/services";
 import type { PoapActions, OpenseaAssets } from "@lightdotso/types";
-import { poapActionsSchema } from "@lightdotso/types";
+import { poapActionsSchema, openseaAssetsSchema } from "@lightdotso/types";
 import { utils } from "ethers";
 import type {
   GetStaticProps,
@@ -47,7 +47,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 }: GetStaticPropsContext) => {
   let address: string;
   let ens: string;
-  let assets: OpenseaAssets;
   let poaps: PoapActions;
   const parsedSlug = parseStringArray(slug);
 
@@ -69,9 +68,10 @@ export const getStaticProps: GetStaticProps<Props> = async ({
       };
     }
 
-    try {
-      assets = await fetchOpenseaAssets(address);
-    } catch (e) {}
+    const assetsResult = await safeFetchOpenseaAssets(
+      address,
+      openseaAssetsSchema.safeParse,
+    );
 
     try {
       const poapResult = await fetchPoapActions(address);
@@ -84,7 +84,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
       props: {
         address: address,
         ens: ens ?? null,
-        assets: assets ?? null,
+        assets: assetsResult.unwrapOr(null),
         poaps: poaps ?? null,
       },
       revalidate: 300,

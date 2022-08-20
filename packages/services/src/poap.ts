@@ -11,7 +11,7 @@ import { request } from "graphql-request";
 
 import { fetcher } from "./fetcher";
 import type { Validator } from "./result";
-import { fromPromise, validate } from "./result";
+import { fromPromise, zodValidate } from "./result";
 
 export const poapHeaders = process.env.POAP_API_KEY
   ? new Headers({
@@ -32,7 +32,7 @@ export const safeFetchPoapToken = async (
 ) => {
   const result = fromPromise<PoapToken>(fetchPoapToken(tokenId));
   if (validator) {
-    return validate(validator)(result);
+    return zodValidate(validator)(result);
   }
   return result;
 };
@@ -50,7 +50,7 @@ export const safeFetchPoapActions = async (
 ) => {
   const result = fromPromise<PoapActions>(fetchPoapActions(address));
   if (validator) {
-    return validate(validator)(result);
+    return zodValidate(validator)(result);
   }
   return result;
 };
@@ -68,7 +68,7 @@ export const safeFetchPoapEvent = async (
 ) => {
   const result = fromPromise<PoapEvent>(fetchPoapEvent(eventId));
   if (validator) {
-    return validate(validator)(result);
+    return zodValidate(validator)(result);
   }
   return result;
 };
@@ -99,7 +99,7 @@ export const safeFetchPoapEventTokens = async (
     fetchPoapEventTokens(eventId, offset, limit),
   );
   if (validator) {
-    return validate(validator)(result);
+    return zodValidate(validator)(result);
   }
   return result;
 };
@@ -116,7 +116,7 @@ export const safeFetchPoapGraph = async (
 ) => {
   const result = fromPromise<PoapGraph>(fetchPoapGraph(address));
   if (validator) {
-    return validate(validator)(result);
+    return zodValidate(validator)(result);
   }
   return result;
 };

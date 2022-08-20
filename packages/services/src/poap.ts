@@ -11,7 +11,7 @@ import { request } from "graphql-request";
 
 import { fetcher } from "./fetcher";
 import type { Validator } from "./result";
-import { fromPromise, zodValidate, safeParse } from "./result";
+import { safeParse } from "./result";
 
 export const poapHeaders = process.env.POAP_API_KEY
   ? new Headers({

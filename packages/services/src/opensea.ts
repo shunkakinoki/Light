@@ -13,6 +13,7 @@ import { fromPromise, zodValidate } from "./result";
 const ASSET = "/asset";
 const ASSETS = "/assets?owner=";
 const EVENTS = "/events?account_address=";
+const LIMIT = "&limit=30";
 const CURSOR = "&cursor=";
 
 export const openseaHeaders = new Headers({
@@ -41,18 +42,29 @@ export const safeFetchOpenseaAsset = async (
   return result;
 };
 
-export const fetchOpenseaAssets = (address: string): Promise<OpenseaAssets> => {
-  return fetcher(`${ApiLinks.OPEN_SEA}${ASSETS}${address}`, {
-    method: "GET",
-    headers: openseaHeaders,
-  });
+export const fetchOpenseaAssets = (
+  address: string,
+  cursor?: string,
+): Promise<OpenseaAssets> => {
+  return fetcher(
+    `${ApiLinks.OPEN_SEA}${ASSETS}${address}${LIMIT}${
+      cursor ? `${CURSOR}${cursor}` : ""
+    }`,
+    {
+      method: "GET",
+      headers: openseaHeaders,
+    },
+  );
 };
 
 export const safeFetchOpenseaAssets = async (
   address: string,
+  cursor?: string,
   validator?: Validator<OpenseaAssets>,
 ) => {
-  const result = fromPromise<OpenseaAssets>(fetchOpenseaAssets(address));
+  const result = fromPromise<OpenseaAssets>(
+    fetchOpenseaAssets(address, cursor),
+  );
   if (validator) {
     return zodValidate(validator)(result);
   }

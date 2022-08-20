@@ -35,8 +35,7 @@ export const DrawerAsset = () => {
 
   return (
     <Drawer show={drawerAssetState?.open} onClose={closeDrawerAsset}>
-      <div className="max-h-[calc(100vh-150px)] w-full max-w-[calc(100vw-10px)]">
-        <div className="block w-[9999px]" />
+      <div className="max-h-[calc(100vh-150px)] w-full max-w-[calc(100vw-10px)] overflow-scroll">
         {drawerAssetState?.type === "NFT" && (
           <AssetNFT
             address={drawerAssetState?.address}

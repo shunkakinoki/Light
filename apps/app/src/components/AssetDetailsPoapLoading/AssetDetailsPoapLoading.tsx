@@ -4,8 +4,8 @@ import { AssetDetailsSegmentHeroLoading } from "@lightdotso/app/components/Asset
 
 export const AssetDetailsPoapLoading: FC = () => {
   return (
-    <div className="px-3 pt-8">
+    <>
       <AssetDetailsSegmentHeroLoading />
-    </div>
+    </>
   );
 };

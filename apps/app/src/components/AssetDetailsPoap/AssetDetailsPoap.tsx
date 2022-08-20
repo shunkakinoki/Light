@@ -16,7 +16,7 @@ export const AssetDetailsPoap: FC<AssetDetailsPoapProps> = ({
   tokenId,
 }) => {
   return (
-    <div className="px-3 pt-8">
+    <>
       <AssetDetailsSegmentHero
         name={name}
         collectionName={tokenId}
@@ -27,6 +27,6 @@ export const AssetDetailsPoap: FC<AssetDetailsPoapProps> = ({
           View other people
         </AssetDetailsInternalButton>
       </div>
-    </div>
+    </>
   );
 };

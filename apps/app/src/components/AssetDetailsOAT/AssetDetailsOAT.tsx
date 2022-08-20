@@ -10,7 +10,7 @@ export type AssetDetailsOATProps = {
 
 export const AssetDetailsOAT: FC<AssetDetailsOATProps> = ({ oat, oatId }) => {
   return (
-    <div className="px-3 pt-8">
+    <>
       {oat?.data?.campaign?.name && (
         <AssetDetailsSegmentHero
           name={oat?.data?.campaign?.name}
@@ -18,6 +18,6 @@ export const AssetDetailsOAT: FC<AssetDetailsOATProps> = ({ oat, oatId }) => {
           description={oatId}
         />
       )}
-    </div>
+    </>
   );
 };

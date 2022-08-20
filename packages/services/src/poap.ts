@@ -4,6 +4,7 @@ import type {
   PoapActions,
   PoapEvent,
   PoapGraph,
+  PoapToken,
   PoapEventTokens,
 } from "@lightdotso/types";
 import { request } from "graphql-request";
@@ -25,9 +26,9 @@ export const fetchPoapToken = (tokenId: string) => {
   });
 };
 
-export const safeFetchPoapToken = <PoapToken>(tokenId: string) => {
+export const safeFetchPoapToken = (tokenId: string) => {
   return (validator?: Validator<PoapToken>) => {
-    return safeParse(fetchPoapToken)(tokenId)(validator);
+    return safeParse<PoapToken>(fetchPoapToken)(tokenId)(validator);
   };
 };
 

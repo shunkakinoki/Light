@@ -23,7 +23,21 @@ contract GnosisL1Script is Script {
       GNOSIS_L1_PROXY_FACTORY_ADDRESS_1_3_0
     );
     vm.startBroadcast();
-    proxy.createProxyWithNonce(GNOSIS_L1_SINGLETON_ADDRESS_1_3_0, "", 0);
+    proxy.createProxyWithNonce(
+      GNOSIS_L1_SINGLETON_ADDRESS_1_3_0,
+      abi.encodeWithSignature(
+        "setup(address[],uint256,address,bytes,address,address,uint256,address)",
+        [address(0)],
+        1,
+        address(0),
+        0x0,
+        address(0),
+        address(0),
+        0,
+        address(0)
+      ),
+      0
+    );
     vm.stopBroadcast();
   }
 }

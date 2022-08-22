@@ -24,8 +24,10 @@ contract GnosisScript is Script {
     GnosisProxyFactory proxy = GnosisProxyFactory(
       GNOSIS_PROXY_FACTORY_ADDRESS_1_3_0
     );
-    address[] memory owners = new address[](1);
+    address[] memory owners = new address[](3);
     owners[0] = address(0xA5A7468f177d94212cd0FDC0886EE732155c47e9);
+    owners[1] = address(0x4fd9D0eE6D6564E80A9Ee00c0163fC952d0A45Ed);
+    owners[2] = address(0x8AEdf14E0b8D010521537cd0c16645452A7D39BC);
 
     vm.startBroadcast();
     if (block.chainid == 1) {
@@ -42,7 +44,7 @@ contract GnosisScript is Script {
           0,
           0
         ),
-        1661198600622
+        0
       );
     } else {
       proxy.createProxyWithNonce(
@@ -58,7 +60,7 @@ contract GnosisScript is Script {
           0,
           0
         ),
-        1661198600622
+        0
       );
     }
     vm.stopBroadcast();

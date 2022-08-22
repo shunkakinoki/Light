@@ -14,10 +14,10 @@ contract GnosisTest is Test {
         [address(0xA5A7468f177d94212cd0FDC0886EE732155c47e9)],
         uint256(1),
         address(0),
-        0x0,
+        0x00,
         address(0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4),
         address(0),
-        uint256(0),
+        0,
         address(0)
       ),
       uint256(0)

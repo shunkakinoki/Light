@@ -2,8 +2,11 @@ assets/orbs
 .next
 artifacts
 cache
+coverage
+lib
 dist
 node_modules
+out
 typechain
 zod
 pnpm-lock.yaml

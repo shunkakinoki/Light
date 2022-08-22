@@ -5,19 +5,19 @@ pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
 
 contract GnosisTest is Test {
-  function testFailInitializer() public {
+  function testInitializer() public {
     bytes memory sig = abi.encodeWithSignature(
       "createProxyWithNonce(address,bytes,uint256)",
       address(0x3E5c63644E683549055b9Be8653de26E0B4CD36E),
       abi.encodeWithSignature(
         "setup(address[],uint256,address,bytes,address,address,uint256,address)",
         [address(0)],
-        1,
-        address(0),
-        bytes32(uint256(0)),
         address(0),
         address(0),
-        0,
+        hex"00000000000000000000000000000000000000000000000000000000000000000000",
+        address(0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4),
+        address(0),
+        uint256(0),
         address(0)
       ),
       1661193259880
@@ -27,7 +27,7 @@ contract GnosisTest is Test {
     assertEq(sig, expected);
   }
 
-  function testFailInitializSignature() public {
+  function testInitializSignature() public {
     bytes memory sig = abi.encodeWithSignature(
       "setup(address[],uint256,address,bytes,address,address,uint256,address)",
       [address(this)],

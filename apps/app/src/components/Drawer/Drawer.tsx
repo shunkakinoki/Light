@@ -5,6 +5,8 @@ import { Fragment } from "react";
 
 import s from "./Drawer.module.css";
 
+import { DrawerCloseButton } from "@lightdotso/app/components/DrawerCloseButton";
+
 export type DrawerProps = {
   show: boolean;
   onClose: () => void;
@@ -17,14 +19,16 @@ export const Drawer: FC<DrawerProps> = ({ children, show, onClose }) => {
         <div className="flex min-h-screen items-end justify-center">
           <Transition.Child
             as={Fragment}
-            enter="ease-in-out duration-500"
-            enterFrom="translate-y-full"
-            enterTo="translate-y-0"
-            leave="ease-in-out duration-300"
-            leaveFrom="translate-y-0"
-            leaveTo="translate-y-full"
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0" />
+            <Dialog.Overlay className="fixed top-0 right-0 p-4">
+              <DrawerCloseButton onClick={onClose} />
+            </Dialog.Overlay>
           </Transition.Child>
           <span
             className="inline-block h-screen align-middle"

@@ -9,7 +9,7 @@ export type AssetGridProps = { base: ReactNode };
 
 const AssetGridLayout: FC = ({ children }) => {
   return (
-    <div className="grid h-full w-full max-w-7xl grid-flow-row">
+    <div className="grid h-full w-full max-w-7xl grid-flow-row py-8">
       <div className="grid grid-cols-1 gap-y-2 gap-x-4 md:grid-cols-2 md:gap-y-8">
         {children}
       </div>

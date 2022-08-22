@@ -26,8 +26,12 @@ export const Drawer: FC<DrawerProps> = ({ children, show, onClose }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed top-0 right-0 p-4">
-              <DrawerCloseButton onClick={onClose} />
+            <Dialog.Overlay className="fixed ">
+              <button className="fixed inset-0 w-full" onClick={onClose}>
+                <span className="fixed top-0 right-0 p-4">
+                  <DrawerCloseButton />
+                </span>
+              </button>
             </Dialog.Overlay>
           </Transition.Child>
           <span

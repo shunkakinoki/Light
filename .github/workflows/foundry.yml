@@ -17,6 +17,7 @@ jobs:
           version: nightly
       - run: |
           forge install
+          forge snapshot --check
           forge test -vvvvv --gas-report
       - run: |
           forge test --gas-report --fuzz-seed 0 | tee gasreport.ansi

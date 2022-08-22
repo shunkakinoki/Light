@@ -39,7 +39,7 @@ contract GnosisScript is Script {
           1,
           address(0),
           "",
-          address(0),
+          address(0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4),
           address(0),
           0,
           0
@@ -55,7 +55,7 @@ contract GnosisScript is Script {
           1,
           address(0),
           "",
-          address(0),
+          address(0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4),
           address(0),
           0,
           0

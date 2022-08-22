@@ -12,7 +12,7 @@ interface GnosisProxyFactory {
   ) external;
 }
 
-contract GnosisL1Script is Script {
+contract GnosisScript is Script {
   address GNOSIS_L1_SINGLETON_ADDRESS_1_3_0 =
     address(0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552);
   address GNOSIS_L1_PROXY_FACTORY_ADDRESS_1_3_0 =
@@ -29,11 +29,11 @@ contract GnosisL1Script is Script {
       GNOSIS_L1_SINGLETON_ADDRESS_1_3_0,
       abi.encodeWithSignature(
         "setup(address[],uint256,address,bytes,address,address,uint256,address)",
-        [address(this)],
+        [msg.sender],
         1,
         address(0),
         0x0,
-        address(0),
+        address(0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4),
         address(0),
         0,
         address(0)

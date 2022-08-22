@@ -1,7 +1,7 @@
 export const CYBERCONNECT_FOLLOWERS_QUERY = /* GraphQL */ `
   query lookup($address: String!, $first: Int!, $after: String) {
     identity(address: $address) {
-      followers(first: $first, after: $after) {
+      followers(first: $first, after: $after, namespace: "Light") {
         pageInfo {
           endCursor
           hasNextPage
@@ -19,7 +19,7 @@ export const CYBERCONNECT_FOLLOWERS_QUERY = /* GraphQL */ `
 export const CYBERCONNECT_FOLLOWINGS_QUERY = /* GraphQL */ `
   query lookup($address: String!, $first: Int!, $after: String) {
     identity(address: $address) {
-      followings(first: $first, after: $after) {
+      followings(first: $first, after: $after, namespace: "Light") {
         pageInfo {
           endCursor
           hasNextPage
@@ -40,8 +40,8 @@ export const CYBERCONNECT_IDENTITY_QUERY = /* GraphQL */ `
       address
       avatar
       domain
-      followingCount
-      followerCount
+      followingCount(namespace: "Light")
+      followerCount(namespace: "Light")
       social {
         twitter
       }
@@ -94,7 +94,7 @@ export const CYBERCONNECT_RECOMMENDATIONS_QUERY = /* GraphQL */ `
 
 export const CYBERCONNECT_RANKINGS_QUERY = /* GraphQL */ `
   query rankings($first: Int!, $after: String) {
-    rankings(first: $first, after: $after) {
+    rankings(first: $first, after: $after, namespaces: ["Light"]) {
       pageInfo {
         endCursor
         hasNextPage

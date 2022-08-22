@@ -1,0 +1,1 @@
+export { useEnsAddress } from "./useEnsAddress";

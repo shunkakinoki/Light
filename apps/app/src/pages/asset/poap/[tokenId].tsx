@@ -1,6 +1,6 @@
 /* eslint-disable no-empty */
 
-import { fetchPoapToken } from "@lightdotso/services";
+import { safeFetchPoapToken } from "@lightdotso/services";
 import { poapTokenQuerySchema, poapTokenSchema } from "@lightdotso/types";
 import type { PoapToken } from "@lightdotso/types";
 import type {
@@ -13,9 +13,7 @@ import type {
 import { AssetFooter } from "@lightdotso/app/components/AssetFooter";
 import { AssetHeader } from "@lightdotso/app/components/AssetHeader";
 import { AssetPoap } from "@lightdotso/app/components/AssetPoap";
-import { DEAD_ADDRESS } from "@lightdotso/app/dummy";
 import { validateQuery } from "@lightdotso/app/libs/api/validateQuery";
-import { validateSchema } from "@lightdotso/app/libs/api/validateSchema";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -25,7 +23,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export type Props = {
-  address: string;
   tokenId: string;
   token: PoapToken;
 };
@@ -38,23 +35,23 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   params: { tokenId },
 }: GetStaticPropsContext) => {
   const parsedTokenId = parseStringArray(tokenId);
-  let token: PoapToken;
-
   try {
     const { tokenId } = validateQuery(poapTokenQuerySchema, {
       tokenId: parsedTokenId,
     });
 
-    try {
-      const tokenResult = await fetchPoapToken(tokenId);
-      token = validateSchema(poapTokenSchema, tokenResult);
-    } catch (e) {}
+    const tokenResult = await safeFetchPoapToken(tokenId)(
+      poapTokenSchema.safeParse,
+    );
+
+    if (tokenResult.isErr()) {
+      console.error(tokenResult.error);
+    }
 
     return {
       props: {
-        address: DEAD_ADDRESS,
-        token: token ?? null,
-        tokenId: parsedTokenId,
+        token: tokenResult.unwrapOr(null),
+        tokenId: tokenId,
       },
       revalidate: 300,
     };
@@ -66,14 +63,13 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 };
 
 export const TokenIdPage = ({
-  address,
   token,
   tokenId,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   return (
     <>
       <AssetHeader />
-      <AssetPoap token={token} address={address} tokenId={tokenId} />
+      <AssetPoap token={token} tokenId={tokenId} />
       <AssetFooter />
     </>
   );

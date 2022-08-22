@@ -2,7 +2,6 @@ import { Analytics } from "@lightdotso/core";
 import dynamic from "next/dynamic";
 import type { FC } from "react";
 
-import { MobileNavigation } from "@lightdotso/app/components/MobileNavigation";
 import { ModalWallet } from "@lightdotso/app/components/ModalWallet";
 import { isProduction } from "@lightdotso/app/utils/isProduction";
 
@@ -26,7 +25,6 @@ export const Layout: FC = ({ children }) => {
       <Toaster position="top-center" toastOptions={{ duration: 3000 }} />
       {children}
       {!isProduction && <Breakpoint />}
-      <MobileNavigation />
     </>
   );
 };

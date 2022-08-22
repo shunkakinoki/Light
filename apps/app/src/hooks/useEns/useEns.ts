@@ -21,6 +21,15 @@ export const useEns = (address?: string, initialEns?: string) => {
     address ? [SwrKeys.ENS, address] : null,
     fetchEns,
     {
+      onSuccess: () => {
+        if (isLoading) {
+          setTimeout(() => {
+            return mutate();
+          }, 300);
+        } else {
+          return mutate(data, false);
+        }
+      },
       fallbackData: initialEns,
     },
   );

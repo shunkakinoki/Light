@@ -4,6 +4,7 @@ error.txt
 
 # Foundry
 cache
+.env
 
 # Tmp
 tmp.*

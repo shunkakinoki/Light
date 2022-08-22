@@ -16,7 +16,6 @@ import type {
 import { AssetFooter } from "@lightdotso/app/components/AssetFooter";
 import { AssetHeader } from "@lightdotso/app/components/AssetHeader";
 import { AssetOAT } from "@lightdotso/app/components/AssetOAT";
-import { DEAD_ADDRESS } from "@lightdotso/app/dummy";
 import { validateQuery } from "@lightdotso/app/libs/api/validateQuery";
 import { validateSchema } from "@lightdotso/app/libs/api/validateSchema";
 
@@ -28,7 +27,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export type Props = {
-  address: string;
   oat: GalaxyCampaign;
   oatId: string;
 };
@@ -55,7 +53,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 
     return {
       props: {
-        address: DEAD_ADDRESS,
         oat: oat ?? null,
         oatId: parsedOatId,
       },
@@ -69,14 +66,13 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 };
 
 export const OatIdPage = ({
-  address,
   oat,
   oatId,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   return (
     <>
       <AssetHeader />
-      <AssetOAT address={address} oatId={oatId} oat={oat} />
+      <AssetOAT oatId={oatId} oat={oat} />
       <AssetFooter />
     </>
   );

@@ -29,12 +29,14 @@
     "@lightdotso/queries": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
     "@lightdotso/types": "workspace:*",
-    "ethers": "^5.6.9",
+    "ethers": "^5.7.0",
     "graphql": "^16.6.0",
-    "graphql-request": "^4.3.0"
+    "graphql-request": "^4.3.0",
+    "neverthrow": "^5.0.0",
+    "zod": "^3.18.0"
   },
   "devDependencies": {
-    "@types/node": "^18.7.6"
+    "@types/node": "^18.7.9"
   },
   "publishConfig": {
     "access": "public",

@@ -22,7 +22,7 @@ export const ProfileBoardSectionOAT: FC<ProfileBoardSectionOATProps> = ({
     <ProfileBoardSection
       base={
         <>
-          {!oats && <ProfileBoardItemEmpty />}
+          {oats && oats?.length === 0 && <ProfileBoardItemEmpty />}
           {oats &&
             typeof oats[0] !== "undefined" &&
             oats?.slice(0, BOARD_SECTION_NUMBER).map((OAT, index) => {
@@ -36,13 +36,13 @@ export const ProfileBoardSectionOAT: FC<ProfileBoardSectionOATProps> = ({
             })}
         </>
       }
-      disabled={oats?.length <= 6}
+      disabled={oats?.length <= BOARD_SECTION_NUMBER}
       isLoading={isLoading}
       type="oat"
     >
       {oats &&
         typeof oats[0] !== "undefined" &&
-        oats?.slice(BOARD_SECTION_NUMBER, -1).map((OAT, index) => {
+        oats?.slice(BOARD_SECTION_NUMBER).map((OAT, index) => {
           return (
             <ProfileBoardItemOAT
               key={index}

@@ -25,12 +25,12 @@
     "test": "pnpm run build"
   },
   "dependencies": {
-    "@ethersproject/abi": "^5.6.4",
-    "@ethersproject/providers": "^5.6.8",
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/providers": "^5.7.0",
     "@lightdotso/contracts": "workspace:*",
     "@lightdotso/protocol": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
-    "ethers": "^5.6.9"
+    "ethers": "^5.7.0"
   },
   "publishConfig": {
     "access": "public",

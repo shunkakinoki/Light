@@ -28,7 +28,7 @@
     "test": "pnpm run build"
   },
   "dependencies": {
-    "@ethersproject/abstract-provider": "^5.6.1",
+    "@ethersproject/abstract-provider": "^5.7.0",
     "@lightdotso/prisma": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
     "zod": "^3.18.0"

@@ -1,8 +1,8 @@
 import { Footer } from "@lightdotso/core";
 
-import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-import dynamic from "next/dynamic";
+import type { InferGetStaticPropsType, GetStaticProps } from "next";
 
+import { Changelog } from "@lightdotso/changelog/components/Changelog/Changelog";
 import { Header } from "@lightdotso/changelog/components/Header";
 import { NOTION_CHANGELOG_ID } from "@lightdotso/changelog/config/Notion";
 import {
@@ -10,16 +10,11 @@ import {
   getPropertyValue,
 } from "@lightdotso/changelog/libs/services/notion";
 
-const Changelog = dynamic(async () => {
-  const mod = await import("@lightdotso/changelog/components/Changelog");
-  return mod.Changelog;
-});
-
 export type Props = {
   posts: any;
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const database = await getDatabase(NOTION_CHANGELOG_ID);
 
   const posts = database.filter(post => {
@@ -66,18 +61,40 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const number = numberPropertyItem.number;
     //@ts-expect-error
     page.number = number;
+
+    //@ts-expect-error
+    const digestPropertyId = page.properties["Digest"].id;
+    const digestPropertyItem = await getPropertyValue({
+      pageId,
+      propertyId: digestPropertyId,
+    });
+    const digest = digestPropertyItem
+      //@ts-expect-error
+      .map(propertyItem => {
+        return propertyItem.rich_text.plain_text;
+      })
+      .join("");
+    //@ts-expect-error
+    page.digest = digest;
+  }
+
+  if (posts === null) {
+    return {
+      notFound: true,
+    };
   }
 
   return {
     props: {
       posts: posts,
     },
+    revalidate: 300,
   };
 };
 
 export const SlugPage = ({
   posts,
-}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
+}: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   return (
     <>
       <Header />

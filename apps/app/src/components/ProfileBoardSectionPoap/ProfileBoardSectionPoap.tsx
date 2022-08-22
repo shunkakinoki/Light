@@ -35,13 +35,13 @@ export const ProfileBoardSectionPoap: FC<ProfileBoardSectionPoapProps> = ({
             })}
         </>
       }
-      disabled={poaps?.length <= 6}
+      disabled={poaps?.length <= BOARD_SECTION_NUMBER}
       isLoading={isLoading}
       type="poap"
     >
       {poaps &&
         typeof poaps[0] !== "undefined" &&
-        poaps?.slice(BOARD_SECTION_NUMBER, -1).map((poap, index) => {
+        poaps?.slice(BOARD_SECTION_NUMBER).map((poap, index) => {
           return (
             <ProfileBoardItemPoap
               key={index}

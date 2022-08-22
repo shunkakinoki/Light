@@ -49,8 +49,8 @@
     "watch:compile": "hardhat watch compile"
   },
   "dependencies": {
-    "@ethersproject/abi": "^5.6.4",
-    "@ethersproject/providers": "^5.6.8",
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/providers": "^5.7.0",
     "@lightdotso/ens": "workspace:*",
     "@lightdotso/protocol": "workspace:*",
     "@lightdotso/proxies": "workspace:*",
@@ -65,14 +65,14 @@
     "@openzeppelin/hardhat-upgrades": "^1.20.0",
     "@typechain/ethers-v5": "^10.1.0",
     "@typechain/hardhat": "^6.1.2",
-    "ethers": "^5.6.9",
+    "ethers": "^5.7.0",
     "hardhat": "^2.10.2",
     "hardhat-abi-exporter": "^2.10.0",
     "hardhat-deploy": "^0.11.12",
     "hardhat-gas-reporter": "^1.0.8",
     "hardhat-preprocessor": "^0.1.4",
     "hardhat-spdx-license-identifier": "^2.0.3",
-    "hardhat-watcher": "^2.3.0",
+    "hardhat-watcher": "^2.5.0",
     "solc": "^0.8.16",
     "toml": "^3.0.0"
   },

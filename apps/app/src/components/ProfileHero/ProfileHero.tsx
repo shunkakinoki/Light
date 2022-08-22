@@ -78,7 +78,7 @@ export const ProfileHero: FC<ProfileHeroProps> = ({ active, address }) => {
   useEffect(() => {
     if (router.pathname === "/[slug]" && ens && !hasEnsInitial) {
       if (ens) {
-        router.replace(`/${ens}`);
+        router.push(`/${ens}`, undefined, { shallow: true });
         setHasEnsInitial(true);
       }
     }
@@ -113,7 +113,7 @@ export const ProfileHero: FC<ProfileHeroProps> = ({ active, address }) => {
             ) : (
               <ProfileHeroAddress address={profileAddress} ens={ens} />
             )}
-            <div className="hidden sm:inline-flex">
+            <div className="hidden sm:flex sm:justify-start">
               <ProfileHeroCount
                 address={profileAddress}
                 isLoading={isLoading}

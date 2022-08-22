@@ -1,17 +1,17 @@
 import CyberConnect from "@cyberlab/cyberconnect";
 import { useMemo, useEffect, useState } from "react";
-import { useConnect } from "wagmi";
+import { useAccount } from "wagmi";
 
 export const useProviderCyberConnect = () => {
-  const { connectors } = useConnect();
+  const { connector } = useAccount();
   const [provider, setProvider] = useState(false);
 
   useEffect(() => {
     const loadProvider = async () => {
-      setProvider(await connectors[0].getProvider());
+      setProvider(await connector?.getProvider());
     };
     loadProvider();
-  }, [connectors]);
+  }, [connector]);
 
   return useMemo<CyberConnect>(() => {
     if (provider) {

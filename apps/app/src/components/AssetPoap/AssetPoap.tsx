@@ -15,7 +15,6 @@ export type AssetPoapProps = Partial<Omit<BasePoapProps, "event">> &
 
 export const AssetPoap: FC<AssetPoapProps> = ({
   token: initialToken,
-  address,
   tokenId,
 }) => {
   const { token, isLoading } = usePoapToken(tokenId, initialToken);
@@ -28,9 +27,7 @@ export const AssetPoap: FC<AssetPoapProps> = ({
         </>
       }
     >
-      {token && (
-        <AssetDetailsPoap address={address} token={token} tokenId={tokenId} />
-      )}
+      {token && <AssetDetailsPoap token={token} tokenId={tokenId} />}
       {isLoading && <AssetDetailsPoapLoading />}
     </AssetGrid>
   );

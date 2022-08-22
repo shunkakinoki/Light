@@ -9,7 +9,6 @@ import { fetcher } from "@lightdotso/app/libs/services/fetcher";
 export const usePoapToken = (tokenId?: string, initialToken?: PoapToken) => {
   const poapTokenFetcher = async (key, tokenId) => {
     const result = await fetchPoapToken(tokenId);
-    //@ts-expect-error
     if (result.error) {
       const url = `${LIGHT_API_URL}/api/poap/token/${tokenId}`;
       const backupResult = await fetcher(url);

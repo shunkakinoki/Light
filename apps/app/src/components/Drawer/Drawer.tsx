@@ -49,7 +49,7 @@ export const Drawer: FC<DrawerProps> = ({ children, show, onClose }) => {
             leaveFrom="opacity-100 scale-100 translate-y-0"
             leaveTo="opacity-0 scale-95 translate-y-full"
           >
-            <div className="relative inline-block w-full overflow-hidden rounded-xl bg-bg shadow-xl transition-all focus:outline-none">
+            <div className="relative inline-block max-h-[calc(100vh-80px)] w-full overflow-hidden rounded-xl bg-bg shadow-xl transition-all focus:outline-none">
               {children}
             </div>
           </Transition.Child>

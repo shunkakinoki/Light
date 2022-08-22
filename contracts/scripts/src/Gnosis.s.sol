@@ -27,7 +27,7 @@ contract GnosisL1Script is Script {
       GNOSIS_L1_SINGLETON_ADDRESS_1_3_0,
       abi.encodeWithSignature(
         "setup(address[],uint256,address,bytes,address,address,uint256,address)",
-        [address(0)],
+        [address(this)],
         1,
         address(0),
         0x0,

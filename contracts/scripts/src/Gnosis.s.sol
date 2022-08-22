@@ -7,7 +7,6 @@ import "forge-std/Script.sol";
 contract GnosisScript is Script {
   function run() external {
     vm.startBroadcast();
-
     vm.stopBroadcast();
   }
 }

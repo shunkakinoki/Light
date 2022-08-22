@@ -26,22 +26,41 @@ contract GnosisScript is Script {
     );
     address[] memory owners = new address[](1);
     owners[0] = address(0xA5A7468f177d94212cd0FDC0886EE732155c47e9);
+
     vm.startBroadcast();
-    proxy.createProxyWithNonce(
-      GNOSIS_L2_SINGLETON_ADDRESS_1_3_0,
-      abi.encodeWithSignature(
-        "setup(address[],uint256,address,bytes,address,address,uint256,address)",
-        owners,
-        1,
-        address(0),
-        "",
-        address(0),
-        address(0),
-        0,
-        0
-      ),
-      1661198600622
-    );
+    if (block.chainid == 1) {
+      proxy.createProxyWithNonce(
+        GNOSIS_L1_SINGLETON_ADDRESS_1_3_0,
+        abi.encodeWithSignature(
+          "setup(address[],uint256,address,bytes,address,address,uint256,address)",
+          owners,
+          1,
+          address(0),
+          "",
+          address(0),
+          address(0),
+          0,
+          0
+        ),
+        1661198600622
+      );
+    } else {
+      proxy.createProxyWithNonce(
+        GNOSIS_L2_SINGLETON_ADDRESS_1_3_0,
+        abi.encodeWithSignature(
+          "setup(address[],uint256,address,bytes,address,address,uint256,address)",
+          owners,
+          1,
+          address(0),
+          "",
+          address(0),
+          address(0),
+          0,
+          0
+        ),
+        1661198600622
+      );
+    }
     vm.stopBroadcast();
   }
 }

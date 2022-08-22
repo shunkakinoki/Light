@@ -31,14 +31,14 @@ contract GnosisScript is Script {
         "setup(address[],uint256,address,bytes,address,address,uint256,address)",
         [msg.sender],
         1,
-        address(0),
+        address(this),
         0x0,
         address(0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4),
         address(0),
         0,
         address(0)
       ),
-      0
+      1661198600622
     );
     vm.stopBroadcast();
   }

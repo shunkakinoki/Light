@@ -94,7 +94,7 @@ export const CYBERCONNECT_RECOMMENDATIONS_QUERY = /* GraphQL */ `
 
 export const CYBERCONNECT_RANKINGS_QUERY = /* GraphQL */ `
   query rankings($first: Int!, $after: String) {
-    rankings(first: $first, after: $after, rankings: ["Light"]) {
+    rankings(first: $first, after: $after, namespaces: ["Light"]) {
       pageInfo {
         endCursor
         hasNextPage

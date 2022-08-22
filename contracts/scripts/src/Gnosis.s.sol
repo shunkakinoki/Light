@@ -24,14 +24,14 @@ contract GnosisScript is Script {
     GnosisProxyFactory proxy = GnosisProxyFactory(
       GNOSIS_PROXY_FACTORY_ADDRESS_1_3_0
     );
-    address[] memory keys = new address[](1);
-    keys[0] = address(0xA5A7468f177d94212cd0FDC0886EE732155c47e9);
+    address[] memory owners = new address[](1);
+    owners[0] = address(0xA5A7468f177d94212cd0FDC0886EE732155c47e9);
     vm.startBroadcast();
     proxy.createProxyWithNonce(
       GNOSIS_L2_SINGLETON_ADDRESS_1_3_0,
       abi.encodeWithSignature(
         "setup(address[],uint256,address,bytes,address,address,uint256,address)",
-        keys,
+        owners,
         1,
         address(0),
         "",

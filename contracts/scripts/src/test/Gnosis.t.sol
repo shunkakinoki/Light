@@ -12,9 +12,9 @@ contract GnosisTest is Test {
       abi.encodeWithSignature(
         "setup(address[],uint256,address,bytes,address,address,uint256,address)",
         [address(0)],
+        uint256(1),
         address(0),
-        address(0),
-        abi.encode(uint256(0), uint256(0)),
+        hex"000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
         address(0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4),
         address(0),
         uint256(0),

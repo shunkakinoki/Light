@@ -1,4 +1,4 @@
-import { fetchPoapActions } from "@lightdotso/services";
+import { safeFetchPoapActions } from "@lightdotso/services";
 import type { PoapActions } from "@lightdotso/types";
 import useSWR from "swr";
 
@@ -8,13 +8,13 @@ import { fetcher } from "@lightdotso/app/libs/services/fetcher";
 
 export const usePoapActions = (address?: string) => {
   const poapsFetcher = async (key, address) => {
-    const result = await fetchPoapActions(address);
-    if (result.error) {
+    const result = await safeFetchPoapActions(address)();
+    if (result.isErr()) {
       const url = `${LIGHT_API_URL}/api/poap/poaps/${address}`;
       const backupResult = await fetcher(url);
       return backupResult;
     }
-    return result;
+    return result.value;
   };
 
   const { data, error } = useSWR<PoapActions>(

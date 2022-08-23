@@ -2,6 +2,8 @@ import { ApiLinks } from "@lightdotso/const";
 import type { CovalentTransactions } from "@lightdotso/types";
 
 import { fetcher } from "./fetcher";
+import type { Validator } from "./result";
+import { safeParse } from "./result";
 
 const ADDRESS = "/address";
 const TRANSACTIONS = "/transactions_v2";
@@ -28,4 +30,20 @@ export const fetchCovalentTransactions = (
       headers: covalentHeaders,
     },
   );
+};
+
+export const safeFetchCovalentTransactions = (
+  address: string,
+  networkId?: number,
+  pageNumber?: number,
+  pageSize?: number,
+) => {
+  return (validator?: Validator<CovalentTransactions>) => {
+    return safeParse<CovalentTransactions>(fetchCovalentTransactions)(
+      address,
+      networkId,
+      pageNumber,
+      pageSize,
+    )(validator);
+  };
 };

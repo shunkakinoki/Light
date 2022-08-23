@@ -1,4 +1,4 @@
-import { fetchGalaxyOats } from "@lightdotso/services";
+import { safeFetchGalaxyOats } from "@lightdotso/services";
 import type { GalaxyOats } from "@lightdotso/types";
 import useSWR from "swr";
 
@@ -6,8 +6,12 @@ import { SwrKeys } from "@lightdotso/app/config/SwrKeys";
 
 export const useGalaxyOats = (address?: string) => {
   const oatsFetcher = async (key, address) => {
-    const result = await fetchGalaxyOats(address);
-    return result;
+    const result = await safeFetchGalaxyOats(address)();
+    if (result.isErr()) {
+      // TODO: Add API endpoint
+      return;
+    }
+    return result.value;
   };
 
   const { data, error } = useSWR<GalaxyOats>(

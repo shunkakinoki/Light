@@ -1,4 +1,4 @@
-import { fetchSnapshotVotes } from "@lightdotso/services";
+import { safeFetchSnapshotVotes } from "@lightdotso/services";
 import type { SnapshotVotes } from "@lightdotso/types";
 import useSWR from "swr";
 
@@ -8,14 +8,13 @@ import { fetcher } from "@lightdotso/app/libs/services/fetcher";
 
 export const useSnapshotVotes = (address?: string) => {
   const snapshotVotesFetcher = async (key, address) => {
-    const result = await fetchSnapshotVotes(address);
-    //@ts-expect-error
-    if (result.error) {
+    const result = await safeFetchSnapshotVotes(address)();
+    if (result.isErr()) {
       const url = `${LIGHT_API_URL}/api/snapshot/votes/${address}`;
       const backupResult = await fetcher(url);
       return backupResult;
     }
-    return result;
+    return result.value;
   };
 
   const { data, error } = useSWR<SnapshotVotes>(

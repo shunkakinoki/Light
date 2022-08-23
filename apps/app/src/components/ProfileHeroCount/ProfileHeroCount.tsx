@@ -23,9 +23,9 @@ export const ProfileHeroCount: FC<ProfileHeroCountProps> = ({
   const { ens } = useEns(address);
 
   const slug = useMemo(() => {
-    const slug = address === walletAddress ? "profile" : ens ?? address;
+    const slug = ens ?? walletAddress;
     return slug;
-  }, [address, ens, walletAddress]);
+  }, [ens, walletAddress]);
 
   return (
     <div className="flex justify-start">

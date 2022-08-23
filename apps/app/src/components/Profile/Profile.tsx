@@ -55,7 +55,7 @@ export const Profile: FC<ProfileProps> = ({ active, follow, address }) => {
   return (
     <>
       {!address && <SeoBase base="Profile" />}
-      {ens && <SeoLight ogpName={ens ?? address} />}
+      <SeoLight ogpName={ens ?? address} />
       <div className="mx-auto pb-12 text-center lg:pb-16">
         {active && <ProfileHero active={active} address={address} />}
         {follow && <ProfileFollowHero address={address} follow={follow} />}

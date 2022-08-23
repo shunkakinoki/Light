@@ -1,9 +1,6 @@
-/* eslint-disable no-empty */
-
 import { Footer } from "@lightdotso/core";
-import { resolveEns } from "@lightdotso/services";
+import { resolveEVMAddress } from "@lightdotso/services";
 import type { PoapActions, OpenseaAssets } from "@lightdotso/types";
-import { utils } from "ethers";
 import type {
   GetStaticProps,
   InferGetStaticPropsType,
@@ -39,40 +36,24 @@ const parseStringArray = (stringArray: string | string[]) => {
 export const getStaticProps: GetStaticProps<Props> = async ({
   params: { slug },
 }: GetStaticPropsContext) => {
-  let address: string;
-  let ens: string;
   const parsedSlug = parseStringArray(slug);
 
-  try {
-    if (parsedSlug.endsWith(".eth")) {
-      try {
-        address = await resolveEns(parsedSlug);
-        ens = parsedSlug;
-      } catch (err) {
-        return {
-          notFound: true,
-        };
-      }
-    } else if (utils.isAddress(parsedSlug)) {
-      address = parsedSlug;
-    } else {
-      return {
-        notFound: true,
-      };
-    }
-
-    return {
-      props: {
-        address: address,
-        ens: ens ?? null,
-      },
-      revalidate: 300,
-    };
-  } catch (e) {
+  const evmResult = await resolveEVMAddress(parsedSlug);
+  if (evmResult.isErr()) {
     return {
       notFound: true,
     };
   }
+  const address = evmResult.value.address;
+  const ens = evmResult.value?.ens || null;
+
+  return {
+    props: {
+      address: address,
+      ens: ens,
+    },
+    revalidate: 300,
+  };
 };
 
 export const TimelinePage = ({

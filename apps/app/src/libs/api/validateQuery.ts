@@ -10,7 +10,7 @@ export const validateQuery = <
   const result = querySchema.safeParse(query);
   if (!result.success) {
     //@ts-expect-error
-    console.error(result.error);
+    console.error(result.isErr());
     //TODO: Add discord bot
     throw Error("Invalid Schema");
   }

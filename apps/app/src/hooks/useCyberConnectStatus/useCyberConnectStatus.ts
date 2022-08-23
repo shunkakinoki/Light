@@ -1,4 +1,4 @@
-import { fetchCyberconnectStatus } from "@lightdotso/services";
+import { safeFetchCyberconnectStatus } from "@lightdotso/services";
 import type { CyberConnectStatus } from "@lightdotso/types";
 import useSWR from "swr";
 
@@ -13,18 +13,17 @@ export const useCyberConnectStatus = (
   initialStatus?: CyberConnectStatus,
 ) => {
   const cyberconnectStatusFetcher = async (key, address, to) => {
-    const result = await fetchCyberconnectStatus(address, to);
-    //@ts-expect-error
-    if (result.error) {
+    const result = await safeFetchCyberconnectStatus(address, to)();
+    if (result.isErr()) {
       const url = `${LIGHT_API_URL}/api/cyberconnect/status/${address}?to=${to}`;
       const backupResult = await fetcher(url);
       return backupResult;
     }
-    return result;
+    return result.value;
   };
 
   const { data, error, mutate } = useSWR<CyberConnectStatus>(
-    address ? [SwrKeys.CYBER_CONNECT_STATUS, address, to] : null,
+    address && to ? [SwrKeys.CYBER_CONNECT_STATUS, address, to] : null,
     cyberconnectStatusFetcher,
     { fallbackData: initialStatus },
   );

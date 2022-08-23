@@ -1,6 +1,4 @@
-/* eslint-disable no-empty */
-
-import { fetchOpenseaAsset } from "@lightdotso/services";
+import { safeFetchOpenseaAsset } from "@lightdotso/services";
 import { openseaAssetQuerySchema, openseaAssetSchema } from "@lightdotso/types";
 import type { OpenseaAsset } from "@lightdotso/types";
 import type {
@@ -14,7 +12,6 @@ import { AssetFooter } from "@lightdotso/app/components/AssetFooter";
 import { AssetHeader } from "@lightdotso/app/components/AssetHeader";
 import { AssetNFT } from "@lightdotso/app/components/AssetNFT";
 import { validateQuery } from "@lightdotso/app/libs/api/validateQuery";
-import { validateSchema } from "@lightdotso/app/libs/api/validateSchema";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -26,24 +23,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export type Props = {
   address: string;
   tokenId: string;
-  asset?: OpenseaAsset;
+  asset: OpenseaAsset | null;
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({
   params,
 }: GetStaticPropsContext) => {
-  let asset: OpenseaAsset;
-
   const { address, tokenId } = validateQuery(openseaAssetQuerySchema, params);
 
-  try {
-    const result = await fetchOpenseaAsset(address, tokenId);
-    asset = validateSchema(openseaAssetSchema, result);
-  } catch (e) {}
+  const result = await safeFetchOpenseaAsset(
+    address,
+    tokenId,
+  )(openseaAssetSchema.safeParse);
 
   return {
     props: {
-      asset: asset ?? null,
+      asset: result.unwrapOr(null),
       address: address,
       tokenId: tokenId,
     },

@@ -1,4 +1,4 @@
-import { fetchCyberconnectPopular } from "@lightdotso/services";
+import { safeFetchCyberconnectPopular } from "@lightdotso/services";
 import type {
   CyberConnectIdentity,
   CyberConnectPopular,
@@ -29,26 +29,27 @@ export const useCyberConnectPopular = (address?: string, first?: number) => {
     const url = `${LIGHT_API_URL}/api/cyberconnect/popular/${obj?.address}?first=${obj?.first}`;
 
     if (obj?.after) {
-      const result = await fetchCyberconnectPopular(
+      const result = await safeFetchCyberconnectPopular(
         obj?.address,
         obj?.first,
         obj?.after,
-      );
-      //@ts-expect-error
-      if (result.error) {
+      )();
+      if (result.isErr()) {
         const backupResult = await fetcher(`${url}&after=${obj?.after}`);
         return backupResult;
       }
-      return result;
+      return result.value;
     }
 
-    const result = await fetchCyberconnectPopular(obj?.address, obj?.first);
-    //@ts-expect-error
-    if (result.error) {
+    const result = await safeFetchCyberconnectPopular(
+      obj?.address,
+      obj?.first,
+    )();
+    if (result.isErr()) {
       const backupResult = await fetcher(url);
       return backupResult;
     }
-    return result;
+    return result.value;
   };
 
   const getKey: SWRInfiniteKeyLoader = (

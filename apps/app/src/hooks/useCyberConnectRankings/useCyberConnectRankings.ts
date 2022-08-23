@@ -1,4 +1,4 @@
-import { fetchCyberconnectRankings } from "@lightdotso/services";
+import { safeFetchCyberconnectRankings } from "@lightdotso/services";
 import type {
   CyberConnectRankings,
   CyberConnectIdentity,
@@ -29,22 +29,23 @@ export const useCyberConnectRankings = (address?: string, first?: number) => {
     const url = `${LIGHT_API_URL}/api/cyberconnect/rankings?first=${obj?.first}`;
 
     if (obj?.after) {
-      const result = await fetchCyberconnectRankings(obj?.first, obj?.after);
-      //@ts-expect-error
-      if (result.error) {
+      const result = await safeFetchCyberconnectRankings(
+        obj?.first,
+        obj?.after,
+      )();
+      if (result.isErr()) {
         const backupResult = await fetcher(`${url}&after=${obj?.after}`);
         return backupResult;
       }
-      return result;
+      return result.value;
     }
 
-    const result = await fetchCyberconnectRankings(obj?.first);
-    //@ts-expect-error
-    if (result.error) {
+    const result = await safeFetchCyberconnectRankings(obj?.first)();
+    if (result.isErr()) {
       const backupResult = await fetcher(url);
       return backupResult;
     }
-    return result;
+    return result.value;
   };
 
   const getKey: SWRInfiniteKeyLoader = (

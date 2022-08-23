@@ -1,6 +1,4 @@
-/* eslint-disable no-empty */
-
-import { fetchGalaxyCampaign } from "@lightdotso/services";
+import { safeFetchGalaxyCampaign } from "@lightdotso/services";
 import {
   galaxyCampaignQuerySchema,
   galaxyCampaignSchema,
@@ -17,7 +15,6 @@ import { AssetFooter } from "@lightdotso/app/components/AssetFooter";
 import { AssetHeader } from "@lightdotso/app/components/AssetHeader";
 import { AssetOAT } from "@lightdotso/app/components/AssetOAT";
 import { validateQuery } from "@lightdotso/app/libs/api/validateQuery";
-import { validateSchema } from "@lightdotso/app/libs/api/validateSchema";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -27,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export type Props = {
-  oat: GalaxyCampaign;
+  oat: GalaxyCampaign | null;
   oatId: string;
 };
 
@@ -39,21 +36,19 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   params: { oatId },
 }: GetStaticPropsContext) => {
   const parsedOatId = parseStringArray(oatId);
-  let oat: GalaxyCampaign;
 
   try {
     const { oatId } = validateQuery(galaxyCampaignQuerySchema, {
       oatId: parsedOatId,
     });
 
-    try {
-      const campaignResult = await fetchGalaxyCampaign(oatId);
-      oat = validateSchema(galaxyCampaignSchema, campaignResult);
-    } catch (e) {}
+    const oatResult = await safeFetchGalaxyCampaign(oatId)(
+      galaxyCampaignSchema.safeParse,
+    );
 
     return {
       props: {
-        oat: oat ?? null,
+        oat: oatResult.unwrapOr(null),
         oatId: parsedOatId,
       },
       revalidate: 300,

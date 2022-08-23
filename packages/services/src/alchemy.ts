@@ -2,6 +2,8 @@ import { ApiLinks } from "@lightdotso/const";
 import type { AlchemyTransactions } from "@lightdotso/types";
 
 import { fetcher } from "./fetcher";
+import type { Validator } from "./result";
+import { safeParse } from "./result";
 
 export const fetchAlchemyTokenTransactions = (
   address: string,
@@ -30,4 +32,12 @@ export const fetchAlchemyTokenTransactions = (
       ],
     }),
   });
+};
+
+export const safeFetchAlchemyTokenTransactions = (address: string) => {
+  return (validator?: Validator<AlchemyTransactions>) => {
+    return safeParse<AlchemyTransactions>(fetchAlchemyTokenTransactions)(
+      address,
+    )(validator);
+  };
 };

@@ -1,9 +1,5 @@
-import type { CredentialsMessage } from "@lightdotso/types";
-import { credentialsMessageSchema } from "@lightdotso/types";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { SiweMessage } from "siwe";
-
-import { validateSchema } from "@lightdotso/app/libs/api/validateSchema";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
@@ -12,11 +8,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       try {
         const { message, signature } = req.body;
 
-        const safeResult: CredentialsMessage = validateSchema(
-          credentialsMessageSchema,
-          message,
-        );
-        const siweMessage = new SiweMessage(safeResult);
+        const siweMessage = new SiweMessage(message);
         await siweMessage.validate(signature);
 
         //  const fields = await siweMessage.validate(signature);

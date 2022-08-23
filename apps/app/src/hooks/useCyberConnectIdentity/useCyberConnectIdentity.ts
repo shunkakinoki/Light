@@ -1,4 +1,4 @@
-import { fetchCyberconnectIdentity } from "@lightdotso/services";
+import { safeFetchCyberconnectIdentity } from "@lightdotso/services";
 import type { CyberConnectIdentity } from "@lightdotso/types";
 import useSWR from "swr";
 
@@ -8,14 +8,13 @@ import { fetcher } from "@lightdotso/app/libs/services/fetcher";
 
 export const useCyberConnectIdentity = (address?: string) => {
   const cyberconnectIdentityFetcher = async (key, address) => {
-    const result = await fetchCyberconnectIdentity(address);
-    //@ts-expect-error
-    if (result.error) {
+    const result = await safeFetchCyberconnectIdentity(address)();
+    if (result.isErr()) {
       const url = `${LIGHT_API_URL}/api/cyberconnect/identity/${address}`;
       const backupResult = await fetcher(url);
       return backupResult;
     }
-    return result;
+    return result.value;
   };
 
   const { data, error, mutate } = useSWR<CyberConnectIdentity>(

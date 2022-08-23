@@ -10,6 +10,7 @@
     "@lightdotso/app#build": {
       "dependsOn": [
         "^build",
+        "$NEXTAUTH_URL",
         "$NEXT_PUBLIC_ALCHEMY_ID",
         "$NEXT_PUBLIC_ETHERSCAN_API_KEY",
         "$NEXT_PUBLIC_INFURA_ID",
@@ -17,6 +18,7 @@
         "$NEXT_PUBLIC_VERCEL_ENV",
         "$NEXT_PUBLIC_ZERION_API_KEY",
         "$ALCHEMY_ID",
+        "$COVALENT_API_KEY",
         "$OPENSEA_API_KEY",
         "$POAP_API_KEY",
         "$SENTRY_DSN",

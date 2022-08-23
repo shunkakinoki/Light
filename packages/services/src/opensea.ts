@@ -8,7 +8,7 @@ import type {
 
 import { fetcher } from "./fetcher";
 import type { Validator } from "./result";
-import { fromPromise, zodValidate } from "./result";
+import { safeParse } from "./result";
 
 const ASSET = "/asset";
 const ASSETS = "/assets?owner=";
@@ -30,16 +30,12 @@ export const fetchOpenseaAsset = (
   });
 };
 
-export const safeFetchOpenseaAsset = async (
-  address: string,
-  tokenId: string,
-  validator?: Validator<OpenseaAsset>,
-) => {
-  const result = fromPromise<OpenseaAsset>(fetchOpenseaAsset(address, tokenId));
-  if (validator) {
-    return zodValidate(validator)(result);
-  }
-  return result;
+export const safeFetchOpenseaAsset = (address: string, tokenId: string) => {
+  return (validator?: Validator<OpenseaAsset>) => {
+    return safeParse<OpenseaAsset>(fetchOpenseaAsset)(address, tokenId)(
+      validator,
+    );
+  };
 };
 
 export const fetchOpenseaAssets = (
@@ -57,18 +53,12 @@ export const fetchOpenseaAssets = (
   );
 };
 
-export const safeFetchOpenseaAssets = async (
-  address: string,
-  cursor?: string,
-  validator?: Validator<OpenseaAssets>,
-) => {
-  const result = fromPromise<OpenseaAssets>(
-    fetchOpenseaAssets(address, cursor),
-  );
-  if (validator) {
-    return zodValidate(validator)(result);
-  }
-  return result;
+export const safeFetchOpenseaAssets = (address: string, cursor?: string) => {
+  return (validator?: Validator<OpenseaAssets>) => {
+    return safeParse<OpenseaAssets>(fetchOpenseaAssets)(address, cursor)(
+      validator,
+    );
+  };
 };
 
 export const fetchOpenseaEvents = (
@@ -86,13 +76,10 @@ export const fetchOpenseaEvents = (
   );
 };
 
-export const safeFetchOpenseaEvents = async (
-  address: string,
-  validator?: Validator<OpenseaEvents>,
-) => {
-  const result = fromPromise<OpenseaEvents>(fetchOpenseaEvents(address));
-  if (validator) {
-    return zodValidate(validator)(result);
-  }
-  return result;
+export const safeFetchOpenseaEvents = (address: string, cursor?: string) => {
+  return (validator?: Validator<OpenseaEvents>) => {
+    return safeParse<OpenseaEvents>(fetchOpenseaEvents)(address, cursor)(
+      validator,
+    );
+  };
 };

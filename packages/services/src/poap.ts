@@ -19,7 +19,7 @@ export const poapHeaders = process.env.POAP_API_KEY
     })
   : undefined;
 
-export const fetchPoapToken = (tokenId: string) => {
+export const fetchPoapToken = (tokenId: string): Promise<PoapToken> => {
   return fetcher(`${ApiLinks.POAP}/token/${tokenId}`, {
     method: "GET",
     headers: poapHeaders,
@@ -32,7 +32,7 @@ export const safeFetchPoapToken = (tokenId: string) => {
   };
 };
 
-export const fetchPoapActions = (address: string) => {
+export const fetchPoapActions = (address: string): Promise<PoapActions> => {
   return fetcher(`${ApiLinks.POAP}/actions/scan/${address}`, {
     method: "GET",
     headers: poapHeaders,
@@ -45,7 +45,7 @@ export const safeFetchPoapActions = (address: string) => {
   };
 };
 
-export const fetchPoapEvent = (eventId: string) => {
+export const fetchPoapEvent = (eventId: string): Promise<PoapEvent> => {
   return fetcher(`${ApiLinks.POAP}/events/id/${eventId}`, {
     method: "GET",
     headers: poapHeaders,
@@ -62,7 +62,7 @@ export const fetchPoapEventTokens = (
   eventId: string,
   offset: number,
   limit?: number,
-) => {
+): Promise<PoapEventTokens> => {
   return fetcher(
     `${ApiLinks.POAP}/event/${eventId}/poaps?offset=${offset}${
       limit && `&limit=${limit}`
@@ -88,7 +88,7 @@ export const safeFetchPoapEventTokens = (
   };
 };
 
-export const fetchPoapGraph = (address: string) => {
+export const fetchPoapGraph = (address: string): Promise<PoapGraph> => {
   return request(ApiLinks.POAP_GRAPH, POAP_GRAPH_QUERY, {
     address: address.toLowerCase(),
   });
@@ -96,6 +96,6 @@ export const fetchPoapGraph = (address: string) => {
 
 export const safeFetchPoapGraph = (address: string) => {
   return (validator?: Validator<PoapGraph>) => {
-    return safeParse<PoapGraph>(fetchPoapEventTokens)(address)(validator);
+    return safeParse<PoapGraph>(fetchPoapGraph)(address)(validator);
   };
 };

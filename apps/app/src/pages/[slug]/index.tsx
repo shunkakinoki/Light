@@ -1,14 +1,11 @@
-/* eslint-disable no-empty */
-
 import { Footer } from "@lightdotso/core";
 import {
-  fetchPoapActions,
   safeFetchOpenseaAssets,
-  resolveEns,
+  resolveEVMAddress,
+  safeFetchPoapActions,
 } from "@lightdotso/services";
 import type { PoapActions, OpenseaAssets } from "@lightdotso/types";
 import { poapActionsSchema, openseaAssetsSchema } from "@lightdotso/types";
-import { utils } from "ethers";
 import type {
   GetStaticProps,
   InferGetStaticPropsType,
@@ -22,7 +19,6 @@ import { Auth } from "@lightdotso/app/components/Auth";
 import { Header } from "@lightdotso/app/components/Header";
 import { Profile } from "@lightdotso/app/components/Profile";
 import { SwrKeys } from "@lightdotso/app/config/SwrKeys";
-import { validateSchema } from "@lightdotso/app/libs/api/validateSchema";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -33,9 +29,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export type Props = {
   address: string;
-  ens?: string;
-  assets?: OpenseaAssets;
-  poaps?: PoapActions;
+  ens: string | null;
+  assets: OpenseaAssets | null;
+  poaps: PoapActions | null;
 };
 
 const parseStringArray = (stringArray: string | string[]) => {
@@ -45,56 +41,31 @@ const parseStringArray = (stringArray: string | string[]) => {
 export const getStaticProps: GetStaticProps<Props> = async ({
   params: { slug },
 }: GetStaticPropsContext) => {
-  let address: string;
-  let ens: string;
-  let poaps: PoapActions;
   const parsedSlug = parseStringArray(slug);
 
-  try {
-    if (parsedSlug.endsWith(".eth")) {
-      try {
-        address = await resolveEns(parsedSlug);
-        ens = parsedSlug;
-      } catch (err) {
-        return {
-          notFound: true,
-        };
-      }
-    } else if (utils.isAddress(parsedSlug)) {
-      address = parsedSlug;
-    } else {
-      return {
-        notFound: true,
-      };
-    }
-
-    const assetsResult = await safeFetchOpenseaAssets(
-      address,
-      undefined,
-      openseaAssetsSchema.safeParse,
-    );
-
-    try {
-      const poapResult = await fetchPoapActions(address);
-      //TODO: Fix ZodArray Type Error
-      //@ts-expect-error
-      poaps = validateSchema(poapActionsSchema, poapResult);
-    } catch (e) {}
-
-    return {
-      props: {
-        address: address,
-        ens: ens ?? null,
-        assets: assetsResult.unwrapOr(null),
-        poaps: poaps ?? null,
-      },
-      revalidate: 300,
-    };
-  } catch (e) {
+  const evmResult = await resolveEVMAddress(parsedSlug);
+  if (evmResult.isErr()) {
     return {
       notFound: true,
     };
   }
+  const address = evmResult.value.address;
+  const ens = evmResult.value?.ens || null;
+
+  const [assetsResult, poapsResult] = await Promise.all([
+    safeFetchOpenseaAssets(address, undefined)(openseaAssetsSchema.safeParse),
+    safeFetchPoapActions(address)(poapActionsSchema.safeParse),
+  ]);
+
+  return {
+    props: {
+      address: address,
+      ens: ens,
+      assets: assetsResult.unwrapOr(null),
+      poaps: poapsResult.unwrapOr(null),
+    },
+    revalidate: 300,
+  };
 };
 
 export const SlugPage = ({

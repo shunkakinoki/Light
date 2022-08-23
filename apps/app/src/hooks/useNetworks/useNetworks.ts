@@ -1,7 +1,7 @@
 import {
-  fetchNetworksRaw,
-  fetchPoapActions,
-  fetchSnapshotVotes,
+  safeFetchNetworksRaw,
+  safeFetchPoapActions,
+  safeFetchSnapshotVotes,
 } from "@lightdotso/services";
 import type { Network, NetworkRaw } from "@lightdotso/types";
 import { useEffect, useMemo } from "react";
@@ -16,19 +16,18 @@ export const useNetworks = (address: string) => {
   const { mutate } = useSWRConfig();
 
   const networkFetcher = async (key, address) => {
-    const result = await fetchNetworksRaw(address);
-    //@ts-expect-error
-    if (result.error) {
+    const result = await safeFetchNetworksRaw(address)();
+    if (result.isErr()) {
       const [actions, votes] = await Promise.all([
-        fetchPoapActions(address),
-        fetchSnapshotVotes(address),
+        safeFetchPoapActions(address)(),
+        safeFetchSnapshotVotes(address)(),
       ]);
       return {
-        poap: actions,
-        snapshot: { data: votes },
+        poap: actions.unwrapOr(null),
+        snapshot: { data: votes.unwrapOr(null) },
       };
     }
-    return result;
+    return result.value;
   };
 
   const { data, error } = useSWR<NetworkRaw>(

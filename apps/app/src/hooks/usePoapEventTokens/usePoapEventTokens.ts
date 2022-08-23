@@ -1,4 +1,4 @@
-import { fetchPoapEventTokens } from "@lightdotso/services";
+import { safeFetchPoapEventTokens } from "@lightdotso/services";
 import type { PoapEventTokens } from "@lightdotso/types";
 import { useEffect } from "react";
 import { useSWRConfig } from "swr";
@@ -28,28 +28,28 @@ export const usePoapEventTokens = (eventId?: string, limit?: number) => {
     }?offset=${obj?.offset}${limit && `&limit=${limit}`}`;
 
     if (obj?.offset) {
-      const result = await fetchPoapEventTokens(
+      const result = await safeFetchPoapEventTokens(
         obj?.eventId,
         obj?.offset,
         obj?.limit,
-      );
-      if (result.error) {
+      )();
+      if (result.isErr()) {
         const backupResult = await fetcher(url);
         return backupResult;
       }
-      return result;
+      return result.value;
     }
 
-    const result = await fetchPoapEventTokens(
+    const result = await safeFetchPoapEventTokens(
       obj?.eventId,
       obj?.offset,
       obj?.limit,
-    );
-    if (result.error) {
+    )();
+    if (result.isErr()) {
       const backupResult = await fetcher(url);
       return backupResult;
     }
-    return result;
+    return result.value;
   };
 
   const getKey: SWRInfiniteKeyLoader = (

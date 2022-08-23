@@ -1,7 +1,8 @@
-/* eslint-disable no-empty */
-
 import { Footer } from "@lightdotso/core";
-import { fetchPoapEvent, fetchPoapEventTokens } from "@lightdotso/services";
+import {
+  safeFetchPoapEvent,
+  safeFetchPoapEventTokens,
+} from "@lightdotso/services";
 import type { PoapEvent, PoapEventTokens } from "@lightdotso/types";
 import {
   poapEventIdSchema,
@@ -24,7 +25,6 @@ import { NETWORK_PEOPLE_QUERY_NUMBER } from "@lightdotso/app/config/Query";
 import { SwrKeys } from "@lightdotso/app/config/SwrKeys";
 
 import { validateQuery } from "@lightdotso/app/libs/api/validateQuery";
-import { validateSchema } from "@lightdotso/app/libs/api/validateSchema";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -35,53 +35,32 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export type Props = {
   eventId: string;
-  event?: PoapEvent;
-  poaps?: PoapEventTokens;
-};
-
-const parseStringArray = (stringArray: string | string[]) => {
-  return Array.isArray(stringArray) ? stringArray[0] : stringArray;
+  event: PoapEvent | null;
+  poaps: PoapEventTokens | null;
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({
-  params: { eventId },
+  params,
 }: GetStaticPropsContext) => {
-  const parsedEventId = parseStringArray(eventId);
-  let event: PoapEvent;
-  let poaps: PoapEventTokens;
+  const { eventId } = validateQuery(poapEventTokensQuerySchema, params);
 
-  try {
-    const { eventId } = validateQuery(poapEventTokensQuerySchema, {
-      eventId: parsedEventId,
-    });
+  const [eventResult, poapsResult] = await Promise.all([
+    safeFetchPoapEvent(eventId)(poapEventIdSchema.safeParse),
+    safeFetchPoapEventTokens(
+      eventId,
+      0,
+      NETWORK_PEOPLE_QUERY_NUMBER,
+    )(poapEventTokensSchema.safeParse),
+  ]);
 
-    try {
-      const eventResult = await fetchPoapEvent(eventId);
-      event = validateSchema(poapEventIdSchema, eventResult);
-    } catch (e) {}
-
-    try {
-      const eventPoapsResult = await fetchPoapEventTokens(
-        eventId,
-        0,
-        NETWORK_PEOPLE_QUERY_NUMBER,
-      );
-      poaps = validateSchema(poapEventTokensSchema, eventPoapsResult);
-    } catch (e) {}
-
-    return {
-      props: {
-        eventId: parsedEventId,
-        event: event ?? null,
-        poaps: poaps ?? null,
-      },
-      revalidate: 300,
-    };
-  } catch (e) {
-    return {
-      notFound: true,
-    };
-  }
+  return {
+    props: {
+      eventId: eventId,
+      event: eventResult.unwrapOr(null),
+      poaps: poapsResult.unwrapOr(null),
+    },
+    revalidate: 300,
+  };
 };
 
 export const IndexPage = ({

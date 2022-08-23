@@ -17,6 +17,7 @@
         "$NEXT_PUBLIC_VERCEL_ENV",
         "$NEXT_PUBLIC_ZERION_API_KEY",
         "$ALCHEMY_ID",
+        "$COVALENT_API_KEY",
         "$OPENSEA_API_KEY",
         "$POAP_API_KEY",
         "$SENTRY_DSN",

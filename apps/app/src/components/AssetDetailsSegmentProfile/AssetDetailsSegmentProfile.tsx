@@ -1,4 +1,4 @@
-import { ArrowUpIcon } from "@heroicons/react/solid";
+import { ArrowUpIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import type { FC } from "react";
 

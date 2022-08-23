@@ -1,4 +1,4 @@
-import { BadgeCheckIcon } from "@heroicons/react/solid";
+import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 import type { OpenseaEvent } from "@lightdotso/types";
 import Link from "next/link";
 import type { FC } from "react";
@@ -38,7 +38,7 @@ export const TimelineBannerNFT: FC<TimelineBannerNFTProps> = ({ data }) => {
       </Link>
       {safelist_request_status === "verified" && (
         <span className="inline-block">
-          <BadgeCheckIcon className="h-3 w-3 fill-primary" />
+          <CheckBadgeIcon className="h-3 w-3 fill-primary" />
         </span>
       )}
     </>

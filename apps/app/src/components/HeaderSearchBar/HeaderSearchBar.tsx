@@ -1,5 +1,5 @@
 import { Combobox } from "@headlessui/react";
-import { SearchIcon } from "@heroicons/react/solid";
+import { SearchIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 import type { FC } from "react";

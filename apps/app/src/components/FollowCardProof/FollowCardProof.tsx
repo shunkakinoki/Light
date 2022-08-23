@@ -1,4 +1,4 @@
-import { UserIcon } from "@heroicons/react/solid";
+import { UserIcon } from "@heroicons/react/24/solid";
 import type { FC } from "react";
 
 export type FollowCardProofProps = {

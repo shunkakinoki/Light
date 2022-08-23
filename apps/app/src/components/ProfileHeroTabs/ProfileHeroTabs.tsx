@@ -1,4 +1,4 @@
-import { ViewListIcon, ViewGridIcon } from "@heroicons/react/solid";
+import { ViewListIcon, ViewGridIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import Link from "next/link";
 import { useMemo } from "react";

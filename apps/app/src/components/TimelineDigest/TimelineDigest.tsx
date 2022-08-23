@@ -1,6 +1,6 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 
-import { UserGroupIcon } from "@heroicons/react/solid";
+import { UserGroupIcon } from "@heroicons/react/24/solid";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IconPoap, IconNFT, IconDAO, IconTokens } from "@lightdotso/core";
 import type { TimelineItem } from "@lightdotso/types";

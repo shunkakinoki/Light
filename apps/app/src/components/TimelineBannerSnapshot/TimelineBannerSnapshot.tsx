@@ -1,4 +1,4 @@
-import { BadgeCheckIcon } from "@heroicons/react/solid";
+import { BadgeCheckIcon } from "@heroicons/react/24/solid";
 import type { SnapshotVote } from "@lightdotso/types";
 import Link from "next/link";
 import type { FC } from "react";

@@ -1,4 +1,4 @@
-import { ClipboardIcon, ClipboardCheckIcon } from "@heroicons/react/solid";
+import { ClipboardIcon, ClipboardCheckIcon } from "@heroicons/react/24/solid";
 import type { FC } from "react";
 import { useMemo } from "react";
 import { FaTwitter } from "react-icons/fa";

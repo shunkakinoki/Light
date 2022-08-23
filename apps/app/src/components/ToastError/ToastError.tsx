@@ -1,4 +1,4 @@
-import { ExclamationCircleIcon } from "@heroicons/react/solid";
+import { ExclamationCircleIcon } from "@heroicons/react/24/solid";
 import type { FC } from "react";
 
 import type { ToastBaseProps } from "@lightdotso/app/components/ToastBase";

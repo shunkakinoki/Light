@@ -1,10 +1,11 @@
-/* eslint-disable no-empty */
-
 import { Footer } from "@lightdotso/core";
-import { fetchCyberconnectFollowings, resolveEns } from "@lightdotso/services";
+import {
+  resolveEns,
+  resolveAddress,
+  safeFetchCyberconnectFollowings,
+} from "@lightdotso/services";
 import type { CyberConnectFollowings } from "@lightdotso/types";
 import { cyberconnectFollowingsSchema } from "@lightdotso/types";
-import { utils } from "ethers";
 import type {
   GetStaticProps,
   InferGetStaticPropsType,
@@ -19,7 +20,6 @@ import { Header } from "@lightdotso/app/components/Header";
 import { Profile } from "@lightdotso/app/components/Profile";
 import { FOLLOW_QUERY_NUMBER } from "@lightdotso/app/config/Query";
 import { SwrKeys } from "@lightdotso/app/config/SwrKeys";
-import { validateSchema } from "@lightdotso/app/libs/api/validateSchema";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -30,8 +30,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export type Props = {
   address: string;
-  ens?: string;
-  followings?: CyberConnectFollowings;
+  ens: string | null;
+  followings: CyberConnectFollowings | null;
 };
 
 const parseStringArray = (stringArray: string | string[]) => {
@@ -41,50 +41,32 @@ const parseStringArray = (stringArray: string | string[]) => {
 export const getStaticProps: GetStaticProps<Props> = async ({
   params: { slug },
 }: GetStaticPropsContext) => {
-  let address: string;
-  let ens: string;
-  let followings: CyberConnectFollowings;
   const parsedSlug = parseStringArray(slug);
 
-  try {
-    if (parsedSlug.endsWith(".eth")) {
-      try {
-        address = await resolveEns(parsedSlug);
-        ens = parsedSlug;
-      } catch (err) {
-        return {
-          notFound: true,
-        };
-      }
-    } else if (utils.isAddress(parsedSlug)) {
-      address = parsedSlug;
-    } else {
-      return {
-        notFound: true,
-      };
-    }
-
-    try {
-      const assetsResult = await fetchCyberconnectFollowings(
-        address,
-        FOLLOW_QUERY_NUMBER,
-      );
-      followings = validateSchema(cyberconnectFollowingsSchema, assetsResult);
-    } catch (e) {}
-
-    return {
-      props: {
-        address: address,
-        ens: ens ?? null,
-        followings: followings ?? null,
-      },
-      revalidate: 300,
-    };
-  } catch (e) {
+  const addressResult = resolveAddress(parsedSlug);
+  if (addressResult.isErr()) {
     return {
       notFound: true,
     };
   }
+  const address = addressResult.value;
+
+  const [ensResult, followingsResult] = await Promise.all([
+    resolveEns(parsedSlug),
+    safeFetchCyberconnectFollowings(
+      address,
+      FOLLOW_QUERY_NUMBER,
+    )(cyberconnectFollowingsSchema.safeParse),
+  ]);
+
+  return {
+    props: {
+      address: address,
+      ens: ensResult.unwrapOr(null),
+      followings: followingsResult.unwrapOr(null),
+    },
+    revalidate: 300,
+  };
 };
 
 export const SlugPage = ({

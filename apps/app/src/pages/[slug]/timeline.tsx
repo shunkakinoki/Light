@@ -1,9 +1,6 @@
-/* eslint-disable no-empty */
-
 import { Footer } from "@lightdotso/core";
-import { resolveEns } from "@lightdotso/services";
+import { resolveEns, resolveAddress } from "@lightdotso/services";
 import type { PoapActions, OpenseaAssets } from "@lightdotso/types";
-import { utils } from "ethers";
 import type {
   GetStaticProps,
   InferGetStaticPropsType,
@@ -39,40 +36,25 @@ const parseStringArray = (stringArray: string | string[]) => {
 export const getStaticProps: GetStaticProps<Props> = async ({
   params: { slug },
 }: GetStaticPropsContext) => {
-  let address: string;
-  let ens: string;
   const parsedSlug = parseStringArray(slug);
 
-  try {
-    if (parsedSlug.endsWith(".eth")) {
-      try {
-        address = await resolveEns(parsedSlug);
-        ens = parsedSlug;
-      } catch (err) {
-        return {
-          notFound: true,
-        };
-      }
-    } else if (utils.isAddress(parsedSlug)) {
-      address = parsedSlug;
-    } else {
-      return {
-        notFound: true,
-      };
-    }
-
-    return {
-      props: {
-        address: address,
-        ens: ens ?? null,
-      },
-      revalidate: 300,
-    };
-  } catch (e) {
+  const addressResult = resolveAddress(parsedSlug);
+  if (addressResult.isErr()) {
     return {
       notFound: true,
     };
   }
+  const address = addressResult.value;
+
+  const [ensResult] = await Promise.all([resolveEns(parsedSlug)]);
+
+  return {
+    props: {
+      address: address,
+      ens: ensResult.unwrapOr(null),
+    },
+    revalidate: 300,
+  };
 };
 
 export const TimelinePage = ({

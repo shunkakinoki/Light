@@ -24,7 +24,7 @@ export const useCyberConnectStatus = (
   };
 
   const { data, error, mutate } = useSWR<CyberConnectStatus>(
-    address ? [SwrKeys.CYBER_CONNECT_STATUS, address, to] : null,
+    address && to ? [SwrKeys.CYBER_CONNECT_STATUS, address, to] : null,
     cyberconnectStatusFetcher,
     { fallbackData: initialStatus },
   );

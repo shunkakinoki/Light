@@ -2,14 +2,12 @@
 
 import { Footer } from "@lightdotso/core";
 import {
-  fetchPoapActions,
   safeFetchOpenseaAssets,
   resolveEns,
   safeFetchPoapActions,
 } from "@lightdotso/services";
 import type { PoapActions, OpenseaAssets } from "@lightdotso/types";
 import { poapActionsSchema, openseaAssetsSchema } from "@lightdotso/types";
-import { utils } from "ethers";
 import type {
   GetStaticProps,
   InferGetStaticPropsType,
@@ -33,7 +31,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export type Props = {
   address: string;
-  ens?: string;
+  ens: string | null;
   assets: OpenseaAssets | null;
   poaps: PoapActions | null;
 };

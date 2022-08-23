@@ -17,16 +17,4 @@ export const ensQuerySchema = z.object({
   ),
 });
 
-export const ensResolveNameQuerySchema = z.object({
-  domains: z.array(
-    z.object({
-      name: z.string(),
-      resolvedAddress: z.object({
-        id: z.string(),
-      }),
-    }),
-  ),
-});
-
 export type EnsQuery = z.infer<typeof ensQuerySchema>;
-export type EnsResolveNameQuery = z.infer<typeof ensResolveNameQuerySchema>;

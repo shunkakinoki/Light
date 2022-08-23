@@ -1,10 +1,10 @@
 import { z } from "zod";
 
-export const ensResolveNameQuerySchema = z.object({
+export const ensResolveNameQueryQuerySchema = z.object({
   name: z.string(),
 });
 
-export const ensResolveNameSchema = z.object({
+export const ensResolveNameQuerySchema = z.object({
   domains: z.array(
     z.object({
       name: z.string(),
@@ -15,4 +15,4 @@ export const ensResolveNameSchema = z.object({
   ),
 });
 
-export type EnsResolveName = z.infer<typeof ensResolveNameSchema>;
+export type EnsResolveNameQuery = z.infer<typeof ensResolveNameQuerySchema>;

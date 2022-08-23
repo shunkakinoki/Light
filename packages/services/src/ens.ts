@@ -1,6 +1,6 @@
 import { ApiLinks } from "@lightdotso/const";
 import { ENS_QUERY, ENS_RESOLVE_NAME_QUERY } from "@lightdotso/queries";
-import type { EnsQuery } from "@lightdotso/types";
+import type { EnsQuery, EnsResolveNameQuery } from "@lightdotso/types";
 import { ethers } from "ethers";
 import { request } from "graphql-request";
 
@@ -20,22 +20,26 @@ export const safeFetchEnsQuery = (name: string) => {
   };
 };
 
-export const fetchEnsResolveNameQuery = (name: string): Promise<EnsQuery> => {
+export const fetchEnsResolveNameQuery = (
+  name: string,
+): Promise<EnsResolveNameQuery> => {
   return request(ApiLinks.ENS_GRAPH, ENS_RESOLVE_NAME_QUERY, {
     name: name.toLowerCase(),
   });
 };
 
 export const safeFetchEnsResolveNameQuery = (name: string) => {
-  return (validator?: Validator<EnsQuery>) => {
-    return safeParse<EnsQuery>(fetchEnsResolveNameQuery)(name)(validator);
+  return (validator?: Validator<EnsResolveNameQuery>) => {
+    return safeParse<EnsResolveNameQuery>(fetchEnsResolveNameQuery)(name)(
+      validator,
+    );
   };
 };
 
 export const resolveEns = async (ens: string) => {
   try {
     const result = await fetchEnsResolveNameQuery(ens);
-    return result?.domains?.length > 0
+    return result?.domains?.length
       ? (result?.domains[0]?.resolvedAddress?.id as string)
       : null;
   } catch (err) {

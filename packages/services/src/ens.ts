@@ -4,7 +4,7 @@ import { ensResolveNameQuerySchema } from "@lightdotso/types";
 import type { EnsQuery, EnsResolveNameQuery } from "@lightdotso/types";
 import { ethers } from "ethers";
 import { request } from "graphql-request";
-import { ResultAsync } from "neverthrow";
+import { ResultAsync, Ok, Err } from "neverthrow";
 
 import type { Validator } from "./result";
 import { safeParse } from "./result";
@@ -44,7 +44,11 @@ export const resolveEns = async (name: string) => {
   );
 
   if (!queryResult.isErr()) {
-    return queryResult.value;
+    const name =
+      queryResult.value?.domains && queryResult.value?.domains[0]?.name;
+    if (!name && typeof name !== "undefined") {
+      return new Ok(name);
+    }
   }
 
   const provider = new ethers.providers.InfuraProvider(1, {
@@ -53,9 +57,9 @@ export const resolveEns = async (name: string) => {
   const providerResult = await ResultAsync.fromPromise(
     provider.resolveName(name),
     err => {
-      return console.error(err);
+      return new Err(err);
     },
   );
 
-  return providerResult.unwrapOr(null);
+  return providerResult;
 };

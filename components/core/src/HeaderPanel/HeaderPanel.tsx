@@ -2,7 +2,7 @@
 
 import { Transition } from "@headlessui/react";
 import { GlobeAltIcon } from "@heroicons/react/24/outline";
-import { XIcon } from "@heroicons/react/24/solid";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 import { NavigationLinks, SocialLinks } from "@lightdotso/const";
 import Link from "next/link";
 import type { FC, MouseEventHandler } from "react";
@@ -44,7 +44,7 @@ export const HeaderPanel: FC<HeaderPanelProps> = ({ show, onClick }) => {
                 onClick={onClick}
               >
                 <span className="sr-only">Close menu</span>
-                <XIcon className="h-6 w-6" aria-hidden="true" />
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
           </div>

@@ -4,6 +4,7 @@ import { Footer } from "@lightdotso/core";
 import {
   safeFetchOpenseaAssets,
   resolveEns,
+  resolveAddress,
   safeFetchPoapActions,
 } from "@lightdotso/services";
 import type { PoapActions, OpenseaAssets } from "@lightdotso/types";
@@ -43,8 +44,15 @@ const parseStringArray = (stringArray: string | string[]) => {
 export const getStaticProps: GetStaticProps<Props> = async ({
   params: { slug },
 }: GetStaticPropsContext) => {
-  let address: string;
   const parsedSlug = parseStringArray(slug);
+
+  const addressResult = resolveAddress(parsedSlug);
+  if (addressResult.isErr()) {
+    return {
+      notFound: true,
+    };
+  }
+  const address = addressResult.value;
 
   const [ensResult, assetsResult, poapsResult] = await Promise.all([
     resolveEns(parsedSlug),

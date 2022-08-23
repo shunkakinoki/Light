@@ -3,6 +3,7 @@ export * from "./covalent";
 export * from "./cyberconnect";
 export * from "./ens";
 export * from "./ethers";
+export * from "./evm";
 export * from "./galaxy";
 export * from "./opensea";
 export * from "./network";

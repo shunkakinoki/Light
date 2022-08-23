@@ -1,7 +1,6 @@
 import { Footer } from "@lightdotso/core";
 import {
-  resolveAddress,
-  resolveEns,
+  resolveEVMAddress,
   safeFetchCyberconnectFollowers,
 } from "@lightdotso/services";
 import type { CyberConnectFollowers } from "@lightdotso/types";
@@ -43,16 +42,16 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 }: GetStaticPropsContext) => {
   const parsedSlug = parseStringArray(slug);
 
-  const addressResult = resolveAddress(parsedSlug);
-  if (addressResult.isErr()) {
+  const evmResult = await resolveEVMAddress(parsedSlug);
+  if (evmResult.isErr()) {
     return {
       notFound: true,
     };
   }
-  const address = addressResult.value;
+  const address = evmResult.value.address;
+  const ens = evmResult.value?.ens || null;
 
-  const [ensResult, followingsResult] = await Promise.all([
-    resolveEns(parsedSlug),
+  const [followingsResult] = await Promise.all([
     safeFetchCyberconnectFollowers(
       address,
       FOLLOW_QUERY_NUMBER,
@@ -62,7 +61,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   return {
     props: {
       address: address,
-      ens: ensResult.unwrapOr(null),
+      ens: ens,
       followers: followingsResult.unwrapOr(null),
     },
     revalidate: 300,

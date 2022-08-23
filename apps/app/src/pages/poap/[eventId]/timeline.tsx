@@ -1,5 +1,3 @@
-/* eslint-disable no-empty */
-
 import { Footer } from "@lightdotso/core";
 import {
   safeFetchPoapEvent,

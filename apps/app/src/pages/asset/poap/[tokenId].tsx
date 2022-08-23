@@ -1,5 +1,3 @@
-/* eslint-disable no-empty */
-
 import { safeFetchPoapToken } from "@lightdotso/services";
 import { poapTokenQuerySchema, poapTokenSchema } from "@lightdotso/types";
 import type { PoapToken } from "@lightdotso/types";

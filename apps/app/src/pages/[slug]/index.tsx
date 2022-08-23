@@ -1,10 +1,7 @@
-/* eslint-disable no-empty */
-
 import { Footer } from "@lightdotso/core";
 import {
   safeFetchOpenseaAssets,
-  resolveEns,
-  resolveAddress,
+  resolveEVMAddress,
   safeFetchPoapActions,
 } from "@lightdotso/services";
 import type { PoapActions, OpenseaAssets } from "@lightdotso/types";
@@ -46,16 +43,16 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 }: GetStaticPropsContext) => {
   const parsedSlug = parseStringArray(slug);
 
-  const addressResult = resolveAddress(parsedSlug);
-  if (addressResult.isErr()) {
+  const evmResult = await resolveEVMAddress(parsedSlug);
+  if (evmResult.isErr()) {
     return {
       notFound: true,
     };
   }
-  const address = addressResult.value;
+  const address = evmResult.value.address;
+  const ens = evmResult.value?.ens || null;
 
-  const [ensResult, assetsResult, poapsResult] = await Promise.all([
-    resolveEns(parsedSlug),
+  const [assetsResult, poapsResult] = await Promise.all([
     safeFetchOpenseaAssets(address, undefined)(openseaAssetsSchema.safeParse),
     safeFetchPoapActions(address)(poapActionsSchema.safeParse),
   ]);
@@ -63,7 +60,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   return {
     props: {
       address: address,
-      ens: ensResult.unwrapOr(null),
+      ens: ens,
       assets: assetsResult.unwrapOr(null),
       poaps: poapsResult.unwrapOr(null),
     },

@@ -4,7 +4,6 @@ import type { FC } from "react";
 import { useMemo } from "react";
 
 import { useEns } from "@lightdotso/app/hooks/useEns";
-import { useWallet } from "@lightdotso/app/hooks/useWallet";
 
 export type ProfileFollowHeroTab = "following" | "followers";
 
@@ -17,13 +16,12 @@ export const ProfileFollowHeroTabs: FC<ProfileFollowHeroTabsProps> = ({
   address,
   follow = "following",
 }) => {
-  const { address: walletAddress } = useWallet();
   const { ens } = useEns(address);
 
   const slug = useMemo(() => {
-    const slug = address === walletAddress ? "profile" : ens ?? address;
+    const slug = ens ?? address;
     return slug;
-  }, [address, ens, walletAddress]);
+  }, [address, ens]);
 
   const tabs: {
     name: string;

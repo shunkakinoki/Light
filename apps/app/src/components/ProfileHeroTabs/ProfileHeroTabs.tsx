@@ -4,8 +4,6 @@ import Link from "next/link";
 import { useMemo } from "react";
 import type { SVGProps, FC } from "react";
 
-import { useWallet } from "@lightdotso/app/hooks/useWallet";
-
 export type ActiveProfileTab = "Board" | "Timeline" | "Activity";
 
 export type ProfileHeroTabsProps = {
@@ -19,12 +17,10 @@ export const ProfileHeroTabs: FC<ProfileHeroTabsProps> = ({
   address,
   ens,
 }) => {
-  const { address: walletAddress } = useWallet();
-
   const slug = useMemo(() => {
-    const slug = address === walletAddress ? "profile" : ens ?? address;
+    const slug = ens ?? address;
     return slug;
-  }, [address, ens, walletAddress]);
+  }, [address, ens]);
 
   const tabs = useMemo<
     {

@@ -5,7 +5,7 @@ import { fetcher } from "./fetcher";
 import type { Validator } from "./result";
 import { safeParse } from "./result";
 
-export const fetchGalaxyCampaign = (oatId: string) => {
+export const fetchGalaxyCampaign = (oatId: string): Promise<GalaxyCampaign> => {
   return fetcher(`${ApiLinks.CACHE}/galaxy/campaign/${oatId}`, {
     method: "GET",
   });
@@ -17,7 +17,7 @@ export const safeFetchGalaxyCampaign = (address: string) => {
   };
 };
 
-export const fetchGalaxyOats = (address: string) => {
+export const fetchGalaxyOats = (address: string): Promise<GalaxyOats> => {
   return fetcher(`${ApiLinks.CACHE}/galaxy/${address}`, {
     method: "GET",
   });

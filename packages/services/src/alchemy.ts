@@ -5,7 +5,9 @@ import { fetcher } from "./fetcher";
 import type { Validator } from "./result";
 import { safeParse } from "./result";
 
-export const fetchAlchemyTokenTransactions = (address: string) => {
+export const fetchAlchemyTokenTransactions = (
+  address: string,
+): Promise<AlchemyTransactions> => {
   return fetcher(`${ApiLinks.ALCHEMY}${process.env.ALCHEMY_ID as string}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

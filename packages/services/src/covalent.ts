@@ -19,7 +19,7 @@ export const fetchCovalentTransactions = (
   networkId?: number,
   pageNumber?: number,
   pageSize?: number,
-) => {
+): Promise<CovalentTransactions> => {
   return fetcher(
     `${ApiLinks.COVALENT}${
       networkId ?? 1

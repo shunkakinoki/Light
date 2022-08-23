@@ -1,7 +1,7 @@
 import { Menu, Transition } from "@headlessui/react";
 import {
   CogIcon,
-  LogoutIcon,
+  ArrowLeftOnRectangleIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import type { FC, MouseEventHandler } from "react";
@@ -64,7 +64,7 @@ export const HeaderMenu: FC<HeaderMenuProps> = () => {
               disabled={!address}
               onClick={disconnect}
             >
-              <LogoutIcon
+              <ArrowLeftOnRectangleIcon
                 className="mr-4 h-5 w-5 group-hover:text-contrast-higher"
                 aria-hidden="true"
               />

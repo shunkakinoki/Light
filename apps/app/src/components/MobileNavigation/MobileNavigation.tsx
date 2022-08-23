@@ -1,8 +1,8 @@
 import {
   HomeIcon,
-  ViewListIcon,
+  WrenchScrewdriverIcon,
   GlobeAltIcon,
-  SearchIcon,
+  MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import Link from "next/link";
@@ -25,12 +25,12 @@ const tabs: {
   {
     name: "Search",
     href: "/search",
-    icon: SearchIcon,
+    icon: MagnifyingGlassIcon,
   },
   {
     name: "More",
     href: "/settings",
-    icon: ViewListIcon,
+    icon: WrenchScrewdriverIcon,
   },
 ];
 

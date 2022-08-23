@@ -1,4 +1,4 @@
-import { XIcon } from "@heroicons/react/24/solid";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 
 import type { MouseEventHandler, FC } from "react";
 
@@ -13,7 +13,7 @@ export const ModalCloseButton: FC<ModalCloseButtonProps> = ({ onClick }) => {
       className="transition duration-150 ease-in-out focus:outline-none"
       onClick={onClick}
     >
-      <XIcon className="h-6 w-6 text-contrast-high hover:text-contrast-medium" />
+      <XMarkIcon className="h-6 w-6 text-contrast-high hover:text-contrast-medium" />
     </button>
   );
 };

@@ -10,6 +10,7 @@
     "@lightdotso/app#build": {
       "dependsOn": [
         "^build",
+        "$NEXTAUTH_URL",
         "$NEXT_PUBLIC_ALCHEMY_ID",
         "$NEXT_PUBLIC_ETHERSCAN_API_KEY",
         "$NEXT_PUBLIC_INFURA_ID",

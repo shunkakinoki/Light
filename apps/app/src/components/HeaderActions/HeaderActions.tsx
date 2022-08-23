@@ -1,4 +1,4 @@
-import { GlobeAltIcon, HomeIcon } from "@heroicons/react/outline";
+import { GlobeAltIcon, HomeIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import Link from "next/link";
 import type { FC } from "react";

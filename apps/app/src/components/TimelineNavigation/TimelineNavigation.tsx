@@ -1,5 +1,5 @@
 import { Menu } from "@headlessui/react";
-import { CollectionIcon } from "@heroicons/react/outline";
+import { CollectionIcon } from "@heroicons/react/24/outline";
 import { UserGroupIcon } from "@heroicons/react/solid";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

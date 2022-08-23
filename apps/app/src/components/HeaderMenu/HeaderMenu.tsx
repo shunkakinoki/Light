@@ -1,5 +1,9 @@
 import { Menu, Transition } from "@headlessui/react";
-import { CogIcon, LogoutIcon, UserCircleIcon } from "@heroicons/react/outline";
+import {
+  CogIcon,
+  LogoutIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/outline";
 import type { FC, MouseEventHandler } from "react";
 import { Fragment } from "react";
 

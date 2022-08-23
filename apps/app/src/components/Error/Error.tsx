@@ -1,4 +1,4 @@
-import { BookmarkAltIcon, RssIcon } from "@heroicons/react/outline";
+import { BookmarkAltIcon, RssIcon } from "@heroicons/react/24/outline";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import { SocialLinks } from "@lightdotso/const";
 import Link from "next/link";

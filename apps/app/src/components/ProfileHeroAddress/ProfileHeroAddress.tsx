@@ -1,4 +1,4 @@
-import { DuplicateIcon, ClipboardCheckIcon } from "@heroicons/react/outline";
+import { DuplicateIcon, ClipboardCheckIcon } from "@heroicons/react/24/outline";
 import type { FC } from "react";
 
 import { useCopy } from "@lightdotso/app/hooks/useCopy";

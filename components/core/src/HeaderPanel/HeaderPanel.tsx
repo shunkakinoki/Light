@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-imports */
 
 import { Transition } from "@headlessui/react";
-import { GlobeAltIcon } from "@heroicons/react/outline";
+import { GlobeAltIcon } from "@heroicons/react/24/outline";
 import { XIcon } from "@heroicons/react/solid";
 import { NavigationLinks, SocialLinks } from "@lightdotso/const";
 import Link from "next/link";

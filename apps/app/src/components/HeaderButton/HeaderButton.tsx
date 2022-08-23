@@ -1,4 +1,4 @@
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { MenuIcon, XIcon } from "@heroicons/react/24/outline";
 import type { FC, MouseEventHandler } from "react";
 
 export type HeaderButtonProps = {

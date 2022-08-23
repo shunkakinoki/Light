@@ -23,8 +23,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export type Props = {
+  token: PoapToken | null;
   tokenId: string;
-  token: PoapToken;
 };
 
 const parseStringArray = (stringArray: string | string[]) => {
@@ -43,10 +43,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({
     const tokenResult = await safeFetchPoapToken(tokenId)(
       poapTokenSchema.safeParse,
     );
-
-    if (tokenResult.isErr()) {
-      console.error(tokenResult.error);
-    }
 
     return {
       props: {

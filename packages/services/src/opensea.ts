@@ -30,9 +30,11 @@ export const fetchOpenseaAsset = (
   });
 };
 
-export const safeFetchOpenseaAsset = (spaceId: string) => {
+export const safeFetchOpenseaAsset = (address: string, tokenId: string) => {
   return (validator?: Validator<OpenseaAsset>) => {
-    return safeParse<OpenseaAsset>(fetchOpenseaAsset)(spaceId)(validator);
+    return safeParse<OpenseaAsset>(fetchOpenseaAsset)(address, tokenId)(
+      validator,
+    );
   };
 };
 

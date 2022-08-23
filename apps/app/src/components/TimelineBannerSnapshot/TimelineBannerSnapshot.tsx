@@ -1,4 +1,4 @@
-import { BadgeCheckIcon } from "@heroicons/react/24/solid";
+import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 import type { SnapshotVote } from "@lightdotso/types";
 import Link from "next/link";
 import type { FC } from "react";
@@ -37,7 +37,7 @@ export const TimelineBannerSnapshot: FC<TimelineBannerSnapshotProps> = ({
       </Link>
       {data?.space?.skin === "verified" && (
         <span className="inline-block">
-          <BadgeCheckIcon className="h-3 w-3 fill-primary" />
+          <CheckBadgeIcon className="h-3 w-3 fill-primary" />
         </span>
       )}
     </>

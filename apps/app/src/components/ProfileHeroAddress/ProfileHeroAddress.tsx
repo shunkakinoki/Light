@@ -1,4 +1,7 @@
-import { DuplicateIcon, ClipboardCheckIcon } from "@heroicons/react/24/outline";
+import {
+  Square2StackIcon,
+  ClipboardDocumentCheckIcon,
+} from "@heroicons/react/24/outline";
 import type { FC } from "react";
 
 import { useCopy } from "@lightdotso/app/hooks/useCopy";
@@ -31,9 +34,9 @@ export const ProfileHeroAddress: FC<ProfileHeroAddressProps> = ({
             }}
           >
             {!isCopied ? (
-              <DuplicateIcon className="h-6 w-6 text-contrast-low hover:text-contrast-medium" />
+              <Square2StackIcon className="h-6 w-6 text-contrast-low hover:text-contrast-medium" />
             ) : (
-              <ClipboardCheckIcon className="h-6 w-6 text-contrast-low hover:text-contrast-medium" />
+              <ClipboardDocumentCheckIcon className="h-6 w-6 text-contrast-low hover:text-contrast-medium" />
             )}
           </button>
         </div>

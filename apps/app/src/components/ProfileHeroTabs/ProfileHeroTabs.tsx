@@ -1,4 +1,4 @@
-import { ViewListIcon, ViewGridIcon } from "@heroicons/react/24/solid";
+import { Squares2X2Icon, RectangleStackIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import Link from "next/link";
 import { useMemo } from "react";
@@ -31,11 +31,16 @@ export const ProfileHeroTabs: FC<ProfileHeroTabsProps> = ({
     }[]
   >(() => {
     return [
-      { name: "Board", href: `/${slug}`, icon: ViewGridIcon, active: "Board" },
+      {
+        name: "Board",
+        href: `/${slug}`,
+        icon: Squares2X2Icon,
+        active: "Board",
+      },
       {
         name: "Timeline",
         href: `/${slug}/timeline`,
-        icon: ViewListIcon,
+        icon: RectangleStackIcon,
         active: "Timeline",
       },
     ];

@@ -1,4 +1,4 @@
-import { ViewListIcon, UserGroupIcon } from "@heroicons/react/24/solid";
+import { RectangleStackIcon, UserGroupIcon } from "@heroicons/react/24/solid";
 import type { NetworkType } from "@lightdotso/types";
 import clsx from "clsx";
 import Link from "next/link";
@@ -32,7 +32,7 @@ export const NetworkTabs: FC<NetworkTabsProps> = ({
     {
       name: "Timeline",
       href: `/${type.toLowerCase()}/${id}/timeline`,
-      icon: ViewListIcon,
+      icon: RectangleStackIcon,
       active: "Timeline",
     },
   ];

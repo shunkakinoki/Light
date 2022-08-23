@@ -1,4 +1,4 @@
-import { fetchOpenseaAssets } from "@lightdotso/services";
+import { safeFetchOpenseaAssets } from "@lightdotso/services";
 import type { OpenseaAssets } from "@lightdotso/types";
 import useSWR from "swr";
 
@@ -8,14 +8,13 @@ import { fetcher } from "@lightdotso/app/libs/services/fetcher";
 
 export const useOpenSeaAssets = (address?: string) => {
   const openseaAssetsFetcher = async (key, address) => {
-    const result = await fetchOpenseaAssets(address);
-    //@ts-expect-error
-    if (result.error) {
+    const result = await safeFetchOpenseaAssets(address)();
+    if (result.isErr()) {
       const url = `${LIGHT_API_URL}/api/opensea/assets/${address}`;
       const backupResult = await fetcher(url);
       return backupResult;
     }
-    return result;
+    return result.value;
   };
 
   const { data, error, mutate } = useSWR<OpenseaAssets>(

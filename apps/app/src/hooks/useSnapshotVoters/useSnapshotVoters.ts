@@ -1,4 +1,4 @@
-import { fetchSnapshotVoters } from "@lightdotso/services";
+import { safeFetchSnapshotVoters } from "@lightdotso/services";
 import type { SnapshotVoters } from "@lightdotso/types";
 import useSWRInfinite from "swr/infinite";
 import type { SWRInfiniteKeyLoader } from "swr/infinite";
@@ -19,26 +19,24 @@ export const useSnapshotVoters = (spaceId?: string, first?: number) => {
     const url = `${LIGHT_API_URL}/api/snapshot/followers/${obj?.spaceId}?first=${obj?.first}`;
 
     if (obj?.skip) {
-      const result = await fetchSnapshotVoters(
+      const result = await safeFetchSnapshotVoters(
         obj?.spaceId,
         obj?.first,
         obj?.skip,
-      );
-      //@ts-expect-error
-      if (result.error) {
+      )();
+      if (result.isErr()) {
         const backupResult = await fetcher(`${url}&skip=${obj?.skip}`);
         return backupResult;
       }
-      return result;
+      return result.value;
     }
 
-    const result = await fetchSnapshotVoters(obj?.spaceId, obj?.first);
-    //@ts-expect-error
-    if (result.error) {
+    const result = await safeFetchSnapshotVoters(obj?.spaceId, obj?.first)();
+    if (result.isErr()) {
       const backupResult = await fetcher(url);
       return backupResult;
     }
-    return result;
+    return result.value;
   };
 
   const getKey: SWRInfiniteKeyLoader = (

@@ -1,4 +1,4 @@
-import { fetchGalaxyCampaign } from "@lightdotso/services";
+import { safeFetchGalaxyCampaign } from "@lightdotso/services";
 import type { GalaxyCampaign } from "@lightdotso/types";
 import useSWR from "swr";
 
@@ -9,8 +9,12 @@ export const useGalaxyCampaign = (
   initialData?: GalaxyCampaign,
 ) => {
   const campaignFetcher = async (key, oatId) => {
-    const result = await fetchGalaxyCampaign(oatId);
-    return result;
+    const result = await safeFetchGalaxyCampaign(oatId)();
+    if (result.isErr()) {
+      // TODO: Add API endpoint
+      return;
+    }
+    return result.value;
   };
 
   const { data, error } = useSWR<GalaxyCampaign>(

@@ -1,4 +1,4 @@
-import { fetchPoapEvent } from "@lightdotso/services";
+import { safeFetchPoapEvent } from "@lightdotso/services";
 import type { PoapEvent } from "@lightdotso/types";
 import useSWR from "swr";
 
@@ -8,13 +8,13 @@ import { fetcher } from "@lightdotso/app/libs/services/fetcher";
 
 export const usePoapEvent = (eventId?: string, initialToken?: PoapEvent) => {
   const poapEventFetcher = async (key, eventId) => {
-    const result = await fetchPoapEvent(eventId);
-    if (result.error) {
+    const result = await safeFetchPoapEvent(eventId)();
+    if (result.isErr()) {
       const url = `${LIGHT_API_URL}/api/poap/event/${eventId}`;
       const backupResult = await fetcher(url);
       return backupResult;
     }
-    return result;
+    return result.value;
   };
 
   const { data, error } = useSWR<PoapEvent>(

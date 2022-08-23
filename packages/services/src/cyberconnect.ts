@@ -119,7 +119,7 @@ export const fetchCyberconnectRankings = (
 };
 
 export const safeFetchCyberconnectRankings = (
-  first: string,
+  first: number,
   after?: string,
 ) => {
   return (validator?: Validator<CyberConnectRankings>) => {

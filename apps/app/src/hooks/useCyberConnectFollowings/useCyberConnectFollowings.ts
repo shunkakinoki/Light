@@ -1,4 +1,4 @@
-import { fetchCyberconnectFollowings } from "@lightdotso/services";
+import { safeFetchCyberconnectFollowings } from "@lightdotso/services";
 import type { CyberConnectFollowings } from "@lightdotso/types";
 import { useEffect } from "react";
 import { useSWRConfig } from "swr";
@@ -26,26 +26,27 @@ export const useCyberConnectFollowings = (address?: string, first?: number) => {
     const url = `${LIGHT_API_URL}/api/cyberconnect/followings/${obj?.address}?first=${obj?.first}`;
 
     if (obj?.after) {
-      const result = await fetchCyberconnectFollowings(
+      const result = await safeFetchCyberconnectFollowings(
         obj?.address,
         obj?.first,
         obj?.after,
-      );
-      //@ts-expect-error
-      if (result.error) {
+      )();
+      if (result.isErr()) {
         const backupResult = await fetcher(`${url}&after=${obj?.after}`);
         return backupResult;
       }
-      return result;
+      return result.value;
     }
 
-    const result = await fetchCyberconnectFollowings(obj?.address, obj?.first);
-    //@ts-expect-error
-    if (result.error) {
+    const result = await safeFetchCyberconnectFollowings(
+      obj?.address,
+      obj?.first,
+    )();
+    if (result.isErr()) {
       const backupResult = await fetcher(url);
       return backupResult;
     }
-    return result;
+    return result.value;
   };
 
   const getKey: SWRInfiniteKeyLoader = (

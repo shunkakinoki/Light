@@ -1,8 +1,10 @@
 import { ApiLinks } from "@lightdotso/const";
 import { ENS_QUERY, ENS_RESOLVE_NAME_QUERY } from "@lightdotso/queries";
+import { ensResolveNameQuerySchema } from "@lightdotso/types";
 import type { EnsQuery, EnsResolveNameQuery } from "@lightdotso/types";
 import { ethers } from "ethers";
 import { request } from "graphql-request";
+import { ResultAsync } from "neverthrow";
 
 import type { Validator } from "./result";
 import { safeParse } from "./result";
@@ -36,26 +38,24 @@ export const safeFetchEnsResolveNameQuery = (name: string) => {
   };
 };
 
-export const resolveEns = async (ens: string) => {
-  try {
-    const result = await fetchEnsResolveNameQuery(ens);
-    return result?.domains?.length
-      ? (result?.domains[0]?.resolvedAddress?.id as string)
-      : null;
-  } catch (err) {
-    console.error(err);
+export const resolveEns = async (name: string) => {
+  const queryResult = await safeFetchEnsResolveNameQuery(name)(
+    ensResolveNameQuerySchema.safeParse,
+  );
+
+  if (!queryResult.isErr()) {
+    return queryResult.value;
   }
-  try {
-    const provider = new ethers.providers.InfuraProvider(1, {
-      projectId: process.env.NEXT_PUBLIC_INFURA_ID as string,
-    });
-    const address = await provider.resolveName(ens);
-    if (address) {
-      return address;
-    }
-    return null;
-  } catch (err) {
-    console.error(err);
-  }
-  return null;
+
+  const provider = new ethers.providers.InfuraProvider(1, {
+    projectId: process.env.NEXT_PUBLIC_INFURA_ID as string,
+  });
+  const providerResult = await ResultAsync.fromPromise(
+    provider.resolveName(name),
+    err => {
+      return console.error(err);
+    },
+  );
+
+  return providerResult.unwrapOr(null);
 };

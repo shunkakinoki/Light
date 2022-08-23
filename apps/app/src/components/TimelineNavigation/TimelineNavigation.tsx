@@ -1,6 +1,6 @@
 import { Menu } from "@headlessui/react";
-import { CollectionIcon } from "@heroicons/react/outline";
-import { UserGroupIcon } from "@heroicons/react/solid";
+import { RectangleStackIcon } from "@heroicons/react/24/outline";
+import { UserGroupIcon } from "@heroicons/react/24/solid";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IconPoap, IconNFT, IconDAO, IconTokens } from "@lightdotso/core";
@@ -16,7 +16,7 @@ const navigation: Array<{
   icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
   category: CategoryType | "ALL";
 }> = [
-  { name: "All", icon: CollectionIcon, category: "ALL" },
+  { name: "All", icon: RectangleStackIcon, category: "ALL" },
   // { name: "DeFi", icon: IconTokens, category: "DEFI" },
   { name: "NFT", icon: IconNFT, category: "NFT" },
   { name: "DAO", icon: IconDAO, category: "DAO" },

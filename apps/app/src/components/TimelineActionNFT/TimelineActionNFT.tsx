@@ -1,4 +1,7 @@
-import { SparklesIcon, ChevronDoubleRightIcon } from "@heroicons/react/solid";
+import {
+  SparklesIcon,
+  ChevronDoubleRightIcon,
+} from "@heroicons/react/24/solid";
 import type { OpenseaEvent } from "@lightdotso/types";
 import Link from "next/link";
 import type { FC } from "react";

@@ -1,5 +1,9 @@
-import { BookmarkAltIcon, RssIcon } from "@heroicons/react/outline";
-import { ChevronRightIcon } from "@heroicons/react/solid";
+import {
+  DocumentTextIcon,
+  BookmarkSquareIcon,
+  ChatBubbleBottomCenterIcon,
+} from "@heroicons/react/24/outline";
+import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import { SocialLinks } from "@lightdotso/const";
 import Link from "next/link";
 import type { FC } from "react";
@@ -8,19 +12,19 @@ const links = [
   {
     title: "Blog",
     description: "Read our latest news and articles",
-    icon: RssIcon,
+    icon: DocumentTextIcon,
     href: SocialLinks.Mirror,
   },
   {
     title: "Guide",
     description: "Learn how to explore Light",
-    icon: BookmarkAltIcon,
+    icon: BookmarkSquareIcon,
     href: SocialLinks.Notion,
   },
   {
     title: "Support",
     description: "Get help from our team on Discord",
-    icon: RssIcon,
+    icon: ChatBubbleBottomCenterIcon,
     href: SocialLinks.Discord,
   },
 ];

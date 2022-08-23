@@ -1,4 +1,4 @@
-import { ExclamationCircleIcon } from "@heroicons/react/solid";
+import { ShieldExclamationIcon } from "@heroicons/react/24/solid";
 import type { FC } from "react";
 
 import type { ToastBaseProps } from "@lightdotso/app/components/ToastBase";
@@ -10,7 +10,7 @@ export const ToastError: FC<ToastErrorProps> = ({ show, children }) => {
   return (
     <ToastBase
       icon={
-        <ExclamationCircleIcon
+        <ShieldExclamationIcon
           className="h-5 w-5 text-error"
           aria-hidden="true"
         />

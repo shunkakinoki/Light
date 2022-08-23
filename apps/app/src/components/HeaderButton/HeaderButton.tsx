@@ -1,4 +1,4 @@
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import type { FC, MouseEventHandler } from "react";
 
 export type HeaderButtonProps = {
@@ -14,9 +14,9 @@ export const HeaderButton: FC<HeaderButtonProps> = ({ open, onClick }) => {
     >
       <span className="sr-only">Open menu</span>
       {open ? (
-        <XIcon className="block h-6 w-6" aria-hidden="true" />
+        <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
       ) : (
-        <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+        <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
       )}
     </button>
   );

@@ -1,4 +1,7 @@
-import { ClipboardIcon, ClipboardCheckIcon } from "@heroicons/react/solid";
+import {
+  ClipboardIcon,
+  ClipboardDocumentCheckIcon,
+} from "@heroicons/react/24/solid";
 import type { FC } from "react";
 import { useMemo } from "react";
 import { FaTwitter } from "react-icons/fa";
@@ -69,7 +72,7 @@ export const ModalShareButton: FC<ModalShareButtonProps> = ({
                 aria-hidden="true"
               />
             ) : (
-              <ClipboardCheckIcon className="mr-2 -ml-1 h-5 w-5" />
+              <ClipboardDocumentCheckIcon className="mr-2 -ml-1 h-5 w-5" />
             )}
             {!isCopied ? "Copy Link" : "Copied!"}
           </button>

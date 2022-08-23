@@ -1,5 +1,5 @@
 import { Disclosure, Transition } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/solid";
+import { ChevronUpIcon } from "@heroicons/react/24/solid";
 import { IconNFT, IconTokens, IconPoap } from "@lightdotso/core";
 import clsx from "clsx";
 import type { FC, ReactNode } from "react";

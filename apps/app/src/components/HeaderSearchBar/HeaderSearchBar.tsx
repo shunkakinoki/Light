@@ -1,5 +1,5 @@
 import { Combobox } from "@headlessui/react";
-import { SearchIcon } from "@heroicons/react/solid";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 import type { FC } from "react";
@@ -32,7 +32,7 @@ export const HeaderSearchBar: FC = () => {
           </Combobox.Label>
           <div className="relative">
             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-              <SearchIcon
+              <MagnifyingGlassIcon
                 className="h-5 w-5 text-contrast-medium"
                 aria-hidden="true"
               />

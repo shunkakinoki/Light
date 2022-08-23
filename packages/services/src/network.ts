@@ -5,7 +5,7 @@ import { fetcher } from "./fetcher";
 import type { Validator } from "./result";
 import { safeParse } from "./result";
 
-export const fetchNetworks = (address: string) => {
+export const fetchNetworks = (address: string): Promise<Network> => {
   return fetcher(`${ApiLinks.CACHE}/network/${address}`, {
     method: "GET",
   });
@@ -17,7 +17,7 @@ export const safeFetchNetworks = (address: string) => {
   };
 };
 
-export const fetchNetworksRaw = (address: string) => {
+export const fetchNetworksRaw = (address: string): Promise<NetworkRaw> => {
   return fetcher(`${ApiLinks.CACHE}/network/raw/${address}`, {
     method: "GET",
   });

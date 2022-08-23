@@ -20,7 +20,10 @@ export const openseaHeaders = new Headers({
   "X-API-KEY": process.env.OPENSEA_API_KEY ?? "",
 });
 
-export const fetchOpenseaAsset = (address: string, tokenId: string) => {
+export const fetchOpenseaAsset = (
+  address: string,
+  tokenId: string,
+): Promise<OpenseaAsset> => {
   return fetcher(`${ApiLinks.OPEN_SEA}${ASSET}/${address}/${tokenId}`, {
     method: "GET",
     headers: openseaHeaders,
@@ -33,7 +36,10 @@ export const safeFetchOpenseaAsset = (spaceId: string) => {
   };
 };
 
-export const fetchOpenseaAssets = (address: string, cursor?: string) => {
+export const fetchOpenseaAssets = (
+  address: string,
+  cursor?: string,
+): Promise<OpenseaAssets> => {
   return fetcher(
     `${ApiLinks.OPEN_SEA}${ASSETS}${address}${LIMIT}${
       cursor ? `${CURSOR}${cursor}` : ""
@@ -53,7 +59,10 @@ export const safeFetchOpenseaAssets = (address: string, cursor?: string) => {
   };
 };
 
-export const fetchOpenseaEvents = (address: string, cursor?: string) => {
+export const fetchOpenseaEvents = (
+  address: string,
+  cursor?: string,
+): Promise<OpenseaEvents> => {
   return fetcher(
     `${ApiLinks.OPEN_SEA}${EVENTS}${address}${
       cursor ? `${CURSOR}${cursor}` : ""

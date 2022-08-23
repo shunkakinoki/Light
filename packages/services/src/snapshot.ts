@@ -30,7 +30,7 @@ export const fetchSnapshotVoters = (
   spaceId: string,
   first: number,
   skip?: number,
-) => {
+): Promise<SnapshotVoters> => {
   return request(ApiLinks.SNAPSHOT, SNAPSHOT_VOTERS_QUERY, {
     id: spaceId,
     first: first,
@@ -50,7 +50,7 @@ export const safeFetchSnapshotVoters = (
   };
 };
 
-export const fetchSnapshotVotes = (address: string) => {
+export const fetchSnapshotVotes = (address: string): Promise<SnapshotVotes> => {
   return request(ApiLinks.SNAPSHOT, SNAPSHOT_VOTES_QUERY, {
     address: address,
   });

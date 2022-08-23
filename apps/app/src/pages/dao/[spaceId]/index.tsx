@@ -1,7 +1,8 @@
-/* eslint-disable no-empty */
-
 import { Footer } from "@lightdotso/core";
-import { fetchSnapshotSpace, fetchSnapshotVoters } from "@lightdotso/services";
+import {
+  safeFetchSnapshotSpace,
+  safeFetchSnapshotVoters,
+} from "@lightdotso/services";
 import type { SnapshotSpace, SnapshotVoters } from "@lightdotso/types";
 import {
   snapshotVotersSchema,
@@ -24,7 +25,6 @@ import { NETWORK_PEOPLE_QUERY_NUMBER } from "@lightdotso/app/config/Query";
 import { SwrKeys } from "@lightdotso/app/config/SwrKeys";
 
 import { validateQuery } from "@lightdotso/app/libs/api/validateQuery";
-import { validateSchema } from "@lightdotso/app/libs/api/validateSchema";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -35,52 +35,31 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export type Props = {
   spaceId: string;
-  space?: SnapshotSpace;
-  voters?: SnapshotVoters;
-};
-
-const parseStringArray = (stringArray: string | string[]) => {
-  return Array.isArray(stringArray) ? stringArray[0] : stringArray;
+  space: SnapshotSpace | null;
+  voters: SnapshotVoters | null;
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({
-  params: { spaceId },
+  params,
 }: GetStaticPropsContext) => {
-  const parsedSpaceId = parseStringArray(spaceId);
-  let space: SnapshotSpace;
-  let voters: SnapshotVoters;
+  const { spaceId } = validateQuery(snapshotSpaceQuerySchema, params);
 
-  try {
-    const { spaceId } = validateQuery(snapshotSpaceQuerySchema, {
-      spaceId: parsedSpaceId,
-    });
+  const [spaceResult, votersResult] = await Promise.all([
+    safeFetchSnapshotSpace(spaceId)(snapshotSpaceSchema.safeParse),
+    safeFetchSnapshotVoters(
+      spaceId,
+      NETWORK_PEOPLE_QUERY_NUMBER,
+    )(snapshotVotersSchema.safeParse),
+  ]);
 
-    try {
-      const spaceResult = await fetchSnapshotSpace(spaceId);
-      space = validateSchema(snapshotSpaceSchema, spaceResult);
-    } catch (e) {}
-
-    try {
-      const votersResult = await fetchSnapshotVoters(
-        spaceId,
-        NETWORK_PEOPLE_QUERY_NUMBER,
-      );
-      voters = validateSchema(snapshotVotersSchema, votersResult);
-    } catch (e) {}
-
-    return {
-      props: {
-        spaceId: parsedSpaceId,
-        space: space ?? null,
-        voters: voters ?? null,
-      },
-      revalidate: 300,
-    };
-  } catch (e) {
-    return {
-      notFound: true,
-    };
-  }
+  return {
+    props: {
+      spaceId: spaceId,
+      space: spaceResult.unwrapOr(null),
+      voters: votersResult.unwrapOr(null),
+    },
+    revalidate: 300,
+  };
 };
 
 export const IndexPage = ({

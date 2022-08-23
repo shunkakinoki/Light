@@ -1,19 +1,35 @@
 import { ApiLinks } from "@lightdotso/const";
 import { ENS_QUERY, ENS_RESOLVE_NAME_QUERY } from "@lightdotso/queries";
+import type { EnsQuery } from "@lightdotso/types";
 import { ethers } from "ethers";
 import { request } from "graphql-request";
 
-export const fetchEnsQuery = (name: string) => {
+import type { Validator } from "./result";
+import { safeParse } from "./result";
+
+export const fetchEnsQuery = (name: string): Promise<EnsQuery> => {
   return request(ApiLinks.ENS_GRAPH, ENS_QUERY, {
     name: name.toLowerCase(),
     amount: 10,
   });
 };
 
-export const fetchEnsResolveNameQuery = (name: string) => {
+export const safeFetchEnsQuery = (name: string) => {
+  return (validator?: Validator<EnsQuery>) => {
+    return safeParse<EnsQuery>(fetchEnsQuery)(name)(validator);
+  };
+};
+
+export const fetchEnsResolveNameQuery = (name: string): Promise<EnsQuery> => {
   return request(ApiLinks.ENS_GRAPH, ENS_RESOLVE_NAME_QUERY, {
     name: name.toLowerCase(),
   });
+};
+
+export const safeFetchEnsResolveNameQuery = (name: string) => {
+  return (validator?: Validator<EnsQuery>) => {
+    return safeParse<EnsQuery>(fetchEnsResolveNameQuery)(name)(validator);
+  };
 };
 
 export const resolveEns = async (ens: string) => {

@@ -16,7 +16,6 @@ export const SeoLight: FC<SeoLightProps> = ({ ogpName }) => {
       <NextSeo
         canonical="https://light.so"
         title={`Light | ${ogpName}`}
-        titleTemplate={`%s | ${ogpName}`}
         openGraph={{
           title: `Light | ${ogpName}`,
           locale: "en_US",

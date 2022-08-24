@@ -4,10 +4,11 @@ import type { FC } from "react";
 import { useEffect, useState } from "react";
 import { RecoilRoot } from "recoil";
 import { SWRConfig } from "swr";
-import "@lightdotso/app/styles/index.css";
 
+import "@lightdotso/app/styles/index.css";
 import { Layout } from "@lightdotso/app/components/Layout";
 import { NProgress } from "@lightdotso/app/components/NProgress";
+import { SeoLight } from "@lightdotso/app/components/SeoLight";
 import { Web3Provider } from "@lightdotso/app/components/Web3Provider";
 
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
@@ -18,7 +19,16 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
   }, []);
 
   if (!showChild) {
-    return null;
+    return (
+      <SeoLight
+        ogpName={
+          pageProps?.ens ??
+          pageProps?.name ??
+          pageProps?.id ??
+          pageProps?.address
+        }
+      />
+    );
   }
 
   return (

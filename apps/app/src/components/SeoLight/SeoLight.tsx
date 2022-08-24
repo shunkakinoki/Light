@@ -14,8 +14,11 @@ export const SeoLight: FC<SeoLightProps> = ({ ogpName }) => {
         <title>Light | {ogpName}</title>
       </Head>
       <NextSeo
+        canonical="https://light.so"
+        title={`Light | ${ogpName}`}
         titleTemplate={`%s | ${ogpName}`}
         openGraph={{
+          title: `Light | ${ogpName}`,
           locale: "en_US",
           site_name: "light.so",
           type: "website",
@@ -25,6 +28,11 @@ export const SeoLight: FC<SeoLightProps> = ({ ogpName }) => {
               ? { url: `${ApiLinks.OGP}=${ogpName}` }
               : { url: "https://light.so/ogp.png" },
           ],
+        }}
+        twitter={{
+          cardType: "summary_large_image",
+          handle: "@LightDotSo",
+          site: "@LightDotSo",
         }}
       />
     </>

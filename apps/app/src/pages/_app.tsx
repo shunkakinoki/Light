@@ -10,6 +10,7 @@ import { Layout } from "@lightdotso/app/components/Layout";
 import { NProgress } from "@lightdotso/app/components/NProgress";
 import { SeoLight } from "@lightdotso/app/components/SeoLight";
 import { Web3Provider } from "@lightdotso/app/components/Web3Provider";
+import { splitAddress } from "@lightdotso/app/utils/splitAddress";
 
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
   const [showChild, setShowChild] = useState(false);
@@ -25,7 +26,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
           pageProps?.ens ??
           pageProps?.name ??
           pageProps?.id ??
-          pageProps?.address ??
+          (pageProps?.address && splitAddress(pageProps?.address)) ??
           ""
         }
       />

@@ -25,7 +25,8 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
           pageProps?.ens ??
           pageProps?.name ??
           pageProps?.id ??
-          pageProps?.address
+          pageProps?.address ??
+          ""
         }
       />
     );

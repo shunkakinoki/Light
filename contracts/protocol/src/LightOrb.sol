@@ -9,7 +9,7 @@ import { ERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC
 import { AccessControlUpgradeable } from "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 import { LightOrbStorage } from "./storages/LightOrbStorage.sol";
 
-/// @title NFT contract for the Light protocol.
+/// @title NFT `Orb` contract for the Light protocol.
 /// @title Responsible for managing the rendering of the NFTs.
 /// @author Shun Kakinoki
 contract LightOrb is

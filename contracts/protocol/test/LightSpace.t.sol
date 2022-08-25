@@ -13,7 +13,7 @@ contract LightSpaceTest is BaseTest {
   }
 
   function testLightSpaceAssertions() public {
-    wrappedLightSpace.initializeLightSpace();
+    wrappedLightSpace.initialize();
     assertEq(wrappedLightSpace.name(), "Light Space");
     assertEq(wrappedLightSpace.symbol(), "LIGHTSPACE");
   }
@@ -21,6 +21,6 @@ contract LightSpaceTest is BaseTest {
   function testLightSpaceDisableInitializersOnImplementation() public {
     lightSpace = new LightSpace();
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    lightSpace.initializeLightSpace();
+    lightSpace.initialize();
   }
 }

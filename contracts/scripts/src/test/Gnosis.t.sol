@@ -12,13 +12,6 @@ contract GnosisTest is Test {
     script = new GnosisScript();
   }
 
-  // function testGoerli() public {
-  //   string memory GOERLI_RPC_URL = vm.envString("GOERLI_RPC_URL");
-  //   vm.createFork(GOERLI_RPC_URL);
-  //   script.run();
-  //   assertEq(script.safeL2().getChainId(), 5);
-  // }
-
   function testInitializer() public {
     address[] memory owners = new address[](1);
     owners[0] = address(0);

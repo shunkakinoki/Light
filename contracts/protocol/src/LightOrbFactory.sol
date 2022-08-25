@@ -2,12 +2,13 @@
 
 pragma solidity ^0.8.13;
 
+import { ILightOrbFactory } from "@lightdotso/protocol/interfaces/ILightOrbFactory.sol";
+import { LightOrb } from "@lightdotso/protocol/LightOrb.sol";
+import { LightOrbFactoryStorage, UpgradeableBeacon } from "@lightdotso/protocol/storages/LightOrbFactoryStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { BeaconProxy } from "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
-import { LightOrb } from "./LightOrb.sol";
-import { LightOrbFactoryStorage, UpgradeableBeacon } from "./storages/LightOrbFactoryStorage.sol";
 
 /// @title Factory contract for generating Light Orbs.
 /// @title Inherits the `LightOrbFactoryStorage` storage contract to store the state variables in respected slots.
@@ -16,7 +17,8 @@ contract LightOrbFactory is
   Initializable,
   OwnableUpgradeable,
   UUPSUpgradeable,
-  LightOrbFactoryStorage
+  LightOrbFactoryStorage,
+  ILightOrbFactory
 {
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {
@@ -25,6 +27,7 @@ contract LightOrbFactory is
 
   function initialize(address _implementationAddress)
     external
+    override
     reinitializer(2)
   {
     __Ownable_init();

@@ -3,8 +3,15 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
+import "@lightdotso/scripts/Gnosis.s.sol";
 
 contract GnosisTest is Test {
+  GnosisScript script;
+
+  function setUp() public {
+    script = new GnosisScript();
+  }
+
   function testInitializer() public {
     address[] memory owners = new address[](1);
     owners[0] = address(0);

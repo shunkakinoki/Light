@@ -3,6 +3,7 @@
 @lightdotso/protocol/=contracts/protocol/src/
 @lightdotso/proxies/=contracts/proxies/src/
 @lightdotso/renderer/=contracts/renderer/src/
+@lightdotso/scripts/=contracts/scripts/src/
 @lightdotso/upgradeable/=contracts/upgradeable/src/
 base64-sol/=lib/base64/
 ds-test/=lib/ds-test/src/

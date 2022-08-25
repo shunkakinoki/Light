@@ -18,7 +18,7 @@ contract GnosisScript is Script {
   address[] internal owners = new address[](3);
   GnosisSafeProxy proxy;
   GnosisSafe safe;
-  GnosisSafeL2 safeL2;
+  GnosisSafeL2 public safeL2;
 
   function run() external {
     owners[0] = address(0xA5A7468f177d94212cd0FDC0886EE732155c47e9);
@@ -44,7 +44,7 @@ contract GnosisScript is Script {
           0,
           0
         ),
-        0
+        123
       );
       safe = GnosisSafe(payable(address(proxy)));
     } else {
@@ -61,7 +61,7 @@ contract GnosisScript is Script {
           0,
           0
         ),
-        0
+        123
       );
       safeL2 = GnosisSafeL2(payable(address(proxy)));
     }

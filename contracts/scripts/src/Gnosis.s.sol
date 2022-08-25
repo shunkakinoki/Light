@@ -4,6 +4,7 @@ pragma solidity ^0.8.13;
 
 import "forge-std/Script.sol";
 import "@gnosis.pm/safe-contracts/GnosisSafe.sol";
+import "@gnosis.pm/safe-contracts/GnosisSafeL2.sol";
 import "@gnosis.pm/safe-contracts/proxies/GnosisSafeProxyFactory.sol";
 
 contract GnosisScript is Script {
@@ -14,16 +15,19 @@ contract GnosisScript is Script {
   address GNOSIS_L2_SINGLETON_ADDRESS_1_3_0 =
     address(0x3E5c63644E683549055b9Be8653de26E0B4CD36E);
 
+  address[] internal owners = new address[](3);
+  GnosisSafeProxy proxy;
+  GnosisSafe safe;
+  GnosisSafeL2 safeL2;
+
   function run() external {
-    GnosisSafeProxyFactory factory = GnosisSafeProxyFactory(
-      GNOSIS_PROXY_FACTORY_ADDRESS_1_3_0
-    );
-    address[] memory owners = new address[](3);
     owners[0] = address(0xA5A7468f177d94212cd0FDC0886EE732155c47e9);
     owners[1] = address(0x4fd9D0eE6D6564E80A9Ee00c0163fC952d0A45Ed);
     owners[2] = address(0x8AEdf14E0b8D010521537cd0c16645452A7D39BC);
-    GnosisSafeProxy proxy;
-    GnosisSafe safe;
+
+    GnosisSafeProxyFactory factory = GnosisSafeProxyFactory(
+      GNOSIS_PROXY_FACTORY_ADDRESS_1_3_0
+    );
 
     vm.startBroadcast();
     if (block.chainid == 1) {
@@ -59,6 +63,7 @@ contract GnosisScript is Script {
         ),
         0
       );
+      safeL2 = GnosisSafeL2(payable(address(proxy)));
     }
     vm.stopBroadcast();
   }

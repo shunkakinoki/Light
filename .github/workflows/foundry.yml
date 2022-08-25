@@ -21,6 +21,8 @@ jobs:
           forge test -vvvvv --gas-report
       - run: |
           forge test --gas-report --fuzz-seed 0 | tee gasreport.ansi
+        env:
+          GOERLI_RPC_URL: ${{ secrets.GOERLI_RPC_URL }}
       - id: gas
         uses: Rubilmax/foundry-gas-diff@v3.8
         with:

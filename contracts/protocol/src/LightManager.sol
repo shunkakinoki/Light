@@ -43,19 +43,6 @@ contract LightManager is
   function _authorizeUpgrade(address) internal override onlyOwner {}
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                        MODIFIERS                           */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-
-  modifier onlyController() {
-    _onlyController();
-    _;
-  }
-
-  function _onlyController() internal view {
-    require(msg.sender == address(controller), "Caller must be Controller");
-  }
-
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                   EXTERNAL TRANSACTIONS                    */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 

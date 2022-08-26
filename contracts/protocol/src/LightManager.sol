@@ -19,6 +19,10 @@ import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/O
 /// @notice This contract is a fork from Graph Protocol's Managed (GPL-2.0-or-later)
 /// @notice Ref: https://github.com/graphprotocol/contracts/blob/dev/contracts/governance/Managed.sol
 contract LightManager is LightManagerStorage, ILightManager {
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                        EXTERNAL                            */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
   /**
    * @dev Sync protocol contract addresses from the Controller registry.
    * @dev This function will cache all the contracts using the latest addresses
@@ -34,7 +38,7 @@ contract LightManager is LightManagerStorage, ILightManager {
   }
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                        INTERNAL                            */
+  /*                  INTERNAL VIEWER CONST                     */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
   /**
@@ -60,6 +64,10 @@ contract LightManager is LightManagerStorage, ILightManager {
   function lightSpace() internal view returns (ILightSpace) {
     return ILightSpace(_resolveContract(keccak256("LightSpace")));
   }
+
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                        INTERNAL                            */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
   /**
    * @dev Set controller.

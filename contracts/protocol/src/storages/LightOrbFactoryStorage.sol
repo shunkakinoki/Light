@@ -8,7 +8,7 @@ import { UpgradeableBeacon } from "@openzeppelin/contracts/proxy/beacon/Upgradea
 /// @title Storage contract for the LightOrb contract.
 /// @author Shun Kakinoki
 /// @notice This contract is used to manage the storage of the UUPS upgradeable contract.
-contract LightOrbFactoryStorage is LightManager {
+contract LightOrbFactoryStorageV1 is LightManager {
   UpgradeableBeacon public upgradeableBeacon;
 
   uint256[49] private __gap;

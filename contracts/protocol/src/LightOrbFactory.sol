@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 
 import { ILightOrbFactory } from "@lightdotso/protocol/interfaces/ILightOrbFactory.sol";
 import { LightOrb } from "@lightdotso/protocol/LightOrb.sol";
-import { LightOrbFactoryStorage, UpgradeableBeacon } from "@lightdotso/protocol/storages/LightOrbFactoryStorage.sol";
+import { LightOrbFactoryStorageV1, UpgradeableBeacon } from "@lightdotso/protocol/storages/LightOrbFactoryStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { BeaconProxy } from "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
@@ -17,7 +17,7 @@ contract LightOrbFactory is
   Initializable,
   OwnableUpgradeable,
   UUPSUpgradeable,
-  LightOrbFactoryStorage,
+  LightOrbFactoryStorageV1,
   ILightOrbFactory
 {
   /// @custom:oz-upgrades-unsafe-allow constructor

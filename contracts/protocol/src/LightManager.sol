@@ -4,6 +4,8 @@ pragma solidity ^0.8.13;
 
 import { ILightController } from "@lightdotso/protocol/interfaces/ILightController.sol";
 import { ILightManager } from "@lightdotso/protocol/interfaces/ILightManager.sol";
+import { ILightCore } from "@lightdotso/protocol/interfaces/ILightCore.sol";
+import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";
 import { ILightOrb } from "@lightdotso/protocol/interfaces/ILightOrb.sol";
 import { ILightOrbFactory } from "@lightdotso/protocol/interfaces/ILightOrbFactory.sol";
 import { ILightSpace } from "@lightdotso/protocol/interfaces/ILightSpace.sol";
@@ -31,8 +33,8 @@ contract LightManager is LightManagerStorageV1, ILightManager {
    * @dev controller to ensure the protocol is using the latest version
    */
   function syncAllContracts() external {
-    // _syncContract("LightCore");
-    // _syncContract("LightOperator");
+    _syncContract("LightCore");
+    _syncContract("LightOperator");
     _syncContract("LightOrb");
     _syncContract("LightOrbFactory");
     _syncContract("LightSpace");
@@ -41,6 +43,22 @@ contract LightManager is LightManagerStorageV1, ILightManager {
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                  INTERNAL VIEWER CONST                     */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
+  /**
+   * @dev Return LightOrb interface.
+   * @return LightOrb contract registered with Controller
+   */
+  function lightCore() internal view returns (ILightCore) {
+    return ILightCore(_resolveContract(keccak256("LightCore")));
+  }
+
+  /**
+   * @dev Return LightOrb interface.
+   * @return LightOrb contract registered with Controller
+   */
+  function lightOperator() internal view returns (ILightOperator) {
+    return ILightOperator(_resolveContract(keccak256("LightOperator")));
+  }
 
   /**
    * @dev Return LightOrb interface.

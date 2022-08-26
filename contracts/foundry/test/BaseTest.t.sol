@@ -131,7 +131,7 @@ contract BaseTestTest is BaseTest {
 
     vm.expectEmit(true, false, false, true);
     emit Initialized(2);
-    wrappedLightSpace.initialize();
+    wrappedLightSpace.initialize(address(proxyLightController));
 
     // Initializable
     _testArbitrarySlot(

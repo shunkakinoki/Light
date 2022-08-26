@@ -3,7 +3,7 @@
 pragma solidity ^0.8.13;
 
 import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";
-import { LightOperatorStorage } from "@lightdotso/protocol/storages/LightOperatorStorage.sol";
+import { LightOperatorStorageV1 } from "@lightdotso/protocol/storages/LightOperatorStorage.sol";
 import { LightOperatorData } from "@lightdotso/protocol/structs/LightOperatorData.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
@@ -19,7 +19,7 @@ contract LightOperator is
   Initializable,
   OwnableUpgradeable,
   UUPSUpgradeable,
-  LightOperatorStorage,
+  LightOperatorStorageV1,
   ILightOperator
 {
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/

@@ -5,7 +5,7 @@ pragma solidity ^0.8.13;
 import "@lightdotso/foundry/BaseTest.sol";
 import "@lightdotso/protocol/LightController.sol";
 
-contract LightOrbTest is BaseTest {
+contract LightControllerTest is BaseTest {
   LightController private lightController;
 
   function setUp() public {

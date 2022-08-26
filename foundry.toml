@@ -1,3 +1,4 @@
 [profile.default]
 solc_version = "0.8.13"
 src = 'contracts'
+test_pattern = "**/*.t.sol"

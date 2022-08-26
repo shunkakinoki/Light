@@ -16,7 +16,7 @@ import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/O
 /// @title Keeps track of the references of the protocol.
 /// @title Inherits the `LightManagerStorage` storage contract to store the state variables in respected slots.
 /// @author Shun Kakinoki
-/// @notice Used for mostly inheriting storages in other protocol contracts
+/// @notice Used for mostly inheriting storages in other protocol contracts.
 /// @notice This contract is a fork from Graph Protocol's Managed (GPL-2.0-or-later)
 /// @notice Ref: https://github.com/graphprotocol/contracts/blob/dev/contracts/governance/Managed.sol
 contract LightManager is LightManagerStorageV1, ILightManager {

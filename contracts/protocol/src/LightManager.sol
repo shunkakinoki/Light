@@ -18,42 +18,7 @@ import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/O
 /// @author Shun Kakinoki
 /// @notice This contract is a fork from Graph Protocol's Managed (GPL-2.0-or-later)
 /// @notice Ref: https://github.com/graphprotocol/contracts/blob/dev/contracts/governance/Managed.sol
-contract LightManager is
-  Initializable,
-  OwnableUpgradeable,
-  UUPSUpgradeable,
-  LightManagerStorage,
-  ILightManager
-{
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                       UPGRADEABLE                          */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-
-  /// @custom:oz-upgrades-unsafe-allow constructor
-  constructor() {
-    _disableInitializers();
-  }
-
-  function initialize(address _controller) external override reinitializer(2) {
-    __Ownable_init();
-    __UUPSUpgradeable_init();
-    _setController(_controller);
-  }
-
-  function _authorizeUpgrade(address) internal override onlyOwner {}
-
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                   EXTERNAL TRANSACTIONS                    */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-
-  /**
-   * @notice Set Controller. Only callable by current owner.
-   * @param _controller Controller contract address
-   */
-  function setController(address _controller) external onlyOwner {
-    _setController(_controller);
-  }
-
+contract LightManager is LightManagerStorage, ILightManager {
   /**
    * @dev Sync protocol contract addresses from the Controller registry.
    * @dev This function will cache all the contracts using the latest addresses

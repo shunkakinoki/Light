@@ -31,4 +31,36 @@ contract LightManagerTest is BaseTest {
     emit ContractSynced(keccak256("LightSpace"), address(proxyLightSpace));
     wrappedLightManager.syncAllContracts();
   }
+
+  function testLightManagerProxySlot() public {
+    _testProxyImplementationSlot(
+      address(proxyLightManager),
+      address(implementationLightManager)
+    );
+
+    // Initializable
+    _testArbitrarySlot(
+      address(proxyLightManager),
+      bytes32(uint256(0)),
+      bytes32(uint256(2))
+    );
+    // OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightManager),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+    /// UUPSUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightManager),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// LightManagerStorage
+    _testArbitrarySlot(
+      address(proxyLightManager),
+      bytes32(uint256(201)),
+      bytes32(uint256(uint160(address(proxyLightController))))
+    );
+  }
 }

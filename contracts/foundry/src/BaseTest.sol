@@ -5,6 +5,7 @@ import "forge-std/Test.sol";
 import "./SlotTest.sol";
 
 import { UUPSProxy } from "@lightdotso/proxies/UUPSProxy.sol";
+import { LightController } from "@lightdotso/protocol/LightController.sol";
 import { LightOrb } from "@lightdotso/protocol/LightOrb.sol";
 import { LightOrbFactory } from "@lightdotso/protocol/LightOrbFactory.sol";
 import { LightSpace } from "@lightdotso/protocol/LightSpace.sol";
@@ -18,14 +19,17 @@ contract BaseTest is Test, SlotTest {
   EmptyUUPS internal emptyUUPS;
   EmptyUUPSBeacon internal emptyUUPSBeacon;
 
+  UUPSProxy internal proxyLightController;
   UUPSProxy internal proxyLightOrb;
   UUPSProxy internal proxyLightOrbFactory;
   UUPSProxy internal proxyLightSpace;
 
+  LightController internal implementationLightController;
   LightOrb internal implementationLightOrb;
   LightOrbFactory internal implementationLightOrbFactory;
   LightSpace internal implementationLightSpace;
 
+  LightController internal wrappedLightController;
   LightOrb internal wrappedLightOrb;
   LightOrbFactory internal wrappedLightOrbFactory;
   LightSpace internal wrappedLightSpace;
@@ -45,12 +49,19 @@ contract BaseTest is Test, SlotTest {
   }
 
   function setUpEmptyProxies() public {
+    proxyLightController = new UUPSProxy(address(emptyUUPS), "");
     proxyLightOrb = new UUPSProxy(address(emptyUUPS), "");
     proxyLightOrbFactory = new UUPSProxy(address(emptyUUPSBeacon), "");
     proxyLightSpace = new UUPSProxy(address(emptyUUPS), "");
   }
 
   function setUpEmptyProxyInitializations() public {
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    emit OwnershipTransferred(address(0), address(this));
+    emit Initialized(1);
+    EmptyUUPS(address(proxyLightController)).initialize();
+
     vm.expectEmit(true, true, false, true);
     vm.expectEmit(true, false, false, true);
     emit OwnershipTransferred(address(0), address(this));
@@ -72,6 +83,7 @@ contract BaseTest is Test, SlotTest {
   }
 
   function setUpLightImplementations() public {
+    implementationLightController = new LightController();
     implementationLightOrb = new LightOrb();
     implementationLightOrbFactory = new LightOrbFactory();
     implementationLightSpace = new LightSpace();
@@ -79,15 +91,23 @@ contract BaseTest is Test, SlotTest {
 
   function setUpLightProxyUpgrades() public {
     vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(implementationLightController));
+    EmptyUUPS(address(proxyLightController)).upgradeTo(
+      address(implementationLightController)
+    );
+
+    vm.expectEmit(true, false, false, true);
     emit Upgraded(address(implementationLightOrb));
     EmptyUUPS(address(proxyLightOrb)).upgradeTo(
       address(implementationLightOrb)
     );
+
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(implementationLightOrbFactory));
     EmptyUUPSBeacon(address(proxyLightOrbFactory)).upgradeTo(
       address(implementationLightOrbFactory)
     );
+
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(implementationLightSpace));
     EmptyUUPS(address(proxyLightSpace)).upgradeTo(
@@ -96,6 +116,7 @@ contract BaseTest is Test, SlotTest {
   }
 
   function setUpWrappedLightProxies() public {
+    wrappedLightController = LightController(address(proxyLightController));
     wrappedLightOrb = LightOrb(address(proxyLightOrb));
     wrappedLightOrbFactory = LightOrbFactory(address(proxyLightOrbFactory));
     wrappedLightSpace = LightSpace(address(proxyLightSpace));

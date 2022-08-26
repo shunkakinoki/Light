@@ -25,6 +25,10 @@ contract LightManager is
   LightManagerStorage,
   ILightManager
 {
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                       UPGRADEABLE                          */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {
     _disableInitializers();
@@ -38,6 +42,10 @@ contract LightManager is
 
   function _authorizeUpgrade(address) internal override onlyOwner {}
 
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                        MODIFIERS                           */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
   modifier onlyController() {
     _onlyController();
     _;
@@ -47,6 +55,10 @@ contract LightManager is
     require(msg.sender == address(controller), "Caller must be Controller");
   }
 
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                   EXTERNAL TRANSACTIONS                    */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
   /**
    * @notice Set Controller. Only callable by current controller.
    * @param _controller Controller contract address
@@ -54,6 +66,24 @@ contract LightManager is
   function setController(address _controller) external onlyController {
     _setController(_controller);
   }
+
+  /**
+   * @dev Sync protocol contract addresses from the Controller registry.
+   * @dev This function will cache all the contracts using the latest addresses
+   * @dev Anyone can call the function whenever a Proxy contract change in the
+   * @dev controller to ensure the protocol is using the latest version
+   */
+  function syncAllContracts() external {
+    // _syncContract("LightCore");
+    // _syncContract("LightOperator");
+    _syncContract("LightOrb");
+    _syncContract("LightOrbFactory");
+    _syncContract("LightSpace");
+  }
+
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                        INTERNAL                            */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
   /**
    * @dev Return LightOrb interface.
@@ -112,19 +142,5 @@ contract LightManager is
       addressCache[nameHash] = contractAddress;
       emit ContractSynced(nameHash, contractAddress);
     }
-  }
-
-  /**
-   * @dev Sync protocol contract addresses from the Controller registry.
-   * @dev This function will cache all the contracts using the latest addresses
-   * @dev Anyone can call the function whenever a Proxy contract change in the
-   * @dev controller to ensure the protocol is using the latest version
-   */
-  function syncAllContracts() external {
-    // _syncContract("LightCore");
-    // _syncContract("LightOperator");
-    _syncContract("LightOrb");
-    _syncContract("LightOrbFactory");
-    _syncContract("LightSpace");
   }
 }

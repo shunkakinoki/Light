@@ -19,18 +19,8 @@ abstract contract LightOperatable is
   error UNAUTHORIZED();
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                        INTERNAL                            */
+  /*                        MODIFIER                            */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-
-  /**
-   * @dev Set operator.
-   * @param _operator Operator contract address
-   */
-  function _setOperator(address _operator) internal {
-    require(_operator != address(0), "Operator must be set");
-    operator = ILightOperator(_operator);
-    emit SetOperator(_operator);
-  }
 
   /**
     @notice Only allows the speficied account or an operator of the account to proceed.
@@ -67,6 +57,20 @@ abstract contract LightOperatable is
       _override
     );
     _;
+  }
+
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                        INTERNAL                            */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
+  /**
+   * @dev Set operator.
+   * @param _operator Operator contract address
+   */
+  function _setOperator(address _operator) internal {
+    require(_operator != address(0), "Operator must be set");
+    operator = ILightOperator(_operator);
+    emit SetOperator(_operator);
   }
 
   /**

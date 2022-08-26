@@ -36,6 +36,12 @@ contract LightController is
 
   function _authorizeUpgrade(address) internal override onlyOwner {}
 
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                          ERRORS                            */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
+  error CONTRACT_ADDRESS_NOT_SET();
+
   /**
    * @notice Register contract id and mapped address
    * @param _id Contract id (keccak256 hash of contract name)
@@ -46,7 +52,7 @@ contract LightController is
     override
     onlyOwner
   {
-    require(_contractAddress != address(0), "Contract address must be set");
+    if (_contractAddress == address(0)) revert CONTRACT_ADDRESS_NOT_SET();
     registry[_id] = _contractAddress;
     emit SetContractProxy(_id, _contractAddress);
   }

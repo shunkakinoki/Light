@@ -45,7 +45,7 @@ contract LightOperator is
   error PERMISSION_INDEX_OUT_OF_BOUNDS();
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                   PUBLIC STORED STATES                     */
+  /*                      EXTERNAL VIEWS                        */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
   /**
@@ -58,13 +58,13 @@ contract LightOperator is
     @dev _account The address of the account being operated.
     @dev _domain The domain within which the permissions apply. Applications can use the domain namespace as they wish.
   */
-  mapping(address => mapping(address => mapping(uint256 => uint256)))
-    public
-    override(ILightOperator) permissionsOf;
-
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                      EXTERNAL VIEWS                        */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  function getPermissionsOf(
+    address _operator,
+    address _account,
+    uint256 _domain
+  ) external view returns (uint256) {
+    return permissionsOf[_operator][_account][_domain];
+  }
 
   /**
     @notice Whether or not an operator has the permission to take a certain action pertaining to the specified domain.

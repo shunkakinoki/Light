@@ -8,8 +8,8 @@ import { UpgradeableBeacon } from "@openzeppelin/contracts/proxy/beacon/Upgradea
 /// @author Shun Kakinoki
 /// @notice This contract is used to manage the storage of the UUPS upgradeable contract.
 contract LightOperatorStorage {
-  // mapping(address => mapping(address => mapping(uint256 => uint256)))
-  //   public permissionsOf;
+  mapping(address => mapping(address => mapping(uint256 => uint256)))
+    public permissionsOf;
 
   uint256[49] private __gap;
 }

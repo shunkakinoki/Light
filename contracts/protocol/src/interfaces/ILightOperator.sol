@@ -15,7 +15,7 @@ interface ILightOperator {
 
   function initialize() external;
 
-  function permissionsOf(
+  function getPermissionsOf(
     address _operator,
     address _account,
     uint256 _domain

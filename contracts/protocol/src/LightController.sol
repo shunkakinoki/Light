@@ -10,7 +10,7 @@ import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/O
 import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 
 /// @title Controller contract for the Light protocol.
-/// @title Keeps track of the references of the protocol.
+/// @title Keeps track of the contract references of the protocol.
 /// @title Inherits the `LightControllerStorage` storage contract to store the state variables in respected slots.
 /// @author Shun Kakinoki
 /// @notice This contract is a fork from Graph Protocol's Controller (GPL-2.0-or-later)

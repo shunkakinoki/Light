@@ -10,6 +10,7 @@ import { IRenderer } from "@lightdotso/renderer/IRenderer.sol";
 /// @notice This contract is used to manage the storage of the UUPS upgradeable contract.
 contract LightSpaceStorage {
   IRenderer public renderer;
+  uint256 public count = 0;
 
   uint256[49] private __gap;
 }

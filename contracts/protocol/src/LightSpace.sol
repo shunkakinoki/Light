@@ -20,6 +20,10 @@ contract LightSpace is
   LightSpaceStorage,
   ILightSpace
 {
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                       UPGRADEABLE                          */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {
     _disableInitializers();
@@ -32,4 +36,8 @@ contract LightSpace is
   }
 
   function _authorizeUpgrade(address) internal override onlyOwner {}
+
+  function getCount() external view returns (uint256) {
+    return count;
+  }
 }

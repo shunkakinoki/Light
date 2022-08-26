@@ -13,6 +13,16 @@ abstract contract LightOperatable is ILightOperatable {
   ILightOperator public operator;
 
   /**
+   * @dev Set operator.
+   * @param _operator Operator contract address
+   */
+  function _setOperator(address _operator) internal {
+    require(_operator != address(0), "Operator must be set");
+    operator = ILightOperator(_operator);
+    emit SetOperator(_operator);
+  }
+
+  /**
     @notice Only allows the speficied account or an operator of the account to proceed.
     @param _account The account to check for.
     @param _domain The domain namespace to look for an operator within.

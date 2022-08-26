@@ -6,4 +6,6 @@ import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.s
 
 interface ILightOperatable {
   function operator() external view returns (ILightOperator);
+
+  event SetOperator(address operator);
 }

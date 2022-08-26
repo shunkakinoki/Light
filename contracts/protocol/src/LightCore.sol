@@ -3,6 +3,7 @@
 pragma solidity ^0.8.13;
 
 import { ILightCore } from "@lightdotso/protocol/interfaces/ILightCore.sol";
+import { LightOperatable } from "@lightdotso/protocol/abstract/LightOperatable.sol";
 import { LightCoreStorageV1 } from "@lightdotso/protocol/storages/LightCoreStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
@@ -17,6 +18,7 @@ contract LightCore is
   Initializable,
   OwnableUpgradeable,
   UUPSUpgradeable,
+  LightOperatable,
   LightCoreStorageV1,
   ILightCore
 {
@@ -25,11 +27,16 @@ contract LightCore is
     _disableInitializers();
   }
 
-  function initialize(address _controller) external override reinitializer(2) {
+  function initialize(address _controller, address _operator)
+    external
+    override
+    reinitializer(2)
+  {
     __Ownable_init();
     __UUPSUpgradeable_init();
 
     _setController(_controller);
+    _setOperator(_operator);
   }
 
   function _authorizeUpgrade(address) internal override onlyOwner {}

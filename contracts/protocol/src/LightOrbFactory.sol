@@ -25,7 +25,7 @@ contract LightOrbFactory is
     _disableInitializers();
   }
 
-  function initialize(address _implementationAddress)
+  function initialize(address _implementationAddress, address _controller)
     external
     override
     reinitializer(2)
@@ -33,6 +33,8 @@ contract LightOrbFactory is
     __Ownable_init();
     __UUPSUpgradeable_init();
     upgradeableBeacon = new UpgradeableBeacon(_implementationAddress);
+
+    _setController(_controller);
   }
 
   function implementation() external view returns (address) {

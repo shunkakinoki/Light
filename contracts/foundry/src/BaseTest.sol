@@ -6,7 +6,6 @@ import "./SlotTest.sol";
 
 import { UUPSProxy } from "@lightdotso/proxies/UUPSProxy.sol";
 import { LightController } from "@lightdotso/protocol/LightController.sol";
-import { LightManager } from "@lightdotso/protocol/LightManager.sol";
 import { LightOrb } from "@lightdotso/protocol/LightOrb.sol";
 import { LightOrbFactory } from "@lightdotso/protocol/LightOrbFactory.sol";
 import { LightSpace } from "@lightdotso/protocol/LightSpace.sol";
@@ -21,7 +20,6 @@ contract BaseTest is Test, SlotTest {
   EmptyUUPSBeacon internal emptyUUPSBeacon;
 
   UUPSProxy internal proxyLightController;
-  UUPSProxy internal proxyLightManager;
   UUPSProxy internal proxyLightOrb;
   UUPSProxy internal proxyLightOrbFactory;
   UUPSProxy internal proxyLightSpace;
@@ -142,11 +140,7 @@ contract BaseTest is Test, SlotTest {
     //   keccak256("LightController"),
     //   address(proxyLightController)
     // );
-    // vm.expectEmit(true, true, false, true, address(wrappedLightManager));
-    // emit ContractSynced(
-    //   keccak256("LightOrbFactory"),
-    //   address(wrappedLightManager)
-    // );
+
     wrappedLightController.setContractProxy(
       keccak256("LightOrbFactory"),
       address(proxyLightOrbFactory)

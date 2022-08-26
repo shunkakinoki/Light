@@ -23,6 +23,10 @@ contract LightController is
   LightControllerStorage,
   ILightController
 {
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                       UPGRADEABLE                          */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {
     _disableInitializers();
@@ -41,6 +45,10 @@ contract LightController is
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
   error CONTRACT_ADDRESS_NOT_SET();
+
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                   EXTERNAL TRANSACTIONS                    */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
   /**
    * @notice Register contract id and mapped address

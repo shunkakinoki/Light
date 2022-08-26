@@ -53,4 +53,47 @@ contract LightOrbTest is BaseTest {
       address(0)
     );
   }
+
+  function testLightControllerProxySlot() public {
+    _testProxyImplementationSlot(
+      address(proxyLightController),
+      address(implementationLightController)
+    );
+
+    // Initializable
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(uint256(0)),
+      bytes32(uint256(1))
+    );
+    // OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+
+    vm.expectEmit(true, false, false, true);
+    emit Initialized(2);
+    wrappedLightController.initialize();
+
+    // Initializable
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(uint256(0)),
+      bytes32(uint256(2))
+    );
+    // OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+    /// PausableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+  }
 }

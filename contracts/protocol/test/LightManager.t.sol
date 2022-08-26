@@ -62,5 +62,12 @@ contract LightManagerTest is BaseTest {
       bytes32(uint256(201)),
       bytes32(uint256(uint160(address(proxyLightController))))
     );
+    _testArbitrarySlot(
+      address(proxyLightManager),
+      // keccak256(uint256(9) . keccak256(uint256(4) . uint256(1))),
+      // keccak256([keccak256("LightOrb"), bytes32(uint256(202))]),
+      bytes32(keccak256(abi.encodePacked(keccak256("LightOrb"), uint256(202)))),
+      bytes32(uint256(0))
+    );
   }
 }

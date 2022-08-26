@@ -60,23 +60,6 @@ contract LightControllerTest is BaseTest {
       address(implementationLightController)
     );
 
-    // // Initializable
-    // _testArbitrarySlot(
-    //   address(proxyLightController),
-    //   bytes32(uint256(0)),
-    //   bytes32(uint256(1))
-    // );
-    // // OwnableUpgradeable
-    // _testArbitrarySlot(
-    //   address(proxyLightController),
-    //   bytes32(uint256(51)),
-    //   bytes32(uint256(uint160(address(this))))
-    // );
-
-    // vm.expectEmit(true, false, false, true);
-    // emit Initialized(2);
-    // wrappedLightController.initialize();
-
     // Initializable
     _testArbitrarySlot(
       address(proxyLightController),

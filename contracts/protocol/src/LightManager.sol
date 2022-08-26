@@ -60,10 +60,10 @@ contract LightManager is
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
   /**
-   * @notice Set Controller. Only callable by current controller.
+   * @notice Set Controller. Only callable by current owner.
    * @param _controller Controller contract address
    */
-  function setController(address _controller) external onlyController {
+  function setController(address _controller) external onlyOwner {
     _setController(_controller);
   }
 

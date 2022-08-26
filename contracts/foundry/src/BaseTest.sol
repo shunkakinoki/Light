@@ -154,11 +154,11 @@ contract BaseTest is Test, SlotTest {
 
   function setUpWrappedLightProxies() public {
     wrappedLightCore = LightCore(address(proxyLightCore));
-    vm.label(address(wrappedLightController), "Wrapped Light Core");
+    vm.label(address(wrappedLightCore), "Wrapped Light Core");
     wrappedLightController = LightController(address(proxyLightController));
     vm.label(address(wrappedLightController), "Wrapped Light Controller");
     wrappedLightOperator = LightOperator(address(proxyLightOperator));
-    vm.label(address(wrappedLightController), "Wrapped Light Operator");
+    vm.label(address(wrappedLightOperator), "Wrapped Light Operator");
     wrappedLightOrb = LightOrb(address(proxyLightOrb));
     vm.label(address(wrappedLightOrb), "Wrapped Light Orb");
     wrappedLightOrbFactory = LightOrbFactory(address(proxyLightOrbFactory));
@@ -185,16 +185,20 @@ contract BaseTest is Test, SlotTest {
       address(proxyLightOperator)
     );
     wrappedLightController.setContractProxy(
-      keccak256("LightOrbFactory"),
-      address(proxyLightOrbFactory)
-    );
-    wrappedLightController.setContractProxy(
       keccak256("LightOrb"),
       address(proxyLightOrb)
     );
     wrappedLightController.setContractProxy(
+      keccak256("LightOrbFactory"),
+      address(proxyLightOrbFactory)
+    );
+    wrappedLightController.setContractProxy(
       keccak256("LightSpace"),
       address(proxyLightSpace)
+    );
+    wrappedLightCore.initialize(
+      address(wrappedLightController),
+      address(wrappedLightOperator)
     );
   }
 }

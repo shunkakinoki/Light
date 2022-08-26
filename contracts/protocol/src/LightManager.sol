@@ -2,7 +2,11 @@
 
 pragma solidity ^0.8.13;
 
+import { ILightController } from "@lightdotso/protocol/interfaces/ILightController.sol";
 import { ILightManager } from "@lightdotso/protocol/interfaces/ILightManager.sol";
+import { ILightOrb } from "@lightdotso/protocol/interfaces/ILightOrb.sol";
+import { ILightOrbFactory } from "@lightdotso/protocol/interfaces/ILightOrbFactory.sol";
+import { ILightSpace } from "@lightdotso/protocol/interfaces/ILightSpace.sol";
 import { LightManagerStorage } from "@lightdotso/protocol/storages/LightManagerStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
@@ -26,12 +30,64 @@ contract LightManager is
     _disableInitializers();
   }
 
-  function initialize() external override reinitializer(2) {
+  function initialize(address _controller) external override reinitializer(2) {
     __Ownable_init();
     __UUPSUpgradeable_init();
+    _setController(_controller);
   }
 
   function _authorizeUpgrade(address) internal override onlyOwner {}
+
+  modifier onlyController() {
+    _onlyController();
+    _;
+  }
+
+  function _onlyController() internal view {
+    require(msg.sender == address(controller), "Caller must be Controller");
+  }
+
+  /**
+   * @notice Set Controller. Only callable by current controller.
+   * @param _controller Controller contract address
+   */
+  function setController(address _controller) external onlyController {
+    _setController(_controller);
+  }
+
+  /**
+   * @dev Return LightOrb interface.
+   * @return LightOrb contract registered with Controller
+   */
+  function lightOrb() internal view returns (ILightOrb) {
+    return ILightOrb(_resolveContract(keccak256("LightOrb")));
+  }
+
+  /**
+   * @dev Return LightOrbFactory interface.
+   * @return LightOrbFactory contract registered with Controller
+   */
+  function lightOrbFactory() internal view returns (ILightOrbFactory) {
+    return ILightOrbFactory(_resolveContract(keccak256("LightOrbFactory")));
+  }
+
+  /**
+   * @dev Return LightSpace interface.
+   * @return LightSpace manager contract registered with Controller
+   */
+  function lightSpace() internal view returns (ILightSpace) {
+    return ILightSpace(_resolveContract(keccak256("LightSpace")));
+  }
+
+  /**
+   * @dev Set controller.
+   * @param _controller Controller contract address
+   */
+  function _setController(address _controller) internal {
+    require(_controller != address(0), "Controller must be set");
+    controller = ILightController(_controller);
+    emit SetController(_controller);
+  }
 
   /**
    * @dev Resolve a contract address from the cache or the Controller if not found.
@@ -65,8 +121,8 @@ contract LightManager is
    * @dev controller to ensure the protocol is using the latest version
    */
   function syncAllContracts() external {
-    _syncContract("LightCore");
-    _syncContract("LightOperator");
+    // _syncContract("LightCore");
+    // _syncContract("LightOperator");
     _syncContract("LightOrb");
     _syncContract("LightOrbFactory");
     _syncContract("LightSpace");

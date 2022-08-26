@@ -3,7 +3,8 @@
 pragma solidity ^0.8.13;
 
 interface ILightManager {
-  function initialize() external;
+  function initialize(address _controller) external;
 
   event ContractSynced(bytes32 indexed nameHash, address contractAddress);
+  event SetController(address controller);
 }

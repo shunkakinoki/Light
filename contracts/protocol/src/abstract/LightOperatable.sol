@@ -3,14 +3,24 @@ pragma solidity ^0.8.13;
 
 import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";
 import { ILightOperatable } from "@lightdotso/protocol/interfaces/ILightOperatable.sol";
+import { LightOperatableStorageV1 } from "@lightdotso/protocol/storages/LightOperatableStorage.sol";
 
 /// @author Shun Kakinoki
 /// @notice Modifiers to allow access to functions based on the message sender's operator status.
 /// @notice Fork of JBoperatable at https://github.com/jbx-protocol/juice-contracts-v2/blob/main/contracts/abstract/JBoperatable.sol (MIT License)
-abstract contract LightOperatable is ILightOperatable {
+abstract contract LightOperatable is
+  LightOperatableStorageV1,
+  ILightOperatable
+{
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                          ERRORS                            */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
   error UNAUTHORIZED();
 
-  ILightOperator public operator;
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                        INTERNAL                            */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
   /**
    * @dev Set operator.

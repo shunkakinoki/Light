@@ -12,7 +12,13 @@ contract LightSpaceTest is BaseTest {
     setUpLightProxies();
   }
 
-  function testLightSpaceAssertions() public {
+  function testLightSpaceProxyInitialize() public {
+    vm.expectEmit(true, true, false, true, address(wrappedLightSpace));
+    vm.expectEmit(true, false, false, true, address(wrappedLightSpace));
+    vm.expectEmit(true, false, false, true, address(wrappedLightSpace));
+    emit OwnershipTransferred(address(this), address(this));
+    emit SetController(address(wrappedLightController));
+    emit Initialized(2);
     wrappedLightSpace.initialize(address(wrappedLightController));
     assertEq(wrappedLightSpace.name(), "Light Space");
     assertEq(wrappedLightSpace.symbol(), "LIGHTSPACE");
@@ -25,30 +31,13 @@ contract LightSpaceTest is BaseTest {
   }
 
   function testLightSpaceProxySlot() public {
-    setUpLightProxies();
+    testLightSpaceProxyInitialize();
 
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightSpace),
       address(implementationLightSpace)
     );
-
-    /// Initializable
-    _testArbitrarySlot(
-      address(proxyLightSpace),
-      bytes32(uint256(0)),
-      bytes32(uint256(1))
-    );
-    /// OwnableUpgradeable
-    _testArbitrarySlot(
-      address(proxyLightSpace),
-      bytes32(uint256(51)),
-      bytes32(uint256(uint160(address(this))))
-    );
-
-    vm.expectEmit(true, false, false, true);
-    emit Initialized(2);
-    wrappedLightSpace.initialize(address(proxyLightController));
 
     /// Initializable
     _testArbitrarySlot(

@@ -28,7 +28,7 @@
     "fix": "concurrently 'pnpm:*:fix'",
     "forge:snapshot": "forge snapshot",
     "forge:snapshot:check": "forge snapshot --check",
-    "forge:snapshot:cmd": "forge snapshot && echo",
+    "forge:snapshot:cmd": "forge snapshot --nmt testForkRun && echo",
     "git-ignore:cp": "pnpm run git-ignore:cp:api && pnpm run git-ignore:cp:home",
     "git-ignore:cp:api": "cp .gitignore apps/api/.gitignore",
     "git-ignore:cp:home": "cp .gitignore apps/home/.gitignore",

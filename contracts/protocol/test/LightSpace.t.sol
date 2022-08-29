@@ -51,5 +51,26 @@ contract LightSpaceTest is BaseTest {
       bytes32(uint256(51)),
       bytes32(uint256(uint160(address(this))))
     );
+    /// UUPSUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// ERC721Upgradeable.sol
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(251)),
+      bytes32(
+        0x4c69676874205370616365000000000000000000000000000000000000000016
+      )
+    );
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(252)),
+      bytes32(
+        0x4c49474854535041434500000000000000000000000000000000000000000014
+      )
+    );
   }
 }

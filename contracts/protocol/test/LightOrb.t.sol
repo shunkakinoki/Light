@@ -51,7 +51,7 @@ contract LightOrbTest is BaseTest {
     );
     /// UUPSUpgradeable
     _testArbitrarySlot(
-      address(proxyLightCore),
+      address(proxyLightOrb),
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );
@@ -93,7 +93,7 @@ contract LightOrbTest is BaseTest {
     );
     /// UUPSUpgradeable
     _testArbitrarySlot(
-      address(proxyLightCore),
+      address(proxyLightOrb),
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );

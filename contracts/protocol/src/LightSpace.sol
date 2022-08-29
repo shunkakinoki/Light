@@ -39,6 +39,10 @@ contract LightSpace is
 
   function _authorizeUpgrade(address) internal override onlyOwner {}
 
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                      EXTERNAL VIEWS                        */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
   function getCount() external view returns (uint256) {
     return count;
   }

@@ -65,4 +65,36 @@ contract LightOrbTest is BaseTest {
       )
     );
   }
+
+  function testLightOrbProxySlotBeforeImplementation() public {
+    /// Proxy Implementation
+    _testProxyImplementationSlot(
+      address(proxyLightOrb),
+      address(implementationLightOrb)
+    );
+
+    /// Initializable
+    _testArbitrarySlot(
+      address(proxyLightOrb),
+      bytes32(uint256(0)),
+      bytes32(uint256(1))
+    );
+    /// OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrb),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+    /// ERC721Upgradeable.sol
+    _testArbitrarySlot(
+      address(proxyLightOrb),
+      bytes32(uint256(251)),
+      bytes32(uint256(0))
+    );
+    _testArbitrarySlot(
+      address(proxyLightOrb),
+      bytes32(uint256(252)),
+      bytes32(uint256(0))
+    );
+  }
 }

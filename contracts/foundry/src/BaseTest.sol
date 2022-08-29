@@ -3,6 +3,7 @@
 pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
 import "./SlotTest.sol";
+import "./Utils.sol";
 
 import { UUPSProxy } from "@lightdotso/proxies/UUPSProxy.sol";
 import { LightCore } from "@lightdotso/protocol/LightCore.sol";
@@ -16,7 +17,7 @@ import { Empty } from "@lightdotso/proxies/utils/Empty.sol";
 import { EmptyUUPS } from "@lightdotso/proxies/utils/EmptyUUPS.sol";
 import { EmptyUUPSBeacon } from "@lightdotso/proxies/utils/EmptyUUPSBeacon.sol";
 
-contract BaseTest is Test, SlotTest {
+contract BaseTest is Test, SlotTest, Utils {
   Empty internal empty;
   EmptyUUPS internal emptyUUPS;
   EmptyUUPSBeacon internal emptyUUPSBeacon;

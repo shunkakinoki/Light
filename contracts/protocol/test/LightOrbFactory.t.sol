@@ -46,4 +46,50 @@ contract LightOrbFactoryTest is BaseTest {
       address(wrappedLightController)
     );
   }
+
+  function testLightOrbFactoryProxySlot() public {
+    setUpLightProxies();
+
+    // Initializable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(0)),
+      bytes32(uint256(1))
+    );
+    // OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    emit OwnershipTransferred(address(this), address(this));
+    emit OwnershipTransferred(address(0), address(proxyLightOrbFactory));
+    emit Initialized(2);
+    wrappedLightOrbFactory.initialize(
+      address(empty),
+      address(proxyLightController)
+    );
+
+    // Initializable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(0)),
+      bytes32(uint256(2))
+    );
+    // OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+
+    _testProxyImplementationSlot(
+      address(proxyLightOrbFactory),
+      address(implementationLightOrbFactory)
+    );
+  }
 }

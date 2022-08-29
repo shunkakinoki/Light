@@ -23,4 +23,43 @@ contract LightSpaceTest is BaseTest {
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
     lightSpace.initialize(address(wrappedLightController));
   }
+
+  function testLightSpaceProxySlot() public {
+    setUpLightProxies();
+
+    _testProxyImplementationSlot(
+      address(proxyLightSpace),
+      address(implementationLightSpace)
+    );
+
+    // Initializable
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(0)),
+      bytes32(uint256(1))
+    );
+    // OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+
+    vm.expectEmit(true, false, false, true);
+    emit Initialized(2);
+    wrappedLightSpace.initialize(address(proxyLightController));
+
+    // Initializable
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(0)),
+      bytes32(uint256(2))
+    );
+    // OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+  }
 }

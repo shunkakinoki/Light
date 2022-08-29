@@ -2,14 +2,13 @@ import { twitterAuthorize, twitterVerify } from "@cyberlab/social-verifier";
 
 import { useCallback, useMemo, useState } from "react";
 
-import { useProvider } from "wagmi";
-
 import { Modal } from "@lightdotso/app/components/Modal";
 import { PlaceholderProfile } from "@lightdotso/app/components/PlaceholderProfile";
 import { useClientOnly } from "@lightdotso/app/hooks/useClientOnly";
 import { useCyberConnectIdentity } from "@lightdotso/app/hooks/useCyberConnectIdentity";
 import { useEns } from "@lightdotso/app/hooks/useEns";
 import { useModalTwitterVerify } from "@lightdotso/app/hooks/useModalTwitterVerify";
+import { useProvider } from "@lightdotso/app/hooks/useProvider";
 import { useWallet } from "@lightdotso/app/hooks/useWallet";
 import { error } from "@lightdotso/app/libs/toast/error";
 import { success } from "@lightdotso/app/libs/toast/sucess";

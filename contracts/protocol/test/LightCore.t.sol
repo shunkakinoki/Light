@@ -12,7 +12,24 @@ contract LightCoreTest is BaseTest {
     setUpLightProxies();
   }
 
-  function testLightController() public {
+  function testLightCoreProxyInitialize() public {
+    vm.expectEmit(true, true, false, true, address(wrappedLightCore));
+    vm.expectEmit(true, false, false, true, address(wrappedLightCore));
+    vm.expectEmit(true, false, false, true, address(wrappedLightCore));
+    vm.expectEmit(true, false, false, true, address(wrappedLightCore));
+    emit OwnershipTransferred(address(this), address(this));
+    emit SetController(address(wrappedLightController));
+    emit SetOperator(address(wrappedLightOperator));
+    emit Initialized(2);
+    (address(wrappedLightController));
+    wrappedLightCore.initialize(
+      address(wrappedLightController),
+      address(wrappedLightOperator)
+    );
+  }
+
+  function testLightCoreController() public {
+    testLightCoreProxyInitialize();
     assertEq(
       address(wrappedLightCore.controller()),
       address(proxyLightController)
@@ -20,6 +37,8 @@ contract LightCoreTest is BaseTest {
   }
 
   function testSyncAllContracts() public {
+    testLightCoreProxyInitialize();
+
     vm.expectEmit(true, true, false, true, address(wrappedLightCore));
     vm.expectEmit(true, true, false, true, address(wrappedLightCore));
     vm.expectEmit(true, true, false, true, address(wrappedLightCore));
@@ -40,7 +59,7 @@ contract LightCoreTest is BaseTest {
   }
 
   function testLightCoreProxySlot() public {
-    wrappedLightCore.syncAllContracts();
+    testSyncAllContracts();
 
     _testProxyImplementationSlot(
       address(proxyLightCore),

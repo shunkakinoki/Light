@@ -50,6 +50,8 @@ contract BaseTest is Test, SlotTest {
   );
   event Initialized(uint8 version);
   event Upgraded(address indexed implementation);
+  event SetController(address controller);
+  event SetOperator(address operator);
 
   function setUpEmpties() public {
     empty = new Empty();
@@ -199,10 +201,5 @@ contract BaseTest is Test, SlotTest {
     setUpLightProxyUpgrades();
     setUpWrappedLightProxies();
     setUpLightController();
-
-    wrappedLightCore.initialize(
-      address(wrappedLightController),
-      address(wrappedLightOperator)
-    );
   }
 }

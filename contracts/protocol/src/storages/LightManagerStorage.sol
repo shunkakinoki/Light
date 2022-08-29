@@ -9,7 +9,7 @@ import { ILightController } from "@lightdotso/protocol/interfaces/ILightControll
 /// @author Shun Kakinoki
 /// @notice This contract is used to manage the storage of the UUPS upgradeable contract.
 contract LightManagerStorageV1 {
-  ILightController public controller;
+  ILightController internal controller;
   mapping(bytes32 => address) internal addressCache;
 
   uint256[48] private __gap;

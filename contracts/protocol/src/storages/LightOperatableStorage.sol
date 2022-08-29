@@ -8,7 +8,7 @@ import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.s
 /// @author Shun Kakinoki
 /// @notice This contract is used to manage the storage of the UUPS upgradeable contract.
 contract LightOperatableStorageV1 {
-  ILightOperator public operator;
+  ILightOperator internal operator;
 
   uint256[49] private __gap;
 }

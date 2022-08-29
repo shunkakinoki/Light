@@ -28,14 +28,6 @@ contract LightCoreTest is BaseTest {
     );
   }
 
-  function testLightCoreController() public {
-    testLightCoreProxyInitialize();
-    assertEq(
-      address(wrappedLightCore.controller()),
-      address(proxyLightController)
-    );
-  }
-
   function testSyncAllContracts() public {
     testLightCoreProxyInitialize();
 

@@ -14,8 +14,15 @@ contract LightOrbFactoryTest is BaseTest {
   }
 
   /// Check that the LightOrbFactory can be successfully upgraded.
-  function testLightOrbFactory() public {
-    wrappedLightOrbFactory.initialize(address(emptyUUPSBeacon));
+  function testLightOrbFactoryProxyInitialize() public {
+    vm.expectEmit(true, true, false, true, address(wrappedLightOrbFactory));
+    vm.expectEmit(true, false, false, true, address(wrappedLightOrbFactory));
+    emit OwnershipTransferred(address(this), address(this));
+    emit Initialized(2);
+    wrappedLightOrbFactory.initialize(
+      address(emptyUUPSBeacon),
+      address(wrappedLightController)
+    );
     assertEq(wrappedLightOrbFactory.implementation(), address(emptyUUPSBeacon));
     vm.expectEmit(true, false, false, true);
     emit Upgraded(address(implementationLightOrb));
@@ -24,6 +31,10 @@ contract LightOrbFactoryTest is BaseTest {
       wrappedLightOrbFactory.implementation(),
       address(implementationLightOrb)
     );
+  }
+
+  function testLightOrbFactoryCreateLightOrb() public {
+    testLightOrbFactoryProxyInitialize();
 
     wrappedBeaconLightOrb = LightOrb(
       wrappedLightOrbFactory._createLightOrb("Light Orb", "LORB")
@@ -33,8 +44,80 @@ contract LightOrbFactoryTest is BaseTest {
   }
 
   function testLightOrbFactoryCannotInitializeTwice() public {
-    wrappedLightOrbFactory.initialize(address(emptyUUPSBeacon));
+    wrappedLightOrbFactory.initialize(
+      address(emptyUUPSBeacon),
+      address(wrappedLightController)
+    );
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    wrappedLightOrbFactory.initialize(address(emptyUUPSBeacon));
+    wrappedLightOrbFactory.initialize(
+      address(emptyUUPSBeacon),
+      address(wrappedLightController)
+    );
+  }
+
+  function testLightOrbFactoryProxySlot() public {
+    testLightOrbFactoryProxyInitialize();
+
+    /// Proxy Implementation
+    _testProxyImplementationSlot(
+      address(proxyLightOrbFactory),
+      address(implementationLightOrbFactory)
+    );
+
+    /// Initializable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(0)),
+      bytes32(uint256(2))
+    );
+    /// OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+    /// UUPSUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// LightOrbFactoryStorageV1
+    _testArbitrarySlotNotEmpty(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(201))
+    );
+  }
+
+  function testLightOrbFactoryProxySlotBeforeImplementation() public {
+    /// Proxy Implementation
+    _testProxyImplementationSlot(
+      address(proxyLightOrbFactory),
+      address(implementationLightOrbFactory)
+    );
+
+    /// Initializable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(0)),
+      bytes32(uint256(1))
+    );
+    /// OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+    /// UUPSUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// LightOrbFactoryStorageV1
+    _testArbitrarySlotNotEmpty(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(201))
+    );
   }
 }

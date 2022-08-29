@@ -18,6 +18,16 @@ contract SlotTest is Test {
     assertEq(target, _expected);
   }
 
+  function _testArbitrarySlotNotEmpty(address _proxy, bytes32 _slot) internal {
+    bytes32 proxySlot = vm.load(address(_proxy), _slot);
+    bytes32 target;
+    assembly {
+      mstore(0, proxySlot)
+      target := mload(0)
+    }
+    assertTrue(target != bytes32(uint256(0)));
+  }
+
   function _testProxyImplementationSlot(address _proxy, address _implementation)
     internal
   {

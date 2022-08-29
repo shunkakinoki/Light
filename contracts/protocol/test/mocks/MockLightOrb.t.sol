@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.sol";
 import "@lightdotso/protocol/LightOrbFactory.sol";
-import "./mocks/MockLightOrb.sol";
+import "./MockLightOrb.sol";
 
 contract LightOrbTest is BaseTest {
   MockLightOrbV1 private implmentationV1;
@@ -44,7 +44,10 @@ contract LightOrbTest is BaseTest {
   }
 
   function testMockCreateLightOrb() public {
-    wrappedLightOrbFactory.initialize(address(implmentationV1));
+    wrappedLightOrbFactory.initialize(
+      address(implmentationV1),
+      address(proxyLightController)
+    );
     assertEq(wrappedLightOrbFactory.implementation(), address(implmentationV1));
 
     wrappedBeaconImplementationV1 = MockLightOrbV1(

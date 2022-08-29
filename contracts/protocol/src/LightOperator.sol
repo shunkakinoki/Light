@@ -3,7 +3,7 @@
 pragma solidity ^0.8.13;
 
 import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";
-import { LightOperatorStorage } from "@lightdotso/protocol/storages/LightOperatorStorage.sol";
+import { LightOperatorStorageV1 } from "@lightdotso/protocol/storages/LightOperatorStorage.sol";
 import { LightOperatorData } from "@lightdotso/protocol/structs/LightOperatorData.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
@@ -19,9 +19,15 @@ contract LightOperator is
   Initializable,
   OwnableUpgradeable,
   UUPSUpgradeable,
-  LightOperatorStorage,
+  LightOperatorStorageV1,
   ILightOperator
 {
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                          ERRORS                            */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
+  error PERMISSION_INDEX_OUT_OF_BOUNDS();
+
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                       UPGRADEABLE                          */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
@@ -39,13 +45,7 @@ contract LightOperator is
   function _authorizeUpgrade(address) internal override onlyOwner {}
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                          ERRORS                            */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-
-  error PERMISSION_INDEX_OUT_OF_BOUNDS();
-
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                   PUBLIC STORED STATES                     */
+  /*                      EXTERNAL VIEWS                        */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
   /**
@@ -58,13 +58,13 @@ contract LightOperator is
     @dev _account The address of the account being operated.
     @dev _domain The domain within which the permissions apply. Applications can use the domain namespace as they wish.
   */
-  mapping(address => mapping(address => mapping(uint256 => uint256)))
-    public
-    override(ILightOperator) permissionsOf;
-
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                      EXTERNAL VIEWS                        */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  function getPermissionsOf(
+    address _operator,
+    address _account,
+    uint256 _domain
+  ) external view returns (uint256) {
+    return permissionsOf[_operator][_account][_domain];
+  }
 
   /**
     @notice Whether or not an operator has the permission to take a certain action pertaining to the specified domain.

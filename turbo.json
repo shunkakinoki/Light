@@ -3,7 +3,13 @@
   "globalDependencies": ["pnpm-workspace.yaml", "tsconfig.json", "turbo.json"],
   "pipeline": {
     "@lightdotso/api#build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build",
+        "$MONGODB_URI",
+        "$NODE_ENV",
+        "$UPSTASH_REST_API_DOMAIN",
+        "$UPSTASH_REST_API_TOKEN"
+      ],
       "inputs": ["**"],
       "outputs": [".next/**", "dist/**"]
     },

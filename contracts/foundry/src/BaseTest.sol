@@ -167,14 +167,7 @@ contract BaseTest is Test, SlotTest {
     vm.label(address(wrappedLightSpace), "Wrapped Light Space");
   }
 
-  function setUpLightProxies() public {
-    setUpEmpties();
-    setUpEmptyProxies();
-    setUpLightImplementations();
-    setUpEmptyProxyInitializations();
-    setUpLightProxyUpgrades();
-    setUpWrappedLightProxies();
-
+  function setUpLightController() public {
     wrappedLightController.initialize();
     wrappedLightController.setContractProxy(
       keccak256("LightCore"),
@@ -196,6 +189,17 @@ contract BaseTest is Test, SlotTest {
       keccak256("LightSpace"),
       address(proxyLightSpace)
     );
+  }
+
+  function setUpLightProxies() public {
+    setUpEmpties();
+    setUpEmptyProxies();
+    setUpLightImplementations();
+    setUpEmptyProxyInitializations();
+    setUpLightProxyUpgrades();
+    setUpWrappedLightProxies();
+    setUpLightController();
+
     wrappedLightCore.initialize(
       address(wrappedLightController),
       address(wrappedLightOperator)

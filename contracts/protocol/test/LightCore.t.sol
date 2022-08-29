@@ -53,6 +53,7 @@ contract LightCoreTest is BaseTest {
   function testLightCoreProxySlot() public {
     testSyncAllContracts();
 
+    /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightCore),
       address(implementationLightCore)

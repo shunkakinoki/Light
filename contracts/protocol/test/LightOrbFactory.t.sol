@@ -50,6 +50,12 @@ contract LightOrbFactoryTest is BaseTest {
   function testLightOrbFactoryProxySlot() public {
     setUpLightProxies();
 
+    /// Proxy Implementation
+    _testProxyImplementationSlot(
+      address(proxyLightOrbFactory),
+      address(implementationLightOrbFactory)
+    );
+
     /// Initializable
     _testArbitrarySlot(
       address(proxyLightOrbFactory),
@@ -85,11 +91,6 @@ contract LightOrbFactoryTest is BaseTest {
       address(proxyLightOrbFactory),
       bytes32(uint256(51)),
       bytes32(uint256(uint160(address(this))))
-    );
-
-    _testProxyImplementationSlot(
-      address(proxyLightOrbFactory),
-      address(implementationLightOrbFactory)
     );
   }
 }

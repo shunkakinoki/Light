@@ -23,6 +23,7 @@ contract LightOperatorTest is BaseTest {
   function testLightOperatorProxySlot() public {
     testLightOperatorProxyInitialize();
 
+    /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightOperator),
       address(implementationLightOperator)

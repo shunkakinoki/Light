@@ -27,6 +27,7 @@ contract LightSpaceTest is BaseTest {
   function testLightSpaceProxySlot() public {
     setUpLightProxies();
 
+    /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightSpace),
       address(implementationLightSpace)

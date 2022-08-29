@@ -73,6 +73,7 @@ contract LightControllerTest is BaseTest {
   function testLightControllerProxySlot() public {
     testLightControllerSetContractProxy();
 
+    /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightController),
       address(implementationLightController)

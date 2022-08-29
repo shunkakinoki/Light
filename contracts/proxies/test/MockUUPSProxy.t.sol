@@ -52,6 +52,7 @@ contract MockUUPSProxyTest is Test, SlotTest {
   }
 
   function testMockUUPSProxyV1Slot(uint256 x_) public {
+    /// Proxy Implementation
     _testProxyImplementationSlot(
       address(wrappedProxyV1),
       address(implementationV1)
@@ -109,6 +110,7 @@ contract MockUUPSProxyTest is Test, SlotTest {
   function testMockUUPSProxyV2Slot(uint256 x_, uint256 y_) public {
     mockUUPSProxyV2Upgrade(x_);
     wrappedProxyV2.setY(y_);
+    /// Proxy Implementation
     _testProxyImplementationSlot(
       address(wrappedProxyV2),
       address(implementationV2)

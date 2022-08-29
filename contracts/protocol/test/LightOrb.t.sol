@@ -25,6 +25,7 @@ contract LightOrbTest is BaseTest {
   }
 
   function testLightOrbProxySlot() public {
+    /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightOrb),
       address(implementationLightOrb)

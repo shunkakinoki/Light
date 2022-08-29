@@ -32,7 +32,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "jest": "^29.0.0",
+    "jest": "^29.0.1",
     "@types/jest": "^28.1.8",
     "ts-jest": "^28.0.8"
   }

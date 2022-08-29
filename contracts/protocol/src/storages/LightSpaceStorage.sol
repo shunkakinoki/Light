@@ -12,6 +12,7 @@ import { LightManager } from "@lightdotso/protocol/LightManager.sol";
 contract LightSpaceStorageV1 is LightManager {
   IRenderer public renderer;
   uint256 public count = 0;
+  mapping(uint256 => mapping(uint256 => string)) public metadataContentOf;
 
-  uint256[48] private __gap;
+  uint256[47] private __gap;
 }

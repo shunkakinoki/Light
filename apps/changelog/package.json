@@ -32,7 +32,7 @@
     "critters": "^0.0.16",
     "next": "^12.2.5",
     "next-compose-plugins": "^2.2.1",
-    "next-plausible": "^3.2.0",
+    "next-plausible": "^3.3.1",
     "next-themes": "^0.2.0",
     "next-transpile-modules": "^9.0.0",
     "react": "^18.2.0",
@@ -41,7 +41,7 @@
   "devDependencies": {
     "@cypress/code-coverage": "^3.10.0",
     "@cypress/react": "^6.1.1",
-    "@jest/globals": "^29.0.0",
+    "@jest/globals": "^29.0.1",
     "@lightdotso/styles": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
     "@tailwindcss/aspect-ratio": "^0.4.0",
@@ -55,8 +55,8 @@
     "@types/react": "^18.0.17",
     "babel-plugin-istanbul": "^6.1.1",
     "cypress": "^10.6.0",
-    "jest": "^29.0.0",
-    "jest-environment-jsdom": "^29.0.0",
+    "jest": "^29.0.1",
+    "jest-environment-jsdom": "^29.0.1",
     "next-transpile-modules": "^9.0.0",
     "nyc": "^15.1.0",
     "start-server-and-test": "^1.14.0"

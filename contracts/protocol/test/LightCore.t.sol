@@ -40,6 +40,8 @@ contract LightCoreTest is BaseTest {
   }
 
   function testLightCoreProxySlot() public {
+    wrappedLightCore.syncAllContracts();
+
     _testProxyImplementationSlot(
       address(proxyLightCore),
       address(implementationLightCore)
@@ -79,10 +81,58 @@ contract LightCoreTest is BaseTest {
       address(proxyLightCore),
       bytes32(
         keccak256(
-          abi.encodePacked(bytes32(keccak256("LightOrb")), uint256(252))
+          abi.encodePacked(abi.encode(keccak256("LightCore")), uint256(252))
         )
       ),
-      bytes32(uint256(0))
+      bytes32(uint256(uint160(address(proxyLightCore))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightOperator")), uint256(252))
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightOperator))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightOrb")), uint256(252))
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightOrb))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightOrb")), uint256(252))
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightOrb))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(
+        keccak256(
+          abi.encodePacked(
+            abi.encode(keccak256("LightOrbFactory")),
+            uint256(252)
+          )
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightOrbFactory))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightSpace")), uint256(252))
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightSpace))))
     );
   }
 }

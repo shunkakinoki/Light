@@ -83,10 +83,9 @@ contract LightOrbFactoryTest is BaseTest {
       bytes32(uint256(0))
     );
     /// LightOrbFactoryStorageV1
-    _testArbitrarySlot(
+    _testArbitrarySlotNotEmpty(
       address(proxyLightOrbFactory),
-      bytes32(uint256(201)),
-      bytes32(uint256(uint160(address(implementationLightOrb))))
+      bytes32(uint256(201))
     );
   }
 
@@ -116,10 +115,9 @@ contract LightOrbFactoryTest is BaseTest {
       bytes32(uint256(0))
     );
     /// LightOrbFactoryStorageV1
-    _testArbitrarySlot(
+    _testArbitrarySlotNotEmpty(
       address(proxyLightOrbFactory),
-      bytes32(uint256(201)),
-      bytes32(uint256(uint160(address(emptyUUPSBeacon))))
+      bytes32(uint256(201))
     );
   }
 }

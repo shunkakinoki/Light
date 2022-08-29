@@ -9,10 +9,25 @@ contract LightControllerTest is BaseTest {
   LightController private lightController;
 
   function setUp() public {
-    setUpLightProxies();
+    setUpEmpties();
+    setUpEmptyProxies();
+    setUpLightImplementations();
+    setUpEmptyProxyInitializations();
+    setUpLightProxyUpgrades();
+    setUpWrappedLightProxies();
   }
 
-  function testSetContractProxy() public {
+  function testLightControllerProxyInitialize() public {
+    vm.expectEmit(true, true, false, true, address(wrappedLightController));
+    vm.expectEmit(true, false, false, true, address(wrappedLightController));
+    emit OwnershipTransferred(address(this), address(this));
+    emit Initialized(2);
+    wrappedLightController.initialize();
+  }
+
+  function testLightControllerSetContractProxy() public {
+    testLightControllerProxyInitialize();
+
     wrappedLightController.setContractProxy(keccak256("one"), address(1));
     assertEq(
       wrappedLightController.getContractProxy(keccak256("one")),
@@ -30,13 +45,14 @@ contract LightControllerTest is BaseTest {
     );
   }
 
-  function testSetContractProxyErrorOnAddressNotSet() public {
+  function testLightControllerSetContractProxyErrorOnAddressNotSet() public {
     vm.expectRevert(LightController.CONTRACT_ADDRESS_NOT_SET.selector);
     wrappedLightController.setContractProxy(keccak256("error"), address(0));
   }
 
-  function testUnsetContractProxy() public {
-    testSetContractProxy();
+  function testLightControllerUnsetContractProxy() public {
+    testLightControllerSetContractProxy();
+
     wrappedLightController.unsetContractProxy(keccak256("one"));
     assertEq(
       wrappedLightController.getContractProxy(keccak256("one")),
@@ -55,6 +71,8 @@ contract LightControllerTest is BaseTest {
   }
 
   function testLightControllerProxySlot() public {
+    testLightControllerSetContractProxy();
+
     _testProxyImplementationSlot(
       address(proxyLightController),
       address(implementationLightController)
@@ -72,11 +90,41 @@ contract LightControllerTest is BaseTest {
       bytes32(uint256(51)),
       bytes32(uint256(uint160(address(this))))
     );
+    /// UUPSUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
     /// PausableUpgradeable
     _testArbitrarySlot(
       address(proxyLightController),
-      bytes32(uint256(101)),
+      bytes32(uint256(201)),
       bytes32(uint256(0))
+    );
+    /// LightControllerStorageV1
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(
+        keccak256(abi.encodePacked(abi.encode(keccak256("one")), uint256(251)))
+      ),
+      bytes32(uint256(uint160(address(1))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(
+        keccak256(abi.encodePacked(abi.encode(keccak256("two")), uint256(251)))
+      ),
+      bytes32(uint256(uint160(address(2))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("three")), uint256(251))
+        )
+      ),
+      bytes32(uint256(uint160(address(3))))
     );
   }
 }

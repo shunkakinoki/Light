@@ -73,4 +73,42 @@ contract LightSpaceTest is BaseTest {
       )
     );
   }
+
+  function testLightSpaceProxySlotBeforeImplementation() public {
+    /// Proxy Implementation
+    _testProxyImplementationSlot(
+      address(proxyLightSpace),
+      address(implementationLightSpace)
+    );
+
+    /// Initializable
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(0)),
+      bytes32(uint256(1))
+    );
+    /// OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+    /// UUPSUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// ERC721Upgradeable.sol
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(251)),
+      bytes32(uint256(0))
+    );
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(252)),
+      bytes32(uint256(0))
+    );
+  }
 }

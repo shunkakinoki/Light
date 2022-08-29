@@ -12,7 +12,11 @@ contract LightOrbTest is BaseTest {
     setUpLightProxies();
   }
 
-  function testLightOrbAssertions() public {
+  function testLightOrbProxyInitialize() public {
+    vm.expectEmit(true, true, false, true, address(wrappedLightOrb));
+    vm.expectEmit(true, false, false, true, address(wrappedLightOrb));
+    emit OwnershipTransferred(address(this), address(this));
+    emit Initialized(2);
     wrappedLightOrb.initialize("Light Orb", "LORB");
     assertEq(wrappedLightOrb.name(), "Light Orb");
     assertEq(wrappedLightOrb.symbol(), "LORB");
@@ -25,28 +29,13 @@ contract LightOrbTest is BaseTest {
   }
 
   function testLightOrbProxySlot() public {
+    testLightOrbProxyInitialize();
+
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightOrb),
       address(implementationLightOrb)
     );
-
-    /// Initializable
-    _testArbitrarySlot(
-      address(proxyLightOrb),
-      bytes32(uint256(0)),
-      bytes32(uint256(1))
-    );
-    /// OwnableUpgradeable
-    _testArbitrarySlot(
-      address(proxyLightOrb),
-      bytes32(uint256(51)),
-      bytes32(uint256(uint160(address(this))))
-    );
-
-    vm.expectEmit(true, false, false, true);
-    emit Initialized(2);
-    wrappedLightOrb.initialize("Light Orb", "LORB");
 
     /// Initializable
     _testArbitrarySlot(

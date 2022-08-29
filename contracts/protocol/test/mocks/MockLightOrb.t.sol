@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.sol";
 import "@lightdotso/protocol/LightOrbFactory.sol";
-import "./mocks/MockLightOrb.sol";
+import "./MockLightOrb.sol";
 
 contract LightOrbTest is BaseTest {
   MockLightOrbV1 private implmentationV1;

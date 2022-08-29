@@ -14,7 +14,11 @@ contract LightOrbFactoryTest is BaseTest {
   }
 
   /// Check that the LightOrbFactory can be successfully upgraded.
-  function testLightOrbFactory() public {
+  function testLightOrbFactoryProxyInitialize() public {
+    vm.expectEmit(true, true, false, true, address(wrappedLightOrbFactory));
+    vm.expectEmit(true, false, false, true, address(wrappedLightOrbFactory));
+    emit OwnershipTransferred(address(this), address(this));
+    emit Initialized(2);
     wrappedLightOrbFactory.initialize(
       address(emptyUUPSBeacon),
       address(wrappedLightController)
@@ -27,6 +31,10 @@ contract LightOrbFactoryTest is BaseTest {
       wrappedLightOrbFactory.implementation(),
       address(implementationLightOrb)
     );
+  }
+
+  function testLightOrbFactoryCreateLightOrb() public {
+    testLightOrbFactoryProxyInitialize();
 
     wrappedBeaconLightOrb = LightOrb(
       wrappedLightOrbFactory._createLightOrb("Light Orb", "LORB")
@@ -48,8 +56,41 @@ contract LightOrbFactoryTest is BaseTest {
   }
 
   function testLightOrbFactoryProxySlot() public {
-    setUpLightProxies();
+    testLightOrbFactoryProxyInitialize();
 
+    /// Proxy Implementation
+    _testProxyImplementationSlot(
+      address(proxyLightOrbFactory),
+      address(implementationLightOrbFactory)
+    );
+
+    /// Initializable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(0)),
+      bytes32(uint256(2))
+    );
+    /// OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+    /// UUPSUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// LightOrbFactoryStorageV1
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(201)),
+      bytes32(uint256(uint160(address(implementationLightOrb))))
+    );
+  }
+
+  function testLightOrbFactoryProxySlotBeforeImplementation() public {
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightOrbFactory),
@@ -68,29 +109,17 @@ contract LightOrbFactoryTest is BaseTest {
       bytes32(uint256(51)),
       bytes32(uint256(uint160(address(this))))
     );
-
-    vm.expectEmit(true, true, false, true);
-    vm.expectEmit(true, true, false, true);
-    vm.expectEmit(true, false, false, true);
-    emit OwnershipTransferred(address(this), address(this));
-    emit OwnershipTransferred(address(0), address(proxyLightOrbFactory));
-    emit Initialized(2);
-    wrappedLightOrbFactory.initialize(
-      address(empty),
-      address(proxyLightController)
-    );
-
-    /// Initializable
+    /// UUPSUpgradeable
     _testArbitrarySlot(
       address(proxyLightOrbFactory),
-      bytes32(uint256(0)),
-      bytes32(uint256(2))
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
     );
-    /// OwnableUpgradeable
+    /// LightOrbFactoryStorageV1
     _testArbitrarySlot(
       address(proxyLightOrbFactory),
-      bytes32(uint256(51)),
-      bytes32(uint256(uint160(address(this))))
+      bytes32(uint256(201)),
+      bytes32(uint256(uint160(address(emptyUUPSBeacon))))
     );
   }
 }

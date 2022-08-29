@@ -28,13 +28,13 @@ contract LightOperatorTest is BaseTest {
       address(implementationLightOperator)
     );
 
-    // Initializable
+    /// Initializable
     _testArbitrarySlot(
       address(proxyLightOperator),
       bytes32(uint256(0)),
       bytes32(uint256(2))
     );
-    // OwnableUpgradeable
+    /// OwnableUpgradeable
     _testArbitrarySlot(
       address(proxyLightOperator),
       bytes32(uint256(51)),

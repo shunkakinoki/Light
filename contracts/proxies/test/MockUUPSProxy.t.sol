@@ -63,13 +63,13 @@ contract MockUUPSProxyTest is Test, SlotTest {
     );
 
     mockUUPSProxyV1Initialize(x_);
-    // Initializable
+    /// Initializable
     _testArbitrarySlot(
       address(wrappedProxyV1),
       bytes32(uint256(0)),
       bytes32(uint256(1))
     );
-    // OwnableUpgradeable
+    /// OwnableUpgradeable
     _testArbitrarySlot(
       address(wrappedProxyV1),
       bytes32(uint256(51)),
@@ -113,13 +113,13 @@ contract MockUUPSProxyTest is Test, SlotTest {
       address(wrappedProxyV2),
       address(implementationV2)
     );
-    // Initializable
+    /// Initializable
     _testArbitrarySlot(
       address(wrappedProxyV2),
       bytes32(uint256(0)),
       bytes32(uint256(1))
     );
-    // OwnableUpgradeable
+    /// OwnableUpgradeable
     _testArbitrarySlot(
       address(wrappedProxyV1),
       bytes32(uint256(51)),

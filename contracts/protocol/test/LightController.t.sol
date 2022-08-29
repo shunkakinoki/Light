@@ -78,13 +78,13 @@ contract LightControllerTest is BaseTest {
       address(implementationLightController)
     );
 
-    // Initializable
+    /// Initializable
     _testArbitrarySlot(
       address(proxyLightController),
       bytes32(uint256(0)),
       bytes32(uint256(2))
     );
-    // OwnableUpgradeable
+    /// OwnableUpgradeable
     _testArbitrarySlot(
       address(proxyLightController),
       bytes32(uint256(51)),

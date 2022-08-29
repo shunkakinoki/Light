@@ -58,13 +58,13 @@ contract LightCoreTest is BaseTest {
       address(implementationLightCore)
     );
 
-    // Initializable
+    /// Initializable
     _testArbitrarySlot(
       address(proxyLightCore),
       bytes32(uint256(0)),
       bytes32(uint256(2))
     );
-    // OwnableUpgradeable
+    /// OwnableUpgradeable
     _testArbitrarySlot(
       address(proxyLightCore),
       bytes32(uint256(51)),

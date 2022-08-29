@@ -32,13 +32,13 @@ contract LightSpaceTest is BaseTest {
       address(implementationLightSpace)
     );
 
-    // Initializable
+    /// Initializable
     _testArbitrarySlot(
       address(proxyLightSpace),
       bytes32(uint256(0)),
       bytes32(uint256(1))
     );
-    // OwnableUpgradeable
+    /// OwnableUpgradeable
     _testArbitrarySlot(
       address(proxyLightSpace),
       bytes32(uint256(51)),
@@ -49,13 +49,13 @@ contract LightSpaceTest is BaseTest {
     emit Initialized(2);
     wrappedLightSpace.initialize(address(proxyLightController));
 
-    // Initializable
+    /// Initializable
     _testArbitrarySlot(
       address(proxyLightSpace),
       bytes32(uint256(0)),
       bytes32(uint256(2))
     );
-    // OwnableUpgradeable
+    /// OwnableUpgradeable
     _testArbitrarySlot(
       address(proxyLightSpace),
       bytes32(uint256(51)),

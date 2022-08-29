@@ -50,13 +50,13 @@ contract LightOrbFactoryTest is BaseTest {
   function testLightOrbFactoryProxySlot() public {
     setUpLightProxies();
 
-    // Initializable
+    /// Initializable
     _testArbitrarySlot(
       address(proxyLightOrbFactory),
       bytes32(uint256(0)),
       bytes32(uint256(1))
     );
-    // OwnableUpgradeable
+    /// OwnableUpgradeable
     _testArbitrarySlot(
       address(proxyLightOrbFactory),
       bytes32(uint256(51)),
@@ -74,13 +74,13 @@ contract LightOrbFactoryTest is BaseTest {
       address(proxyLightController)
     );
 
-    // Initializable
+    /// Initializable
     _testArbitrarySlot(
       address(proxyLightOrbFactory),
       bytes32(uint256(0)),
       bytes32(uint256(2))
     );
-    // OwnableUpgradeable
+    /// OwnableUpgradeable
     _testArbitrarySlot(
       address(proxyLightOrbFactory),
       bytes32(uint256(51)),

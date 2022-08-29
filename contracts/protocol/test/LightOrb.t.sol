@@ -30,13 +30,13 @@ contract LightOrbTest is BaseTest {
       address(implementationLightOrb)
     );
 
-    // Initializable
+    /// Initializable
     _testArbitrarySlot(
       address(proxyLightOrb),
       bytes32(uint256(0)),
       bytes32(uint256(1))
     );
-    // OwnableUpgradeable
+    /// OwnableUpgradeable
     _testArbitrarySlot(
       address(proxyLightOrb),
       bytes32(uint256(51)),
@@ -47,13 +47,13 @@ contract LightOrbTest is BaseTest {
     emit Initialized(2);
     wrappedLightOrb.initialize("Light Orb", "LORB");
 
-    // Initializable
+    /// Initializable
     _testArbitrarySlot(
       address(proxyLightOrb),
       bytes32(uint256(0)),
       bytes32(uint256(2))
     );
-    // OwnableUpgradeable
+    /// OwnableUpgradeable
     _testArbitrarySlot(
       address(proxyLightOrb),
       bytes32(uint256(51)),

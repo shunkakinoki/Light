@@ -119,15 +119,6 @@ contract LightCoreTest is BaseTest {
       address(proxyLightCore),
       bytes32(
         keccak256(
-          abi.encodePacked(abi.encode(keccak256("LightOrb")), uint256(252))
-        )
-      ),
-      bytes32(uint256(uint160(address(proxyLightOrb))))
-    );
-    _testArbitrarySlot(
-      address(proxyLightCore),
-      bytes32(
-        keccak256(
           abi.encodePacked(
             abi.encode(keccak256("LightOrbFactory")),
             uint256(252)

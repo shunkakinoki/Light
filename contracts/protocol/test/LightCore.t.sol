@@ -125,7 +125,6 @@ contract LightCoreTest is BaseTest {
       address(proxyLightCore),
       address(implementationLightCore)
     );
-
     /// Initializable
     _testArbitrarySlot(
       address(proxyLightCore),
@@ -194,6 +193,83 @@ contract LightCoreTest is BaseTest {
         )
       ),
       bytes32(uint256(uint160(address(proxyLightSpace))))
+    );
+  }
+
+  function testLightCoreProxySlotBeforeImplementation() public {
+    /// Proxy Implementation
+    _testProxyImplementationSlot(
+      address(proxyLightCore),
+      address(implementationLightCore)
+    );
+    /// Initializable
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(uint256(0)),
+      bytes32(uint256(1))
+    );
+    /// OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+    /// UUPSUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// LightOperatable
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(uint256(201)),
+      bytes32(uint256(0))
+    );
+    /// LightCoreStorageV1
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(uint256(251)),
+      bytes32(uint256(0))
+    );
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightCore")), uint256(252))
+        )
+      ),
+      bytes32(uint256(0))
+    );
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightOrb")), uint256(252))
+        )
+      ),
+      bytes32(uint256(0))
+    );
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(
+        keccak256(
+          abi.encodePacked(
+            abi.encode(keccak256("LightOrbFactory")),
+            uint256(252)
+          )
+        )
+      ),
+      bytes32(uint256(0))
+    );
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightSpace")), uint256(252))
+        )
+      ),
+      bytes32(uint256(0))
     );
   }
 }

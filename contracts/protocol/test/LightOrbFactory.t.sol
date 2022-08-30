@@ -194,7 +194,7 @@ contract LightOrbFactoryTest is BaseTest {
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );
-    /// LightOperatable
+    /// LightOperatable (upgradeableBeacon in EmptyUUPSBeacon)
     _testArbitrarySlotNotEmpty(
       address(proxyLightOrbFactory),
       bytes32(uint256(201))

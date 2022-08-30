@@ -23,7 +23,10 @@ contract LightSpaceTest is BaseTest {
     emit OwnershipTransferred(address(this), address(this));
     emit SetController(address(wrappedLightController));
     emit Initialized(2);
-    wrappedLightSpace.initialize(address(wrappedLightController));
+    wrappedLightSpace.initialize(
+      address(wrappedLightController),
+      address(wrappedLightOperator)
+    );
     assertEq(wrappedLightSpace.name(), "Light Space");
     assertEq(wrappedLightSpace.symbol(), "LIGHTSPACE");
   }
@@ -31,7 +34,10 @@ contract LightSpaceTest is BaseTest {
   function testLightSpaceDisableInitializersOnImplementation() public {
     lightSpace = new LightSpace();
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    lightSpace.initialize(address(wrappedLightController));
+    lightSpace.initialize(
+      address(wrappedLightController),
+      address(wrappedLightOperator)
+    );
   }
 
   function testLightSpaceInterfaceId() public {
@@ -51,7 +57,7 @@ contract LightSpaceTest is BaseTest {
     assertTrue(
       wrappedLightSpace.supportsInterface(type(ILightOperatable).interfaceId)
     );
-    assertTrue(wrappedLightSpace.supportsInterface(0xfcd6d312));
+    assertTrue(wrappedLightSpace.supportsInterface(0x705c77af));
     assertTrue(
       wrappedLightSpace.supportsInterface(type(ILightSpace).interfaceId)
     );
@@ -86,7 +92,7 @@ contract LightSpaceTest is BaseTest {
   }
 
   function testLightSpaceProxySlot() public {
-    testLightSpaceProxyInitialize();
+    testLightSpaceSyncAllContracts();
 
     /// Proxy Implementation
     _testProxyImplementationSlot(
@@ -127,7 +133,7 @@ contract LightSpaceTest is BaseTest {
         0x4c49474854535041434500000000000000000000000000000000000000000014
       )
     );
-    /// EIP712Upgradeable
+    /// EIP712Upgradeable (52 slots)
     _testArbitrarySlot(
       address(proxyLightSpace),
       bytes32(uint256(301)),
@@ -138,9 +144,60 @@ contract LightSpaceTest is BaseTest {
       bytes32(uint256(302)),
       bytes32(keccak256(bytes(string("1"))))
     );
+    /// LightOperatable
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(353)),
+      bytes32(uint256(uint160(address(proxyLightOperator))))
+    );
+    /// LightSpaceStorageV1
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(403)),
+      bytes32(uint256(uint160(address(proxyLightController))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightCore")), uint256(404))
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightCore))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightOrb")), uint256(404))
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightOrb))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(
+        keccak256(
+          abi.encodePacked(
+            abi.encode(keccak256("LightOrbFactory")),
+            uint256(404)
+          )
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightOrbFactory))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightSpace")), uint256(404))
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightSpace))))
+    );
   }
 
-  function testLightSpaceProxySlotBeforeImplementation() public {
+  function testLightSpaceProxySsdflotBeforeImplementation() public {
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightSpace),

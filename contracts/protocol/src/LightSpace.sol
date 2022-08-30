@@ -40,13 +40,17 @@ contract LightSpace is
     _disableInitializers();
   }
 
-  function initialize(address _controller) external reinitializer(2) {
+  function initialize(address _controller, address _operator)
+    external
+    reinitializer(2)
+  {
     __Ownable_init();
     __UUPSUpgradeable_init();
     __ERC721_init("Light Space", "LIGHTSPACE");
     __EIP712_init("Light Space", "1");
 
     _setController(_controller);
+    _setOperator(_operator);
   }
 
   function _authorizeUpgrade(address) internal override onlyOwner {}

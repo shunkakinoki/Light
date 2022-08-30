@@ -18,7 +18,7 @@ interface ILightSpace {
     string content
   );
 
-  function initialize(address _controller) external;
+  function initialize(address _controller, address _operator) external;
 
   function getCount() external view returns (uint256);
 

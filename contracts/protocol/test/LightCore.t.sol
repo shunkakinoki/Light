@@ -74,7 +74,10 @@ contract LightCoreTest is BaseTest {
   function testLightCoreLaunchSpaceFor() public {
     testLightCoreSyncAllContracts();
 
-    wrappedLightSpace.initialize(address(wrappedLightController));
+    wrappedLightSpace.initialize(
+      address(wrappedLightController),
+      address(wrappedLightOperator)
+    );
     wrappedLightSpace.syncAllContracts();
 
     LightSpaceMetadata memory emptyMetadata = LightSpaceMetadata({

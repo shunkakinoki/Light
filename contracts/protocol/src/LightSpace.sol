@@ -110,6 +110,7 @@ contract LightSpace is
     override
     returns (uint256 spaceId)
   {
+    /// Only restrict call from LightCore contract
     if (msg.sender != address(lightCore())) revert NotAuthorized();
 
     /// Increment the count, which will be used as the ID.

@@ -2,6 +2,7 @@
 
 pragma solidity ^0.8.13;
 
+import { ILightController } from "@lightdotso/protocol/interfaces/ILightController.sol";
 import "@lightdotso/foundry/BaseTest.sol";
 import "@lightdotso/protocol/LightController.sol";
 
@@ -52,7 +53,7 @@ contract LightControllerTest is BaseTest {
   }
 
   function testLightControllerSetContractProxyErrorOnAddressNotSet() public {
-    vm.expectRevert(LightController.CONTRACT_ADDRESS_NOT_SET.selector);
+    vm.expectRevert(ILightController.ContractAddressNotSet.selector);
     wrappedLightController.setContractProxy(keccak256("error"), address(0));
   }
 

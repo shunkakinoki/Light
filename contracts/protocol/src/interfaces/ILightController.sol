@@ -3,6 +3,10 @@
 pragma solidity ^0.8.13;
 
 interface ILightController {
+  error ContractAddressNotSet();
+
+  event SetContractProxy(bytes32 indexed id, address contractAddress);
+
   function initialize() external;
 
   function setContractProxy(bytes32 _id, address _contractAddress) external;
@@ -10,6 +14,4 @@ interface ILightController {
   function unsetContractProxy(bytes32 _id) external;
 
   function getContractProxy(bytes32 _id) external view returns (address);
-
-  event SetContractProxy(bytes32 indexed id, address contractAddress);
 }

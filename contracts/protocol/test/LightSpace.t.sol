@@ -91,7 +91,7 @@ contract LightSpaceTest is BaseTest {
     wrappedLightSpace.createFor(msg.sender, metadata);
   }
 
-  function testLightSpaceProxySlot() public {
+  function testLightSpaceStorageSlot() public {
     testLightSpaceSyncAllContracts();
 
     /// Proxy Implementation
@@ -99,7 +99,6 @@ contract LightSpaceTest is BaseTest {
       address(proxyLightSpace),
       address(implementationLightSpace)
     );
-
     /// Initializable
     _testArbitrarySlot(
       address(proxyLightSpace),
@@ -197,13 +196,12 @@ contract LightSpaceTest is BaseTest {
     );
   }
 
-  function testLightSpaceProxySsdflotBeforeImplementation() public {
+  function testLightSpaceStorageSlotBeforeInitialization() public {
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightSpace),
       address(implementationLightSpace)
     );
-
     /// Initializable
     _testArbitrarySlot(
       address(proxyLightSpace),

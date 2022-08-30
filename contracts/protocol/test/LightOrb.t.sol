@@ -28,7 +28,7 @@ contract LightOrbTest is BaseTest {
     lightOrb.initialize("Light Orb", "LORB");
   }
 
-  function testLightOrbProxySlot() public {
+  function testLightOrbStorageSlot() public {
     testLightOrbProxyInitialize();
 
     /// Proxy Implementation
@@ -36,7 +36,6 @@ contract LightOrbTest is BaseTest {
       address(proxyLightOrb),
       address(implementationLightOrb)
     );
-
     /// Initializable
     _testArbitrarySlot(
       address(proxyLightOrb),
@@ -84,13 +83,12 @@ contract LightOrbTest is BaseTest {
     );
   }
 
-  function testLightOrbProxySlotBeforeImplementation() public {
+  function testLightOrbStorageSlotBeforeInitialization() public {
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightOrb),
       address(implementationLightOrb)
     );
-
     /// Initializable
     _testArbitrarySlot(
       address(proxyLightOrb),

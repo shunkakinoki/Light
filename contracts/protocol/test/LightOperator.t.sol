@@ -26,7 +26,7 @@ contract LightOperatorTest is BaseTest {
     lightOperator.initialize();
   }
 
-  function testLightOperatorProxySlot() public {
+  function testLightOperatorStorageSlot() public {
     testLightOperatorProxyInitialize();
 
     /// Proxy Implementation
@@ -60,7 +60,7 @@ contract LightOperatorTest is BaseTest {
     );
   }
 
-  function testLightOperatorProxySlotBeforeImplementation() public {
+  function testLightOperatorStorageSlotBeforeInitialization() public {
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightOrb),

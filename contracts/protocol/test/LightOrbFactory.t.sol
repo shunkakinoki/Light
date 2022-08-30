@@ -86,7 +86,7 @@ contract LightOrbFactoryTest is BaseTest {
     wrappedLightOrbFactory.syncAllContracts();
   }
 
-  function testLightOrbFactoryProxySlot() public {
+  function testLightOrbFactoryStorageSlot() public {
     testLightOrbFactorySyncAllContracts();
 
     /// Proxy Implementation
@@ -170,7 +170,7 @@ contract LightOrbFactoryTest is BaseTest {
     );
   }
 
-  function testLightOrbFactoryProxyBeforeImplementation() public {
+  function testLightOrbFactoryProxyBeforeInitialization() public {
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightOrbFactory),

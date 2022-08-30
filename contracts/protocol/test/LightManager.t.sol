@@ -13,7 +13,7 @@ contract LightManagerTest is BaseTest {
     lightManager = new LightManager();
   }
 
-  function testLightManagerProxySlot() public {
+  function testLightManagerStorageSlot() public {
     /// Setup LightController
     vm.store(
       address(lightManager),
@@ -72,7 +72,7 @@ contract LightManagerTest is BaseTest {
     );
   }
 
-  function testLightManagerProxySlotBeforeImplementation() public {
+  function testLightManagerStorageSlotBeforeInitialization() public {
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightController),

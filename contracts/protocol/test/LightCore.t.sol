@@ -117,7 +117,7 @@ contract LightCoreTest is BaseTest {
     wrappedLightCore.launchSpaceFor(msg.sender, emptyMetadata, "memo");
   }
 
-  function testLightCoreProxySlot() public {
+  function testLightCoreStorageSlot() public {
     testLightCoreSyncAllContracts();
 
     /// Proxy Implementation
@@ -196,7 +196,7 @@ contract LightCoreTest is BaseTest {
     );
   }
 
-  function testLightCoreProxySlotBeforeImplementation() public {
+  function testLightCoreStorageSlotBeforeInitialization() public {
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightCore),

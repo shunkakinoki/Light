@@ -77,7 +77,7 @@ contract LightControllerTest is BaseTest {
     );
   }
 
-  function testLightControllerProxySlot() public {
+  function testLightControllerStorageSlot() public {
     testLightControllerSetContractProxy();
 
     /// Proxy Implementation
@@ -135,7 +135,7 @@ contract LightControllerTest is BaseTest {
     );
   }
 
-  function testLightControllerProxySlotBeforeImplementation() public {
+  function testLightControllerStorageSlotBeforeInitialization() public {
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightController),

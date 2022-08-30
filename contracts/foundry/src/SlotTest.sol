@@ -9,20 +9,20 @@ contract SlotTest is Test {
     bytes32 _slot,
     bytes32 _expected
   ) internal {
-    bytes32 proxySlot = vm.load(address(_proxy), _slot);
+    bytes32 storageSlot = vm.load(address(_proxy), _slot);
     bytes32 target;
     assembly {
-      mstore(0, proxySlot)
+      mstore(0, storageSlot)
       target := mload(0)
     }
     assertEq(target, _expected);
   }
 
   function _testArbitrarySlotNotEmpty(address _proxy, bytes32 _slot) internal {
-    bytes32 proxySlot = vm.load(address(_proxy), _slot);
+    bytes32 storageSlot = vm.load(address(_proxy), _slot);
     bytes32 target;
     assembly {
-      mstore(0, proxySlot)
+      mstore(0, storageSlot)
       target := mload(0)
     }
     assertTrue(target != bytes32(uint256(0)));
@@ -34,10 +34,10 @@ contract SlotTest is Test {
     bytes32 implSlot = bytes32(
       uint256(keccak256("eip1967.proxy.implementation")) - 1
     );
-    bytes32 proxySlot = vm.load(address(_proxy), implSlot);
+    bytes32 storageSlot = vm.load(address(_proxy), implSlot);
     address addr;
     assembly {
-      mstore(0, proxySlot)
+      mstore(0, storageSlot)
       addr := mload(0)
     }
     assertEq(addr, address(_implementation));
@@ -50,10 +50,10 @@ contract SlotTest is Test {
     bytes32 beaconSlot = bytes32(
       uint256(keccak256("eip1967.proxy.beacon")) - 1
     );
-    bytes32 proxySlot = vm.load(address(_proxy), beaconSlot);
+    bytes32 storageSlot = vm.load(address(_proxy), beaconSlot);
     address addr;
     assembly {
-      mstore(0, proxySlot)
+      mstore(0, storageSlot)
       addr := mload(0)
     }
     assertEq(addr, address(_implementation));

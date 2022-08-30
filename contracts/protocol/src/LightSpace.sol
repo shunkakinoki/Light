@@ -15,7 +15,7 @@ import { ERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC
 /// @dev Light spaces are a collective of orbs.
 /// @author Shun Kakinoki
 //// @notice Stores operator permissions for all addresses. Addresses can give permissions to any other address to take specific indexed actions on their behalf.
-//// @notice Implemented based of JBProjects at https://github.com/jbx-protocol/juice-contracts-v2/blob/main/contracts/JBProjects.sol (MIT License)
+//// @notice Implemented based of JBSpaces at https://github.com/jbx-protocol/juice-contracts-v2/blob/main/contracts/JBSpaces.sol (MIT License)
 contract LightSpace is
   Initializable,
   OwnableUpgradeable,
@@ -49,23 +49,23 @@ contract LightSpace is
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
   /**
-    @notice The count for the total number of projects.
+    @notice The count for the total number of spaces.
   */
   function getCount() external view returns (uint256) {
     return count;
   }
 
   /**
-    @notice The metadata for each project, which can be used across several domains.
-    @param  _projectId The ID of the project to which the metadata belongs.
+    @notice The metadata for each space, which can be used across several domains.
+    @param  _spaceId The ID of the space to which the metadata belongs.
     @param  _domain The domain within which the metadata applies. Applications can use the domain namespace as they wish.
   */
-  function getMetadataContentOf(uint256 _projectId, uint256 _domain)
+  function getMetadataContentOf(uint256 _spaceId, uint256 _domain)
     external
     view
     returns (string memory)
   {
-    return metadataContentOf[_projectId][_domain];
+    return metadataContentOf[_spaceId][_domain];
   }
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
@@ -74,25 +74,25 @@ contract LightSpace is
 
   /**
     @notice Create a new space for the specified owner, which mints an NFT (ERC-721) into their wallet.
-    @param _owner The address that will be the owner of the project.
-    @param _metadata A struct containing metadata content about the project, and domain within which the metadata applies.
-    @return projectId The token ID of the newly created project.
+    @param _owner The address that will be the owner of the space.
+    @param _metadata A struct containing metadata content about the space, and domain within which the metadata applies.
+    @return spaceId The token ID of the newly created space.
   */
   function createFor(address _owner, LightSpaceMetadata calldata _metadata)
     external
     override
-    returns (uint256 projectId)
+    returns (uint256 spaceId)
   {
     /// Increment the count, which will be used as the ID.
-    projectId = ++count;
+    spaceId = ++count;
 
-    /// Mint the project.
-    _safeMint(_owner, projectId);
+    /// Mint the space.
+    _safeMint(_owner, spaceId);
 
     /// Set the metadata if one was provided.
     if (bytes(_metadata.content).length > 0)
-      metadataContentOf[projectId][_metadata.domain] = _metadata.content;
+      metadataContentOf[spaceId][_metadata.domain] = _metadata.content;
 
-    emit Create(projectId, _owner, _metadata, msg.sender);
+    emit Create(spaceId, _owner, _metadata, msg.sender);
   }
 }

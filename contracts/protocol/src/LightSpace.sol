@@ -26,6 +26,12 @@ contract LightSpace is
   ILightSpace
 {
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                          ERRORS                            */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
+  error NotAuthorized();
+
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                       UPGRADEABLE                          */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
@@ -83,6 +89,8 @@ contract LightSpace is
     override
     returns (uint256 spaceId)
   {
+    if (msg.sender != address(lightCore())) revert NotAuthorized();
+
     /// Increment the count, which will be used as the ID.
     spaceId = ++count;
 

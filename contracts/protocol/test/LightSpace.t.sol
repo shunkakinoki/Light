@@ -24,6 +24,28 @@ contract LightSpaceTest is BaseTest {
     assertEq(wrappedLightSpace.symbol(), "LIGHTSPACE");
   }
 
+  function testLightSpaceSyncAllContracts() public {
+    testLightSpaceProxyInitialize();
+
+    vm.expectEmit(true, true, false, true, address(wrappedLightSpace));
+    vm.expectEmit(true, true, false, true, address(wrappedLightSpace));
+    vm.expectEmit(true, true, false, true, address(wrappedLightSpace));
+    vm.expectEmit(true, true, false, true, address(wrappedLightSpace));
+    vm.expectEmit(true, true, false, true, address(wrappedLightSpace));
+    emit ContractSynced(keccak256("LightCore"), address(proxyLightCore));
+    emit ContractSynced(
+      keccak256("LightOperator"),
+      address(proxyLightOperator)
+    );
+    emit ContractSynced(keccak256("LightOrb"), address(proxyLightOrb));
+    emit ContractSynced(
+      keccak256("LightOrbFactory"),
+      address(proxyLightOrbFactory)
+    );
+    emit ContractSynced(keccak256("LightSpace"), address(proxyLightSpace));
+    wrappedLightSpace.syncAllContracts();
+  }
+
   function testLightSpaceDisableInitializersOnImplementation() public {
     lightSpace = new LightSpace();
     vm.expectRevert(bytes("Initializable: contract is already initialized"));

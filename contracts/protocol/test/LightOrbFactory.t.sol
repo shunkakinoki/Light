@@ -43,6 +43,23 @@ contract LightOrbFactoryTest is BaseTest {
     );
   }
 
+  function testLightOrbFactorySyncAllContracts() public {
+    testLightOrbFactoryProxyInitialize();
+
+    vm.expectEmit(true, true, false, true, address(wrappedLightOrbFactory));
+    vm.expectEmit(true, true, false, true, address(wrappedLightOrbFactory));
+    vm.expectEmit(true, true, false, true, address(wrappedLightOrbFactory));
+    vm.expectEmit(true, true, false, true, address(wrappedLightOrbFactory));
+    emit ContractSynced(keccak256("LightCore"), address(proxyLightCore));
+    emit ContractSynced(keccak256("LightOrb"), address(proxyLightOrb));
+    emit ContractSynced(
+      keccak256("LightOrbFactory"),
+      address(proxyLightOrbFactory)
+    );
+    emit ContractSynced(keccak256("LightSpace"), address(proxyLightSpace));
+    wrappedLightOrbFactory.syncAllContracts();
+  }
+
   function testLightOrbFactoryCreateLightOrb() public {
     testLightOrbFactoryProxyInitialize();
 

@@ -11,5 +11,4 @@ export * from "./plausible";
 export * from "./poap";
 export * from "./prisma";
 export * from "./snapshot";
-export * from "./timeline";
 export * from "./zerion";

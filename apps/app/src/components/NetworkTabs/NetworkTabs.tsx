@@ -1,10 +1,10 @@
-import { RectangleStackIcon, UserGroupIcon } from "@heroicons/react/24/solid";
+import { UserGroupIcon } from "@heroicons/react/24/solid";
 import type { NetworkType } from "@lightdotso/types";
 import clsx from "clsx";
 import Link from "next/link";
 import type { SVGProps, FC } from "react";
 
-export type ActiveProfileTab = "People" | "Timeline";
+export type ActiveProfileTab = "People";
 
 export type NetworkTabsProps = {
   active: ActiveProfileTab;
@@ -28,12 +28,6 @@ export const NetworkTabs: FC<NetworkTabsProps> = ({
       href: `/${type.toLowerCase()}/${id}`,
       icon: UserGroupIcon,
       active: "People",
-    },
-    {
-      name: "Timeline",
-      href: `/${type.toLowerCase()}/${id}/timeline`,
-      icon: RectangleStackIcon,
-      active: "Timeline",
     },
   ];
 

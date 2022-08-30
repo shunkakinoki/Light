@@ -29,10 +29,6 @@ export const Swrs = [
   "SNAPSHOT_SPACE",
   "SNAPSHOT_VOTERS",
   "SNAPSHOT_VOTES",
-  "TIMELINE_ADDRESS",
-  "TIMELINE_NETWORK_CYBERCONNECT",
-  "TIMELINE_NETWORK_POAP",
-  "TIMELINE_NETWORK_SNAPSHOT",
   "USER",
 ] as const;
 
@@ -69,9 +65,5 @@ export const SwrKeys: {
   SNAPSHOT_SPACE: "/snapshot/space",
   SNAPSHOT_VOTERS: "/snapshot/voters",
   SNAPSHOT_VOTES: "/snapshot/votes",
-  TIMELINE_ADDRESS: "/timeline/address",
-  TIMELINE_NETWORK_CYBERCONNECT: "/timeline/network/cyberconnect",
-  TIMELINE_NETWORK_POAP: "/timeline/network/poap",
-  TIMELINE_NETWORK_SNAPSHOT: "/timeline/network/snapshot",
   USER: "/user",
 };

@@ -9,8 +9,6 @@ import { NetworkPeopleListSnapshot } from "@lightdotso/app/components/NetworkPeo
 import { NetworkTabs } from "@lightdotso/app/components/NetworkTabs";
 import type { NetworkTabsProps } from "@lightdotso/app/components/NetworkTabs";
 import { SeoLight } from "@lightdotso/app/components/SeoLight";
-import { TimelineListNetworkPoap } from "@lightdotso/app/components/TimelineListNetworkPoap";
-import { TimelineListNetworkSnapshot } from "@lightdotso/app/components/TimelineListNetworkSnapshot";
 
 export type NetworkProps = {
   id: string;
@@ -48,12 +46,6 @@ export const Network: FC<NetworkProps> = ({ active, id, type, name }) => {
               )}
               {active === "People" && type === "POAP" && (
                 <NetworkPeopleListPoap eventId={id} />
-              )}
-              {active === "Timeline" && type === "POAP" && (
-                <TimelineListNetworkPoap eventId={id} />
-              )}
-              {active === "Timeline" && type === "DAO" && (
-                <TimelineListNetworkSnapshot spaceId={id} />
               )}
             </div>
           </div>

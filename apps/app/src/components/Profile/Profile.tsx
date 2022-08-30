@@ -16,7 +16,6 @@ import { ProfileHero } from "@lightdotso/app/components/ProfileHero";
 import type { ProfileHeroTabsProps } from "@lightdotso/app/components/ProfileHeroTabs";
 import { SeoBase } from "@lightdotso/app/components/SeoBase";
 import { SeoLight } from "@lightdotso/app/components/SeoLight";
-import { TimelineListAddress } from "@lightdotso/app/components/TimelineListAddress";
 import { useEns } from "@lightdotso/app/hooks/useEns";
 
 export type ProfileProps = ProfileHeroTabsProps &
@@ -67,7 +66,6 @@ export const Profile: FC<ProfileProps> = ({ active, follow, address }) => {
             <ProfileBoardSectionTokens address={address} />
           </div>
         )}
-        {active === "Timeline" && <TimelineListAddress address={address} />}
         {follow === "following" && <FollowListFollowing address={address} />}
         {follow === "followers" && <FollowListFollowers address={address} />}
       </div>

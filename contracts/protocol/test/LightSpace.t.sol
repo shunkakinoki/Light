@@ -52,6 +52,17 @@ contract LightSpaceTest is BaseTest {
     wrappedLightSpace.syncAllContracts();
   }
 
+  function testLightSpaceCreateForFailNotLightCore() public {
+    testLightSpaceSyncAllContracts();
+
+    LightSpaceMetadata memory metadata = LightSpaceMetadata({
+      content: "ipfsHash",
+      domain: 1
+    });
+    vm.expectRevert(LightSpace.NotAuthorized.selector);
+    wrappedLightSpace.createFor(msg.sender, metadata);
+  }
+
   function testLightSpaceProxySlot() public {
     testLightSpaceProxyInitialize();
 

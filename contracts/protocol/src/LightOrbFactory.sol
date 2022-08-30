@@ -44,6 +44,8 @@ contract LightOrbFactory is
     _setOperator(_operator);
   }
 
+  function _authorizeUpgrade(address) internal override onlyOwner {}
+
   function implementation() external view returns (address) {
     return upgradeableBeacon.implementation();
   }
@@ -65,6 +67,4 @@ contract LightOrbFactory is
   {
     upgradeableBeacon.upgradeTo(new_implementationAddress);
   }
-
-  function _authorizeUpgrade(address) internal override onlyOwner {}
 }

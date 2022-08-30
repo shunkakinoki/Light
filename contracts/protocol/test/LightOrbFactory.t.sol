@@ -194,12 +194,11 @@ contract LightOrbFactoryTest is BaseTest {
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );
-    // /// LightOperatable
-    // _testArbitrarySlot(
-    //   address(proxyLightOrbFactory),
-    //   bytes32(uint256(201)),
-    //   bytes32(uint256(uint160(address(proxyLightOperator))))
-    // );
+    /// LightOperatable
+    _testArbitrarySlotNotEmpty(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(201))
+    );
     /// LightOrbFactoryStorageV1 (LightManager)
     _testArbitrarySlot(
       address(proxyLightOrbFactory),
@@ -245,10 +244,11 @@ contract LightOrbFactoryTest is BaseTest {
       ),
       bytes32(uint256(0))
     );
-    // /// LightOrbFactoryStorageV1
-    // _testArbitrarySlotNotEmpty(
-    //   address(proxyLightOrbFactory),
-    //   bytes32(uint256(301))
-    // );
+    /// LightOrbFactoryStorageV1
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(301)),
+      bytes32(uint256(0))
+    );
   }
 }

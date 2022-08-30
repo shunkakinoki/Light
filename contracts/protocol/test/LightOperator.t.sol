@@ -20,6 +20,12 @@ contract LightOperatorTest is BaseTest {
     wrappedLightOperator.initialize();
   }
 
+  function testLightOperatorDisableInitializersOnImplementation() public {
+    lightOperator = new LightOperator();
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    lightOperator.initialize();
+  }
+
   function testLightOperatorProxySlot() public {
     testLightOperatorProxyInitialize();
 

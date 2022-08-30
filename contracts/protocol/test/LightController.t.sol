@@ -25,6 +25,12 @@ contract LightControllerTest is BaseTest {
     wrappedLightController.initialize();
   }
 
+  function testLightControllerDisableInitializersOnImplementation() public {
+    lightController = new LightController();
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    lightController.initialize();
+  }
+
   function testLightControllerSetContractProxy() public {
     testLightControllerProxyInitialize();
 

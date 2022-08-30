@@ -7,7 +7,8 @@ import "@lightdotso/protocol/LightSpace.sol";
 import "@lightdotso/protocol/LightOrbFactory.sol";
 
 contract LightOrbFactoryTest is BaseTest {
-  LightOrb wrappedBeaconLightOrb;
+  LightOrb private wrappedBeaconLightOrb;
+  LightOrbFactory private lightOrbFactory;
 
   function setUp() public {
     setUpLightProxies();
@@ -30,6 +31,15 @@ contract LightOrbFactoryTest is BaseTest {
     assertEq(
       wrappedLightOrbFactory.implementation(),
       address(implementationLightOrb)
+    );
+  }
+
+  function testLightOrbFactoryDisableInitializersOnImplementation() public {
+    lightOrbFactory = new LightOrbFactory();
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    lightOrbFactory.initialize(
+      address(emptyUUPSBeacon),
+      address(wrappedLightController)
     );
   }
 

@@ -45,6 +45,15 @@ contract LightCoreTest is BaseTest {
     );
   }
 
+  function testLightCoreDisableInitializersOnImplementation() public {
+    lightCore = new LightCore();
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    lightCore.initialize(
+      address(wrappedLightController),
+      address(wrappedLightOperator)
+    );
+  }
+
   function testLightCoreSyncAllContracts() public {
     testLightCoreProxyInitialize();
 

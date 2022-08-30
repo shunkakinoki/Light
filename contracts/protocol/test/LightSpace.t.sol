@@ -24,6 +24,12 @@ contract LightSpaceTest is BaseTest {
     assertEq(wrappedLightSpace.symbol(), "LIGHTSPACE");
   }
 
+  function testLightSpaceDisableInitializersOnImplementation() public {
+    lightSpace = new LightSpace();
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    lightSpace.initialize(address(wrappedLightController));
+  }
+
   function testLightSpaceSyncAllContracts() public {
     testLightSpaceProxyInitialize();
 
@@ -44,12 +50,6 @@ contract LightSpaceTest is BaseTest {
     );
     emit ContractSynced(keccak256("LightSpace"), address(proxyLightSpace));
     wrappedLightSpace.syncAllContracts();
-  }
-
-  function testLightSpaceDisableInitializersOnImplementation() public {
-    lightSpace = new LightSpace();
-    vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    lightSpace.initialize(address(wrappedLightController));
   }
 
   function testLightSpaceProxySlot() public {

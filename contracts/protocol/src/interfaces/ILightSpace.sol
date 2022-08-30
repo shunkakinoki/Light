@@ -5,11 +5,17 @@ pragma solidity ^0.8.13;
 import { LightSpaceMetadata } from "@lightdotso/protocol/structs/LightSpaceMetadata.sol";
 
 interface ILightSpace {
-  event Create(
+  event CreateSpace(
     uint256 indexed projectId,
     address indexed owner,
     LightSpaceMetadata metadata,
     address caller
+  );
+
+  event SetCustomMetadata(
+    uint256 indexed projectId,
+    uint256 indexed domain,
+    string content
   );
 
   function initialize(address _controller) external;

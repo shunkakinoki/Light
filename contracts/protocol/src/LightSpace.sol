@@ -90,9 +90,12 @@ contract LightSpace is
     _safeMint(_owner, spaceId);
 
     /// Set the metadata if one was provided.
-    if (bytes(_metadata.content).length > 0)
+    if (bytes(_metadata.content).length > 0) {
       metadataContentOf[spaceId][_metadata.domain] = _metadata.content;
 
-    emit Create(spaceId, _owner, _metadata, msg.sender);
+      emit SetCustomMetadata(spaceId, _metadata.domain, _metadata.content);
+    }
+
+    emit CreateSpace(spaceId, _owner, _metadata, msg.sender);
   }
 }

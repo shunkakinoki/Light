@@ -6,6 +6,24 @@ import "@lightdotso/foundry/BaseTest.sol";
 import "@lightdotso/protocol/LightCore.sol";
 
 contract LightCoreTest is BaseTest {
+  event LaunchSpace(uint256 spaceId, string memo, address caller);
+  event CreateSpace(
+    uint256 indexed projectId,
+    address indexed owner,
+    LightSpaceMetadata metadata,
+    address caller
+  );
+  event SetCustomMetadata(
+    uint256 indexed projectId,
+    uint256 indexed domain,
+    string content
+  );
+  event Transfer(
+    address indexed from,
+    address indexed to,
+    uint256 indexed tokenId
+  );
+
   LightCore private lightCore;
 
   function setUp() public {
@@ -21,14 +39,13 @@ contract LightCoreTest is BaseTest {
     emit SetController(address(wrappedLightController));
     emit SetOperator(address(wrappedLightOperator));
     emit Initialized(2);
-    (address(wrappedLightController));
     wrappedLightCore.initialize(
       address(wrappedLightController),
       address(wrappedLightOperator)
     );
   }
 
-  function testSyncAllContracts() public {
+  function testLightCoreSyncAllContracts() public {
     testLightCoreProxyInitialize();
 
     vm.expectEmit(true, true, false, true, address(wrappedLightCore));
@@ -50,8 +67,48 @@ contract LightCoreTest is BaseTest {
     wrappedLightCore.syncAllContracts();
   }
 
+  function testLightCoreLaunchSpaceFor() public {
+    testLightCoreSyncAllContracts();
+
+    LightSpaceMetadata memory emptyMetadata = LightSpaceMetadata({
+      content: "",
+      domain: 1
+    });
+
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    vm.expectEmit(true, false, false, true);
+    emit Transfer(address(0), msg.sender, 1);
+    emit CreateSpace(1, msg.sender, emptyMetadata, address(wrappedLightCore));
+    emit LaunchSpace(1, "", address(this));
+    wrappedLightCore.launchSpaceFor(msg.sender, emptyMetadata, "");
+
+    LightSpaceMetadata memory customMetadata = LightSpaceMetadata({
+      content: "ipfsHash",
+      domain: 1
+    });
+
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    vm.expectEmit(true, false, false, true);
+    emit Transfer(address(0), msg.sender, 2);
+    emit SetCustomMetadata(2, 1, "ipfsHash");
+    emit CreateSpace(2, msg.sender, customMetadata, address(wrappedLightCore));
+    emit LaunchSpace(2, "", address(this));
+    wrappedLightCore.launchSpaceFor(msg.sender, customMetadata, "");
+
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    vm.expectEmit(true, false, false, true);
+    emit Transfer(address(0), msg.sender, 3);
+    emit CreateSpace(3, msg.sender, emptyMetadata, address(wrappedLightCore));
+    emit LaunchSpace(3, "memo", address(this));
+    wrappedLightCore.launchSpaceFor(msg.sender, emptyMetadata, "memo");
+  }
+
   function testLightCoreProxySlot() public {
-    testSyncAllContracts();
+    testLightCoreSyncAllContracts();
 
     /// Proxy Implementation
     _testProxyImplementationSlot(

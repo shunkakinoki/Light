@@ -5,6 +5,8 @@ pragma solidity ^0.8.13;
 import { LightOperatorData } from "@lightdotso/protocol/structs/LightOperatorData.sol";
 
 interface ILightOperator {
+  error PermissionIndexOutOfBounds();
+
   event SetOperator(
     address indexed operator,
     address indexed account,

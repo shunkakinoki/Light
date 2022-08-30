@@ -4,6 +4,7 @@ pragma solidity ^0.8.13;
 
 import { ILightSpace } from "@lightdotso/protocol/interfaces/ILightSpace.sol";
 import { LightOperatable } from "@lightdotso/protocol/abstract/LightOperatable.sol";
+import { LightSpaceMetadata } from "@lightdotso/protocol/structs/LightSpaceMetadata.sol";
 import { LightSpaceStorageV1 } from "@lightdotso/protocol/storages/LightSpaceStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
@@ -65,5 +66,33 @@ contract LightSpace is
     returns (string memory)
   {
     return metadataContentOf[_projectId][_domain];
+  }
+
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                 EXTERNAL TRANSACTIONS                      */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
+  /**
+    @notice Create a new space for the specified owner, which mints an NFT (ERC-721) into their wallet.
+    @param _owner The address that will be the owner of the project.
+    @param _metadata A struct containing metadata content about the project, and domain within which the metadata applies.
+    @return projectId The token ID of the newly created project.
+  */
+  function createFor(address _owner, LightSpaceMetadata calldata _metadata)
+    external
+    override
+    returns (uint256 projectId)
+  {
+    /// Increment the count, which will be used as the ID.
+    projectId = ++count;
+
+    /// Mint the project.
+    _safeMint(_owner, projectId);
+
+    /// Set the metadata if one was provided.
+    if (bytes(_metadata.content).length > 0)
+      metadataContentOf[projectId][_metadata.domain] = _metadata.content;
+
+    emit Create(projectId, _owner, _metadata, msg.sender);
   }
 }

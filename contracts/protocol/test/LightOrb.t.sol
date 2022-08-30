@@ -70,6 +70,18 @@ contract LightOrbTest is BaseTest {
         0x4c4f524200000000000000000000000000000000000000000000000000000008
       )
     );
+    /// AccessControlUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrb),
+      bytes32(uint256(301)),
+      bytes32(uint256(0))
+    );
+    /// LightOrbStorageV1
+    _testArbitrarySlot(
+      address(proxyLightOrb),
+      bytes32(uint256(351)),
+      bytes32(uint256(0))
+    );
   }
 
   function testLightOrbProxySlotBeforeImplementation() public {
@@ -106,6 +118,18 @@ contract LightOrbTest is BaseTest {
     _testArbitrarySlot(
       address(proxyLightOrb),
       bytes32(uint256(252)),
+      bytes32(uint256(0))
+    );
+    /// AccessControlUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrb),
+      bytes32(uint256(301)),
+      bytes32(uint256(0))
+    );
+    /// LightOrbStorageV1
+    _testArbitrarySlot(
+      address(proxyLightOrb),
+      bytes32(uint256(351)),
       bytes32(uint256(0))
     );
   }

@@ -244,5 +244,17 @@ contract LightSpaceTest is BaseTest {
       bytes32(uint256(302)),
       bytes32(uint256(0))
     );
+    /// LightOperatable
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(353)),
+      bytes32(uint256(0))
+    );
+    /// LightSpaceStorageV1
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(403)),
+      bytes32(uint256(0))
+    );
   }
 }

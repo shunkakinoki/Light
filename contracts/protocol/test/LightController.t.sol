@@ -85,7 +85,6 @@ contract LightControllerTest is BaseTest {
       address(proxyLightController),
       address(implementationLightController)
     );
-
     /// Initializable
     _testArbitrarySlot(
       address(proxyLightController),
@@ -133,6 +132,62 @@ contract LightControllerTest is BaseTest {
         )
       ),
       bytes32(uint256(uint160(address(3))))
+    );
+  }
+
+  function testLightControllerProxySlotBeforeImplementation() public {
+    /// Proxy Implementation
+    _testProxyImplementationSlot(
+      address(proxyLightController),
+      address(implementationLightController)
+    );
+    /// Initializable
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(uint256(0)),
+      bytes32(uint256(1))
+    );
+    /// OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+    /// UUPSUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightCore),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// PausableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(uint256(201)),
+      bytes32(uint256(0))
+    );
+    /// LightControllerStorageV1
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(
+        keccak256(abi.encodePacked(abi.encode(keccak256("one")), uint256(251)))
+      ),
+      bytes32(uint256(0))
+    );
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(
+        keccak256(abi.encodePacked(abi.encode(keccak256("two")), uint256(251)))
+      ),
+      bytes32(uint256(0))
+    );
+    _testArbitrarySlot(
+      address(proxyLightController),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("three")), uint256(251))
+        )
+      ),
+      bytes32(uint256(0))
     );
   }
 }

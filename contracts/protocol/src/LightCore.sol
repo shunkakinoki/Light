@@ -3,6 +3,7 @@
 pragma solidity ^0.8.13;
 
 import { ILightCore } from "@lightdotso/protocol/interfaces/ILightCore.sol";
+import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";
 import { LightSpaceMetadata } from "@lightdotso/protocol/structs/LightSpaceMetadata.sol";
 import { LightOperatable } from "@lightdotso/protocol/abstract/LightOperatable.sol";
 import { LightCoreStorageV1 } from "@lightdotso/protocol/storages/LightCoreStorage.sol";
@@ -35,7 +36,6 @@ contract LightCore is
 
   function initialize(address _controller, address _operator)
     external
-    override
     reinitializer(2)
   {
     __Ownable_init();
@@ -63,7 +63,7 @@ contract LightCore is
   function launchSpaceFor(
     address _owner,
     LightSpaceMetadata calldata _spaceMetadata,
-    string memory _memo
+    string calldata _memo
   ) external virtual override returns (uint256 spaceId) {
     // Mint the space into the wallet of the owner.
     spaceId = lightSpace().createFor(_owner, _spaceMetadata);

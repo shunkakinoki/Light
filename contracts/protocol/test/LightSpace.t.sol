@@ -4,6 +4,10 @@ pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.sol";
 import "@lightdotso/protocol/LightSpace.sol";
+import { ILightOperatable } from "@lightdotso/protocol/interfaces/ILightOperatable.sol";
+import { ILightSpace } from "@lightdotso/protocol/interfaces/ILightSpace.sol";
+import { IERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol";
+import { IERC721MetadataUpgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol";
 
 contract LightSpaceTest is BaseTest {
   LightSpace private lightSpace;
@@ -30,6 +34,29 @@ contract LightSpaceTest is BaseTest {
     lightSpace.initialize(address(wrappedLightController));
   }
 
+  function testLightSpaceInterfaceId() public {
+    testLightSpaceProxyInitialize();
+
+    assertTrue(wrappedLightSpace.supportsInterface(0x80ac58cd));
+    assertTrue(
+      wrappedLightSpace.supportsInterface(type(IERC721Upgradeable).interfaceId)
+    );
+    assertTrue(wrappedLightSpace.supportsInterface(0x5b5e139f));
+    assertTrue(
+      wrappedLightSpace.supportsInterface(
+        type(IERC721MetadataUpgradeable).interfaceId
+      )
+    );
+    assertTrue(wrappedLightSpace.supportsInterface(0x089d035a));
+    assertTrue(
+      wrappedLightSpace.supportsInterface(type(ILightOperatable).interfaceId)
+    );
+    assertTrue(wrappedLightSpace.supportsInterface(0xfcd6d312));
+    assertTrue(
+      wrappedLightSpace.supportsInterface(type(ILightSpace).interfaceId)
+    );
+  }
+
   function testLightSpaceSyncAllContracts() public {
     testLightSpaceProxyInitialize();
 
@@ -37,12 +64,7 @@ contract LightSpaceTest is BaseTest {
     vm.expectEmit(true, true, false, true, address(wrappedLightSpace));
     vm.expectEmit(true, true, false, true, address(wrappedLightSpace));
     vm.expectEmit(true, true, false, true, address(wrappedLightSpace));
-    vm.expectEmit(true, true, false, true, address(wrappedLightSpace));
     emit ContractSynced(keccak256("LightCore"), address(proxyLightCore));
-    emit ContractSynced(
-      keccak256("LightOperator"),
-      address(proxyLightOperator)
-    );
     emit ContractSynced(keccak256("LightOrb"), address(proxyLightOrb));
     emit ContractSynced(
       keccak256("LightOrbFactory"),
@@ -59,7 +81,7 @@ contract LightSpaceTest is BaseTest {
       content: "ipfsHash",
       domain: 1
     });
-    vm.expectRevert(LightSpace.NotAuthorized.selector);
+    vm.expectRevert(ILightOperatable.NotAuthorized.selector);
     wrappedLightSpace.createFor(msg.sender, metadata);
   }
 

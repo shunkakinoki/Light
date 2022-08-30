@@ -3,6 +3,10 @@
 pragma solidity ^0.8.13;
 
 import { ILightSpace } from "@lightdotso/protocol/interfaces/ILightSpace.sol";
+import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";
+import { ILightOperatable } from "@lightdotso/protocol/interfaces/ILightOperatable.sol";
+import { IERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol";
+import { IERC721MetadataUpgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol";
 import { LightOperatable } from "@lightdotso/protocol/abstract/LightOperatable.sol";
 import { LightSpaceMetadata } from "@lightdotso/protocol/structs/LightSpaceMetadata.sol";
 import { LightSpaceStorageV1 } from "@lightdotso/protocol/storages/LightSpaceStorage.sol";
@@ -28,12 +32,6 @@ contract LightSpace is
   ILightSpace
 {
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                          ERRORS                            */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-
-  error NotAuthorized();
-
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                       UPGRADEABLE                          */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
@@ -56,6 +54,26 @@ contract LightSpace is
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                      EXTERNAL VIEWS                        */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
+  /**
+    @notice Indicates if this contract adheres to the specified interface.
+    @dev See {IERC165-supportsInterface}.
+    @param _interfaceId The ID of the interface to check for adherance to.
+  */
+  function supportsInterface(bytes4 _interfaceId)
+    public
+    view
+    virtual
+    override
+    returns (bool)
+  {
+    return
+      _interfaceId == type(IERC721Upgradeable).interfaceId ||
+      _interfaceId == type(IERC721MetadataUpgradeable).interfaceId ||
+      _interfaceId == type(ILightOperatable).interfaceId ||
+      _interfaceId == type(ILightSpace).interfaceId ||
+      super.supportsInterface(_interfaceId);
+  }
 
   /**
     @notice The count for the total number of spaces.

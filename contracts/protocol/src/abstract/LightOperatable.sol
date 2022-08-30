@@ -13,12 +13,6 @@ abstract contract LightOperatable is
   ILightOperatable
 {
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                          ERRORS                            */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-
-  error UNAUTHORIZED();
-
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                        MODIFIER                            */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
@@ -60,6 +54,17 @@ abstract contract LightOperatable is
   }
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  /*                        EXTERNAL                            */
+  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
+  /**
+    @notice Get the operator of the current contract.
+  */
+  function lightOperator() external view returns (ILightOperator) {
+    return operator;
+  }
+
+  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                        INTERNAL                            */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
@@ -93,7 +98,7 @@ abstract contract LightOperatable is
         _permissionIndex
       ) &&
       !operator.hasPermission(msg.sender, _account, 0, _permissionIndex)
-    ) revert UNAUTHORIZED();
+    ) revert NotAuthorized();
   }
 
   /**
@@ -119,6 +124,6 @@ abstract contract LightOperatable is
         _permissionIndex
       ) &&
       !operator.hasPermission(msg.sender, _account, 0, _permissionIndex)
-    ) revert UNAUTHORIZED();
+    ) revert NotAuthorized();
   }
 }

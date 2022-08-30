@@ -34,7 +34,6 @@ contract LightManager is LightManagerStorageV1, ILightManager {
    */
   function syncAllContracts() external {
     _syncContract("LightCore");
-    _syncContract("LightOperator");
     _syncContract("LightOrb");
     _syncContract("LightOrbFactory");
     _syncContract("LightSpace");
@@ -50,14 +49,6 @@ contract LightManager is LightManagerStorageV1, ILightManager {
    */
   function lightCore() internal view returns (ILightCore) {
     return ILightCore(_resolveContract(keccak256("LightCore")));
-  }
-
-  /**
-   * @dev Return LightOrb interface.
-   * @return LightOrb contract registered with Controller
-   */
-  function lightOperator() internal view returns (ILightOperator) {
-    return ILightOperator(_resolveContract(keccak256("LightOperator")));
   }
 
   /**

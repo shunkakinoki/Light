@@ -61,12 +61,7 @@ contract LightCoreTest is BaseTest {
     vm.expectEmit(true, true, false, true, address(wrappedLightCore));
     vm.expectEmit(true, true, false, true, address(wrappedLightCore));
     vm.expectEmit(true, true, false, true, address(wrappedLightCore));
-    vm.expectEmit(true, true, false, true, address(wrappedLightCore));
     emit ContractSynced(keccak256("LightCore"), address(proxyLightCore));
-    emit ContractSynced(
-      keccak256("LightOperator"),
-      address(proxyLightOperator)
-    );
     emit ContractSynced(keccak256("LightOrb"), address(proxyLightOrb));
     emit ContractSynced(
       keccak256("LightOrbFactory"),
@@ -166,15 +161,6 @@ contract LightCoreTest is BaseTest {
         )
       ),
       bytes32(uint256(uint160(address(proxyLightCore))))
-    );
-    _testArbitrarySlot(
-      address(proxyLightCore),
-      bytes32(
-        keccak256(
-          abi.encodePacked(abi.encode(keccak256("LightOperator")), uint256(252))
-        )
-      ),
-      bytes32(uint256(uint160(address(proxyLightOperator))))
     );
     _testArbitrarySlot(
       address(proxyLightCore),

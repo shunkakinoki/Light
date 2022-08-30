@@ -18,4 +18,8 @@ contract Utils is Test {
       }
     }
   }
+
+  function consoleLogInterfaceId() public {
+    // console2.logBytes4(type(ILightOperatable).interfaceId);
+  }
 }

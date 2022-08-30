@@ -1,10 +1,10 @@
-import { Squares2X2Icon, RectangleStackIcon } from "@heroicons/react/24/solid";
+import { Squares2X2Icon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import Link from "next/link";
 import { useMemo } from "react";
 import type { SVGProps, FC } from "react";
 
-export type ActiveProfileTab = "Board" | "Timeline" | "Activity";
+export type ActiveProfileTab = "Board" | "Activity";
 
 export type ProfileHeroTabsProps = {
   active?: ActiveProfileTab;
@@ -36,12 +36,6 @@ export const ProfileHeroTabs: FC<ProfileHeroTabsProps> = ({
         href: `/${slug}`,
         icon: Squares2X2Icon,
         active: "Board",
-      },
-      {
-        name: "Timeline",
-        href: `/${slug}/timeline`,
-        icon: RectangleStackIcon,
-        active: "Timeline",
       },
     ];
   }, [slug]);

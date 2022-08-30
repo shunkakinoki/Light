@@ -19,14 +19,16 @@ export const fetchAlchemyTokenTransactions = (
         {
           fromBlock: "0x0",
           toBlock: "latest",
+          excludeZeroValue: false,
+          withMetadata: true,
           fromAddress: address,
           category: [
             "external",
             "internal",
-            "token",
             "erc20",
             "erc721",
             "erc1155",
+            "specialNFT",
           ],
         },
       ],

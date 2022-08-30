@@ -66,7 +66,7 @@ export const useNetworks = (address: string) => {
 
     if (data?.poap && data?.poap.length > 0 && networkType !== "DAO") {
       result = result.concat(
-        data.poap.map(poap => {
+        data?.poap.map(poap => {
           return {
             src: poap.event.image_url,
             name: poap.event.name,

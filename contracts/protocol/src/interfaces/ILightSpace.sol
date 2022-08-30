@@ -6,14 +6,14 @@ import { LightSpaceMetadata } from "@lightdotso/protocol/structs/LightSpaceMetad
 
 interface ILightSpace {
   event CreateSpace(
-    uint256 indexed projectId,
+    uint256 indexed spaceId,
     address indexed owner,
     LightSpaceMetadata metadata,
     address caller
   );
 
   event SetCustomMetadata(
-    uint256 indexed projectId,
+    uint256 indexed spaceId,
     uint256 indexed domain,
     string content
   );
@@ -22,12 +22,12 @@ interface ILightSpace {
 
   function getCount() external view returns (uint256);
 
-  function getMetadataContentOf(uint256 _projectId, uint256 _domain)
+  function getMetadataContentOf(uint256 _spaceId, uint256 _domain)
     external
     view
     returns (string memory);
 
   function createFor(address _owner, LightSpaceMetadata calldata _metadata)
     external
-    returns (uint256 projectId);
+    returns (uint256 spaceId);
 }

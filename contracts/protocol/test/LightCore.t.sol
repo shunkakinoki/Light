@@ -8,13 +8,13 @@ import "@lightdotso/protocol/LightCore.sol";
 contract LightCoreTest is BaseTest {
   event LaunchSpace(uint256 spaceId, string memo, address caller);
   event CreateSpace(
-    uint256 indexed projectId,
+    uint256 indexed spaceId,
     address indexed owner,
     LightSpaceMetadata metadata,
     address caller
   );
   event SetCustomMetadata(
-    uint256 indexed projectId,
+    uint256 indexed spaceId,
     uint256 indexed domain,
     string content
   );

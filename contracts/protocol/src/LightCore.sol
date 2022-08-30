@@ -15,6 +15,7 @@ import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/O
 /// @title Inherits the `LightCoreStorage` storage contract to store the state variables in respected slots.
 /// @author Shun Kakinoki
 /// @notice This contract is used to manage the Light protocol.
+/// @notice Implemented based of JBController at https://github.com/jbx-protocol/juice-contracts-v2/blob/main/contracts/JBController.sol (MIT License)
 contract LightCore is
   Initializable,
   OwnableUpgradeable,

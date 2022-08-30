@@ -150,7 +150,7 @@ contract LightSpaceTest is BaseTest {
       bytes32(uint256(353)),
       bytes32(uint256(uint160(address(proxyLightOperator))))
     );
-    /// LightSpaceStorageV1
+    /// LightSpaceStorageV1 (LightManagerStorageV1)
     _testArbitrarySlot(
       address(proxyLightSpace),
       bytes32(uint256(403)),

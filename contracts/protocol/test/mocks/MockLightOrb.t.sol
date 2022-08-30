@@ -46,7 +46,8 @@ contract LightOrbTest is BaseTest {
   function testMockCreateLightOrb() public {
     wrappedLightOrbFactory.initialize(
       address(implmentationV1),
-      address(proxyLightController)
+      address(proxyLightController),
+      address(proxyLightOperator)
     );
     assertEq(wrappedLightOrbFactory.implementation(), address(implmentationV1));
 

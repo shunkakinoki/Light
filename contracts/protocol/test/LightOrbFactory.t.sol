@@ -22,7 +22,8 @@ contract LightOrbFactoryTest is BaseTest {
     emit Initialized(2);
     wrappedLightOrbFactory.initialize(
       address(emptyUUPSBeacon),
-      address(wrappedLightController)
+      address(wrappedLightController),
+      address(wrappedLightOperator)
     );
     assertEq(wrappedLightOrbFactory.implementation(), address(emptyUUPSBeacon));
     vm.expectEmit(true, false, false, true);
@@ -39,7 +40,32 @@ contract LightOrbFactoryTest is BaseTest {
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
     lightOrbFactory.initialize(
       address(emptyUUPSBeacon),
-      address(wrappedLightController)
+      address(wrappedLightController),
+      address(wrappedLightOperator)
+    );
+  }
+
+  function testLightOrbFactoryCreateLightOrb() public {
+    testLightOrbFactoryProxyInitialize();
+
+    wrappedBeaconLightOrb = LightOrb(
+      wrappedLightOrbFactory._createLightOrb("Light Orb", "LORB")
+    );
+    assertEq(wrappedBeaconLightOrb.name(), "Light Orb");
+    assertEq(wrappedBeaconLightOrb.symbol(), "LORB");
+  }
+
+  function testLightOrbFactoryCannotInitializeTwice() public {
+    wrappedLightOrbFactory.initialize(
+      address(emptyUUPSBeacon),
+      address(wrappedLightController),
+      address(wrappedLightOperator)
+    );
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    wrappedLightOrbFactory.initialize(
+      address(emptyUUPSBeacon),
+      address(wrappedLightController),
+      address(wrappedLightOperator)
     );
   }
 
@@ -60,30 +86,8 @@ contract LightOrbFactoryTest is BaseTest {
     wrappedLightOrbFactory.syncAllContracts();
   }
 
-  function testLightOrbFactoryCreateLightOrb() public {
-    testLightOrbFactoryProxyInitialize();
-
-    wrappedBeaconLightOrb = LightOrb(
-      wrappedLightOrbFactory._createLightOrb("Light Orb", "LORB")
-    );
-    assertEq(wrappedBeaconLightOrb.name(), "Light Orb");
-    assertEq(wrappedBeaconLightOrb.symbol(), "LORB");
-  }
-
-  function testLightOrbFactoryCannotInitializeTwice() public {
-    wrappedLightOrbFactory.initialize(
-      address(emptyUUPSBeacon),
-      address(wrappedLightController)
-    );
-    vm.expectRevert(bytes("Initializable: contract is already initialized"));
-    wrappedLightOrbFactory.initialize(
-      address(emptyUUPSBeacon),
-      address(wrappedLightController)
-    );
-  }
-
   function testLightOrbFactoryProxySlot() public {
-    testLightOrbFactoryProxyInitialize();
+    testLightOrbFactorySyncAllContracts();
 
     /// Proxy Implementation
     _testProxyImplementationSlot(
@@ -109,14 +113,65 @@ contract LightOrbFactoryTest is BaseTest {
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );
+    /// LightOperatable
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(201)),
+      bytes32(uint256(uint160(address(proxyLightOperator))))
+    );
+    /// LightOrbFactoryStorageV1 (LightManager)
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(251)),
+      bytes32(uint256(uint160(address(proxyLightController))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightCore")), uint256(252))
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightCore))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightOrb")), uint256(252))
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightOrb))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(
+        keccak256(
+          abi.encodePacked(
+            abi.encode(keccak256("LightOrbFactory")),
+            uint256(252)
+          )
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightOrbFactory))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightOrbFactory),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightSpace")), uint256(252))
+        )
+      ),
+      bytes32(uint256(uint160(address(proxyLightSpace))))
+    );
     /// LightOrbFactoryStorageV1
     _testArbitrarySlotNotEmpty(
       address(proxyLightOrbFactory),
-      bytes32(uint256(201))
+      bytes32(uint256(301))
     );
   }
 
-  function testLightOrbFactoryProxySlotBeforeImplementation() public {
+  function testLightOrbFactoryProxySloasdftBeforeImplementation() public {
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightOrbFactory),

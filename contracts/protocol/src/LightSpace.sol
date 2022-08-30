@@ -10,6 +10,7 @@ import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/I
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import { ERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
+import { EIP712Upgradeable } from "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol";
 
 /// @title Space contract for the Light protocol.
 /// @dev Light spaces are a collective of orbs.
@@ -21,6 +22,7 @@ contract LightSpace is
   OwnableUpgradeable,
   UUPSUpgradeable,
   ERC721Upgradeable,
+  EIP712Upgradeable,
   LightOperatable,
   LightSpaceStorageV1,
   ILightSpace
@@ -44,6 +46,7 @@ contract LightSpace is
     __Ownable_init();
     __UUPSUpgradeable_init();
     __ERC721_init("Light Space", "LIGHTSPACE");
+    __EIP712_init("Light Space", "1");
 
     _setController(_controller);
   }

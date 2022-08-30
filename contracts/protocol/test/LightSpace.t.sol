@@ -90,7 +90,7 @@ contract LightSpaceTest is BaseTest {
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );
-    /// ERC721Upgradeable.sol
+    /// ERC721Upgradeable
     _testArbitrarySlot(
       address(proxyLightSpace),
       bytes32(uint256(251)),
@@ -104,6 +104,17 @@ contract LightSpaceTest is BaseTest {
       bytes32(
         0x4c49474854535041434500000000000000000000000000000000000000000014
       )
+    );
+    /// EIP712Upgradeable
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(301)),
+      bytes32(keccak256(bytes(string("Light Space"))))
+    );
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(302)),
+      bytes32(keccak256(bytes(string("1"))))
     );
   }
 
@@ -132,7 +143,7 @@ contract LightSpaceTest is BaseTest {
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );
-    /// ERC721Upgradeable.sol
+    /// ERC721Upgradeable
     _testArbitrarySlot(
       address(proxyLightSpace),
       bytes32(uint256(251)),
@@ -141,6 +152,17 @@ contract LightSpaceTest is BaseTest {
     _testArbitrarySlot(
       address(proxyLightSpace),
       bytes32(uint256(252)),
+      bytes32(uint256(0))
+    );
+    /// EIP712Upgradeable
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(301)),
+      bytes32(uint256(0))
+    );
+    _testArbitrarySlot(
+      address(proxyLightSpace),
+      bytes32(uint256(302)),
       bytes32(uint256(0))
     );
   }

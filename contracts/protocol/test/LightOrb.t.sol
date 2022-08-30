@@ -55,7 +55,7 @@ contract LightOrbTest is BaseTest {
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );
-    /// ERC721Upgradeable.sol
+    /// ERC721Upgradeable
     _testArbitrarySlot(
       address(proxyLightOrb),
       bytes32(uint256(251)),
@@ -97,7 +97,7 @@ contract LightOrbTest is BaseTest {
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );
-    /// ERC721Upgradeable.sol
+    /// ERC721Upgradeable
     _testArbitrarySlot(
       address(proxyLightOrb),
       bytes32(uint256(251)),

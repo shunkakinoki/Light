@@ -11,7 +11,7 @@ import { LightManager } from "@lightdotso/protocol/LightManager.sol";
 /// @notice This contract is used to manage the storage of the UUPS upgradeable contract.
 contract LightSpaceStorageV1 is LightManager {
   IRenderer public renderer;
-  uint256 public count = 0;
+  uint256 public count;
   mapping(uint256 => mapping(uint256 => string)) public metadataContentOf;
 
   uint256[47] private __gap;

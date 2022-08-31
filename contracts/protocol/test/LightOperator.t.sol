@@ -20,7 +20,13 @@ contract LightOperatorTest is BaseTest {
     wrappedLightOperator.initialize();
   }
 
-  function testLightOperatorProxySlot() public {
+  function testLightOperatorDisableInitializersOnImplementation() public {
+    lightOperator = new LightOperator();
+    vm.expectRevert(bytes("Initializable: contract is already initialized"));
+    lightOperator.initialize();
+  }
+
+  function testLightOperatorStorageSlot() public {
     testLightOperatorProxyInitialize();
 
     /// Proxy Implementation
@@ -28,7 +34,6 @@ contract LightOperatorTest is BaseTest {
       address(proxyLightOperator),
       address(implementationLightOperator)
     );
-
     /// Initializable
     _testArbitrarySlot(
       address(proxyLightOperator),
@@ -45,6 +50,44 @@ contract LightOperatorTest is BaseTest {
     _testArbitrarySlot(
       address(proxyLightOperator),
       bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// LightOperatorStorageV1
+    _testArbitrarySlot(
+      address(proxyLightOperator),
+      bytes32(uint256(201)),
+      bytes32(uint256(0))
+    );
+  }
+
+  function testLightOperatorStorageSlotBeforeInitialization() public {
+    /// Proxy Implementation
+    _testProxyImplementationSlot(
+      address(proxyLightOrb),
+      address(implementationLightOrb)
+    );
+    /// Initializable
+    _testArbitrarySlot(
+      address(proxyLightOperator),
+      bytes32(uint256(0)),
+      bytes32(uint256(1))
+    );
+    /// OwnableUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOperator),
+      bytes32(uint256(51)),
+      bytes32(uint256(uint160(address(this))))
+    );
+    /// UUPSUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOperator),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// LightOperatorStorageV1
+    _testArbitrarySlot(
+      address(proxyLightOperator),
+      bytes32(uint256(201)),
       bytes32(uint256(0))
     );
   }

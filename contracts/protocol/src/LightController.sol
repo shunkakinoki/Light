@@ -24,12 +24,6 @@ contract LightController is
   ILightController
 {
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                          ERRORS                            */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-
-  error CONTRACT_ADDRESS_NOT_SET();
-
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                       UPGRADEABLE                          */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
@@ -60,7 +54,7 @@ contract LightController is
     override
     onlyOwner
   {
-    if (_contractAddress == address(0)) revert CONTRACT_ADDRESS_NOT_SET();
+    if (_contractAddress == address(0)) revert ContractAddressNotSet();
     registry[_id] = _contractAddress;
     emit SetContractProxy(_id, _contractAddress);
   }

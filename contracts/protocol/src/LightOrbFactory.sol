@@ -3,6 +3,7 @@
 pragma solidity ^0.8.13;
 
 import { ILightOrbFactory } from "@lightdotso/protocol/interfaces/ILightOrbFactory.sol";
+import { LightOperatable } from "@lightdotso/protocol/abstract/LightOperatable.sol";
 import { LightOrb } from "@lightdotso/protocol/LightOrb.sol";
 import { LightOrbFactoryStorageV1, UpgradeableBeacon } from "@lightdotso/protocol/storages/LightOrbFactoryStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
@@ -17,6 +18,7 @@ contract LightOrbFactory is
   Initializable,
   OwnableUpgradeable,
   UUPSUpgradeable,
+  LightOperatable,
   LightOrbFactoryStorageV1,
   ILightOrbFactory
 {
@@ -29,17 +31,20 @@ contract LightOrbFactory is
     _disableInitializers();
   }
 
-  function initialize(address _implementationAddress, address _controller)
-    external
-    override
-    reinitializer(2)
-  {
+  function initialize(
+    address _implementationAddress,
+    address _controller,
+    address _operator
+  ) external override reinitializer(2) {
     __Ownable_init();
     __UUPSUpgradeable_init();
     upgradeableBeacon = new UpgradeableBeacon(_implementationAddress);
 
     _setController(_controller);
+    _setOperator(_operator);
   }
+
+  function _authorizeUpgrade(address) internal override onlyOwner {}
 
   function implementation() external view returns (address) {
     return upgradeableBeacon.implementation();
@@ -62,6 +67,4 @@ contract LightOrbFactory is
   {
     upgradeableBeacon.upgradeTo(new_implementationAddress);
   }
-
-  function _authorizeUpgrade(address) internal override onlyOwner {}
 }

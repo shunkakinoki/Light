@@ -23,12 +23,6 @@ contract LightOperator is
   ILightOperator
 {
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                          ERRORS                            */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-
-  error PERMISSION_INDEX_OUT_OF_BOUNDS();
-
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                       UPGRADEABLE                          */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
@@ -80,7 +74,7 @@ contract LightOperator is
     uint256 _domain,
     uint256 _permissionIndex
   ) external view override returns (bool) {
-    if (_permissionIndex > 255) revert PERMISSION_INDEX_OUT_OF_BOUNDS();
+    if (_permissionIndex > 255) revert PermissionIndexOutOfBounds();
 
     return (((permissionsOf[_operator][_account][_domain] >> _permissionIndex) &
       1) == 1);
@@ -103,7 +97,7 @@ contract LightOperator is
     for (uint256 _i = 0; _i < _permissionIndexes.length; _i++) {
       uint256 _permissionIndex = _permissionIndexes[_i];
 
-      if (_permissionIndex > 255) revert PERMISSION_INDEX_OUT_OF_BOUNDS();
+      if (_permissionIndex > 255) revert PermissionIndexOutOfBounds();
 
       if (
         ((permissionsOf[_operator][_account][_domain] >> _permissionIndex) &
@@ -188,7 +182,7 @@ contract LightOperator is
     for (uint256 _i = 0; _i < _indexes.length; _i++) {
       uint256 _index = _indexes[_i];
 
-      if (_index > 255) revert PERMISSION_INDEX_OUT_OF_BOUNDS();
+      if (_index > 255) revert PermissionIndexOutOfBounds();
 
       /// Turn the bit at the index on.
       packed |= 1 << _index;

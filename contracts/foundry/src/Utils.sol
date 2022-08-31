@@ -6,10 +6,13 @@ import "forge-std/Test.sol";
 contract Utils is Test {
   function detectSlots(address targetAddress) public {
     for (uint256 _i = 0; _i < type(uint256).max; _i++) {
-      bytes32 proxySlot = vm.load(address(targetAddress), bytes32(uint256(_i)));
+      bytes32 storageSlot = vm.load(
+        address(targetAddress),
+        bytes32(uint256(_i))
+      );
       bytes32 target;
       assembly {
-        mstore(0, proxySlot)
+        mstore(0, storageSlot)
         target := mload(0)
       }
       if (target != bytes32(uint256(0))) {
@@ -17,5 +20,9 @@ contract Utils is Test {
         console2.logBytes32(target);
       }
     }
+  }
+
+  function consoleLogInterfaceId() public {
+    // console2.logBytes4(type(ILightOperatable).interfaceId);
   }
 }

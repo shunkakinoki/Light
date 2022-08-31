@@ -28,7 +28,7 @@ contract LightOrbTest is BaseTest {
     lightOrb.initialize("Light Orb", "LORB");
   }
 
-  function testLightOrbProxySlot() public {
+  function testLightOrbStorageSlot() public {
     testLightOrbProxyInitialize();
 
     /// Proxy Implementation
@@ -36,7 +36,6 @@ contract LightOrbTest is BaseTest {
       address(proxyLightOrb),
       address(implementationLightOrb)
     );
-
     /// Initializable
     _testArbitrarySlot(
       address(proxyLightOrb),
@@ -55,7 +54,7 @@ contract LightOrbTest is BaseTest {
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );
-    /// ERC721Upgradeable.sol
+    /// ERC721Upgradeable
     _testArbitrarySlot(
       address(proxyLightOrb),
       bytes32(uint256(251)),
@@ -70,15 +69,26 @@ contract LightOrbTest is BaseTest {
         0x4c4f524200000000000000000000000000000000000000000000000000000008
       )
     );
+    /// AccessControlUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrb),
+      bytes32(uint256(301)),
+      bytes32(uint256(0))
+    );
+    /// LightOrbStorageV1
+    _testArbitrarySlot(
+      address(proxyLightOrb),
+      bytes32(uint256(351)),
+      bytes32(uint256(0))
+    );
   }
 
-  function testLightOrbProxySlotBeforeImplementation() public {
+  function testLightOrbStorageSlotBeforeInitialization() public {
     /// Proxy Implementation
     _testProxyImplementationSlot(
       address(proxyLightOrb),
       address(implementationLightOrb)
     );
-
     /// Initializable
     _testArbitrarySlot(
       address(proxyLightOrb),
@@ -97,7 +107,7 @@ contract LightOrbTest is BaseTest {
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );
-    /// ERC721Upgradeable.sol
+    /// ERC721Upgradeable
     _testArbitrarySlot(
       address(proxyLightOrb),
       bytes32(uint256(251)),
@@ -106,6 +116,18 @@ contract LightOrbTest is BaseTest {
     _testArbitrarySlot(
       address(proxyLightOrb),
       bytes32(uint256(252)),
+      bytes32(uint256(0))
+    );
+    /// AccessControlUpgradeable
+    _testArbitrarySlot(
+      address(proxyLightOrb),
+      bytes32(uint256(301)),
+      bytes32(uint256(0))
+    );
+    /// LightOrbStorageV1
+    _testArbitrarySlot(
+      address(proxyLightOrb),
+      bytes32(uint256(351)),
       bytes32(uint256(0))
     );
   }

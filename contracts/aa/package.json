@@ -1,0 +1,34 @@
+{
+  "name": "@lightdotso/aa",
+  "version": "1.0.0",
+  "private": false,
+  "homepage": "https://github.com/LightDotSo/LightDotSo",
+  "bugs": {
+    "url": "https://github.com/LightDotSo/LightDotSo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LightDotSo/LightDotSo.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Light, Inc.",
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "dependencies": {
+    "@lightdotso/tsconfig": "workspace:*",
+    "@matterlabs/hardhat-zksync-deploy": "^0.4.0",
+    "@matterlabs/hardhat-zksync-solc": "^0.3.7",
+    "ethers": "^5.7.0",
+    "hardhat": "^2.10.2",
+    "toml": "^3.0.0",
+    "zksync-web3": "^0.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.13"
+  }
+}

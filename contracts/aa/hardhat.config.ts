@@ -5,6 +5,8 @@ import type { HardhatUserConfig } from "hardhat/config";
 import { subtask } from "hardhat/config";
 import "hardhat-preprocessor";
 
+import "@matterlabs/hardhat-zksync-deploy";
+import "@matterlabs/hardhat-zksync-solc";
 import * as toml from "toml";
 
 subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
@@ -30,6 +32,25 @@ const getRemappings = () => {
 };
 
 const config: HardhatUserConfig = {
+  zksolc: {
+    version: "1.1.5",
+    compilerSource: "docker",
+    settings: {
+      experimental: {
+        dockerImage: "matterlabs/zksolc",
+        tag: "v1.1.5",
+      },
+    },
+  },
+  zkSyncDeploy: {
+    zkSyncNetwork: "https://zksync2-testnet.zksync.dev",
+    ethNetwork: "goerli",
+  },
+  networks: {
+    hardhat: {
+      zksync: true,
+    },
+  },
   solidity: {
     version: foundry?.profile?.default?.solc_version,
     settings: {
@@ -44,6 +65,8 @@ const config: HardhatUserConfig = {
     root: "../..",
     artifacts: "contracts/aa/artifacts",
     cache: "contracts/aa/cache",
+    //@ts-expect-error
+    deploy: "contracts/aa/deploy",
     sources: "contracts/aa/src",
   },
   preprocess: {

@@ -3,6 +3,7 @@ qa
 error.txt
 
 # Foundry
+artifacts
 cache
 .env
 

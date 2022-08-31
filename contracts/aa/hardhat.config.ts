@@ -3,6 +3,8 @@ import fs, { readFileSync } from "fs";
 import { TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS } from "hardhat/builtin-tasks/task-names";
 import type { HardhatUserConfig } from "hardhat/config";
 import { subtask } from "hardhat/config";
+import "hardhat-preprocessor";
+
 import * as toml from "toml";
 
 subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
@@ -40,9 +42,10 @@ const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   paths: {
     root: "../..",
+    artifacts: "contracts/aa/artifacts",
+    cache: "contracts/aa/cache",
     sources: "contracts/aa/src",
   },
-  //@ts-expect-error
   preprocess: {
     eachLine: (hre: any) => {
       return {

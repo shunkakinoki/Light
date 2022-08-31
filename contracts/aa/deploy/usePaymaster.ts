@@ -5,14 +5,14 @@ import type { HardhatRuntimeEnvironment } from "hardhat/types";
 import { Provider, utils, Wallet } from "zksync-web3";
 
 // Put the address of the deployed paymaster here
-const PAYMASTER_ADDRESS = "0x094499Df5ee555fFc33aF07862e43c90E6FEe501";
+const PAYMASTER_ADDRESS = "0xF954a8A1cDaE85dee6D1ce3B9D306Ab77361cab3";
 
 // Put the address of the ERC20 token here:
-const TOKEN_ADDRESS = "0x5fE58d975604E6aF62328d9E505181B94Fc0718C";
+const TOKEN_ADDRESS = "0x5fb1536B16d31FE3b4E6Da8b4A72ae4dFa95a746";
 
 // Wallet private key
 const EMPTY_WALLET_PRIVATE_KEY =
-  "0x36e814d89dfeba68200d170d746b2d1f5edc1329f9099d224141978c4b58fc56";
+  "0x558d9003d00a4c0e978ed273ef42942d8cbe9dbb9cad820a97316dfaaea38c7a";
 
 // eslint-disable-next-line func-style
 function getToken(hre: HardhatRuntimeEnvironment, wallet: Wallet) {

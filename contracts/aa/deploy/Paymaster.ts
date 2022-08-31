@@ -2,15 +2,15 @@
 
 import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 import * as ethers from "ethers";
+import type { BytesLike } from "ethers";
 import type { HardhatRuntimeEnvironment } from "hardhat/types";
 import { utils, Wallet } from "zksync-web3";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async function (hre: HardhatRuntimeEnvironment) {
   // The wallet that will deploy
-  const wallet = new Wallet(
-    "0x36e814d89dfeba68200d170d746b2d1f5edc1329f9099d224141978c4b58fc56",
-  );
+  // eslint-disable-next-line turbo/no-undeclared-env-vars
+  const wallet = new Wallet(process.env.WALLET_PRIVATE_KEY as BytesLike);
   // The wallet that will receive ERC20 tokens
   const emptyWallet = Wallet.createRandom();
   console.log(`Empty wallet's address: ${emptyWallet.address}`);

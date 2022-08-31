@@ -1,5 +1,7 @@
 import fs, { readFileSync } from "fs";
 
+import "dotenv/config";
+
 import { TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS } from "hardhat/builtin-tasks/task-names";
 import type { HardhatUserConfig } from "hardhat/config";
 import { subtask } from "hardhat/config";

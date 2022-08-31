@@ -730,6 +730,7 @@ importers:
       '@matterlabs/hardhat-zksync-deploy': ^0.4.0
       '@matterlabs/hardhat-zksync-solc': ^0.3.7
       '@types/node': ^18.7.13
+      dotenv: ^16.0.1
       ethers: ^5.7.0
       hardhat: ^2.10.2
       hardhat-preprocessor: ^0.1.4
@@ -745,6 +746,7 @@ importers:
       zksync-web3: 0.8.0_ethers@5.7.0
     devDependencies:
       '@types/node': 18.7.13
+      dotenv: 16.0.1
       hardhat-preprocessor: 0.1.4_hardhat@2.10.2
 
   contracts/ens:

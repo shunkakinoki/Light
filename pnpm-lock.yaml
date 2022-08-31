@@ -5,6 +5,11 @@ overrides:
   '@types/react-dom': ^17.0.14
   tailwindcss: ^3.0.24
 
+patchedDependencies:
+  '@matterlabs/hardhat-zksync-deploy@0.4.0':
+    hash: lbhowthwg7iyalmnphqopbwlgi
+    path: patches/@matterlabs__hardhat-zksync-deploy@0.4.0.patch
+
 importers:
 
   .:
@@ -732,7 +737,7 @@ importers:
       zksync-web3: ^0.8.0
     dependencies:
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
-      '@matterlabs/hardhat-zksync-deploy': 0.4.0_naxub6bztjshgxt2tuxsxvtkae
+      '@matterlabs/hardhat-zksync-deploy': 0.4.0_lbhowthwg7iyalmnphqopbwlgi_naxub6bztjshgxt2tuxsxvtkae
       '@matterlabs/hardhat-zksync-solc': 0.3.7_hardhat@2.10.2
       ethers: 5.7.0
       hardhat: 2.10.2
@@ -3369,7 +3374,7 @@ packages:
       - supports-color
     dev: true
 
-  /@matterlabs/hardhat-zksync-deploy/0.4.0_naxub6bztjshgxt2tuxsxvtkae:
+  /@matterlabs/hardhat-zksync-deploy/0.4.0_lbhowthwg7iyalmnphqopbwlgi_naxub6bztjshgxt2tuxsxvtkae:
     resolution: {integrity: sha512-r/xp+CL1+qVLNGoSehUe4u80QZRG8e4WEnhJ1JuJSxzOaoivqUDFblf8Q/TQkdFPrilBqpgTJzcPazDsWeH0SQ==}
     peerDependencies:
       ethers: ~5.7.0
@@ -3381,6 +3386,7 @@ packages:
       hardhat: 2.10.2
       zksync-web3: 0.8.0_ethers@5.7.0
     dev: false
+    patched: true
 
   /@matterlabs/hardhat-zksync-solc/0.3.7_hardhat@2.10.2:
     resolution: {integrity: sha512-fhqCC+31G4ccW//ENyKzSpCfTTh3D5jeO1jPeDhgvw+0DMC3W1iOvAc+7FXpz1kMJmcQYNLQyMDV71xXTREAMw==}

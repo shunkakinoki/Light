@@ -3,7 +3,7 @@
 pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.sol";
-import "@lightdotso/protocol/LightOperatorStore.sol";
+import "@lightdotso/operator/LightOperatorStore.sol";
 
 contract LightOperatorStoreTest is BaseTest {
   LightOperatorStore private lightOperatorStore;

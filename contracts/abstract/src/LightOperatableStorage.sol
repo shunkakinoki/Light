@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.16;
 
-import { ILightOperatorStore } from "@lightdotso/protocol/interfaces/ILightOperatorStore.sol";
+import { ILightOperatorStore } from "@lightdotso/operator/ILightOperatorStore.sol";
 
 /// @title Storage contract for the LightOperatorStore contract.
 /// @author Shun Kakinoki

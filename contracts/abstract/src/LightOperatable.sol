@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.16;
 
-import { ILightOperatorStore } from "@lightdotso/protocol/interfaces/ILightOperatorStore.sol";
+import { ILightOperatorStore } from "@lightdotso/operator/ILightOperatorStore.sol";
 import { ILightOperatable } from "@lightdotso/abstract/ILightOperatable.sol";
-import { LightOperatableStorageV1 } from "@lightdotso/protocol/storages/LightOperatableStorage.sol";
+import { LightOperatableStorageV1 } from "@lightdotso/abstract/LightOperatableStorage.sol";
 
 /// @author Shun Kakinoki
 /// @notice Modifiers to allow access to functions based on the message sender's operator status.

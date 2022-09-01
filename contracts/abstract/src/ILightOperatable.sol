@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.16;
 
-import { ILightOperatorStore } from "@lightdotso/protocol/interfaces/ILightOperatorStore.sol";
+import { ILightOperatorStore } from "@lightdotso/operator/ILightOperatorStore.sol";
 
 interface ILightOperatable {
   error NotAuthorized();

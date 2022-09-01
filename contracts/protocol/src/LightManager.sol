@@ -9,6 +9,7 @@ import { ILightOperatorStore } from "@lightdotso/protocol/interfaces/ILightOpera
 import { ILightOrb } from "@lightdotso/protocol/interfaces/ILightOrb.sol";
 import { ILightOrbFactory } from "@lightdotso/protocol/interfaces/ILightOrbFactory.sol";
 import { ILightSpace } from "@lightdotso/protocol/interfaces/ILightSpace.sol";
+import { ILightToken } from "@lightdotso/protocol/interfaces/ILightToken.sol";
 import { LightManagerStorageV1 } from "@lightdotso/protocol/storages/LightManagerStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
@@ -37,6 +38,7 @@ contract LightManager is LightManagerStorageV1, ILightManager {
     _syncContract("LightOrb");
     _syncContract("LightOrbFactory");
     _syncContract("LightSpace");
+    _syncContract("LightToken");
   }
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
@@ -73,6 +75,14 @@ contract LightManager is LightManagerStorageV1, ILightManager {
    */
   function lightSpace() internal view returns (ILightSpace) {
     return ILightSpace(_resolveContract(keccak256("LightSpace")));
+  }
+
+  /**
+   * @dev Return ILightToken interface.
+   * @return ILightToken manager contract registered with Controller
+   */
+  function lightToken() internal view returns (ILightToken) {
+    return ILightToken(_resolveContract(keccak256("LightSpace")));
   }
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/

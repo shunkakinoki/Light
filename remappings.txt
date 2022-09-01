@@ -1,10 +1,12 @@
 @lightdotso/ens/=contracts/ens/src/
 @lightdotso/foundry/=contracts/foundry/src/
+@lightdotso/math/=contracts/math/src/
 @lightdotso/protocol/=contracts/protocol/src/
 @lightdotso/proxies/=contracts/proxies/src/
 @lightdotso/renderer/=contracts/renderer/src/
 @lightdotso/scripts/=contracts/scripts/src/
 @lightdotso/upgradeable/=contracts/upgradeable/src/
+@lightdotso/utils/=contracts/utils/src/
 base64-sol/=lib/base64/
 ds-test/=lib/ds-test/src/
 forge-std/=lib/forge-std/src/
@@ -13,3 +15,4 @@ forge-std/=lib/forge-std/src/
 @openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
 @matterlabs/zksync-contracts/=lib/v2-testnet-contracts/
 hardhat/=lib/forge-std/src/
+solmate/=lib/solmate/src/

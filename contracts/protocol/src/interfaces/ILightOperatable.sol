@@ -2,12 +2,12 @@
 
 pragma solidity ^0.8.16;
 
-import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";
+import { ILightOperatorStore } from "@lightdotso/protocol/interfaces/ILightOperatorStore.sol";
 
 interface ILightOperatable {
   error NotAuthorized();
 
   event SetOperator(address operator);
 
-  function lightOperator() external view returns (ILightOperator);
+  function lightOperatorStore() external view returns (ILightOperatorStore);
 }

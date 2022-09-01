@@ -3,7 +3,7 @@
 pragma solidity ^0.8.16;
 
 import { ILightCore } from "@lightdotso/protocol/interfaces/ILightCore.sol";
-import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";
+import { ILightOperatorStore } from "@lightdotso/protocol/interfaces/ILightOperatorStore.sol";
 import { LightSpaceMetadata } from "@lightdotso/protocol/structs/LightSpaceMetadata.sol";
 import { LightOperatable } from "@lightdotso/protocol/abstract/LightOperatable.sol";
 import { LightCoreStorageV1 } from "@lightdotso/protocol/storages/LightCoreStorage.sol";

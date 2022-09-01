@@ -25,7 +25,7 @@ contract LightSpaceTest is BaseTest {
     emit Initialized(2);
     wrappedLightSpace.initialize(
       address(wrappedLightController),
-      address(wrappedLightOperator)
+      address(wrappedLightOperatorStore)
     );
     assertEq(wrappedLightSpace.name(), "Light Space");
     assertEq(wrappedLightSpace.symbol(), "LIGHTSPACE");
@@ -36,7 +36,7 @@ contract LightSpaceTest is BaseTest {
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
     lightSpace.initialize(
       address(wrappedLightController),
-      address(wrappedLightOperator)
+      address(wrappedLightOperatorStore)
     );
   }
 
@@ -53,7 +53,7 @@ contract LightSpaceTest is BaseTest {
         type(IERC721MetadataUpgradeable).interfaceId
       )
     );
-    assertTrue(wrappedLightSpace.supportsInterface(0x089d035a));
+    assertTrue(wrappedLightSpace.supportsInterface(0xbc2bc2d2));
     assertTrue(
       wrappedLightSpace.supportsInterface(type(ILightOperatable).interfaceId)
     );
@@ -147,7 +147,7 @@ contract LightSpaceTest is BaseTest {
     _testArbitrarySlot(
       address(proxyLightSpace),
       bytes32(uint256(353)),
-      bytes32(uint256(uint160(address(proxyLightOperator))))
+      bytes32(uint256(uint160(address(proxyLightOperatorStore))))
     );
     /// LightSpaceStorageV1 (LightManagerStorageV1)
     _testArbitrarySlot(

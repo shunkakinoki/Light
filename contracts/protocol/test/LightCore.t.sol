@@ -37,11 +37,11 @@ contract LightCoreTest is BaseTest {
     vm.expectEmit(true, false, false, true, address(wrappedLightCore));
     emit OwnershipTransferred(address(this), address(this));
     emit SetController(address(wrappedLightController));
-    emit SetOperator(address(wrappedLightOperator));
+    emit SetOperator(address(wrappedLightOperatorStore));
     emit Initialized(2);
     wrappedLightCore.initialize(
       address(wrappedLightController),
-      address(wrappedLightOperator)
+      address(wrappedLightOperatorStore)
     );
   }
 
@@ -50,7 +50,7 @@ contract LightCoreTest is BaseTest {
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
     lightCore.initialize(
       address(wrappedLightController),
-      address(wrappedLightOperator)
+      address(wrappedLightOperatorStore)
     );
   }
 
@@ -76,7 +76,7 @@ contract LightCoreTest is BaseTest {
 
     wrappedLightSpace.initialize(
       address(wrappedLightController),
-      address(wrappedLightOperator)
+      address(wrappedLightOperatorStore)
     );
     wrappedLightSpace.syncAllContracts();
 
@@ -147,7 +147,7 @@ contract LightCoreTest is BaseTest {
     _testArbitrarySlot(
       address(proxyLightCore),
       bytes32(uint256(201)),
-      bytes32(uint256(uint160(address(proxyLightOperator))))
+      bytes32(uint256(uint160(address(proxyLightOperatorStore))))
     );
     /// LightCoreStorageV1
     _testArbitrarySlot(

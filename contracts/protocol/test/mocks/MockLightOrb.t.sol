@@ -47,7 +47,7 @@ contract LightOrbTest is BaseTest {
     wrappedLightOrbFactory.initialize(
       address(implmentationV1),
       address(proxyLightController),
-      address(proxyLightOperator)
+      address(proxyLightOperatorStore)
     );
     assertEq(wrappedLightOrbFactory.implementation(), address(implmentationV1));
 

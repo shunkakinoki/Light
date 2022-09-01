@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.16;
 
-import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";
+import { ILightOperatorStore } from "@lightdotso/protocol/interfaces/ILightOperatorStore.sol";
 import { ILightOperatable } from "@lightdotso/protocol/interfaces/ILightOperatable.sol";
 import { LightOperatableStorageV1 } from "@lightdotso/protocol/storages/LightOperatableStorage.sol";
 
@@ -60,7 +60,7 @@ abstract contract LightOperatable is
   /**
     @notice Get the operator of the current contract.
   */
-  function lightOperator() external view returns (ILightOperator) {
+  function lightOperatorStore() external view returns (ILightOperatorStore) {
     return operator;
   }
 
@@ -74,7 +74,7 @@ abstract contract LightOperatable is
    */
   function _setOperator(address _operator) internal {
     require(_operator != address(0), "Operator must be set");
-    operator = ILightOperator(_operator);
+    operator = ILightOperatorStore(_operator);
     emit SetOperator(_operator);
   }
 

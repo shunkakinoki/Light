@@ -23,7 +23,7 @@ contract LightOrbFactoryTest is BaseTest {
     wrappedLightOrbFactory.initialize(
       address(emptyUUPSBeacon),
       address(wrappedLightController),
-      address(wrappedLightOperator)
+      address(wrappedLightOperatorStore)
     );
     assertEq(wrappedLightOrbFactory.implementation(), address(emptyUUPSBeacon));
     vm.expectEmit(true, false, false, true);
@@ -41,7 +41,7 @@ contract LightOrbFactoryTest is BaseTest {
     lightOrbFactory.initialize(
       address(emptyUUPSBeacon),
       address(wrappedLightController),
-      address(wrappedLightOperator)
+      address(wrappedLightOperatorStore)
     );
   }
 
@@ -59,13 +59,13 @@ contract LightOrbFactoryTest is BaseTest {
     wrappedLightOrbFactory.initialize(
       address(emptyUUPSBeacon),
       address(wrappedLightController),
-      address(wrappedLightOperator)
+      address(wrappedLightOperatorStore)
     );
     vm.expectRevert(bytes("Initializable: contract is already initialized"));
     wrappedLightOrbFactory.initialize(
       address(emptyUUPSBeacon),
       address(wrappedLightController),
-      address(wrappedLightOperator)
+      address(wrappedLightOperatorStore)
     );
   }
 
@@ -116,7 +116,7 @@ contract LightOrbFactoryTest is BaseTest {
     _testArbitrarySlot(
       address(proxyLightOrbFactory),
       bytes32(uint256(201)),
-      bytes32(uint256(uint160(address(proxyLightOperator))))
+      bytes32(uint256(uint160(address(proxyLightOperatorStore))))
     );
     /// LightOrbFactoryStorageV1 (LightManager)
     _testArbitrarySlot(

@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.16;
 
-import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";
-import { LightOperatorStorageV1 } from "@lightdotso/protocol/storages/LightOperatorStorage.sol";
-import { LightOperatorData } from "@lightdotso/protocol/structs/LightOperatorData.sol";
+import { ILightOperatorStore } from "@lightdotso/protocol/interfaces/ILightOperatorStore.sol";
+import { LightOperatorStoreStorageV1 } from "@lightdotso/protocol/storages/LightOperatorStoreStorage.sol";
+import { LightOperatorStoreData } from "@lightdotso/protocol/structs/LightOperatorStoreData.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
@@ -15,12 +15,12 @@ import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/O
 //// @author Shun Kakinoki
 //// @notice Stores operator permissions for all addresses. Addresses can give permissions to any other address to take specific indexed actions on their behalf.
 //// @notice Fork of JBOperatorStore at https://github.com/jbx-protocol/juice-contracts-v2/blob/main/contracts/JBOperatorStore.sol (MIT License)
-contract LightOperator is
+contract LightOperatorStore is
   Initializable,
   OwnableUpgradeable,
   UUPSUpgradeable,
-  LightOperatorStorageV1,
-  ILightOperator
+  LightOperatorStoreStorageV1,
+  ILightOperatorStore
 {
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                       UPGRADEABLE                          */
@@ -116,7 +116,7 @@ contract LightOperator is
     @dev Only an address can set its own operators.
     @param _operatorData The data that specifies the params for the operator being set.
   */
-  function setOperator(LightOperatorData calldata _operatorData)
+  function setOperator(LightOperatorStoreData calldata _operatorData)
     external
     override
   {
@@ -142,7 +142,7 @@ contract LightOperator is
     @dev Only an address can set its own operators.
     @param _operatorData The data that specify the params for each operator being set.
   */
-  function setOperators(LightOperatorData[] calldata _operatorData)
+  function setOperators(LightOperatorStoreData[] calldata _operatorData)
     external
     override
   {

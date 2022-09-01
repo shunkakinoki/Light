@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.16;
 
-import { LightOperatorData } from "@lightdotso/protocol/structs/LightOperatorData.sol";
+import { LightOperatorStoreData } from "@lightdotso/protocol/structs/LightOperatorStoreData.sol";
 
-interface ILightOperator {
+interface ILightOperatorStore {
   error PermissionIndexOutOfBounds();
 
   event SetOperator(
@@ -37,7 +37,8 @@ interface ILightOperator {
     uint256[] calldata _permissionIndexes
   ) external view returns (bool);
 
-  function setOperator(LightOperatorData calldata _operatorData) external;
+  function setOperator(LightOperatorStoreData calldata _operatorData) external;
 
-  function setOperators(LightOperatorData[] calldata _operatorData) external;
+  function setOperators(LightOperatorStoreData[] calldata _operatorData)
+    external;
 }

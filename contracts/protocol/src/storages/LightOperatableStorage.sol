@@ -2,13 +2,13 @@
 
 pragma solidity ^0.8.16;
 
-import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";
+import { ILightOperatorStore } from "@lightdotso/protocol/interfaces/ILightOperatorStore.sol";
 
-/// @title Storage contract for the LightOperator contract.
+/// @title Storage contract for the LightOperatorStore contract.
 /// @author Shun Kakinoki
 /// @notice This contract is used to manage the storage of the UUPS upgradeable contract.
 contract LightOperatableStorageV1 {
-  ILightOperator internal operator;
+  ILightOperatorStore internal operator;
 
   uint256[49] private __gap;
 }

@@ -8,7 +8,7 @@ import "./Utils.sol";
 import { UUPSProxy } from "@lightdotso/proxies/UUPSProxy.sol";
 import { LightCore } from "@lightdotso/protocol/LightCore.sol";
 import { LightController } from "@lightdotso/protocol/LightController.sol";
-import { LightOperator } from "@lightdotso/protocol/LightOperator.sol";
+import { LightOperatorStore } from "@lightdotso/protocol/LightOperatorStore.sol";
 import { LightOrb } from "@lightdotso/protocol/LightOrb.sol";
 import { LightOrbFactory } from "@lightdotso/protocol/LightOrbFactory.sol";
 import { LightSpace } from "@lightdotso/protocol/LightSpace.sol";
@@ -24,21 +24,21 @@ contract BaseTest is Test, SlotTest, Utils {
 
   UUPSProxy internal proxyLightCore;
   UUPSProxy internal proxyLightController;
-  UUPSProxy internal proxyLightOperator;
+  UUPSProxy internal proxyLightOperatorStore;
   UUPSProxy internal proxyLightOrb;
   UUPSProxy internal proxyLightOrbFactory;
   UUPSProxy internal proxyLightSpace;
 
   LightCore internal implementationLightCore;
   LightController internal implementationLightController;
-  LightOperator internal implementationLightOperator;
+  LightOperatorStore internal implementationLightOperatorStore;
   LightOrb internal implementationLightOrb;
   LightOrbFactory internal implementationLightOrbFactory;
   LightSpace internal implementationLightSpace;
 
   LightCore internal wrappedLightCore;
   LightController internal wrappedLightController;
-  LightOperator internal wrappedLightOperator;
+  LightOperatorStore internal wrappedLightOperatorStore;
   LightOrb internal wrappedLightOrb;
   LightOrbFactory internal wrappedLightOrbFactory;
   LightSpace internal wrappedLightSpace;
@@ -63,7 +63,7 @@ contract BaseTest is Test, SlotTest, Utils {
   function setUpEmptyProxies() public {
     proxyLightCore = new UUPSProxy(address(emptyUUPS), "");
     proxyLightController = new UUPSProxy(address(emptyUUPS), "");
-    proxyLightOperator = new UUPSProxy(address(emptyUUPS), "");
+    proxyLightOperatorStore = new UUPSProxy(address(emptyUUPS), "");
     proxyLightOrb = new UUPSProxy(address(emptyUUPS), "");
     proxyLightOrbFactory = new UUPSProxy(address(emptyUUPSBeacon), "");
     proxyLightSpace = new UUPSProxy(address(emptyUUPS), "");
@@ -86,7 +86,7 @@ contract BaseTest is Test, SlotTest, Utils {
     vm.expectEmit(true, false, false, true);
     emit OwnershipTransferred(address(0), address(this));
     emit Initialized(1);
-    EmptyUUPS(address(proxyLightOperator)).initialize();
+    EmptyUUPS(address(proxyLightOperatorStore)).initialize();
 
     vm.expectEmit(true, true, false, true);
     vm.expectEmit(true, false, false, true);
@@ -111,7 +111,7 @@ contract BaseTest is Test, SlotTest, Utils {
   function setUpLightImplementations() public {
     implementationLightCore = new LightCore();
     implementationLightController = new LightController();
-    implementationLightOperator = new LightOperator();
+    implementationLightOperatorStore = new LightOperatorStore();
     implementationLightOrb = new LightOrb();
     implementationLightOrbFactory = new LightOrbFactory();
     implementationLightSpace = new LightSpace();
@@ -131,9 +131,9 @@ contract BaseTest is Test, SlotTest, Utils {
     );
 
     vm.expectEmit(true, false, false, true);
-    emit Upgraded(address(implementationLightOperator));
-    EmptyUUPS(address(proxyLightOperator)).upgradeTo(
-      address(implementationLightOperator)
+    emit Upgraded(address(implementationLightOperatorStore));
+    EmptyUUPS(address(proxyLightOperatorStore)).upgradeTo(
+      address(implementationLightOperatorStore)
     );
 
     vm.expectEmit(true, false, false, true);
@@ -160,8 +160,10 @@ contract BaseTest is Test, SlotTest, Utils {
     vm.label(address(wrappedLightCore), "Wrapped Light Core");
     wrappedLightController = LightController(address(proxyLightController));
     vm.label(address(wrappedLightController), "Wrapped Light Controller");
-    wrappedLightOperator = LightOperator(address(proxyLightOperator));
-    vm.label(address(wrappedLightOperator), "Wrapped Light Operator");
+    wrappedLightOperatorStore = LightOperatorStore(
+      address(proxyLightOperatorStore)
+    );
+    vm.label(address(wrappedLightOperatorStore), "Wrapped Light Operator");
     wrappedLightOrb = LightOrb(address(proxyLightOrb));
     vm.label(address(wrappedLightOrb), "Wrapped Light Orb");
     wrappedLightOrbFactory = LightOrbFactory(address(proxyLightOrbFactory));
@@ -177,8 +179,8 @@ contract BaseTest is Test, SlotTest, Utils {
       address(proxyLightCore)
     );
     wrappedLightController.setContractProxy(
-      keccak256("LightOperator"),
-      address(proxyLightOperator)
+      keccak256("LightOperatorStore"),
+      address(proxyLightOperatorStore)
     );
     wrappedLightController.setContractProxy(
       keccak256("LightOrb"),

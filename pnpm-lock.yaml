@@ -99,7 +99,7 @@ importers:
       eslint-plugin-react-hooks: 4.6.0_eslint@8.22.0
       eslint-plugin-tailwindcss: 3.6.0
       git-cz: 4.9.0
-      hardhat: 2.10.2_typescript@4.7.4
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4
       html-webpack-plugin: 5.5.0
       husky: 8.0.1
       lint-staged: 13.0.3
@@ -727,7 +727,28 @@ importers:
   configurations/tsconfig:
     specifiers: {}
 
-  contracts/aa:
+  contracts/ens:
+    specifiers: {}
+
+  contracts/foundry:
+    specifiers: {}
+
+  contracts/protocol:
+    specifiers: {}
+
+  contracts/proxies:
+    specifiers: {}
+
+  contracts/renderer:
+    specifiers: {}
+
+  contracts/scripts:
+    specifiers: {}
+
+  contracts/upgradeable:
+    specifiers: {}
+
+  contracts/zksync:
     specifiers:
       '@lightdotso/tsconfig': workspace:*
       '@matterlabs/hardhat-zksync-deploy': ^0.4.0
@@ -751,27 +772,6 @@ importers:
       '@types/node': 18.7.13
       dotenv: 16.0.1
       hardhat-preprocessor: 0.1.4_hardhat@2.10.2
-
-  contracts/ens:
-    specifiers: {}
-
-  contracts/foundry:
-    specifiers: {}
-
-  contracts/protocol:
-    specifiers: {}
-
-  contracts/proxies:
-    specifiers: {}
-
-  contracts/renderer:
-    specifiers: {}
-
-  contracts/scripts:
-    specifiers: {}
-
-  contracts/upgradeable:
-    specifiers: {}
 
   packages/const:
     specifiers:
@@ -829,7 +829,7 @@ importers:
       '@typechain/ethers-v5': 10.1.0_grtvsajv4h6vd2pawneyo5plpi
       '@typechain/hardhat': 6.1.2_issnms7c6tikosgz2xwaf2d3b4
       ethers: 5.7.0
-      hardhat: 2.10.2_ts-node@10.9.1
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_ts-node@10.9.1
       hardhat-abi-exporter: 2.10.0_hardhat@2.10.2
       hardhat-deploy: 0.11.12
       hardhat-gas-reporter: 1.0.8_hardhat@2.10.2
@@ -3986,7 +3986,7 @@ packages:
       hardhat: ^2.0.0
     dependencies:
       ethers: 5.7.0
-      hardhat: 2.10.2_ts-node@10.9.1
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_ts-node@10.9.1
     dev: false
 
   /@nomiclabs/hardhat-etherscan/3.1.0_hardhat@2.10.2:
@@ -4000,7 +4000,7 @@ packages:
       chalk: 2.4.2
       debug: 4.3.4
       fs-extra: 7.0.1
-      hardhat: 2.10.2_ts-node@10.9.1
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_ts-node@10.9.1
       lodash: 4.17.21
       semver: 6.3.0
       table: 6.8.0
@@ -4022,7 +4022,7 @@ packages:
       '@types/web3': 1.0.19
       ethereum-waffle: 3.4.4
       ethers: 5.7.0
-      hardhat: 2.10.2_ts-node@10.9.1
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_ts-node@10.9.1
     dev: false
 
   /@notionhq/client/2.1.1:
@@ -4246,7 +4246,7 @@ packages:
       chalk: 4.1.2
       debug: 4.3.4
       ethers: 5.7.0
-      hardhat: 2.10.2_ts-node@10.9.1
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_ts-node@10.9.1
       proper-lockfile: 4.1.2
     transitivePeerDependencies:
       - supports-color
@@ -5056,7 +5056,7 @@ packages:
       '@typechain/ethers-v5': 10.1.0_grtvsajv4h6vd2pawneyo5plpi
       ethers: 5.7.0
       fs-extra: 9.1.0
-      hardhat: 2.10.2_ts-node@10.9.1
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_ts-node@10.9.1
       lodash: 4.17.21
       typechain: 8.1.0
     dev: false
@@ -13433,7 +13433,7 @@ packages:
     dependencies:
       '@ethersproject/abi': 5.7.0
       delete-empty: 3.0.0
-      hardhat: 2.10.2_ts-node@10.9.1
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_ts-node@10.9.1
     dev: false
 
   /hardhat-deploy/0.11.12:
@@ -13465,7 +13465,7 @@ packages:
     dependencies:
       array-uniq: 1.0.3
       eth-gas-reporter: 0.2.25
-      hardhat: 2.10.2_ts-node@10.9.1
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_ts-node@10.9.1
       sha1: 1.1.1
     transitivePeerDependencies:
       - '@codechecks/client'
@@ -13485,7 +13485,7 @@ packages:
       hardhat: ^2.0.0
     dependencies:
       chokidar: 3.5.3
-      hardhat: 2.10.2_ts-node@10.9.1
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_ts-node@10.9.1
     dev: false
 
   /hardhat/2.10.2_grhqrq6mdckvlolmcm223dttim:
@@ -13555,7 +13555,7 @@ packages:
       - utf-8-validate
     patched: true
 
-  /hardhat/2.10.2_ts-node@10.9.1:
+  /hardhat/2.10.2_grhqrq6mdckvlolmcm223dttim_ts-node@10.9.1:
     resolution: {integrity: sha512-L/KvDDT/MA6332uAtYTqdcHoSABljw4pPjHQe5SHdIJ+xKfaSc6vDKw03CmrQ5Xup0gHs8XnVSBpZo1AbbIW7g==}
     engines: {node: ^14.0.0 || ^16.0.0 || ^18.0.0}
     hasBin: true
@@ -13622,8 +13622,9 @@ packages:
       - supports-color
       - utf-8-validate
     dev: false
+    patched: true
 
-  /hardhat/2.10.2_typescript@4.7.4:
+  /hardhat/2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4:
     resolution: {integrity: sha512-L/KvDDT/MA6332uAtYTqdcHoSABljw4pPjHQe5SHdIJ+xKfaSc6vDKw03CmrQ5Xup0gHs8XnVSBpZo1AbbIW7g==}
     engines: {node: ^14.0.0 || ^16.0.0 || ^18.0.0}
     hasBin: true
@@ -13690,6 +13691,7 @@ packages:
       - supports-color
       - utf-8-validate
     dev: true
+    patched: true
 
   /has-ansi/2.0.0:
     resolution: {integrity: sha512-C8vBJ8DwUCx19vhm7urhTuUsr4/IyP6l4VzNQDv+ryHQObW3TTTp9yB68WpYgRe2bbaGuZ/se74IqFeVnMnLZg==}

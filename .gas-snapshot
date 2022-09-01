@@ -38,6 +38,7 @@ MockUUPSProxyTest:testMockUUPSProxyV2InitializeOnlyOnce(uint256) (runs: 256, μ:
 MockUUPSProxyTest:testMockUUPSProxyV2Slot(uint256,uint256) (runs: 256, μ: 926231, ~: 927475)
 MockUUPSProxyTest:testMockUUPSProxyV2Upgrade(uint256,uint256) (runs: 256, μ: 922301, ~: 923545)
 MockUUPSProxyTest:testMockUUPSProxyV2UpgradeFailNotOwner(uint256) (runs: 256, μ: 868440, ~: 869607)
+GnosisGoerliTest:testForkRun() (gas: 416899)
 GnosisTest:testInitializer() (gas: 143533)
 GnosisTest:testInitializerSignature() (gas: 98516)
 LightSpaceTest:testLightSpaceCreateForFailNotLightCore() (gas: 322939)

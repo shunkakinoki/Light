@@ -6,7 +6,7 @@ import "./SlotTest.sol";
 import "./Utils.sol";
 
 import { UUPSProxy } from "@lightdotso/proxies/UUPSProxy.sol";
-import { LightCore } from "@lightdotso/protocol/LightCore.sol";
+import { LightCore } from "@lightdotso/core/LightCore.sol";
 import { LightController } from "@lightdotso/controller/LightController.sol";
 import { LightOperatorStore } from "@lightdotso/protocol/LightOperatorStore.sol";
 import { LightOrb } from "@lightdotso/protocol/LightOrb.sol";

@@ -1,4 +1,3 @@
-BaseTestTest:testDeployLightProxies() (gas: 15599149)
 LightControllerTest:testLightControllerDisableInitializersOnImplementation() (gas: 876842)
 LightControllerTest:testLightControllerProxyInitialize() (gas: 29986)
 LightControllerTest:testLightControllerSetContractProxy() (gas: 110562)
@@ -6,6 +5,7 @@ LightControllerTest:testLightControllerSetContractProxyErrorOnAddressNotSet() (g
 LightControllerTest:testLightControllerStorageSlot() (gas: 123495)
 LightControllerTest:testLightControllerStorageSlotBeforeInitialization() (gas: 15603)
 LightControllerTest:testLightControllerUnsetContractProxy() (gas: 95572)
+BaseTestTest:testDeployLightProxies() (gas: 15599149)
 LightCoreTest:testLightCoreDisableInitializersOnImplementation() (gas: 1128038)
 LightCoreTest:testLightCoreLaunchSpaceFor() (gas: 697170)
 LightCoreTest:testLightCoreProxyInitialize() (gas: 82292)

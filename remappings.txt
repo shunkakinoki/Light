@@ -1,5 +1,6 @@
 @lightdotso/abstract/=contracts/abstract/src/
 @lightdotso/controller/=contracts/controller/src/
+@lightdotso/core/=contracts/core/src/
 @lightdotso/ens/=contracts/ens/src/
 @lightdotso/foundry/=contracts/foundry/src/
 @lightdotso/math/=contracts/math/src/

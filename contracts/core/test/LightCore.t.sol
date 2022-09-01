@@ -3,7 +3,7 @@
 pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.sol";
-import "@lightdotso/protocol/LightCore.sol";
+import "@lightdotso/core/LightCore.sol";
 
 contract LightCoreTest is BaseTest {
   event LaunchSpace(uint256 spaceId, string memo, address caller);

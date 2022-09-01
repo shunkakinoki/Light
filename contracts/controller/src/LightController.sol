@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.16;
 
-import { ILightController } from "@lightdotso/protocol/interfaces/ILightController.sol";
-import { LightControllerStorageV1 } from "@lightdotso/protocol/storages/LightControllerStorage.sol";
+import { ILightController } from "@lightdotso/controller/ILightController.sol";
+import { LightControllerStorageV1 } from "@lightdotso/controller/LightControllerStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";

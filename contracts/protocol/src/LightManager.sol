@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.16;
 
-import { ILightController } from "@lightdotso/protocol/interfaces/ILightController.sol";
+import { ILightController } from "@lightdotso/controller/ILightController.sol";
 import { ILightManager } from "@lightdotso/protocol/interfaces/ILightManager.sol";
 import { ILightCore } from "@lightdotso/protocol/interfaces/ILightCore.sol";
 import { ILightOperatorStore } from "@lightdotso/protocol/interfaces/ILightOperatorStore.sol";

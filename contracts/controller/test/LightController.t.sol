@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.13;
 
-import { ILightController } from "@lightdotso/protocol/interfaces/ILightController.sol";
+import { ILightController } from "@lightdotso/controller/ILightController.sol";
 import "@lightdotso/foundry/BaseTest.sol";
-import "@lightdotso/protocol/LightController.sol";
+import "@lightdotso/controller/LightController.sol";
 
 contract LightControllerTest is BaseTest {
   LightController private lightController;

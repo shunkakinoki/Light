@@ -2,7 +2,7 @@
 
 import { Initializable } from "@openzeppelin/contracts/proxy/utils/Initializable.sol";
 
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.16;
 
 // keccak256("diamond.storage.ens") == 0x4f4707426e020da116b902ef8ee5e6869278af651e437c2384d87675fd22ede9;
 bytes32 constant DIAMOND_STORAGE_ENS = 0x4f4707426e020da116b902ef8ee5e6869278af651e437c2384d87675fd22ede9;

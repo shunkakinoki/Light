@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.16;
 
 import { ILightOrbFactory } from "@lightdotso/protocol/interfaces/ILightOrbFactory.sol";
 import { LightOperatable } from "@lightdotso/protocol/abstract/LightOperatable.sol";

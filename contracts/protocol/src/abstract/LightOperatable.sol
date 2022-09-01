@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.16;
 
 import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";
 import { ILightOperatable } from "@lightdotso/protocol/interfaces/ILightOperatable.sol";

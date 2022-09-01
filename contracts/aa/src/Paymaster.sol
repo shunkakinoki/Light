@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.16;
 
 import { IPaymaster, ExecutionResult } from "@matterlabs/zksync-contracts/l2/system-contracts/interfaces/IPaymaster.sol";
 import { IPaymasterFlow } from "@matterlabs/zksync-contracts/l2/system-contracts/interfaces/IPaymasterFlow.sol";

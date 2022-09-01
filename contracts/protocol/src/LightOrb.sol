@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.16;
 
 import { ILightOrb } from "@lightdotso/protocol/interfaces/ILightOrb.sol";
 import { LightOrbStorageV1 } from "@lightdotso/protocol/storages/LightOrbStorage.sol";

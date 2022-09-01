@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.16;
 
 import { ILightCore } from "@lightdotso/protocol/interfaces/ILightCore.sol";
 import { ILightOperator } from "@lightdotso/protocol/interfaces/ILightOperator.sol";

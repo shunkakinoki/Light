@@ -3,6 +3,7 @@
 @lightdotso/core/=contracts/core/src/
 @lightdotso/ens/=contracts/ens/src/
 @lightdotso/foundry/=contracts/foundry/src/
+@lightdotso/manager/=contracts/manager/src/
 @lightdotso/math/=contracts/math/src/
 @lightdotso/protocol/=contracts/protocol/src/
 @lightdotso/proxies/=contracts/proxies/src/

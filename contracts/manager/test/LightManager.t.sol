@@ -3,7 +3,7 @@
 pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.sol";
-import "@lightdotso/protocol/LightManager.sol";
+import "@lightdotso/manager/LightManager.sol";
 
 contract LightManagerTest is BaseTest {
   LightManager private lightManager;

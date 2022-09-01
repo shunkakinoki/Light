@@ -4,7 +4,7 @@ pragma solidity ^0.8.16;
 
 import { UpgradeableBeacon } from "@openzeppelin/contracts/proxy/beacon/UpgradeableBeacon.sol";
 import { IRenderer } from "@lightdotso/renderer/IRenderer.sol";
-import { LightManager } from "@lightdotso/protocol/LightManager.sol";
+import { LightManager } from "@lightdotso/manager/LightManager.sol";
 
 /// @title Storage contract for the LightSpaceStorage contract.
 /// @author Shun Kakinoki

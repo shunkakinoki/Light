@@ -12,6 +12,7 @@
 @lightdotso/renderer/=contracts/renderer/src/
 @lightdotso/space/=contracts/space/src/
 @lightdotso/scripts/=contracts/scripts/src/
+@lightdotso/token/=contracts/token/src/
 @lightdotso/upgradeable/=contracts/upgradeable/src/
 @lightdotso/utils/=contracts/utils/src/
 base64-sol/=lib/base64/

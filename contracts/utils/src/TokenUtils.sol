@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.16;
 
-import { ILightToken } from "@lightdotso/protocol/interfaces/ILightToken.sol";
+import { ILightToken } from "@lightdotso/token/ILightToken.sol";
 
 /// @title Library for token related utils.
 /// @notice This contract is based from Graph Protocol's TokenUtils (GPL-2.0-or-later)

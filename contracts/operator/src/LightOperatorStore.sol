@@ -4,7 +4,7 @@ pragma solidity ^0.8.16;
 
 import { ILightOperatorStore } from "@lightdotso/operator/ILightOperatorStore.sol";
 import { LightOperatorStoreStorageV1 } from "@lightdotso/operator/LightOperatorStoreStorage.sol";
-import { LightOperatorStoreData } from "@lightdotso/protocol/structs/LightOperatorStoreData.sol";
+import { LightOperatorStoreData } from "@lightdotso/operator/LightOperatorStoreData.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";

@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.16;
 
-import { LightOperatorStoreData } from "@lightdotso/protocol/structs/LightOperatorStoreData.sol";
+import { LightOperatorStoreData } from "@lightdotso/operator/LightOperatorStoreData.sol";
 
 interface ILightOperatorStore {
   error PermissionIndexOutOfBounds();

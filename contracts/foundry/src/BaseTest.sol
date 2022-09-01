@@ -12,6 +12,7 @@ import { LightOperatorStore } from "@lightdotso/protocol/LightOperatorStore.sol"
 import { LightOrb } from "@lightdotso/protocol/LightOrb.sol";
 import { LightOrbFactory } from "@lightdotso/protocol/LightOrbFactory.sol";
 import { LightSpace } from "@lightdotso/protocol/LightSpace.sol";
+import { LightXP } from "@lightdotso/protocol/LightXP.sol";
 
 import { Empty } from "@lightdotso/proxies/utils/Empty.sol";
 import { EmptyUUPS } from "@lightdotso/proxies/utils/EmptyUUPS.sol";
@@ -28,6 +29,7 @@ contract BaseTest is Test, SlotTest, Utils {
   UUPSProxy internal proxyLightOrb;
   UUPSProxy internal proxyLightOrbFactory;
   UUPSProxy internal proxyLightSpace;
+  UUPSProxy internal proxyLightXP;
 
   LightCore internal implementationLightCore;
   LightController internal implementationLightController;
@@ -35,6 +37,7 @@ contract BaseTest is Test, SlotTest, Utils {
   LightOrb internal implementationLightOrb;
   LightOrbFactory internal implementationLightOrbFactory;
   LightSpace internal implementationLightSpace;
+  LightXP internal implementationLightXP;
 
   LightCore internal wrappedLightCore;
   LightController internal wrappedLightController;
@@ -42,6 +45,7 @@ contract BaseTest is Test, SlotTest, Utils {
   LightOrb internal wrappedLightOrb;
   LightOrbFactory internal wrappedLightOrbFactory;
   LightSpace internal wrappedLightSpace;
+  LightXP internal wrappedLightXP;
 
   event AdminChanged(address previousAdmin, address newAdmin);
   event ContractSynced(bytes32 indexed nameHash, address contractAddress);
@@ -67,6 +71,7 @@ contract BaseTest is Test, SlotTest, Utils {
     proxyLightOrb = new UUPSProxy(address(emptyUUPS), "");
     proxyLightOrbFactory = new UUPSProxy(address(emptyUUPSBeacon), "");
     proxyLightSpace = new UUPSProxy(address(emptyUUPS), "");
+    proxyLightXP = new UUPSProxy(address(emptyUUPS), "");
   }
 
   function setUpEmptyProxyInitializations() public {
@@ -106,6 +111,12 @@ contract BaseTest is Test, SlotTest, Utils {
     emit OwnershipTransferred(address(0), address(this));
     emit Initialized(1);
     EmptyUUPS(address(proxyLightSpace)).initialize();
+
+    vm.expectEmit(true, true, false, true);
+    vm.expectEmit(true, false, false, true);
+    emit OwnershipTransferred(address(0), address(this));
+    emit Initialized(1);
+    EmptyUUPS(address(proxyLightXP)).initialize();
   }
 
   function setUpLightImplementations() public {
@@ -115,6 +126,7 @@ contract BaseTest is Test, SlotTest, Utils {
     implementationLightOrb = new LightOrb();
     implementationLightOrbFactory = new LightOrbFactory();
     implementationLightSpace = new LightSpace();
+    implementationLightXP = new LightXP();
   }
 
   function setUpLightProxyUpgrades() public {
@@ -153,6 +165,10 @@ contract BaseTest is Test, SlotTest, Utils {
     EmptyUUPS(address(proxyLightSpace)).upgradeTo(
       address(implementationLightSpace)
     );
+
+    vm.expectEmit(true, false, false, true);
+    emit Upgraded(address(implementationLightXP));
+    EmptyUUPS(address(proxyLightXP)).upgradeTo(address(implementationLightXP));
   }
 
   function setUpWrappedLightProxies() public {
@@ -163,13 +179,18 @@ contract BaseTest is Test, SlotTest, Utils {
     wrappedLightOperatorStore = LightOperatorStore(
       address(proxyLightOperatorStore)
     );
-    vm.label(address(wrappedLightOperatorStore), "Wrapped Light Operator");
+    vm.label(
+      address(wrappedLightOperatorStore),
+      "Wrapped Light Operator Store"
+    );
     wrappedLightOrb = LightOrb(address(proxyLightOrb));
     vm.label(address(wrappedLightOrb), "Wrapped Light Orb");
     wrappedLightOrbFactory = LightOrbFactory(address(proxyLightOrbFactory));
     vm.label(address(wrappedLightOrbFactory), "Wrapped Light Orb Factory");
     wrappedLightSpace = LightSpace(address(proxyLightSpace));
     vm.label(address(wrappedLightSpace), "Wrapped Light Space");
+    wrappedLightXP = LightXP(address(proxyLightXP));
+    vm.label(address(wrappedLightXP), "Wrapped Light XP");
   }
 
   function setUpLightController() public {

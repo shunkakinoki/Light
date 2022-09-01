@@ -1,7 +1,7 @@
 [profile.default]
 solc_version = "0.8.16"
 src = 'contracts'
-via_ir = true
+# via_ir = true
 
 [profile.local]
 no_match_test = "testForkRun"

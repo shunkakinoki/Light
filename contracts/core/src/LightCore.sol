@@ -4,7 +4,7 @@ pragma solidity ^0.8.16;
 
 import { ILightCore } from "@lightdotso/core/ILightCore.sol";
 import { ILightOperatorStore } from "@lightdotso/operator/ILightOperatorStore.sol";
-import { LightSpaceMetadata } from "@lightdotso/protocol/structs/LightSpaceMetadata.sol";
+import { LightSpaceMetadata } from "@lightdotso/space/LightSpaceMetadata.sol";
 import { LightOperatable } from "@lightdotso/abstract/LightOperatable.sol";
 import { LightCoreStorageV1 } from "@lightdotso/core/LightCoreStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";

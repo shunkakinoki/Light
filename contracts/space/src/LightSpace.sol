@@ -2,14 +2,14 @@
 
 pragma solidity ^0.8.16;
 
-import { ILightSpace } from "@lightdotso/protocol/interfaces/ILightSpace.sol";
+import { ILightSpace } from "@lightdotso/space/ILightSpace.sol";
 import { ILightOperatorStore } from "@lightdotso/operator/ILightOperatorStore.sol";
 import { ILightOperatable } from "@lightdotso/abstract/ILightOperatable.sol";
 import { IERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol";
 import { IERC721MetadataUpgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol";
 import { LightOperatable } from "@lightdotso/abstract/LightOperatable.sol";
-import { LightSpaceMetadata } from "@lightdotso/protocol/structs/LightSpaceMetadata.sol";
-import { LightSpaceStorageV1 } from "@lightdotso/protocol/storages/LightSpaceStorage.sol";
+import { LightSpaceMetadata } from "@lightdotso/space/LightSpaceMetadata.sol";
+import { LightSpaceStorageV1 } from "@lightdotso/space/LightSpaceStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";

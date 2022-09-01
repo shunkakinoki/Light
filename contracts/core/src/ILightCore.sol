@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.16;
 
-import { LightSpaceMetadata } from "@lightdotso/protocol/structs/LightSpaceMetadata.sol";
+import { LightSpaceMetadata } from "@lightdotso/space/LightSpaceMetadata.sol";
 
 interface ILightCore {
   event LaunchSpace(uint256 spaceId, string memo, address caller);

@@ -3,9 +3,9 @@
 pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.sol";
-import "@lightdotso/protocol/LightSpace.sol";
+import "@lightdotso/space/LightSpace.sol";
 import { ILightOperatable } from "@lightdotso/abstract/ILightOperatable.sol";
-import { ILightSpace } from "@lightdotso/protocol/interfaces/ILightSpace.sol";
+import { ILightSpace } from "@lightdotso/space/ILightSpace.sol";
 import { IERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol";
 import { IERC721MetadataUpgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol";
 

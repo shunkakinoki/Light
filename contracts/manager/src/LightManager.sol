@@ -8,7 +8,7 @@ import { ILightCore } from "@lightdotso/core/ILightCore.sol";
 import { ILightOperatorStore } from "@lightdotso/operator/ILightOperatorStore.sol";
 import { ILightOrb } from "@lightdotso/orb/ILightOrb.sol";
 import { ILightOrbFactory } from "@lightdotso/orb/ILightOrbFactory.sol";
-import { ILightSpace } from "@lightdotso/protocol/interfaces/ILightSpace.sol";
+import { ILightSpace } from "@lightdotso/space/ILightSpace.sol";
 import { ILightToken } from "@lightdotso/protocol/interfaces/ILightToken.sol";
 import { LightManagerStorageV1 } from "@lightdotso/manager/LightManagerStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";

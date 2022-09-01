@@ -11,7 +11,7 @@ import { LightController } from "@lightdotso/controller/LightController.sol";
 import { LightOperatorStore } from "@lightdotso/operator/LightOperatorStore.sol";
 import { LightOrb } from "@lightdotso/orb/LightOrb.sol";
 import { LightOrbFactory } from "@lightdotso/orb/LightOrbFactory.sol";
-import { LightSpace } from "@lightdotso/protocol/LightSpace.sol";
+import { LightSpace } from "@lightdotso/space/LightSpace.sol";
 import { LightXP } from "@lightdotso/protocol/LightXP.sol";
 
 import { Empty } from "@lightdotso/proxies/utils/Empty.sol";

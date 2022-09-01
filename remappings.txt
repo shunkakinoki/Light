@@ -15,6 +15,7 @@
 @lightdotso/token/=contracts/token/src/
 @lightdotso/upgradeable/=contracts/upgradeable/src/
 @lightdotso/utils/=contracts/utils/src/
+@lightdotso/xp/=contracts/xp/src/
 base64-sol/=lib/base64/
 ds-test/=lib/ds-test/src/
 forge-std/=lib/forge-std/src/

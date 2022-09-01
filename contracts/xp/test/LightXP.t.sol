@@ -3,7 +3,7 @@
 pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.sol";
-import "@lightdotso/protocol/LightXP.sol";
+import "@lightdotso/xp/LightXP.sol";
 
 contract LightXPTest is BaseTest {
   LightXP private lightXP;

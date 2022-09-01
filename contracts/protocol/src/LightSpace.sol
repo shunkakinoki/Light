@@ -7,7 +7,7 @@ import { ILightOperatorStore } from "@lightdotso/protocol/interfaces/ILightOpera
 import { ILightOperatable } from "@lightdotso/protocol/interfaces/ILightOperatable.sol";
 import { IERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol";
 import { IERC721MetadataUpgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/IERC721MetadataUpgradeable.sol";
-import { LightOperatable } from "@lightdotso/protocol/abstract/LightOperatable.sol";
+import { LightOperatable } from "@lightdotso/abstract/LightOperatable.sol";
 import { LightSpaceMetadata } from "@lightdotso/protocol/structs/LightSpaceMetadata.sol";
 import { LightSpaceStorageV1 } from "@lightdotso/protocol/storages/LightSpaceStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";

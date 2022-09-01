@@ -3,7 +3,7 @@
 pragma solidity ^0.8.16;
 
 import { ILightOperatorStore } from "@lightdotso/protocol/interfaces/ILightOperatorStore.sol";
-import { ILightOperatable } from "@lightdotso/protocol/interfaces/ILightOperatable.sol";
+import { ILightOperatable } from "@lightdotso/abstract/ILightOperatable.sol";
 import { LightOperatableStorageV1 } from "@lightdotso/protocol/storages/LightOperatableStorage.sol";
 
 /// @author Shun Kakinoki

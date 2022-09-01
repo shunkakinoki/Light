@@ -9,6 +9,9 @@ patchedDependencies:
   '@matterlabs/hardhat-zksync-deploy@0.4.0':
     hash: lbhowthwg7iyalmnphqopbwlgi
     path: patches/@matterlabs__hardhat-zksync-deploy@0.4.0.patch
+  hardhat@2.10.2:
+    hash: grhqrq6mdckvlolmcm223dttim
+    path: patches/hardhat@2.10.2.patch
 
 importers:
 
@@ -741,7 +744,7 @@ importers:
       '@matterlabs/hardhat-zksync-deploy': 0.4.0_lbhowthwg7iyalmnphqopbwlgi_naxub6bztjshgxt2tuxsxvtkae
       '@matterlabs/hardhat-zksync-solc': 0.3.7_hardhat@2.10.2
       ethers: 5.7.0
-      hardhat: 2.10.2
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
       toml: 3.0.0
       zksync-web3: 0.8.0_ethers@5.7.0
     devDependencies:
@@ -3383,7 +3386,7 @@ packages:
     dependencies:
       ethers: 5.7.0
       glob: 8.0.3
-      hardhat: 2.10.2
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
       zksync-web3: 0.8.0_ethers@5.7.0
     dev: false
     patched: true
@@ -3395,7 +3398,7 @@ packages:
     dependencies:
       '@nomiclabs/hardhat-docker': 2.0.2
       dockerode: 3.3.4
-      hardhat: 2.10.2
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -13473,7 +13476,7 @@ packages:
     peerDependencies:
       hardhat: ^2.0.5
     dependencies:
-      hardhat: 2.10.2
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
       murmur-128: 0.2.1
 
   /hardhat-watcher/2.5.0_hardhat@2.10.2:
@@ -13485,7 +13488,7 @@ packages:
       hardhat: 2.10.2_ts-node@10.9.1
     dev: false
 
-  /hardhat/2.10.2:
+  /hardhat/2.10.2_grhqrq6mdckvlolmcm223dttim:
     resolution: {integrity: sha512-L/KvDDT/MA6332uAtYTqdcHoSABljw4pPjHQe5SHdIJ+xKfaSc6vDKw03CmrQ5Xup0gHs8XnVSBpZo1AbbIW7g==}
     engines: {node: ^14.0.0 || ^16.0.0 || ^18.0.0}
     hasBin: true
@@ -13550,6 +13553,7 @@ packages:
       - bufferutil
       - supports-color
       - utf-8-validate
+    patched: true
 
   /hardhat/2.10.2_ts-node@10.9.1:
     resolution: {integrity: sha512-L/KvDDT/MA6332uAtYTqdcHoSABljw4pPjHQe5SHdIJ+xKfaSc6vDKw03CmrQ5Xup0gHs8XnVSBpZo1AbbIW7g==}

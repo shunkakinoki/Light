@@ -114,7 +114,8 @@
   "packageManager": "pnpm@6.30.0",
   "pnpm": {
     "patchedDependencies": {
-      "@matterlabs/hardhat-zksync-deploy@0.4.0": "patches/@matterlabs__hardhat-zksync-deploy@0.4.0.patch"
+      "@matterlabs/hardhat-zksync-deploy@0.4.0": "patches/@matterlabs__hardhat-zksync-deploy@0.4.0.patch",
+      "hardhat@2.10.2": "patches/hardhat@2.10.2.patch"
     }
   }
 }

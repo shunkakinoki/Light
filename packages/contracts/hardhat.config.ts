@@ -26,6 +26,9 @@ subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
     const paths = await runSuper();
 
     return paths.filter((p: any) => {
+      if (p === "hardhat/console.sol") {
+        return false;
+      }
       return !p.endsWith(".t.sol");
     });
   },

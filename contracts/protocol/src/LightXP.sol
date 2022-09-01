@@ -11,30 +11,8 @@ import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/securit
 import { ERC20Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import { ERC20PermitUpgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/draft-ERC20PermitUpgradeable.sol";
 
-///  _  _       _     _
-/// | |<_> ___ | |_ _| |_   ___ ___
-/// | || |/ . || . | | | _ <_-</ . \
-/// |_||_|\_. ||_|_| |_|<_>/__/\___/
-///       <___'
-
-/// ⡟⡇⠀⠀⠀⠀⠀⠀⣠⣤⣼⣿⣿⣿⣿⣿⣿⣿⣿⣧⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀
-/// ⡇⡇⠀⠀⠀⣠⣤⣤⣤⣤⣤⣤⣤⡤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-/// ⡇⡇⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣄⠀⠀⠀
-/// ⡇⡇⣐⣛⣛⣛⣛⣛⣛⣛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠃⠀⠀
-/// ⡇⣿⣿⣿⣿⣿⣿⣿⣿⣯⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣄⠀
-/// ⡷⡿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠆
-/// ⣿⣷⣶⣶⣶⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-/// ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-/// ⣯⣧⣤⣤⣤⣤⣤⣤⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-/// ⡿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⡆
-/// ⡇⡟⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋⠀
-/// ⡇⡇⠻⣿⣿⣿⣿⣿⣿⣿⣦⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀
-/// ⡇⡇⠀⠙⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠋⠀⠀⠀
-/// ⡇⡇⠀⠀⠀⠐⠶⣶⣶⣶⣶⣶⣶⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-/// ⡇⡇⠀⠀⠀⠀⠀⠈⠙⠛⠻⠿⣿⣿⣿⣿⣿⣿⠿⠿⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀
-
 /// @title `XP` contract for the Light protocol.
-/// @title Responsible for managing the rendering of the NFTs.
+/// @title Responsible for managing repuation of a corresponding space.
 /// @author Shun Kakinoki
 contract LightXP is
   Initializable,

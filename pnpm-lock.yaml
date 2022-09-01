@@ -802,7 +802,6 @@ importers:
       hardhat-deploy: ^0.11.12
       hardhat-gas-reporter: ^1.0.8
       hardhat-preprocessor: ^0.1.4
-      hardhat-spdx-license-identifier: ^2.0.3
       hardhat-watcher: ^2.5.0
       solc: ^0.8.16
       toml: ^3.0.0
@@ -832,7 +831,6 @@ importers:
       hardhat-deploy: 0.11.12
       hardhat-gas-reporter: 1.0.8_hardhat@2.10.2
       hardhat-preprocessor: 0.1.4_hardhat@2.10.2
-      hardhat-spdx-license-identifier: 2.0.3_hardhat@2.10.2
       hardhat-watcher: 2.5.0_hardhat@2.10.2
       solc: 0.8.16
       toml: 3.0.0
@@ -13477,14 +13475,6 @@ packages:
     dependencies:
       hardhat: 2.10.2
       murmur-128: 0.2.1
-
-  /hardhat-spdx-license-identifier/2.0.3_hardhat@2.10.2:
-    resolution: {integrity: sha512-G4u4I1md0tWaitX6Os7Nq9sYZ/CFdR+ibm7clCksGJ4yrtdHEZxgLjWpJ0WiALF9SoFKt03PwCe9lczDQ/5ADA==}
-    peerDependencies:
-      hardhat: ^2.0.0
-    dependencies:
-      hardhat: 2.10.2_ts-node@10.9.1
-    dev: false
 
   /hardhat-watcher/2.5.0_hardhat@2.10.2:
     resolution: {integrity: sha512-Su2qcSMIo2YO2PrmJ0/tdkf+6pSt8zf9+4URR5edMVti6+ShI8T3xhPrwugdyTOFuyj8lKHrcTZNKUFYowYiyA==}

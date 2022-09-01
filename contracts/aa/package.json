@@ -16,6 +16,10 @@
     "src"
   ],
   "scripts": {
+    "build": "pnpm run clean && pnpm run build:hh",
+    "build:hh": "hardhat compile --force",
+    "clean": "pnpm run clean:hh",
+    "clean:hh": "hardhat clean",
     "env:pull": "doppler secrets download --no-file --format env > .env"
   },
   "publishConfig": {

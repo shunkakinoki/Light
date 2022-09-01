@@ -66,14 +66,12 @@ const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   paths: {
     root: "../..",
-    artifacts: "contracts/aa/artifacts",
-    cache: "contracts/aa/cache",
-    //@ts-expect-error
-    deploy: "contracts/aa/deploy",
-    sources: "contracts/aa/src",
+    artifacts: "contracts/zksync/artifacts",
+    cache: "contracts/zksync/cache",
+    sources: "contracts/zksync/src",
   },
   preprocess: {
-    eachLine: (hre: any) => {
+    eachLine: () => {
       return {
         transform: (line: string) => {
           if (line.match(/^\s*import /i)) {

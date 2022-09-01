@@ -9,12 +9,12 @@ import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/I
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-//// @title Operator contract for the Light protocol.
-//// @title Keeps track of the permission and access rights of the protocol.
-//// @title Inherits the `LightCoreStorage` storage contract to store the state variables in respected slots.
-//// @author Shun Kakinoki
-//// @notice Stores operator permissions for all addresses. Addresses can give permissions to any other address to take specific indexed actions on their behalf.
-//// @notice Fork of JBOperatorStore at https://github.com/jbx-protocol/juice-contracts-v2/blob/main/contracts/JBOperatorStore.sol (MIT License)
+/// @title Operator contract for the Light protocol.
+/// @title Keeps track of the permission and access rights of the protocol.
+/// @title Inherits the `LightCoreStorage` storage contract to store the state variables in respected slots.
+/// @author Shun Kakinoki
+/// @notice Stores operator permissions for all addresses. Addresses can give permissions to any other address to take specific indexed actions on their behalf.
+/// @notice Fork of JBOperatorStore at https://github.com/jbx-protocol/juice-contracts-v2/blob/main/contracts/JBOperatorStore.sol (MIT License)
 contract LightOperatorStore is
   Initializable,
   OwnableUpgradeable,

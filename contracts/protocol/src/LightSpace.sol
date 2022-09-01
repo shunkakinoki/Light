@@ -19,8 +19,8 @@ import { EIP712Upgradeable } from "@openzeppelin/contracts-upgradeable/utils/cry
 /// @title Space contract for the Light protocol.
 /// @dev Light spaces are a collective of orbs.
 /// @author Shun Kakinoki
-//// @notice Stores operator permissions for all addresses. Addresses can give permissions to any other address to take specific indexed actions on their behalf.
-//// @notice Implemented based of JBSpaces at https://github.com/jbx-protocol/juice-contracts-v2/blob/main/contracts/JBSpaces.sol (MIT License)
+/// @notice Stores operator permissions for all addresses. Addresses can give permissions to any other address to take specific indexed actions on their behalf.
+/// @notice Implemented based of JBSpaces at https://github.com/jbx-protocol/juice-contracts-v2/blob/main/contracts/JBSpaces.sol (MIT License)
 contract LightSpace is
   Initializable,
   OwnableUpgradeable,

@@ -14,6 +14,7 @@ import { ERC20PermitUpgradeable } from "@openzeppelin/contracts-upgradeable/toke
 /// @title `XP` contract for the Light protocol.
 /// @title Responsible for managing repuation of a corresponding space.
 /// @author Shun Kakinoki
+///.@notice Likely to be better to be implemented as an non upgradable contract, but is okay for now.
 contract LightXP is
   Initializable,
   OwnableUpgradeable,

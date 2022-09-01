@@ -3,7 +3,7 @@
 pragma solidity ^0.8.13;
 
 import "@lightdotso/foundry/BaseTest.sol";
-import "@lightdotso/protocol/LightOrb.sol";
+import "@lightdotso/orb/LightOrb.sol";
 
 contract LightOrbTest is BaseTest {
   LightOrb private lightOrb;

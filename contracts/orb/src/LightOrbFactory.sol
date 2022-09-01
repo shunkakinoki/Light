@@ -2,10 +2,10 @@
 
 pragma solidity ^0.8.16;
 
-import { ILightOrbFactory } from "@lightdotso/protocol/interfaces/ILightOrbFactory.sol";
+import { ILightOrbFactory } from "@lightdotso/orb/ILightOrbFactory.sol";
 import { LightOperatable } from "@lightdotso/abstract/LightOperatable.sol";
-import { LightOrb } from "@lightdotso/protocol/LightOrb.sol";
-import { LightOrbFactoryStorageV1, UpgradeableBeacon } from "@lightdotso/protocol/storages/LightOrbFactoryStorage.sol";
+import { LightOrb } from "@lightdotso/orb/LightOrb.sol";
+import { LightOrbFactoryStorageV1, UpgradeableBeacon } from "@lightdotso/orb/LightOrbFactoryStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { BeaconProxy } from "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";

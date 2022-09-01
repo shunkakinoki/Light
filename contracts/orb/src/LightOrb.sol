@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.16;
 
-import { ILightOrb } from "@lightdotso/protocol/interfaces/ILightOrb.sol";
-import { LightOrbStorageV1 } from "@lightdotso/protocol/storages/LightOrbStorage.sol";
+import { ILightOrb } from "@lightdotso/orb/ILightOrb.sol";
+import { LightOrbStorageV1 } from "@lightdotso/orb/LightOrbStorage.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";

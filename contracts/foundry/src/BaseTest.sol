@@ -9,8 +9,8 @@ import { UUPSProxy } from "@lightdotso/proxies/UUPSProxy.sol";
 import { LightCore } from "@lightdotso/core/LightCore.sol";
 import { LightController } from "@lightdotso/controller/LightController.sol";
 import { LightOperatorStore } from "@lightdotso/operator/LightOperatorStore.sol";
-import { LightOrb } from "@lightdotso/protocol/LightOrb.sol";
-import { LightOrbFactory } from "@lightdotso/protocol/LightOrbFactory.sol";
+import { LightOrb } from "@lightdotso/orb/LightOrb.sol";
+import { LightOrbFactory } from "@lightdotso/orb/LightOrbFactory.sol";
 import { LightSpace } from "@lightdotso/protocol/LightSpace.sol";
 import { LightXP } from "@lightdotso/protocol/LightXP.sol";
 

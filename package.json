@@ -92,6 +92,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-tailwindcss": "3.6.0",
     "git-cz": "^4.9.0",
+    "hardhat": "^2.10.2",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
@@ -110,5 +111,11 @@
     "vercel": "^28.1.0",
     "webpack-dev-server": "^4.10.0"
   },
-  "packageManager": "pnpm@6.30.0"
+  "packageManager": "pnpm@6.30.0",
+  "pnpm": {
+    "patchedDependencies": {
+      "@matterlabs/hardhat-zksync-deploy@0.4.0": "patches/@matterlabs__hardhat-zksync-deploy@0.4.0.patch",
+      "hardhat@2.10.2": "patches/hardhat@2.10.2.patch"
+    }
+  }
 }

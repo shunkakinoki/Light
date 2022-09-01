@@ -16,6 +16,7 @@ ignores:
   - eslint-plugin-react-hooks
   - eslint-plugin-tailwindcss
   - git-cz
+  - hardhat
   - html-webpack-plugin
   - jsonc-eslint-parser
   - lint-staged

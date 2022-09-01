@@ -3,11 +3,16 @@ qa
 error.txt
 
 # Foundry
+artifacts
 cache
 .env
 
 # Tmp
 tmp.*
+
+# Zk
+artifacts-zk
+cache-zk
 
 # Cypress
 **/cypress/screenshots

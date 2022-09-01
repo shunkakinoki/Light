@@ -1,3 +1,4 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 import fs, { readFileSync } from "fs";
 
 import * as dotenv from "dotenv";
@@ -18,7 +19,6 @@ import "@typechain/hardhat";
 import "hardhat-abi-exporter";
 import "hardhat-deploy";
 import "hardhat-gas-reporter";
-import "hardhat-spdx-license-identifier";
 import "hardhat-watcher";
 
 subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
@@ -26,6 +26,12 @@ subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
     const paths = await runSuper();
 
     return paths.filter((p: any) => {
+      if (p.includes("hardhat")) {
+        return false;
+      }
+      if (p.includes("zksync")) {
+        return false;
+      }
       return !p.endsWith(".t.sol");
     });
   },
@@ -150,10 +156,6 @@ const config: HardhatUserConfig = {
         },
       };
     },
-  },
-  spdxLicenseIdentifier: {
-    overwrite: false,
-    runOnCompile: true,
   },
   watcher: {
     compile: {

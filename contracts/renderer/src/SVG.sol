@@ -2,7 +2,7 @@
 // Code from: https://github.com/w1nt3r-eth/hot-chain-svg/blob/main/contracts/SVG.sol
 // Slightly modified for specific preferances & purposes.
 
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.16;
 import "./Utils.sol";
 
 library SVG {

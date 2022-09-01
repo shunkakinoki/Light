@@ -12,4 +12,4 @@ forge-std/=lib/forge-std/src/
 @openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
 @openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
 @matterlabs/zksync-contracts/=lib/v2-testnet-contracts/
-hardhat/=node_modules/hardhat/
+hardhat/=lib/forge-std/src/

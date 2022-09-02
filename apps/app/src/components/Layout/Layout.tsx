@@ -1,4 +1,4 @@
-import { Analytics } from "@lightdotso/core";
+import { Analytics } from "@lightdotso/common";
 import dynamic from "next/dynamic";
 import type { FC } from "react";
 

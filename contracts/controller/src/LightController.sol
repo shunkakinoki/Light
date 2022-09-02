@@ -4,9 +4,7 @@ pragma solidity ^0.8.16;
 
 import { ILightController } from "@lightdotso/controller/ILightController.sol";
 import { LightControllerStorageV1 } from "@lightdotso/controller/LightControllerStorage.sol";
-import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 
 /// @title Controller contract for the Light protocol.
@@ -16,9 +14,7 @@ import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/securit
 /// @notice This contract is a fork from Graph Protocol's Controller (GPL-2.0-or-later)
 /// @notice Ref: https://github.com/graphprotocol/contracts/blob/dev/contracts/governance/Controller.sol
 contract LightController is
-  Initializable,
-  OwnableUpgradeable,
-  UUPSUpgradeable,
+  LightUpgradeable,
   PausableUpgradeable,
   LightControllerStorageV1,
   ILightController
@@ -27,18 +23,15 @@ contract LightController is
   /*                       UPGRADEABLE                          */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
-  /// @custom:oz-upgrades-unsafe-allow constructor
-  constructor() {
-    _disableInitializers();
-  }
-
-  function initialize() external override reinitializer(2) {
+  function initialize()
+    external
+    override(LightUpgradeable, ILightController)
+    reinitializer(2)
+  {
     __Ownable_init();
     __Pausable_init();
     __UUPSUpgradeable_init();
   }
-
-  function _authorizeUpgrade(address) internal override onlyOwner {}
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                   EXTERNAL TRANSACTIONS                    */

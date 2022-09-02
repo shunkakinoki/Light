@@ -10,9 +10,7 @@ import { IERC721MetadataUpgradeable } from "@openzeppelin/contracts-upgradeable/
 import { LightOperatable } from "@lightdotso/abstract/LightOperatable.sol";
 import { LightSpaceMetadata } from "@lightdotso/space/LightSpaceMetadata.sol";
 import { LightSpaceStorageV1 } from "@lightdotso/space/LightSpaceStorage.sol";
-import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 import { ERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 import { EIP712Upgradeable } from "@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol";
 
@@ -22,9 +20,7 @@ import { EIP712Upgradeable } from "@openzeppelin/contracts-upgradeable/utils/cry
 /// @notice Stores operator permissions for all addresses. Addresses can give permissions to any other address to take specific indexed actions on their behalf.
 /// @notice Implemented based of JBSpaces at https://github.com/jbx-protocol/juice-contracts-v2/blob/main/contracts/JBSpaces.sol (MIT License)
 contract LightSpace is
-  Initializable,
-  OwnableUpgradeable,
-  UUPSUpgradeable,
+  LightUpgradeable,
   ERC721Upgradeable,
   EIP712Upgradeable,
   LightOperatable,

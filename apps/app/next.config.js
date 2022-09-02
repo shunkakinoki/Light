@@ -3,7 +3,7 @@ const withPlugins = require("next-compose-plugins");
 const { withPlausibleProxy } = require("next-plausible");
 const withTM = require("next-transpile-modules")([
   "@lightdotso/const",
-  "@lightdotso/core",
+  "@lightdotso/common",
   "@lightdotso/types",
 ]);
 

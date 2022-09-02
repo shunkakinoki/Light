@@ -1,4 +1,4 @@
-import { HeaderPanel } from "@lightdotso/core";
+import { HeaderPanel } from "@lightdotso/common";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
 import type { FC } from "react";

@@ -6,18 +6,14 @@ import { ILightOrbFactory } from "@lightdotso/orb/ILightOrbFactory.sol";
 import { LightOperatable } from "@lightdotso/abstract/LightOperatable.sol";
 import { LightOrb } from "@lightdotso/orb/LightOrb.sol";
 import { LightOrbFactoryStorageV1, UpgradeableBeacon } from "@lightdotso/orb/LightOrbFactoryStorage.sol";
-import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { BeaconProxy } from "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
-import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 
 /// @title Factory contract for generating Light Orbs.
 /// @title Inherits the `LightOrbFactoryStorage` storage contract to store the state variables in respected slots.
 /// @author Shun Kakinoki
 contract LightOrbFactory is
-  Initializable,
-  OwnableUpgradeable,
-  UUPSUpgradeable,
+  LightUpgradeable,
   LightOperatable,
   LightOrbFactoryStorageV1,
   ILightOrbFactory

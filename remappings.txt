@@ -1,5 +1,6 @@
 @lightdotso/abstract/=contracts/abstract/src/
 @lightdotso/controller/=contracts/controller/src/
+@lightdotso/curation/=contracts/curation/src/
 @lightdotso/core/=contracts/core/src/
 @lightdotso/ens/=contracts/ens/src/
 @lightdotso/foundry/=contracts/foundry/src/
@@ -9,9 +10,11 @@
 @lightdotso/operator/=contracts/operator/src/
 @lightdotso/protocol/=contracts/protocol/src/
 @lightdotso/proxies/=contracts/proxies/src/
+@lightdotso/rewards/=contracts/rewards/src/
 @lightdotso/renderer/=contracts/renderer/src/
 @lightdotso/space/=contracts/space/src/
 @lightdotso/scripts/=contracts/scripts/src/
+@lightdotso/staking/=contracts/staking/src/
 @lightdotso/token/=contracts/token/src/
 @lightdotso/upgradeable/=contracts/upgradeable/src/
 @lightdotso/utils/=contracts/utils/src/

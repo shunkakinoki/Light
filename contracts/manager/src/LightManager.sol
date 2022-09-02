@@ -8,12 +8,12 @@ import { ILightCore } from "@lightdotso/core/ILightCore.sol";
 import { ILightOperatorStore } from "@lightdotso/operator/ILightOperatorStore.sol";
 import { ILightOrb } from "@lightdotso/orb/ILightOrb.sol";
 import { ILightOrbFactory } from "@lightdotso/orb/ILightOrbFactory.sol";
+import { ILightRewardsManager } from "@lightdotso/rewards/ILightRewardsManager.sol";
 import { ILightSpace } from "@lightdotso/space/ILightSpace.sol";
+import { ILightStaking } from "@lightdotso/staking/ILightStaking.sol";
 import { ILightToken } from "@lightdotso/token/ILightToken.sol";
 import { LightManagerStorageV1 } from "@lightdotso/manager/LightManagerStorage.sol";
-import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 
 /// @title Manager contract for the Light protocol.
 /// @title Keeps track of the references of the protocol.
@@ -37,7 +37,9 @@ contract LightManager is LightManagerStorageV1, ILightManager {
     _syncContract("LightCore");
     _syncContract("LightOrb");
     _syncContract("LightOrbFactory");
+    _syncContract("LightRewardsManager");
     _syncContract("LightSpace");
+    _syncContract("LightStaking");
     _syncContract("LightToken");
   }
 
@@ -70,11 +72,28 @@ contract LightManager is LightManagerStorageV1, ILightManager {
   }
 
   /**
+   * @dev Return LightRewardsManager interface.
+   * @return LightRewardsManager manager contract registered with Controller
+   */
+  function lightRewardsManager() internal view returns (ILightRewardsManager) {
+    return
+      ILightRewardsManager(_resolveContract(keccak256("LightRewardsManager")));
+  }
+
+  /**
    * @dev Return LightSpace interface.
    * @return LightSpace manager contract registered with Controller
    */
   function lightSpace() internal view returns (ILightSpace) {
     return ILightSpace(_resolveContract(keccak256("LightSpace")));
+  }
+
+  /**
+   * @dev Return LightRewardsManager interface.
+   * @return LightRewardsManager manager contract registered with Controller
+   */
+  function lightStaking() internal view returns (ILightRewardsManager) {
+    return ILightRewardsManager(_resolveContract(keccak256("LightStaking")));
   }
 
   /**

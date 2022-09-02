@@ -1,4 +1,4 @@
-import { Logo } from "@lightdotso/core";
+import { Logo } from "@lightdotso/common";
 import type { FC } from "react";
 
 export const AssetFooter: FC = () => {

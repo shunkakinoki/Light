@@ -1,4 +1,4 @@
-import { Footer } from "@lightdotso/core";
+import { Footer } from "@lightdotso/common";
 import type { FC } from "react";
 
 import { Header } from "@lightdotso/app/components/Header";

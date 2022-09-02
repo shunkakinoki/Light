@@ -1,4 +1,4 @@
-import { ClientOnly } from "@lightdotso/core";
+import { ClientOnly } from "@lightdotso/common";
 import type { FC } from "react";
 
 import { Config } from "@lightdotso/og/components/Config";

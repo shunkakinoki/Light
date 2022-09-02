@@ -1,5 +1,5 @@
 const withPlugins = require("next-compose-plugins");
-const withTM = require("next-transpile-modules")(["@lightdotso/core"]);
+const withTM = require("next-transpile-modules")(["@lightdotso/common"]);
 
 const plugins = [withTM];
 

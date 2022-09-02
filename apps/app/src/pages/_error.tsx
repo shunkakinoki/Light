@@ -1,4 +1,4 @@
-import { Footer } from "@lightdotso/core";
+import { Footer } from "@lightdotso/common";
 import * as Sentry from "@sentry/nextjs";
 import type { NextPageContext, NextPage } from "next";
 import type { ErrorProps as NextErrorProps } from "next/error";

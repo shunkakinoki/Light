@@ -1,6 +1,6 @@
 import { Disclosure, Transition } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
-import { IconNFT, IconTokens, IconPoap } from "@lightdotso/core";
+import { IconNFT, IconTokens, IconPoap } from "@lightdotso/common";
 import clsx from "clsx";
 import type { FC, ReactNode } from "react";
 import { useMemo } from "react";

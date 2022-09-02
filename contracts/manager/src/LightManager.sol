@@ -3,6 +3,7 @@
 pragma solidity ^0.8.16;
 
 import { ILightController } from "@lightdotso/controller/ILightController.sol";
+import { ILightCuration } from "@lightdotso/curation/ILightCuration.sol";
 import { ILightEpochManager } from "@lightdotso/epochs/ILightEpochManager.sol";
 import { ILightManager } from "@lightdotso/manager/ILightManager.sol";
 import { ILightCore } from "@lightdotso/core/ILightCore.sol";
@@ -34,6 +35,7 @@ contract LightManager is LightManagerStorageV1, ILightManager {
   /// @dev controller to ensure the protocol is using the latest version
   function syncAllContracts() external {
     _syncContract("LightCore");
+    _syncContract("LightCuration");
     _syncContract("LightEpochManager");
     _syncContract("LightOrb");
     _syncContract("LightOrbFactory");
@@ -51,6 +53,12 @@ contract LightManager is LightManagerStorageV1, ILightManager {
   /// @return LightOrb contract registered with Controller
   function lightCore() internal view returns (ILightCore) {
     return ILightCore(_resolveContract(keccak256("LightCore")));
+  }
+
+  /// @dev Return LightOrb interface.
+  /// @return LightOrb contract registered with Controller
+  function lightCuration() internal view returns (ILightCuration) {
+    return ILightCuration(_resolveContract(keccak256("LightCuration")));
   }
 
   /**

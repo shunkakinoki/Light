@@ -6,6 +6,8 @@ pragma abicoder v2;
 import "./ILightStakingData.sol";
 
 interface ILightStaking is ILightStakingData {
+  event ParameterUpdated(string param);
+
   enum AllocationState {
     Null,
     Active,
@@ -144,7 +146,7 @@ interface ILightStaking is ILightStakingData {
 
   function isAllocation(address _allocationID) external view returns (bool);
 
-  function getspaceAllocatedTokens(bytes32 _spaceDeploymentID)
+  function getSpaceAllocatedTokens(bytes32 _spaceDeploymentID)
     external
     view
     returns (uint256);

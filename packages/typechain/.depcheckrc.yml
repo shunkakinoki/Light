@@ -2,6 +2,7 @@ ignores:
   - "@lightdotso/contracts"
   - "@lightdotso/protocol"
   - "@lightdotso/tsconfig"
+  - "@nomiclabs/hardhat-ethers"
   - "@ethersproject/abi"
   - "@ethersproject/providers"
   - ethers

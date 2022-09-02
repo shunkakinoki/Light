@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // Code from: https://github.com/jameswenzel/hot-chain-svg/blob/main/script/qa.s.sol
 
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.16;
 
 import { Script, console } from "forge-std/Script.sol";
 import { Strings } from "@openzeppelin/contracts/utils/Strings.sol";

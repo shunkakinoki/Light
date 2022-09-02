@@ -703,8 +703,6 @@ importers:
       '@nomiclabs/hardhat-ethers': ^2.1.1
       '@nomiclabs/hardhat-etherscan': ^3.1.0
       '@nomiclabs/hardhat-waffle': ^2.0.3
-      '@openzeppelin/contracts': ^4.7.3
-      '@openzeppelin/contracts-upgradeable': ^4.7.3
       '@openzeppelin/hardhat-upgrades': ^1.20.0
       '@typechain/ethers-v5': ^10.1.0
       '@typechain/hardhat': ^6.1.2
@@ -716,7 +714,6 @@ importers:
       hardhat-gas-reporter: ^1.0.8
       hardhat-preprocessor: ^0.1.4
       hardhat-watcher: ^2.5.0
-      solc: ^0.8.16
       toml: ^3.0.0
       tsconfig-paths: ^4.1.0
     dependencies:
@@ -726,8 +723,6 @@ importers:
       '@nomiclabs/hardhat-ethers': 2.1.1_lc7o4ykyrnccnzpoyzs6m3zzsq
       '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.2
       '@nomiclabs/hardhat-waffle': 2.0.3_uxo2rwx75glmgtp3fcm2wqctfi
-      '@openzeppelin/contracts': 4.7.3
-      '@openzeppelin/contracts-upgradeable': 4.7.3
       '@openzeppelin/hardhat-upgrades': 1.20.0_xb76km3ck45sk5p7v3vmq6iqbi
       '@typechain/ethers-v5': 10.1.0_a6ljzpsfjckm35mcawh36jfcxa
       '@typechain/hardhat': 6.1.2_vspu57e6jqatwihhd6uebv4ete
@@ -739,7 +734,6 @@ importers:
       hardhat-gas-reporter: 1.0.8_hardhat@2.10.2
       hardhat-preprocessor: 0.1.4_hardhat@2.10.2
       hardhat-watcher: 2.5.0_hardhat@2.10.2
-      solc: 0.8.16
       toml: 3.0.0
       tsconfig-paths: 4.1.0
 
@@ -905,8 +899,6 @@ importers:
       '@nomiclabs/hardhat-ethers': ^2.1.1
       '@nomiclabs/hardhat-etherscan': ^3.1.0
       '@nomiclabs/hardhat-waffle': ^2.0.3
-      '@openzeppelin/contracts': ^4.7.3
-      '@openzeppelin/contracts-upgradeable': ^4.7.3
       '@openzeppelin/hardhat-upgrades': ^1.20.0
       '@typechain/ethers-v5': ^10.1.0
       '@typechain/hardhat': ^6.1.2
@@ -936,8 +928,6 @@ importers:
       '@nomiclabs/hardhat-ethers': 2.1.1_lc7o4ykyrnccnzpoyzs6m3zzsq
       '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.2
       '@nomiclabs/hardhat-waffle': 2.0.3_eldzggq4rzrujjvlywbx6zhlvq
-      '@openzeppelin/contracts': 4.7.3
-      '@openzeppelin/contracts-upgradeable': 4.7.3
       '@openzeppelin/hardhat-upgrades': 1.20.0_xb76km3ck45sk5p7v3vmq6iqbi
       '@typechain/ethers-v5': 10.1.0_grtvsajv4h6vd2pawneyo5plpi
       '@typechain/hardhat': 6.1.2_issnms7c6tikosgz2xwaf2d3b4
@@ -4207,14 +4197,6 @@ packages:
     dependencies:
       '@octokit/openapi-types': 12.10.1
     dev: true
-
-  /@openzeppelin/contracts-upgradeable/4.7.3:
-    resolution: {integrity: sha512-+wuegAMaLcZnLCJIvrVUDzA9z/Wp93f0Dla/4jJvIhijRrPabjQbZe6fWiECLaJyfn5ci9fqf9vTw3xpQOad2A==}
-    dev: false
-
-  /@openzeppelin/contracts/4.7.3:
-    resolution: {integrity: sha512-dGRS0agJzu8ybo44pCIf3xBaPQN/65AIXNgK8+4gzKd5kbvlqyxryUYVLJv7fK98Seyd2hDZzVEHSWAh0Bt1Yw==}
-    dev: false
 
   /@openzeppelin/hardhat-upgrades/1.20.0_xb76km3ck45sk5p7v3vmq6iqbi:
     resolution: {integrity: sha512-ign7fc/ZdPe+KAYCB91619o+wlBr7sIEEt1nqLhoXAJ9f0qVuXkwAaTdLB0MTSWH85TzlUUT2fTJp1ZnZ1o4LQ==}

@@ -35,7 +35,7 @@
     "lint": "concurrently 'pnpm:*:lint'",
     "ncu:check": "ncu--packageFile '{apps,components,contracts,configurations,packages}/**/package.json'",
     "ncu:upgrade": "ncu --packageFile '{apps,components,contracts,configurations,packages}/**/package.json' -u",
-    "npm-package-json:lint": "npmPkgJsonLint .",
+    "npm-package-json:lint": "npmPkgJsonLint ./apps ./components ./contracts ./configurations ./packages",
     "prepare": "husky install",
     "prepublishOnly": "pinst --disable",
     "prettier:cmd": "prettier",

@@ -46,6 +46,8 @@ contract LightCuration is
     __Pausable_init();
     __UUPSUpgradeable_init();
 
+    _setController(_controller);
+
     require(_bondingCurve != address(0), "Bonding curve must be set");
     bondingCurve = _bondingCurve;
 

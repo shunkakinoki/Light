@@ -53,9 +53,6 @@
     "vercel:cp:api": "cp vercel.sh apps/api/vercel.sh",
     "vercel:cp:home": "cp vercel.sh apps/home/vercel.sh"
   },
-  "npmpackagejsonlint": {
-    "extends": "npm-package-json-lint-config-default"
-  },
   "resolutions": {
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",

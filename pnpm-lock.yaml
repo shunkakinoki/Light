@@ -799,7 +799,6 @@ importers:
       '@lightdotso/jest': workspace:*
       '@lightdotso/tsconfig': workspace:*
       '@lightdotso/typechain': workspace:*
-      '@types/jest': ^29.0.0
       chai: ^4.3.6
     dependencies:
       '@lightdotso/hardhat-config': link:../../configurations/hardhat
@@ -807,8 +806,6 @@ importers:
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
       '@lightdotso/typechain': link:../../packages/typechain
       chai: 4.3.6
-    devDependencies:
-      '@types/jest': 29.0.0
 
   contracts/ens:
     specifiers: {}

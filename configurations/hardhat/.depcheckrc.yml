@@ -1,2 +1,6 @@
 ignores:
+  - "@lightdotso/jest"
   - "@lightdotso/tsconfig"
+  - "@types/chai"
+  - "@types/jest"
+  - chai

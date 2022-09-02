@@ -1,5 +1,5 @@
 {
-  "name": "@lightdotso/core",
+  "name": "@lightdotso/jest",
   "version": "1.0.0",
   "private": false,
   "homepage": "https://github.com/LightDotSo/LightDotSo",
@@ -12,28 +12,29 @@
   },
   "license": "GPL-3.0",
   "author": "Light, Inc.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "source": "src/index.ts",
+  "typings": "dist/index.d.ts",
   "files": [
-    "src"
+    "src/index.js"
   ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run compile",
+    "clean": "rimraf -rf ./dist",
+    "compile": "tsc",
+    "prepublishOnly": "pnpm run build",
+    "test": "pnpm run build"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "scripts": {
-    "build": "pnpm run clean && pnpm run build:hh",
-    "build:hh": "hardhat compile --force",
-    "clean": "pnpm run clean:hh",
-    "clean:hh": "hardhat clean",
-    "test": "hardhat test"
-  },
   "dependencies": {
-    "@lightdotso/hardhat-config": "workspace:*",
-    "@lightdotso/jest": "workspace:*",
-    "@lightdotso/tsconfig": "workspace:*",
-    "@lightdotso/typechain": "workspace:*",
-    "chai": "^4.3.6"
+    "jest": "^29.0.1"
   },
   "devDependencies": {
-    "@types/jest": "^29.0.0"
+    "@types/jest": "^29.0.0",
+    "@types/mocha": "^9.1.1"
   }
 }

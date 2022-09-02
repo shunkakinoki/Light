@@ -28,6 +28,7 @@ ignores:
   - prettier-plugin-tailwindcss
   - release-it
   - rimraf
+  - solc
   - shx
   - tsconfig-paths-webpack-plugin
   - tsup

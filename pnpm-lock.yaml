@@ -60,6 +60,7 @@ importers:
       release-it: ^15.3.0
       rimraf: ^3.0.2
       shx: ^0.3.4
+      solc: ^0.8.16
       solhint: ^3.3.7
       tsconfig-paths-webpack-plugin: ^4.0.0
       tsup: ^6.2.2
@@ -114,6 +115,7 @@ importers:
       prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
       release-it: 15.3.0
       shx: 0.3.4
+      solc: 0.8.16
       solhint: 3.3.7
       tsconfig-paths-webpack-plugin: 4.0.0
       tsup: 6.2.2_typescript@4.7.4
@@ -22124,7 +22126,6 @@ packages:
       tmp: 0.0.33
     transitivePeerDependencies:
       - debug
-    dev: false
 
   /solhint/3.3.7:
     resolution: {integrity: sha512-NjjjVmXI3ehKkb3aNtRJWw55SUVJ8HMKKodwe0HnejA+k0d2kmhw7jvpa+MCTbcEgt8IWSwx0Hu6aCo/iYOZzQ==}

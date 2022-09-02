@@ -109,6 +109,7 @@
     "prettier-plugin-tailwindcss": "^0.1.13",
     "release-it": "^15.3.0",
     "shx": "^0.3.4",
+    "solc": "^0.8.16",
     "solhint": "^3.3.7",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
     "tsup": "^6.2.2",

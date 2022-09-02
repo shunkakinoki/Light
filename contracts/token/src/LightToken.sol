@@ -8,8 +8,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import { ILightToken } from "@lightdotso/token/ILightToken.sol";
 import { LightTokenStorage } from "@lightdotso/token/LightTokenStorage.sol";
 
-/// @title Contract for the Light Token.
-/// @title Extends solmate as an ERC20 + EIP-2612 compatible implementation.
+/// @title Light Token
+/// @title Extends OZ as an ERC20 + EIP-2612 compatible implementation.
 /// @author Shun Kakinoki
 contract LightToken is
   ERC20,

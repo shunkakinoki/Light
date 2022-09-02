@@ -6,8 +6,7 @@ import { ILightCurationToken } from "@lightdotso/curation/ILightCurationToken.so
 import { ILightRewardsManager } from "@lightdotso/rewards/ILightRewardsManager.sol";
 import { ILightToken } from "@lightdotso/token/ILightToken.sol";
 import { LightCurationStorageV1 } from "@lightdotso/curation/LightCurationStorage.sol";
-import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
-import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import { LightPausableUpgradeable } from "@lightdotso/upgradeable/LightPausableUpgradeable.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/proxy/Clones.sol";
@@ -20,11 +19,7 @@ import "@lightdotso/math/BancorFormula.sol";
 /// @author Shun Kakinoki
 /// @notice This contract is a fork from Light Protocol's Curation (GPL-2.0-or-later)
 /// @notice Ref: https://github.com/lightprotocol/contracts/blob/dev/contracts/curation/Curation.sol
-contract LightCuration is
-  LightUpgradeable,
-  PausableUpgradeable,
-  LightCurationStorageV1
-{
+contract LightCuration is LightPausableUpgradeable, LightCurationStorageV1 {
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                       UPGRADEABLE                          */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/

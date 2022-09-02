@@ -243,6 +243,10 @@ contract LightStaking is
     uint32 _rebateAlphaNumerator,
     uint32 _rebateAlphaDenominator
   ) external reinitializer(2) {
+    __Ownable_init();
+    __UUPSUpgradeable_init();
+    __Pausable_init();
+
     _setController(_controller);
 
     // Settings

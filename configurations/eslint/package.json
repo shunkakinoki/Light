@@ -22,6 +22,7 @@
     "eslint": "^8.23.0",
     "eslint-config-next": "^12.2.5",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-config-turbo": "^0.0.3",
     "eslint-import-resolver-typescript": "^3.5.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-editorconfig": "^4.0.2",
@@ -37,8 +38,5 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  },
-  "devDependencies": {
-    "eslint-config-turbo": "^0.0.3"
   }
 }

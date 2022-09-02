@@ -1,0 +1,5 @@
+ignores:
+  - "@typescript-eslint/*"
+  - eslint
+  - eslint-*
+  - jsonc-eslint-parser

@@ -1,0 +1,7 @@
+{
+  "extends": "@lightdotso/tsconfig/hardhat.json",
+  "files": ["hardhat.config.ts"],
+  "compilerOptions": {
+    "resolveJsonModule": true
+  }
+}

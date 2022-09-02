@@ -18,5 +18,9 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
+  },
+  "dependencies": {
+    "@lightdotso/hardhat-config": "workspace:*",
+    "@lightdotso/tsconfig": "workspace:*"
   }
 }

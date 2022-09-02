@@ -200,8 +200,8 @@ importers:
       '@headlessui/react': ^1.6.6
       '@heroicons/react': ^2.0.8
       '@jest/globals': ^29.0.1
+      '@lightdotso/common': workspace:*
       '@lightdotso/const': workspace:*
-      '@lightdotso/core': workspace:*
       '@lightdotso/middlewares': workspace:*
       '@lightdotso/services': workspace:*
       '@lightdotso/styles': workspace:*
@@ -262,8 +262,8 @@ importers:
       '@cyberlab/social-verifier': 2.0.1
       '@headlessui/react': 1.6.6_biqbaboplfbrettd7655fr4n2y
       '@heroicons/react': 2.0.8_react@18.2.0
+      '@lightdotso/common': link:../../components/common
       '@lightdotso/const': link:../../packages/const
-      '@lightdotso/core': link:../../components/core
       '@lightdotso/middlewares': link:../../packages/middlewares
       '@lightdotso/services': link:../../packages/services
       '@lightdotso/styles': link:../../packages/styles
@@ -329,8 +329,8 @@ importers:
       '@cypress/code-coverage': ^3.10.0
       '@cypress/react': ^6.1.1
       '@jest/globals': ^29.0.1
+      '@lightdotso/common': workspace:*
       '@lightdotso/const': workspace:*
-      '@lightdotso/core': workspace:*
       '@lightdotso/middlewares': workspace:*
       '@lightdotso/styles': workspace:*
       '@lightdotso/tailwindcss': workspace:*
@@ -363,8 +363,8 @@ importers:
       react-dom: ^18.2.0
       start-server-and-test: ^1.14.0
     dependencies:
+      '@lightdotso/common': link:../../components/common
       '@lightdotso/const': link:../../packages/const
-      '@lightdotso/core': link:../../components/core
       '@lightdotso/middlewares': link:../../packages/middlewares
       '@lightdotso/tailwindcss': link:../../configurations/tailwindcss
       '@notionhq/client': 2.1.1
@@ -406,7 +406,7 @@ importers:
       '@cypress/code-coverage': ^3.10.0
       '@cypress/react': ^6.1.1
       '@jest/globals': ^29.0.1
-      '@lightdotso/core': workspace:*
+      '@lightdotso/common': workspace:*
       '@lightdotso/middlewares': workspace:*
       '@lightdotso/tailwindcss': workspace:*
       '@lightdotso/tsconfig': workspace:*
@@ -434,7 +434,7 @@ importers:
       react-dom: ^18.2.0
       start-server-and-test: ^1.14.0
     dependencies:
-      '@lightdotso/core': link:../../components/core
+      '@lightdotso/common': link:../../components/common
       '@lightdotso/middlewares': link:../../packages/middlewares
       '@lightdotso/tailwindcss': link:../../configurations/tailwindcss
       '@reach/skip-nav': 0.17.0_biqbaboplfbrettd7655fr4n2y
@@ -473,8 +473,8 @@ importers:
       '@headlessui/react': ^1.6.6
       '@heroicons/react': ^2.0.8
       '@jest/globals': ^29.0.1
+      '@lightdotso/common': workspace:*
       '@lightdotso/const': workspace:*
-      '@lightdotso/core': workspace:*
       '@lightdotso/middlewares': workspace:*
       '@lightdotso/styles': workspace:*
       '@lightdotso/tailwindcss': workspace:*
@@ -513,8 +513,8 @@ importers:
     dependencies:
       '@headlessui/react': 1.6.6_biqbaboplfbrettd7655fr4n2y
       '@heroicons/react': 2.0.8_react@18.2.0
+      '@lightdotso/common': link:../../components/common
       '@lightdotso/const': link:../../packages/const
-      '@lightdotso/core': link:../../components/core
       '@lightdotso/middlewares': link:../../packages/middlewares
       '@lightdotso/tailwindcss': link:../../configurations/tailwindcss
       '@sentry/integrations': 7.11.1
@@ -560,7 +560,7 @@ importers:
       '@cypress/code-coverage': ^3.10.0
       '@cypress/react': ^6.1.1
       '@jest/globals': ^29.0.1
-      '@lightdotso/core': workspace:*
+      '@lightdotso/common': workspace:*
       '@lightdotso/styles': workspace:*
       '@lightdotso/tailwindcss': workspace:*
       '@lightdotso/tsconfig': workspace:*
@@ -593,7 +593,7 @@ importers:
       recoil: ^0.7.5
       start-server-and-test: ^1.14.0
     dependencies:
-      '@lightdotso/core': link:../../components/core
+      '@lightdotso/common': link:../../components/common
       '@lightdotso/styles': link:../../packages/styles
       '@sentry/integrations': 7.11.1
       '@sentry/nextjs': 7.11.1_next@12.2.5+react@18.2.0
@@ -630,7 +630,7 @@ importers:
       nyc: 15.1.0
       start-server-and-test: 1.14.0
 
-  components/core:
+  components/common:
     specifiers:
       '@headlessui/react': ^1.6.6
       '@heroicons/react': ^2.0.8
@@ -729,10 +729,31 @@ importers:
   configurations/tsconfig:
     specifiers: {}
 
+  contracts/abstract:
+    specifiers: {}
+
+  contracts/controller:
+    specifiers: {}
+
+  contracts/core:
+    specifiers: {}
+
   contracts/ens:
     specifiers: {}
 
   contracts/foundry:
+    specifiers: {}
+
+  contracts/manager:
+    specifiers: {}
+
+  contracts/math:
+    specifiers: {}
+
+  contracts/operator:
+    specifiers: {}
+
+  contracts/orb:
     specifiers: {}
 
   contracts/protocol:
@@ -744,10 +765,28 @@ importers:
   contracts/renderer:
     specifiers: {}
 
+  contracts/rewards:
+    specifiers: {}
+
   contracts/scripts:
     specifiers: {}
 
+  contracts/space:
+    specifiers: {}
+
+  contracts/staking:
+    specifiers: {}
+
+  contracts/token:
+    specifiers: {}
+
   contracts/upgradeable:
+    specifiers: {}
+
+  contracts/utils:
+    specifiers: {}
+
+  contracts/xp:
     specifiers: {}
 
   contracts/zksync:

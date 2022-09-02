@@ -475,7 +475,6 @@ importers:
       '@jest/globals': ^29.0.1
       '@lightdotso/common': workspace:*
       '@lightdotso/const': workspace:*
-      '@lightdotso/middlewares': workspace:*
       '@lightdotso/styles': workspace:*
       '@lightdotso/tailwindcss': workspace:*
       '@lightdotso/tsconfig': workspace:*
@@ -515,7 +514,6 @@ importers:
       '@heroicons/react': 2.0.8_react@18.2.0
       '@lightdotso/common': link:../../components/common
       '@lightdotso/const': link:../../packages/const
-      '@lightdotso/middlewares': link:../../packages/middlewares
       '@lightdotso/tailwindcss': link:../../configurations/tailwindcss
       '@sentry/integrations': 7.11.1
       '@sentry/nextjs': 7.11.1_next@12.2.5+react@18.2.0

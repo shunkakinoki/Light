@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0
+/// SPDX-License-Identifier: GPL-3.0
 
 pragma solidity ^0.8.16;
 
@@ -45,6 +45,8 @@ contract LightCuration is
     __Ownable_init();
     __Pausable_init();
     __UUPSUpgradeable_init();
+
+    _setController(_controller);
 
     require(_bondingCurve != address(0), "Bonding curve must be set");
     bondingCurve = _bondingCurve;

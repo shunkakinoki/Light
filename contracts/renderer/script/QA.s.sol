@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+/// SPDX-License-Identifier: MIT
 // Code from: https://github.com/jameswenzel/hot-chain-svg/blob/main/script/qa.s.sol
 
 pragma solidity ^0.8.16;

@@ -9,7 +9,7 @@ module.exports = {
     require("@tailwindcss/typography"),
   ],
   content: [
-    "../../components/core/**/*.{js,ts,jsx,tsx}",
+    "../../components/common/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {

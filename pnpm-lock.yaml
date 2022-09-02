@@ -708,6 +708,9 @@ importers:
       '@openzeppelin/hardhat-upgrades': ^1.20.0
       '@typechain/ethers-v5': ^10.1.0
       '@typechain/hardhat': ^6.1.2
+      '@types/chai': ^4.3.3
+      '@types/jest': ^29.0.0
+      chai: ^4.3.6
       dotenv: ^16.0.2
       ethers: ^5.7.0
       hardhat: ^2.10.2
@@ -728,6 +731,9 @@ importers:
       '@openzeppelin/hardhat-upgrades': 1.20.0_xb76km3ck45sk5p7v3vmq6iqbi
       '@typechain/ethers-v5': 10.1.0_a6ljzpsfjckm35mcawh36jfcxa
       '@typechain/hardhat': 6.1.2_vspu57e6jqatwihhd6uebv4ete
+      '@types/chai': 4.3.3
+      '@types/jest': 29.0.0
+      chai: 4.3.6
       dotenv: 16.0.2
       ethers: 5.7.0
       hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
@@ -795,6 +801,8 @@ importers:
       '@lightdotso/jest': workspace:*
       '@lightdotso/tsconfig': workspace:*
       '@lightdotso/typechain': workspace:*
+      '@types/chai': ^4.3.3
+      '@types/jest': ^29.0.0
       chai: ^4.3.6
     dependencies:
       '@lightdotso/hardhat-config': link:../../configurations/hardhat
@@ -802,6 +810,9 @@ importers:
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
       '@lightdotso/typechain': link:../../packages/typechain
       chai: 4.3.6
+    devDependencies:
+      '@types/chai': 4.3.3
+      '@types/jest': 29.0.0
 
   contracts/ens:
     specifiers: {}
@@ -5159,9 +5170,8 @@ packages:
       '@types/responselike': 1.0.0
     dev: true
 
-  /@types/chai/4.3.1:
-    resolution: {integrity: sha512-/zPMqDkzSZ8t3VtxOa4KPq7uzzW978M9Tvh+j7GHKuo6k6GTLxPJ4J5gE5cjfJ26pnXst0N5Hax8Sr0T2Mi9zQ==}
-    dev: false
+  /@types/chai/4.3.3:
+    resolution: {integrity: sha512-hC7OMnszpxhZPduX+m+nrx+uFoLkWOMiR4oa/AZF3MuSETYTZmFfJAHqZEM8MVlvfG7BEUcgvtwoCTxBp6hm3g==}
 
   /@types/concat-stream/1.6.1:
     resolution: {integrity: sha512-eHE4cQPoj6ngxBZMvVf6Hw7Mh4jMW4U9lpGmS5GBPB9RYxlFg+CHaVN7ErNY4W9XfLIEn20b4VDYaIrbq0q4uA==}
@@ -5291,7 +5301,6 @@ packages:
     dependencies:
       expect: 29.0.1
       pretty-format: 29.0.1
-    dev: true
 
   /@types/jsdom/20.0.0:
     resolution: {integrity: sha512-YfAchFs0yM1QPDrLm2VHe+WHGtqms3NXnXAMolrgrVP6fgBHHXy1ozAbo/dFtPNtZC/m66bPiCTWYmqp1F14gA==}
@@ -5487,7 +5496,7 @@ packages:
   /@types/sinon-chai/3.2.8:
     resolution: {integrity: sha512-d4ImIQbT/rKMG8+AXpmcan5T2/PNeSjrYhvkwet6z0p8kzYtfgA32xzOBlbU0yqJfq+/0Ml805iFoODO0LP5/g==}
     dependencies:
-      '@types/chai': 4.3.1
+      '@types/chai': 4.3.3
       '@types/sinon': 10.0.11
     dev: false
 
@@ -7067,7 +7076,7 @@ packages:
   /axios/0.21.4_debug@4.3.4:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
     dependencies:
-      follow-redirects: 1.15.1
+      follow-redirects: 1.15.1_debug@4.3.4
     transitivePeerDependencies:
       - debug
     dev: false
@@ -12795,6 +12804,17 @@ packages:
     dependencies:
       debug: 4.3.2
     dev: true
+
+  /follow-redirects/1.15.1_debug@4.3.4:
+    resolution: {integrity: sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dependencies:
+      debug: 4.3.4
 
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
@@ -22129,7 +22149,7 @@ packages:
     dependencies:
       command-exists: 1.2.9
       commander: 3.0.2
-      follow-redirects: 1.15.1
+      follow-redirects: 1.15.1_debug@4.3.4
       fs-extra: 0.30.0
       js-sha3: 0.8.0
       memorystream: 0.3.1

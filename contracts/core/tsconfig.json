@@ -1,9 +1,5 @@
 {
   "extends": "@lightdotso/tsconfig/hardhat.json",
   "include": ["spec"],
-  "files": ["hardhat.config.ts"],
-  "compilerOptions": {
-    "resolveJsonModule": true,
-    "types": ["jest"]
-  }
+  "files": ["hardhat.config.ts"]
 }

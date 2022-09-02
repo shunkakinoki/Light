@@ -32,8 +32,5 @@
     "@lightdotso/tsconfig": "workspace:*",
     "@lightdotso/typechain": "workspace:*",
     "chai": "^4.3.6"
-  },
-  "devDependencies": {
-    "@types/jest": "^29.0.0"
   }
 }

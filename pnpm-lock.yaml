@@ -745,12 +745,10 @@ importers:
 
   configurations/jest:
     specifiers:
-      '@jest/globals': ^29.0.1
       '@types/jest': ^29.0.0
       '@types/mocha': ^9.1.1
       jest: ^29.0.1
     dependencies:
-      '@jest/globals': 29.0.1
       jest: 29.0.1
     devDependencies:
       '@types/jest': 29.0.0

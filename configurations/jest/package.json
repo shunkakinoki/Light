@@ -19,13 +19,6 @@
   "files": [
     "src/index.js"
   ],
-  "scripts": {
-    "build": "pnpm run clean && pnpm run compile",
-    "clean": "rimraf -rf ./dist",
-    "compile": "tsc",
-    "prepublishOnly": "pnpm run build",
-    "test": "pnpm run build"
-  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

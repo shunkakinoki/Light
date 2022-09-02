@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "pnpm run clean && pnpm run generate && pnpm run compile",
-    "clean": "rimraf -rf ./dist",
+    "clean": "rimraf -rf ./dist ./zod",
     "compile": "tsc",
     "env:pull": "doppler secrets download --no-file --format env > .env",
     "fix": "cd ../.. && pnpm run fix",

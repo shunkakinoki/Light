@@ -24,8 +24,7 @@
     "prepublishOnly": "pnpm run build",
     "prisma:db:push": "prisma db push",
     "prisma:generate": "prisma generate",
-    "prisma:studio": "prisma studio",
-    "test": "pnpm run build"
+    "prisma:studio": "prisma studio"
   },
   "dependencies": {
     "@ethersproject/abstract-provider": "^5.7.0",

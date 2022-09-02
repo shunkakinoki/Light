@@ -27,7 +27,7 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
       - run: |
-          pnpx turbo run test --scope=@lightdotso/${{ matrix.map.package }}
+          pnpx turbo run test
         continue-on-error: true
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}

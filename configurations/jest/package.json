@@ -19,15 +19,15 @@
   "files": [
     "src/index.js"
   ],
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
   "dependencies": {
     "jest": "^29.0.1"
   },
   "devDependencies": {
     "@types/jest": "^29.0.0",
     "@types/mocha": "^9.1.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

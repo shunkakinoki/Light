@@ -48,10 +48,11 @@
     "solhint:cmd": "solhint 'contracts/**/*.sol'",
     "solhint:fix": "solhint 'contracts/**/*.sol' --fix",
     "solhint:lint": "solhint 'contracts/**/*.sol'",
-    "version-packages": "changeset version && pnpm run fix",
+    "sort-package-json:fix": "sort-package-json '{apps,components,contracts,configurations,packages}/**/package.json'",
     "vercel:cp": "pnpm run vercel:cp:api && pnpm run vercel:cp:home",
     "vercel:cp:api": "cp vercel.sh apps/api/vercel.sh",
-    "vercel:cp:home": "cp vercel.sh apps/home/vercel.sh"
+    "vercel:cp:home": "cp vercel.sh apps/home/vercel.sh",
+    "version-packages": "changeset version && pnpm run fix"
   },
   "resolutions": {
     "@types/react": "^17.0.43",
@@ -108,6 +109,7 @@
     "shx": "^0.3.4",
     "solc": "^0.8.16",
     "solhint": "^3.3.7",
+    "sort-package-json": "^1.57.0",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
     "tsup": "^6.2.2",
     "vercel": "^28.1.0",

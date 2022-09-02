@@ -15,10 +15,6 @@
   "files": [
     "src"
   ],
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
   "scripts": {
     "build": "pnpm run clean && pnpm run build:hh",
     "build:hh": "hardhat compile --force",
@@ -32,5 +28,9 @@
     "@lightdotso/tsconfig": "workspace:*",
     "@lightdotso/typechain": "workspace:*",
     "chai": "^4.3.6"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

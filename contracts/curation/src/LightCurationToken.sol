@@ -6,13 +6,9 @@ import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/I
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { ERC20Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
+import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 
-contract LightCurationToken is
-  Initializable,
-  OwnableUpgradeable,
-  UUPSUpgradeable,
-  ERC20Upgradeable
-{
+contract LightCurationToken is LightUpgradeable, ERC20Upgradeable {
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                       UPGRADEABLE                          */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
@@ -25,7 +21,7 @@ contract LightCurationToken is
   /**
    * @dev Light Curation Token Contract initializer.
    */
-  function initialize() external initializer {
+  function initialize() external override initializer {
     __Ownable_init();
     __UUPSUpgradeable_init();
 

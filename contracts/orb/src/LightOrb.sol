@@ -4,9 +4,7 @@ pragma solidity ^0.8.16;
 
 import { ILightOrb } from "@lightdotso/orb/ILightOrb.sol";
 import { LightOrbStorageV1 } from "@lightdotso/orb/LightOrbStorage.sol";
-import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 import { ERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 import { AccessControlUpgradeable } from "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 
@@ -14,9 +12,7 @@ import { AccessControlUpgradeable } from "@openzeppelin/contracts-upgradeable/ac
 /// @title Responsible for managing the rendering of the NFTs.
 /// @author Shun Kakinoki
 contract LightOrb is
-  Initializable,
-  OwnableUpgradeable,
-  UUPSUpgradeable,
+  LightUpgradeable,
   ERC721Upgradeable,
   AccessControlUpgradeable,
   LightOrbStorageV1,

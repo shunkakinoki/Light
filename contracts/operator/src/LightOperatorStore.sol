@@ -5,9 +5,7 @@ pragma solidity ^0.8.16;
 import { ILightOperatorStore } from "@lightdotso/operator/ILightOperatorStore.sol";
 import { LightOperatorStoreStorageV1 } from "@lightdotso/operator/LightOperatorStoreStorage.sol";
 import { LightOperatorStoreData } from "@lightdotso/operator/LightOperatorStoreData.sol";
-import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 
 /// @title Operator contract for the Light protocol.
 /// @title Keeps track of the permission and access rights of the protocol.
@@ -16,9 +14,7 @@ import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/O
 /// @notice Stores operator permissions for all addresses. Addresses can give permissions to any other address to take specific indexed actions on their behalf.
 /// @notice Fork of JBOperatorStore at https://github.com/jbx-protocol/juice-contracts-v2/blob/main/contracts/JBOperatorStore.sol (MIT License)
 contract LightOperatorStore is
-  Initializable,
-  OwnableUpgradeable,
-  UUPSUpgradeable,
+  LightUpgradeable,
   LightOperatorStoreStorageV1,
   ILightOperatorStore
 {
@@ -31,7 +27,11 @@ contract LightOperatorStore is
     _disableInitializers();
   }
 
-  function initialize() external override reinitializer(2) {
+  function initialize()
+    external
+    override(LightUpgradeable, ILightOperatorStore)
+    reinitializer(2)
+  {
     __Ownable_init();
     __UUPSUpgradeable_init();
   }

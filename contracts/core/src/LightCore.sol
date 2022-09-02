@@ -7,9 +7,7 @@ import { ILightOperatorStore } from "@lightdotso/operator/ILightOperatorStore.so
 import { LightSpaceMetadata } from "@lightdotso/space/LightSpaceMetadata.sol";
 import { LightOperatable } from "@lightdotso/abstract/LightOperatable.sol";
 import { LightCoreStorageV1 } from "@lightdotso/core/LightCoreStorage.sol";
-import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 
 /// @title Core contract for the Light protocol.
 /// @title Keeps track of the current state of the protocol.
@@ -18,9 +16,7 @@ import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/O
 /// @notice This contract is used to manage the Light protocol.
 /// @notice Implemented based of JBController at https://github.com/jbx-protocol/juice-contracts-v2/blob/main/contracts/JBController.sol (MIT License)
 contract LightCore is
-  Initializable,
-  OwnableUpgradeable,
-  UUPSUpgradeable,
+  LightUpgradeable,
   LightOperatable,
   LightCoreStorageV1,
   ILightCore

@@ -13,9 +13,7 @@ import { ILightSpace } from "@lightdotso/space/ILightSpace.sol";
 import { ILightStaking } from "@lightdotso/staking/ILightStaking.sol";
 import { ILightToken } from "@lightdotso/token/ILightToken.sol";
 import { LightManagerStorageV1 } from "@lightdotso/manager/LightManagerStorage.sol";
-import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 
 /// @title Manager contract for the Light protocol.
 /// @title Keeps track of the references of the protocol.

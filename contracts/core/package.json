@@ -15,6 +15,24 @@
   "files": [
     "src"
   ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run build:hh",
+    "build:hh": "hardhat compile --force",
+    "clean": "pnpm run clean:hh",
+    "clean:hh": "hardhat clean",
+    "test": "hardhat test"
+  },
+  "dependencies": {
+    "@lightdotso/hardhat-config": "workspace:*",
+    "@lightdotso/jest": "workspace:*",
+    "@lightdotso/tsconfig": "workspace:*",
+    "@lightdotso/typechain": "workspace:*",
+    "chai": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.3",
+    "@types/jest": "^29.0.0"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

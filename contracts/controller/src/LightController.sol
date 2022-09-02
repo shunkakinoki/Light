@@ -4,8 +4,7 @@ pragma solidity ^0.8.16;
 
 import { ILightController } from "@lightdotso/controller/ILightController.sol";
 import { LightControllerStorageV1 } from "@lightdotso/controller/LightControllerStorage.sol";
-import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
-import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import { LightPausableUpgradeable } from "@lightdotso/upgradeable/LightPausableUpgradeable.sol";
 
 /// @title Controller contract for the Light protocol.
 /// @title Keeps track of the contract references of the protocol.
@@ -14,8 +13,7 @@ import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/securit
 /// @notice This contract is a fork from Graph Protocol's Controller (GPL-2.0-or-later)
 /// @notice Ref: https://github.com/graphprotocol/contracts/blob/dev/contracts/governance/Controller.sol
 contract LightController is
-  LightUpgradeable,
-  PausableUpgradeable,
+  LightPausableUpgradeable,
   LightControllerStorageV1,
   ILightController
 {
@@ -25,12 +23,12 @@ contract LightController is
 
   function initialize()
     external
-    override(LightUpgradeable, ILightController)
+    override(LightPausableUpgradeable, ILightController)
     reinitializer(2)
   {
     __Ownable_init();
-    __Pausable_init();
     __UUPSUpgradeable_init();
+    __Pausable_init();
   }
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/

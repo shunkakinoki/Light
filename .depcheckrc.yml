@@ -8,6 +8,7 @@ ignores:
   - concurrently
   - cross-env
   - eslint-config-prettier
+  - eslint-config-turbo
   - eslint-plugin-cypress
   - eslint-plugin-jsonc
   - eslint-plugin-jsx-a11y
@@ -28,6 +29,7 @@ ignores:
   - prettier-plugin-tailwindcss
   - release-it
   - rimraf
+  - solc
   - shx
   - tsconfig-paths-webpack-plugin
   - tsup

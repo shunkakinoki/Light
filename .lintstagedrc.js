@@ -4,6 +4,7 @@ module.exports = {
   "*.sol": ["yarn run forge:snapshot:cmd", "yarn run solhint:cmd --fix"],
   "package.json": [
     "yarn run npm-package-json:lint",
+    "yarn run sort-package-json:fix",
     "yarn run prettier:cmd --write",
   ],
 };

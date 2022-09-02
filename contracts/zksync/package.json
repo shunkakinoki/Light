@@ -22,10 +22,6 @@
     "clean:hh": "hardhat clean",
     "env:pull": "doppler secrets download --no-file --format env > .env"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
   "dependencies": {
     "@lightdotso/tsconfig": "workspace:*",
     "@matterlabs/hardhat-zksync-deploy": "^0.4.0",
@@ -39,5 +35,9 @@
     "@types/node": "^18.7.14",
     "dotenv": "^16.0.2",
     "hardhat-preprocessor": "^0.1.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

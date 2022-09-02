@@ -21,8 +21,7 @@
     "build": "pnpm run clean && pnpm run compile",
     "clean": "rimraf -rf ./dist",
     "compile": "tsc",
-    "prepublishOnly": "pnpm run build",
-    "test": "pnpm run build"
+    "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
     "@ethersproject/abi": "^5.7.0",

@@ -1,6 +1,6 @@
 {
-  "name": "@lightdotso/const",
-  "version": "1.0.1",
+  "name": "@lightdotso/jest",
+  "version": "1.0.0",
   "private": false,
   "homepage": "https://github.com/LightDotSo/LightDotSo",
   "bugs": {
@@ -12,19 +12,19 @@
   },
   "license": "GPL-3.0",
   "author": "Light, Inc.",
-  "main": "dist/index",
-  "types": "dist/index",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "source": "src/index.ts",
+  "typings": "dist/index.d.ts",
   "files": [
-    "dist"
+    "src/index.js"
   ],
-  "scripts": {
-    "build": "pnpm run clean && pnpm run compile",
-    "clean": "rimraf -rf ./dist",
-    "compile": "tsc",
-    "prepublishOnly": "pnpm run build"
-  },
   "dependencies": {
-    "@lightdotso/tsconfig": "workspace:*"
+    "jest": "^29.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.0.0",
+    "@types/mocha": "^9.1.1"
   },
   "publishConfig": {
     "access": "public",

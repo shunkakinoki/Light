@@ -1,0 +1,5 @@
+ignores:
+  - "@lightdotso/jest"
+  - "@lightdotso/tsconfig"
+  - "@types/jest"
+  - hardhat

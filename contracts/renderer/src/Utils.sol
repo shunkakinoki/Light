@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+/// SPDX-License-Identifier: MIT
 // Code from: https://github.com/w1nt3r-eth/hot-chain-svg/blob/main/contracts/Utils.sol
 // Slightly modified for specific preferances & purposes.
 

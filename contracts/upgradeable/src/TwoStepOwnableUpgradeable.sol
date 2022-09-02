@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+/// SPDX-License-Identifier: MIT
 // Revision of OpenZeppelin Contracts
 // Code from: https://github.com/jameswenzel/utility-contracts/blob/main/src/TwoStepOwnable.sol
 

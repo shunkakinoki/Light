@@ -8,6 +8,7 @@ ignores:
   - concurrently
   - cross-env
   - eslint-config-prettier
+  - eslint-config-turbo
   - eslint-plugin-cypress
   - eslint-plugin-jsonc
   - eslint-plugin-jsx-a11y

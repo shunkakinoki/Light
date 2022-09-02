@@ -19,7 +19,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@lightdotso/core": "workspace:*",
+    "@lightdotso/common": "workspace:*",
     "@lightdotso/middlewares": "workspace:*",
     "@lightdotso/tailwindcss": "workspace:*",
     "@reach/skip-nav": "^0.17.0",

@@ -21,8 +21,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@lightdotso/common": "workspace:*",
     "@lightdotso/const": "workspace:*",
-    "@lightdotso/core": "workspace:*",
     "@lightdotso/middlewares": "workspace:*",
     "@lightdotso/tailwindcss": "workspace:*",
     "@notionhq/client": "^2.1.1",

@@ -16,7 +16,9 @@
     "src"
   ],
   "scripts": {
-    "test": "hardhat test"
+    "test": "hardhat test",
+    "test:coverage": "hardhat coverage",
+    "test:gas": "REPORT_GAS=true hardhat test"
   },
   "dependencies": {
     "@lightdotso/hardhat-config": "workspace:*",

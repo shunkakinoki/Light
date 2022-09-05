@@ -1,5 +1,5 @@
 diff --git a/dist/plugin.js b/dist/plugin.js
-index 236190fa9e545329f2939067a8b7c4e2ad82c67a..45a9f26e836beab33d5d7ff24f32d21aa9434761 100644
+index 236190fa9e545329f2939067a8b7c4e2ad82c67a..c3defab826ada7afc91ebcc77474537330939433 100644
 --- a/dist/plugin.js
 +++ b/dist/plugin.js
 @@ -30,7 +30,7 @@ const glob = __importStar(require("glob"));
@@ -7,12 +7,12 @@ index 236190fa9e545329f2939067a8b7c4e2ad82c67a..45a9f26e836beab33d5d7ff24f32d21a
  function findDeployScripts(hre) {
      const workDir = hre.config.paths.root;
 -    const deployScriptsDir = path.join(workDir, 'deploy');
-+    const deployScriptsDir = path.join(workDir, 'contracts/aa/deploy');
++    const deployScriptsDir = path.join(workDir, 'contracts/zksync/deploy');
      if (!(0, fs_1.existsSync)(deployScriptsDir)) {
          throw (0, helpers_1.pluginError)('No deploy folder was found');
      }
 diff --git a/src/plugin.ts b/src/plugin.ts
-index eef53173aafa41ba34deaf3cbe631e9d66354f7e..0903638fe0d22db3f391c33ced611d3489598fda 100644
+index eef53173aafa41ba34deaf3cbe631e9d66354f7e..e01c5c0b4c2ba0f1d1cea04d493d57dade74e501 100644
 --- a/src/plugin.ts
 +++ b/src/plugin.ts
 @@ -7,7 +7,7 @@ import { pluginError } from './helpers';
@@ -20,7 +20,7 @@ index eef53173aafa41ba34deaf3cbe631e9d66354f7e..0903638fe0d22db3f391c33ced611d34
  export function findDeployScripts(hre: HardhatRuntimeEnvironment): string[] {
      const workDir = hre.config.paths.root;
 -    const deployScriptsDir = path.join(workDir, 'deploy');
-+    const deployScriptsDir = path.join(workDir, 'contracts/aa/deploy');
++    const deployScriptsDir = path.join(workDir, 'contracts/zksync/deploy');
  
      if (!existsSync(deployScriptsDir)) {
          throw pluginError('No deploy folder was found');

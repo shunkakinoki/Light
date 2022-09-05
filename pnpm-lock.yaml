@@ -7,7 +7,7 @@ overrides:
 
 patchedDependencies:
   '@matterlabs/hardhat-zksync-deploy@0.4.0':
-    hash: lbhowthwg7iyalmnphqopbwlgi
+    hash: wjanv5s3snkajp5g2tjifmlypi
     path: patches/@matterlabs__hardhat-zksync-deploy@0.4.0.patch
   hardhat@2.10.2:
     hash: grhqrq6mdckvlolmcm223dttim
@@ -99,7 +99,7 @@ importers:
     dependencies:
       '@ethersproject/abi': 5.7.0
       '@ethersproject/providers': 5.7.0
-      '@matterlabs/hardhat-zksync-deploy': 0.4.0_lbhowthwg7iyalmnphqopbwlgi_wocrpdtxrbwwwraqpdbnncgvda
+      '@matterlabs/hardhat-zksync-deploy': 0.4.0_wjanv5s3snkajp5g2tjifmlypi_wocrpdtxrbwwwraqpdbnncgvda
       '@matterlabs/hardhat-zksync-solc': 0.3.7_hardhat@2.10.2
       '@nomiclabs/hardhat-ethers': 2.1.1_lc7o4ykyrnccnzpoyzs6m3zzsq
       '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.10.2
@@ -3393,7 +3393,7 @@ packages:
     dev: false
     patched: true
 
-  /@matterlabs/hardhat-zksync-deploy/0.4.0_lbhowthwg7iyalmnphqopbwlgi_wocrpdtxrbwwwraqpdbnncgvda:
+  /@matterlabs/hardhat-zksync-deploy/0.4.0_wjanv5s3snkajp5g2tjifmlypi_wocrpdtxrbwwwraqpdbnncgvda:
     resolution: {integrity: sha512-r/xp+CL1+qVLNGoSehUe4u80QZRG8e4WEnhJ1JuJSxzOaoivqUDFblf8Q/TQkdFPrilBqpgTJzcPazDsWeH0SQ==}
     peerDependencies:
       ethers: ~5.7.0

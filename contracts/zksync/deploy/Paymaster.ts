@@ -41,12 +41,10 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   console.log(`Paymaster address: ${paymaster.address}`);
 
   // Supplying paymaster with some ETH
-  await (
-    await deployer.zkWallet.sendTransaction({
-      to: paymaster.address,
-      value: ethers.utils.parseEther("0.01"),
-    })
-  ).wait();
+  await deployer.zkWallet.sendTransaction({
+    to: paymaster.address,
+    value: ethers.utils.parseEther("0.01"),
+  });
 
   // Supplying the ERC20 tokens to the empty wallet:
   await // We will give the empty wallet 3 units of the token:

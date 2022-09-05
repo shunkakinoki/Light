@@ -15,18 +15,6 @@
   "files": [
     "src"
   ],
-  "scripts": {
-    "build": "pnpm run clean && pnpm run build:hh",
-    "build:hh": "hardhat compile --force",
-    "clean": "pnpm run clean:hh",
-    "clean:hh": "hardhat clean",
-    "env:pull": "doppler secrets download --no-file --format env > .env"
-  },
-  "dependencies": {
-    "@matterlabs/hardhat-zksync-deploy": "^0.4.0",
-    "ethers": "^5.7.0",
-    "zksync-web3": "^0.8.1"
-  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

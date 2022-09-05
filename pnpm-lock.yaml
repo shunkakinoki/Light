@@ -913,14 +913,7 @@ importers:
     specifiers: {}
 
   contracts/zksync:
-    specifiers:
-      '@matterlabs/hardhat-zksync-deploy': ^0.4.0
-      ethers: ^5.7.0
-      zksync-web3: ^0.8.1
-    dependencies:
-      '@matterlabs/hardhat-zksync-deploy': 0.4.0_wjanv5s3snkajp5g2tjifmlypi_vvk5o35lgpxzcbwq72mzi3w2lm
-      ethers: 5.7.0
-      zksync-web3: 0.8.1_ethers@5.7.0
+    specifiers: {}
 
   packages/const:
     specifiers:
@@ -3272,19 +3265,6 @@ packages:
       ethers: 5.7.0
       glob: 8.0.3
       hardhat: 2.10.2
-    dev: false
-    patched: true
-
-  /@matterlabs/hardhat-zksync-deploy/0.4.0_wjanv5s3snkajp5g2tjifmlypi_vvk5o35lgpxzcbwq72mzi3w2lm:
-    resolution: {integrity: sha512-r/xp+CL1+qVLNGoSehUe4u80QZRG8e4WEnhJ1JuJSxzOaoivqUDFblf8Q/TQkdFPrilBqpgTJzcPazDsWeH0SQ==}
-    peerDependencies:
-      ethers: ~5.7.0
-      hardhat: ^2.10.2
-      zksync-web3: ^0.8.0
-    dependencies:
-      ethers: 5.7.0
-      glob: 8.0.3
-      zksync-web3: 0.8.1_ethers@5.7.0
     dev: false
     patched: true
 

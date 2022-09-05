@@ -81,7 +81,7 @@ const config: HardhatUserConfig = {
     artifacts: "packages/contracts/artifacts",
     cache: "packages/contracts/cache",
     sources: "contracts",
-    tests: "contracts/**/spec",
+    tests: "contracts",
   },
   abiExporter: {
     path: "packages/contracts/abi",

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@lightdotso/typechain/*": ["./typechain/*"]
+      "@lightdotso/typechain/*": ["../typechain/src/*"]
     }
   },
   "exclude": ["node_modules", "typechain"],

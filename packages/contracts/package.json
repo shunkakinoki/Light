@@ -52,6 +52,7 @@
     "@ethersproject/abi": "^5.7.0",
     "@ethersproject/providers": "^5.7.0",
     "@lightdotso/ens": "workspace:*",
+    "@lightdotso/hardhat-config": "workspace:*",
     "@lightdotso/protocol": "workspace:*",
     "@lightdotso/proxies": "workspace:*",
     "@lightdotso/renderer": "workspace:*",

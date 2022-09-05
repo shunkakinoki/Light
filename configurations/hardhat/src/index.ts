@@ -32,6 +32,9 @@ subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
       if (p.includes("zksync")) {
         return false;
       }
+      if (p.includes("node_modules")) {
+        return false;
+      }
       return !p.endsWith(".t.sol");
     });
   },
@@ -114,7 +117,7 @@ const config: HardhatUserConfig = {
     deployments: "packages/contracts/deployments",
     imports: "packates/contracts/imports",
     sources: "contracts",
-    tests: "packages/contracts/tests",
+    tests: "contracts",
   },
   abiExporter: {
     path: "./abi",

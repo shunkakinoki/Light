@@ -1,6 +1,6 @@
 import fs, { readFileSync } from "fs";
 
-import {} from "dotenv/config";
+import * as dotenv from "dotenv";
 
 import "tsconfig-paths/register";
 
@@ -49,6 +49,8 @@ const getRemappings = () => {
       return line.trim().split("=");
     });
 };
+
+dotenv.config();
 
 const config: HardhatUserConfig = {
   zksolc: {

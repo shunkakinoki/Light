@@ -7,6 +7,7 @@ ignores:
   - commitlint
   - concurrently
   - cross-env
+  - dotenv
   - eslint-config-prettier
   - eslint-config-turbo
   - eslint-plugin-cypress
@@ -16,6 +17,7 @@ ignores:
   - eslint-plugin-react
   - eslint-plugin-react-hooks
   - eslint-plugin-tailwindcss
+  - ethereum-waffle
   - git-cz
   - hardhat
   - html-webpack-plugin
@@ -31,8 +33,10 @@ ignores:
   - rimraf
   - solc
   - shx
+  - tsconfig-paths
   - tsconfig-paths-webpack-plugin
   - tsup
+  - typechain
   - typescript
   - vercel
   - webpack-dev-server

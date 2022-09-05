@@ -15,6 +15,10 @@
   "files": [
     "src"
   ],
+  "dependencies": {
+    "@lightdotso/typechain": "workspace:*",
+    "chai": "^4.3.6"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

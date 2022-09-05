@@ -22,6 +22,7 @@ jobs:
           forge install
       - run: |
           pnpx turbo run build --scope=@lightdotso/contracts --include-dependencies --no-deps
+          pnpx turbo run test --scope=@lightdotso/contracts --include-dependencies --no-deps
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}

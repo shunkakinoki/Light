@@ -48,8 +48,6 @@ const getRemappings = () => {
     });
 };
 
-import "./packages/contracts/tasks";
-
 dotenv.config();
 
 const accounts =
@@ -117,7 +115,7 @@ const config: HardhatUserConfig = {
     tests: "contracts/**/spec",
   },
   abiExporter: {
-    path: "./abi",
+    path: "packages/contracts/abi",
     clear: true,
   },
   gasReporter: {
@@ -158,7 +156,7 @@ const config: HardhatUserConfig = {
   watcher: {
     compile: {
       tasks: ["compile"],
-      files: ["./contracts"],
+      files: ["contracts"],
       verbose: true,
     },
   },

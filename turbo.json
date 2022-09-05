@@ -53,7 +53,15 @@
         "$INFURA_PROJECT_ID",
         "$WALLET_PRIVATE_KEY"
       ],
-      "outputs": ["abi/**", "artifacts/**", "../typechain/src/**"]
+      "outputs": [
+        "abi/**",
+        "artifacts/**",
+        "cache/**",
+        "deploy/**",
+        "deployments/**",
+        "imports/**",
+        "../typechain/src/**"
+      ]
     },
     "@lightdotso/docs#build": {
       "dependsOn": ["^build", "$NEXT_PUBLIC_SENTRY_DSN", "$SENTRY_DSN"],

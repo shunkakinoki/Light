@@ -1,7 +1,0 @@
-ignores:
-  - "@lightdotso/jest"
-  - "@lightdotso/tsconfig"
-  - "@nomiclabs/hardhat-ethers"
-  - "@types/chai"
-  - "@types/jest"
-  - chai

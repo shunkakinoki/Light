@@ -90,7 +90,6 @@
     "@changesets/cli": "^2.24.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@lightdotso/eslint-config": "workspace:*",
-    "@lightdotso/hardhat-config": "workspace:*",
     "@lightdotso/jest": "workspace:*",
     "@lightdotso/prettier": "workspace:*",
     "@lightdotso/tailwindcss": "workspace:*",
@@ -142,10 +141,5 @@
     "vercel": "^28.1.0",
     "webpack-dev-server": "^4.10.0"
   },
-  "packageManager": "pnpm@6.30.0",
-  "pnpm": {
-    "patchedDependencies": {
-      "@matterlabs/hardhat-zksync-deploy@0.4.0": "patches/@matterlabs__hardhat-zksync-deploy@0.4.0.patch"
-    }
-  }
+  "packageManager": "pnpm@6.30.0"
 }

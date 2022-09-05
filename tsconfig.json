@@ -1,5 +1,5 @@
 {
   "extends": "@lightdotso/tsconfig/hardhat.json",
-  "include": ["contracts"],
+  "include": ["contracts", "deploy"],
   "files": ["./hardhat.config.ts"]
 }

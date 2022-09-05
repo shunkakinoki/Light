@@ -10,7 +10,6 @@ import type { HardhatUserConfig } from "hardhat/config";
 import { subtask } from "hardhat/config";
 import * as toml from "toml";
 
-import "@matterlabs/hardhat-zksync-deploy";
 import "@matterlabs/hardhat-zksync-solc";
 import "@nomiclabs/hardhat-ethers";
 import "@nomiclabs/hardhat-etherscan";
@@ -67,10 +66,6 @@ const config: HardhatUserConfig = {
         tag: "v1.1.5",
       },
     },
-  },
-  zkSyncDeploy: {
-    zkSyncNetwork: "https://zksync2-testnet.zksync.dev",
-    ethNetwork: "goerli",
   },
   solidity: {
     version: foundry?.profile?.default?.solc_version,

@@ -1,6 +1,23 @@
 diff --git a/console.sol b/console.sol
 deleted file mode 100644
 index f38d19a91318352d75d172af0c3ebc3bdedd3fac..0000000000000000000000000000000000000000
+diff --git a/internal/core/tasks/task-definitions.js b/internal/core/tasks/task-definitions.js
+index 1aaf2e20c7d021d1dfcca3daf571bedf4ae9c900..de0c59c66e8dd3e72acea0c2cc37828dab178ed9 100644
+--- a/internal/core/tasks/task-definitions.js
++++ b/internal/core/tasks/task-definitions.js
+@@ -450,9 +450,9 @@ class OverriddenTaskDefinition {
+      * Overriden tasks can't add new parameters.
+      */
+     addParam(name, description, defaultValue, type, isOptional) {
+-        if (isOptional === undefined || !isOptional) {
+-            return this._throwNoParamsOverrideError(errors_list_1.ERRORS.TASK_DEFINITIONS.OVERRIDE_NO_MANDATORY_PARAMS);
+-        }
++        // if (isOptional === undefined || !isOptional) {
++        //     return this._throwNoParamsOverrideError(errors_list_1.ERRORS.TASK_DEFINITIONS.OVERRIDE_NO_MANDATORY_PARAMS);
++        // }
+         return this.addOptionalParam(name, description, defaultValue, type);
+     }
+     /**
 diff --git a/src/internal/core/tasks/task-definitions.ts b/src/internal/core/tasks/task-definitions.ts
 index 43a72a2047d4ac32092e9aec290a87dd1c85da42..c0596547fbd182fbf65512d6589a6b117d22561b 100644
 --- a/src/internal/core/tasks/task-definitions.ts

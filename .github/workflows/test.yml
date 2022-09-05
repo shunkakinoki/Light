@@ -19,6 +19,7 @@ jobs:
             { package: changelog, path: apps/changelog },
             { package: docs, path: apps/docs },
             { package: og, path: apps/og },
+            { package: contracts, path: packages/contracts },
             { package: errors, path: packages/errors },
           ]
     steps:

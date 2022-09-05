@@ -12,6 +12,9 @@ patchedDependencies:
   hardhat@2.10.2:
     hash: grhqrq6mdckvlolmcm223dttim
     path: patches/hardhat@2.10.2.patch
+  hardhat@2.11.0:
+    hash: qxdhfhypibjozksxbvyziusujy
+    path: patches/hardhat@2.11.0.patch
 
 importers:
 
@@ -3298,7 +3301,7 @@ packages:
     dependencies:
       '@nomiclabs/hardhat-docker': 2.0.2
       dockerode: 3.3.4
-      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -3889,7 +3892,7 @@ packages:
       hardhat: ^2.0.0
     dependencies:
       ethers: 5.7.0
-      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4
     dev: false
 
   /@nomiclabs/hardhat-etherscan/3.1.0_hardhat@2.10.2:
@@ -3903,7 +3906,7 @@ packages:
       chalk: 2.4.2
       debug: 4.3.4
       fs-extra: 7.0.1
-      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4
       lodash: 4.17.21
       semver: 6.3.0
       table: 6.8.0
@@ -3924,7 +3927,7 @@ packages:
       '@types/sinon-chai': 3.2.8
       '@types/web3': 1.0.19
       ethers: 5.7.0
-      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4
     dev: false
 
   /@notionhq/client/2.1.1:
@@ -4140,7 +4143,7 @@ packages:
       chalk: 4.1.2
       debug: 4.3.4
       ethers: 5.7.0
-      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4
       proper-lockfile: 4.1.2
     transitivePeerDependencies:
       - supports-color
@@ -4951,10 +4954,10 @@ packages:
     dependencies:
       '@ethersproject/abi': 5.7.0
       '@ethersproject/providers': 5.7.0
-      '@typechain/ethers-v5': 10.1.0_a6ljzpsfjckm35mcawh36jfcxa
+      '@typechain/ethers-v5': 10.1.0_paa6b32a3uilndmmqguiroip5m
       ethers: 5.7.0
       fs-extra: 9.1.0
-      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4
       lodash: 4.17.21
     dev: false
 
@@ -12346,7 +12349,7 @@ packages:
     dependencies:
       '@ethersproject/abi': 5.7.0
       delete-empty: 3.0.0
-      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4
     dev: false
 
   /hardhat-deploy/0.11.12:
@@ -12378,7 +12381,7 @@ packages:
     dependencies:
       array-uniq: 1.0.3
       eth-gas-reporter: 0.2.25
-      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4
       sha1: 1.1.1
     transitivePeerDependencies:
       - '@codechecks/client'
@@ -12389,7 +12392,7 @@ packages:
     peerDependencies:
       hardhat: ^2.0.5
     dependencies:
-      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4
       murmur-128: 0.2.1
     dev: false
 
@@ -12399,7 +12402,7 @@ packages:
       hardhat: ^2.0.0
     dependencies:
       chokidar: 3.5.3
-      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim
+      hardhat: 2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4
     dev: false
 
   /hardhat/2.10.2_grhqrq6mdckvlolmcm223dttim:

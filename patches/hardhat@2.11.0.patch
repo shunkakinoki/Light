@@ -1,0 +1,24 @@
+diff --git a/console.sol b/console.sol
+deleted file mode 100644
+index f38d19a91318352d75d172af0c3ebc3bdedd3fac..0000000000000000000000000000000000000000
+diff --git a/src/internal/core/tasks/task-definitions.ts b/src/internal/core/tasks/task-definitions.ts
+index 43a72a2047d4ac32092e9aec290a87dd1c85da42..c0596547fbd182fbf65512d6589a6b117d22561b 100644
+--- a/src/internal/core/tasks/task-definitions.ts
++++ b/src/internal/core/tasks/task-definitions.ts
+@@ -630,11 +630,11 @@ export class OverriddenTaskDefinition implements TaskDefinition {
+     type?: ArgumentType<T>,
+     isOptional?: boolean
+   ): this {
+-    if (isOptional === undefined || !isOptional) {
+-      return this._throwNoParamsOverrideError(
+-        ERRORS.TASK_DEFINITIONS.OVERRIDE_NO_MANDATORY_PARAMS
+-      );
+-    }
++    // if (isOptional === undefined || !isOptional) {
++    //   return this._throwNoParamsOverrideError(
++    //     ERRORS.TASK_DEFINITIONS.OVERRIDE_NO_MANDATORY_PARAMS
++    //   );
++    // }
+     return this.addOptionalParam(name, description, defaultValue, type);
+   }
+ 

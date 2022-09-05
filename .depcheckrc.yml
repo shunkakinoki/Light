@@ -1,6 +1,21 @@
 ignores:
   - "@commitlint/config-conventional"
+  - "@ethersproject/abi"
+  - "@ethersproject/providers"
+  - "@lightdotso/jest"
+  - "@lightdotso/tsconfig"
+  - "@matterlabs/hardhat-zksync-solc"
+  - "@nomiclabs/hardhat-ethers"
+  - "@nomiclabs/hardhat-etherscan"
+  - "@nomiclabs/hardhat-waffle"
+  - "@openzeppelin/hardhat-upgrades"
   - "@release-it/keep-a-changelog"
+  - "@types/chai"
+  - "@types/jest"
+  - "@types/mocha"
+  - "@types/node"
+  - "@typechain/ethers-v5"
+  - "@typechain/hardhat"
   - "@typescript-eslint/eslint-plugin"
   - "@typescript-eslint/parser"
   - autoprefixer
@@ -20,6 +35,11 @@ ignores:
   - ethereum-waffle
   - git-cz
   - hardhat
+  - hardhat-abi-exporter
+  - hardhat-deploy
+  - hardhat-gas-reporter
+  - hardhat-preprocessor
+  - hardhat-watcher
   - html-webpack-plugin
   - jsonc-eslint-parser
   - lint-staged
@@ -33,6 +53,7 @@ ignores:
   - rimraf
   - solc
   - shx
+  - toml
   - tsconfig-paths
   - tsconfig-paths-webpack-plugin
   - tsup

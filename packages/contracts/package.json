@@ -20,14 +20,13 @@
     "build:ts": "pnpm run compile",
     "clean": "cd ../.. && pnpm hardhat clean",
     "compile": "tsc",
-    "coverage": "hardhat coverage",
+    "coverage": "cd ../.. && pnpm hardhat coverage",
     "env:pull": "doppler secrets download --no-file --format env > ../../.env",
-    "node": "cd ../.. && hardhat node --hostname 0.0.0.0 --show-accounts",
-    "test": "cd ../.. && hardhat test",
-    "test:coverage": "cd ../.. && hardhat coverage",
-    "test:gas": "cd ../.. && REPORT_GAS=true hardhat test",
-    "watch": "cd ../../ && pnpm run watch:compile",
-    "watch:compile": "hardhat watch compile"
+    "node": "cd ../.. && pnpm hardhat node --hostname 0.0.0.0 --show-accounts",
+    "test": "cd ../.. && pnpm hardhat test",
+    "test:coverage": "cd ../.. && pnpm hardhat coverage",
+    "test:gas": "cd ../.. && REPORT_GAS=true pnpm hardhat test",
+    "watch": "cd ../../ && pnpm run hardhat watch compile"
   },
   "dependencies": {
     "@ethersproject/abi": "^5.7.0",

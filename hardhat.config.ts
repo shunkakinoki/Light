@@ -1,4 +1,3 @@
-/* eslint-disable turbo/no-undeclared-env-vars */
 import fs, { readFileSync } from "fs";
 
 import * as dotenv from "dotenv";
@@ -37,11 +36,11 @@ subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
   },
 );
 
-let foundry = toml.parse(readFileSync("../../foundry.toml").toString());
+let foundry = toml.parse(readFileSync("foundry.toml").toString());
 
 const getRemappings = () => {
   return fs
-    .readFileSync("../../remappings.txt", "utf8")
+    .readFileSync("remappings.txt", "utf8")
     .split("\n")
     .filter(Boolean)
     .map(line => {
@@ -49,7 +48,7 @@ const getRemappings = () => {
     });
 };
 
-import "./tasks";
+import "./packages/contracts/tasks";
 
 dotenv.config();
 
@@ -109,14 +108,13 @@ const config: HardhatUserConfig = {
     },
   },
   paths: {
-    root: "../..",
     artifacts: "packages/contracts/artifacts",
     cache: "packages/contracts/cache",
     deploy: "packages/contracts/deploy",
     deployments: "packages/contracts/deployments",
     imports: "packates/contracts/imports",
     sources: "contracts",
-    tests: "packages/contracts/tests",
+    tests: "contracts/**/spec",
   },
   abiExporter: {
     path: "./abi",
@@ -160,7 +158,7 @@ const config: HardhatUserConfig = {
   watcher: {
     compile: {
       tasks: ["compile"],
-      files: ["./src"],
+      files: ["./contracts"],
       verbose: true,
     },
   },

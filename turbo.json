@@ -44,7 +44,15 @@
       "outputs": [".next/**"]
     },
     "@lightdotso/contracts#build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build",
+        "$ALCHEMY_MAINNET_URL",
+        "$COINMARKETCAP_API_KEY",
+        "$ETHERSCAN_API_KEY",
+        "$FORKING",
+        "$INFURA_PROJECT_ID",
+        "$WALLET_PRIVATE_KEY"
+      ],
       "outputs": ["abi/**", "artifacts/**", "../typechain/src/**"]
     },
     "@lightdotso/docs#build": {

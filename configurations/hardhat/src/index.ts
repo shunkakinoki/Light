@@ -10,6 +10,8 @@ import type { HardhatUserConfig } from "hardhat/config";
 import { subtask } from "hardhat/config";
 import * as toml from "toml";
 
+import "@matterlabs/hardhat-zksync-deploy";
+import "@matterlabs/hardhat-zksync-solc";
 import "@nomiclabs/hardhat-ethers";
 import "@nomiclabs/hardhat-etherscan";
 import "@nomiclabs/hardhat-waffle";
@@ -56,6 +58,20 @@ const accounts =
     : [];
 
 const config: HardhatUserConfig = {
+  zksolc: {
+    version: "1.1.5",
+    compilerSource: "docker",
+    settings: {
+      experimental: {
+        dockerImage: "matterlabs/zksolc",
+        tag: "v1.1.5",
+      },
+    },
+  },
+  zkSyncDeploy: {
+    zkSyncNetwork: "https://zksync2-testnet.zksync.dev",
+    ethNetwork: "goerli",
+  },
   solidity: {
     version: foundry?.profile?.default?.solc_version,
     settings: {
@@ -84,6 +100,7 @@ const config: HardhatUserConfig = {
       },
       live: false,
       saveDeployments: false,
+      zksync: true,
     },
     mainnet: {
       url: `https://mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,

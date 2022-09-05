@@ -1,5 +1,6 @@
 ignores:
   - "@lightdotso/ens"
+  - "@lightdotso/hardhat-config"
   - "@lightdotso/protocol"
   - "@lightdotso/proxies"
   - "@lightdotso/renderer"

@@ -28,6 +28,9 @@
     "test:gas": "cd ../.. && REPORT_GAS=true pnpm hardhat test",
     "watch": "cd ../../ && pnpm run hardhat watch compile"
   },
+  "dependencies": {
+    "@lightdotso/hardhat-config": "workspace:*"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

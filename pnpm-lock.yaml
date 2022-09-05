@@ -922,7 +922,10 @@ importers:
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
 
   packages/contracts:
-    specifiers: {}
+    specifiers:
+      '@lightdotso/hardhat-config': workspace:*
+    dependencies:
+      '@lightdotso/hardhat-config': link:../../configurations/hardhat
 
   packages/errors:
     specifiers:

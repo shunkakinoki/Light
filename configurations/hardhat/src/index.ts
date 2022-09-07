@@ -29,6 +29,9 @@ subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
       if (p.includes("hardhat")) {
         return false;
       }
+      if (p.includes("node_modules")) {
+        return false;
+      }
       if (p.includes("zksync")) {
         return false;
       }
@@ -51,11 +54,6 @@ const getRemappings = () => {
 
 dotenv.config();
 
-const accounts =
-  process.env.WALLET_PRIVATE_KEY !== undefined
-    ? [process.env.WALLET_PRIVATE_KEY]
-    : [];
-
 const config: HardhatUserConfig = {
   solidity: {
     version: foundry?.profile?.default?.solc_version,
@@ -67,54 +65,12 @@ const config: HardhatUserConfig = {
     },
   },
   defaultNetwork: "hardhat",
-  namedAccounts: {
-    deployer: {
-      default: 0,
-    },
-  },
-  networks: {
-    localhost: {
-      live: false,
-      saveDeployments: false,
-      tags: ["local"],
-    },
-    hardhat: {
-      forking: {
-        enabled: process.env.FORKING === "true",
-        url: `${process.env.ALCHEMY_MAINNET_URL}`,
-      },
-      live: false,
-      saveDeployments: false,
-    },
-    mainnet: {
-      url: `https://mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
-      accounts: accounts,
-      saveDeployments: true,
-    },
-    rinkeby: {
-      url: `https://rinkeby.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
-      accounts: accounts,
-      saveDeployments: true,
-      tags: ["staging"],
-      gasMultiplier: 2,
-    },
-    ropsten: {
-      url: `https://ropsten.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
-      accounts: accounts,
-      saveDeployments: true,
-      tags: ["staging"],
-      gasMultiplier: 2,
-    },
-  },
   paths: {
     root: "../..",
     artifacts: "packages/contracts/artifacts",
     cache: "packages/contracts/cache",
-    deploy: "packages/contracts/deploy",
-    deployments: "packages/contracts/deployments",
-    imports: "packates/contracts/imports",
     sources: "contracts",
-    tests: "packages/contracts/tests",
+    tests: "contracts",
   },
   abiExporter: {
     path: "./abi",
@@ -158,7 +114,7 @@ const config: HardhatUserConfig = {
   watcher: {
     compile: {
       tasks: ["compile"],
-      files: ["./src"],
+      files: ["./contracts"],
       verbose: true,
     },
   },

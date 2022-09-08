@@ -27,7 +27,6 @@
     "@ethersproject/abi": "^5.7.0",
     "@ethersproject/providers": "^5.7.0",
     "@lightdotso/contracts": "workspace:*",
-    "@lightdotso/protocol": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
     "ethers": "^5.7.0"
   },

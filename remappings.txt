@@ -24,6 +24,7 @@ base64-sol/=lib/base64/
 ds-test/=lib/ds-test/src/
 forge-std/=lib/forge-std/src/
 @gnosis.pm/safe-contracts/=lib/safe-contracts/contracts/
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
 @openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
 @matterlabs/zksync-contracts/=lib/v2-testnet-contracts/
 hardhat/=lib/forge-std/src/

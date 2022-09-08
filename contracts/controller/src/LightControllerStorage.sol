@@ -2,8 +2,6 @@
 
 pragma solidity ^0.8.16;
 
-// import { UpgradeableBeaconUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/beacon/UpgradeableBeaconUpgradeable.sol";
-
 /// @title Storage contract for the LightController contract.
 /// @author Shun Kakinoki
 /// @notice This contract is used to manage the storage of the UUPS upgradeable contract.

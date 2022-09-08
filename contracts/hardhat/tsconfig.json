@@ -1,5 +1,8 @@
 {
-  "extends": "@lightdotso/tsconfig/hardhat.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "extends": "@lightdotso/tsconfig/node.json",
   "include": ["src"],
   "files": ["hardhat.config.ts"]
 }

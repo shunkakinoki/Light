@@ -32,7 +32,7 @@
     "zksync-web3": "^0.8.1"
   },
   "devDependencies": {
-    "@types/node": "^18.7.15",
+    "@types/node": "^18.7.16",
     "dotenv": "^16.0.2",
     "hardhat-preprocessor": "^0.1.5"
   },

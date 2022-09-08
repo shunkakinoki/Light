@@ -5,7 +5,6 @@ const config: HardhatUserConfig = {
   ...defaultConfig,
   paths: {
     root: "../..",
-    sources: "contracts/curation/src",
     tests: "contracts/curation/spec",
   },
 };

@@ -36,8 +36,8 @@ before(async () => {
   const proxyLightCore = (await deployUUPS()) as UUPSProxy;
   const proxyLightController = (await deployUUPS()) as UUPSProxy;
   const proxyLightOperatorStore = (await deployUUPS()) as UUPSProxy;
-  const proxyLightOrb = (await deployUUPS()) as UUPSProxy;
-  const proxyLightOrbFactory = (await deployUUPSBeacon()) as UUPSProxy;
-  const proxyLightSpace = (await deployUUPS()) as UUPSProxy;
-  const proxyLightXP = (await deployUUPS()) as UUPSProxy;
+  // const proxyLightOrb = (await deployUUPS()) as UUPSProxy;
+  // const proxyLightOrbFactory = (await deployUUPSBeacon()) as UUPSProxy;
+  // const proxyLightSpace = (await deployUUPS()) as UUPSProxy;
+  // const proxyLightXP = (await deployUUPS()) as UUPSProxy;
 });

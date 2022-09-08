@@ -2,7 +2,11 @@ ignores:
   - "@lightdotso/hardhat-config"
   - "@lightdotso/jest"
   - "@lightdotso/tsconfig"
+  - "@nomiclabs/hardhat-ethers"
+  - "@types/chai"
   - "@types/mocha"
   - "@types/node"
   - "@types/jest"
+  - chai
+  - ethers
   - hardhat

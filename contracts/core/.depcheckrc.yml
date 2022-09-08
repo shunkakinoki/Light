@@ -5,4 +5,5 @@ ignores:
   - "@types/mocha"
   - "@types/node"
   - "@types/jest"
+  - ethers
   - hardhat

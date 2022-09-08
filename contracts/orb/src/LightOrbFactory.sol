@@ -43,7 +43,7 @@ contract LightOrbFactory is
   function _authorizeUpgrade(address) internal override onlyOwner {}
 
   function implementation() external view returns (address) {
-    // return upgradeableBeacon.implementation();
+    return upgradeableBeacon.implementation();
   }
 
   function _createLightOrb(string calldata _name, string calldata _symbol)

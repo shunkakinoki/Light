@@ -1,5 +1,8 @@
 ignores:
+  - "@lightdotso/hardhat-config"
   - "@lightdotso/jest"
   - "@lightdotso/tsconfig"
+  - "@types/mocha"
+  - "@types/node"
   - "@types/jest"
   - hardhat

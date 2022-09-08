@@ -35,6 +35,9 @@ subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
       if (p.includes("zksync")) {
         return false;
       }
+      if (p.includes("node_modules")) {
+        return false;
+      }
       return !p.endsWith(".t.sol");
     });
   },

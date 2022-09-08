@@ -2,13 +2,13 @@
 
 pragma solidity ^0.8.16;
 
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
 
 /// @title Banchor formula contract for the Light protocol.
 /// @notice This contract is based from Graph Protocol's BancorFormula (GPL-2.0-or-later)
 /// @notice Ref: https://github.com/graphprotocol/contracts/blob/dev/contracts/bancor/BancorFormula.sol
 contract BancorFormula {
-  using SafeMath for uint256;
+  using SafeMathUpgradeable for uint256;
 
   uint16 public constant version = 6;
 

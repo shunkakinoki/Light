@@ -2,7 +2,6 @@
 
 pragma solidity ^0.8.16;
 
-import { UpgradeableBeacon } from "@openzeppelin/contracts/proxy/beacon/UpgradeableBeacon.sol";
 import { ILightController } from "@lightdotso/controller/ILightController.sol";
 
 /// @title Storage contract for the LightManager contract.

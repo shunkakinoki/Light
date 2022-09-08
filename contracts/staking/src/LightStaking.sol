@@ -17,8 +17,8 @@ import "@lightdotso/staking/libs/Rebates.sol";
 import "@lightdotso/staking/libs/Stakes.sol";
 import "@lightdotso/utils/TokenUtils.sol";
 
-import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts-upgradeable/utils/cryptography/ECDSAUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
 
 /// @title Core contract for the Light protocol.
 /// @title Keeps track of the current state of the protocol.
@@ -32,7 +32,7 @@ contract LightStaking is
   LightStakingStorageV1,
   ILightStaking
 {
-  using SafeMath for uint256;
+  using SafeMathUpgradeable for uint256;
   using Stakes for Stakes.Indexer;
   using Rebates for Rebates.Pool;
 
@@ -1284,8 +1284,11 @@ contract LightStaking is
     // Caller must prove that they own the private key for the allocationID adddress
     // The proof is an Ethereum signed message of KECCAK256(indexerAddress,allocationID)
     bytes32 messageHash = keccak256(abi.encodePacked(_indexer, _allocationID));
-    bytes32 digest = ECDSA.toEthSignedMessageHash(messageHash);
-    require(ECDSA.recover(digest, _proof) == _allocationID, "!proof");
+    bytes32 digest = ECDSAUpgradeable.toEthSignedMessageHash(messageHash);
+    require(
+      ECDSAUpgradeable.recover(digest, _proof) == _allocationID,
+      "!proof"
+    );
 
     if (_tokens > 0) {
       // Needs to have free capacity not used for other purposes to allocate

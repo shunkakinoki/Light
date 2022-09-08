@@ -2,10 +2,10 @@
 
 pragma solidity ^0.8.16;
 
-import { ERC1967Proxy } from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
+import { ERC1967UpgradeUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol";
 
-contract UUPSProxy is ERC1967Proxy {
-  constructor(address _implementation, bytes memory _data)
-    ERC1967Proxy(_implementation, _data)
-  {}
+contract UUPSProxy is ERC1967UpgradeUpgradeable {
+  constructor(address _implementation, bytes memory _data) {
+    __ERC1967Upgrade_init_unchained();
+  }
 }

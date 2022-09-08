@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.16;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import { ILightToken } from "@lightdotso/token/ILightToken.sol";
 import { LightTokenStorage } from "@lightdotso/token/LightTokenStorage.sol";
 
@@ -12,9 +12,9 @@ import { LightTokenStorage } from "@lightdotso/token/LightTokenStorage.sol";
 /// @title Extends OZ as an ERC20 + EIP-2612 compatible implementation.
 /// @author Shun Kakinoki
 contract LightToken is
-  ERC20,
-  ERC20Burnable,
-  Ownable,
+  ERC20Upgradeable,
+  ERC20BurnableUpgradeable,
+  OwnableUpgradeable,
   LightTokenStorage,
   ILightToken
 {
@@ -24,7 +24,7 @@ contract LightToken is
   uint256 internal immutable INITIAL_CHAIN_ID;
   bytes32 internal immutable INITIAL_DOMAIN_SEPARATOR;
 
-  constructor() ERC20("LightToken", "LIGHT") {
+  constructor() ERC20Upgradeable() {
     INITIAL_CHAIN_ID = block.chainid;
     INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
   }
@@ -44,13 +44,16 @@ contract LightToken is
     public
     view
     virtual
-    override(ERC20, IERC20)
+    override(ERC20Upgradeable, IERC20Upgradeable)
     returns (uint256)
   {
     return super.allowance(owner, spender);
   }
 
-  function burn(uint256 amount) public override(ERC20Burnable, ILightToken) {
+  function burn(uint256 amount)
+    public
+    override(ERC20BurnableUpgradeable, ILightToken)
+  {
     super.burn(amount);
   }
 

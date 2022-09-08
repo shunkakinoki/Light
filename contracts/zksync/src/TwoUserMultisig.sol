@@ -7,8 +7,8 @@
 
 // import "@matterlabs/zksync-contracts/l2/system-contracts/interfaces/IAccount.sol";
 
-// import "@openzeppelin/contracts/interfaces/IERC1271.sol";
-// import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+// import "@openzeppelin/contracts-upgradeable/interfaces/IERC1271.sol";
+// import "@openzeppelin/contracts-upgradeable/utils/cryptography/ECDSA.sol";
 
 // contract TwoUserMultisig is IAccount, IERC1271 {
 //   using TransactionHelper for Transaction;

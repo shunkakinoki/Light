@@ -3,7 +3,6 @@
 pragma solidity ^0.8.16;
 
 import { LightManager } from "@lightdotso/manager/LightManager.sol";
-import { UpgradeableBeacon } from "@openzeppelin/contracts/proxy/beacon/UpgradeableBeacon.sol";
 
 /// @title Storage contract for the LightCore contract.
 /// @author Shun Kakinoki

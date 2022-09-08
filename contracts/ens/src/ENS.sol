@@ -1,6 +1,6 @@
 /// SPDX-License-Identifier: GPL-3.0
 
-import { Initializable } from "@openzeppelin/contracts/proxy/utils/Initializable.sol";
+import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 pragma solidity ^0.8.16;
 

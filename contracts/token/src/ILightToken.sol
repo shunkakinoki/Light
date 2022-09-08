@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.16;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 
-interface ILightToken is IERC20 {
+interface ILightToken is IERC20Upgradeable {
   event MinterAdded(address indexed account);
   event MinterRemoved(address indexed account);
 

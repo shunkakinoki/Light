@@ -7,9 +7,9 @@ import { ILightRewardsManager } from "@lightdotso/rewards/ILightRewardsManager.s
 import { ILightToken } from "@lightdotso/token/ILightToken.sol";
 import { LightCurationStorageV1 } from "@lightdotso/curation/LightCurationStorage.sol";
 import { LightPausableUpgradeable } from "@lightdotso/upgradeable/LightPausableUpgradeable.sol";
-import "@openzeppelin/contracts/utils/Address.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-import "@openzeppelin/contracts/proxy/Clones.sol";
+import "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/ClonesUpgradeable.sol";
 import "@lightdotso/utils/TokenUtils.sol";
 import "@lightdotso/math/BancorFormula.sol";
 
@@ -57,7 +57,7 @@ contract LightCuration is LightPausableUpgradeable, LightCurationStorageV1 {
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                   EXTERNAL TRANSACTIONS                    */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-  using SafeMath for uint256;
+  using SafeMathUpgradeable for uint256;
 
   // 100% in parts per million
   uint32 private constant MAX_PPM = 1000000;
@@ -205,7 +205,7 @@ contract LightCuration is LightPausableUpgradeable, LightCurationStorageV1 {
       "Token master must be non-empty"
     );
     require(
-      Address.isContract(_curationTokenMaster),
+      AddressUpgradeable.isContract(_curationTokenMaster),
       "Token master must be a contract"
     );
 
@@ -278,7 +278,7 @@ contract LightCuration is LightPausableUpgradeable, LightCurationStorageV1 {
       if (address(curationPool.lcs) == address(0)) {
         // Use a minimal proxy to reduce gas cost
         ILightCurationToken lcs = ILightCurationToken(
-          Clones.clone(curationTokenMaster)
+          ClonesUpgradeable.clone(curationTokenMaster)
         );
         lcs.initialize(address(this));
         curationPool.lcs = lcs;

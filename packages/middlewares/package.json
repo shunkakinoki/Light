@@ -26,7 +26,7 @@
   "dependencies": {
     "@lightdotso/const": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
-    "next": "^12.3.0",
+    "next": "^12.2.5",
     "next-compose-middleware": "^2.0.6"
   },
   "devDependencies": {

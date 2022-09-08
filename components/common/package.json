@@ -28,7 +28,7 @@
     "@heroicons/react": "^2.0.10",
     "@lightdotso/const": "workspace:*",
     "clsx": "^1.2.1",
-    "next": "^12.3.0",
+    "next": "^12.2.5",
     "next-plausible": "^3.5.0",
     "next-seo": "^5.5.0",
     "next-themes": "^0.2.1",

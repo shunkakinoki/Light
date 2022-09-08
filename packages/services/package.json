@@ -32,10 +32,10 @@
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
     "neverthrow": "^5.0.0",
-    "zod": "^3.18.0"
+    "zod": "^3.19.0"
   },
   "devDependencies": {
-    "@types/node": "^18.7.14"
+    "@types/node": "^18.7.16"
   },
   "publishConfig": {
     "access": "public",

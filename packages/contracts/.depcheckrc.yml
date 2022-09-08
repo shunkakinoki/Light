@@ -1,13 +1,24 @@
 ignores:
-  - "@lightdotso/ens"
-  - "@lightdotso/hardhat-config"
-  - "@lightdotso/protocol"
-  - "@lightdotso/proxies"
-  - "@lightdotso/renderer"
+  - "@ethersproject/abi"
+  - "@ethersproject/providers"
   - "@lightdotso/typechain"
-  - "@lightdotso/upgradeable"
   - "@lightdotso/tsconfig"
-  - "@openzeppelin/contracts"
-  - "@openzeppelin/contracts-upgradeable"
+  - "@nomiclabs/hardhat-ethers"
+  - "@nomiclabs/hardhat-etherscan"
+  - "@nomiclabs/hardhat-waffle"
+  - "@openzeppelin/hardhat-upgrades"
+  - "@typechain/ethers-v5"
+  - "@typechain/hardhat"
+  - dotenv
+  - ethers
+  - ethereum-waffle
+  - hardhat-abi-exporter
+  - hardhat-deploy
+  - hardhat-gas-reporter
+  - hardhat-preprocessor
+  - hardhat-watcher
   - solc
+  - toml
+  - tsconfig-paths
   - ts-node
+  - typechain

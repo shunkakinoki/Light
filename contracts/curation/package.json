@@ -21,6 +21,7 @@
     "test:gas": "REPORT_GAS=true hardhat test"
   },
   "dependencies": {
+    "@lightdotso/hardhat": "workspace:*",
     "@lightdotso/hardhat-config": "workspace:*",
     "@lightdotso/jest": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",

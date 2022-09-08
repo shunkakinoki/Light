@@ -12,8 +12,8 @@
   },
   "license": "GPL-3.0",
   "author": "Light, Inc.",
-  "main": "dist/index",
-  "types": "dist/index",
+  "main": "dist/src/index",
+  "types": "dist/src/index",
   "files": [
     "dist"
   ],

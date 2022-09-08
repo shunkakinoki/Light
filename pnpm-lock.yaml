@@ -820,6 +820,33 @@ importers:
       '@types/mocha': 9.1.1
       '@types/node': 18.7.16
 
+  contracts/curation:
+    specifiers:
+      '@lightdotso/hardhat-config': workspace:*
+      '@lightdotso/jest': workspace:*
+      '@lightdotso/tsconfig': workspace:*
+      '@lightdotso/typechain': workspace:*
+      '@types/chai': ^4.3.3
+      '@types/jest': ^29.0.0
+      '@types/mocha': ^9.1.1
+      '@types/node': ^18.7.16
+      chai: ^4.3.6
+      ethers: ^5.7.0
+      hardhat: ^2.11.1
+    dependencies:
+      '@lightdotso/hardhat-config': link:../../configurations/hardhat
+      '@lightdotso/jest': link:../../configurations/jest
+      '@lightdotso/tsconfig': link:../../configurations/tsconfig
+      '@lightdotso/typechain': link:../../packages/typechain
+      chai: 4.3.6
+      ethers: 5.7.0
+      hardhat: 2.11.1
+    devDependencies:
+      '@types/chai': 4.3.3
+      '@types/jest': 29.0.0
+      '@types/mocha': 9.1.1
+      '@types/node': 18.7.16
+
   contracts/ens:
     specifiers: {}
 
@@ -13139,6 +13166,17 @@ packages:
       debug: 4.3.2
     dev: true
 
+  /follow-redirects/1.15.1_debug@4.3.4:
+    resolution: {integrity: sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dependencies:
+      debug: 4.3.4
+
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
     dependencies:
@@ -22574,7 +22612,7 @@ packages:
     dependencies:
       command-exists: 1.2.9
       commander: 3.0.2
-      follow-redirects: 1.15.1
+      follow-redirects: 1.15.1_debug@4.3.4
       fs-extra: 0.30.0
       js-sha3: 0.8.0
       memorystream: 0.3.1

@@ -1,0 +1,126 @@
+diff --git a/solc_0.6/proxy/Proxied.sol b/solc_0.6/proxy/Proxied.sol
+deleted file mode 100644
+index c359a4624c0c8e967c03363c0ba8847fa04cc4cf..0000000000000000000000000000000000000000
+diff --git a/solc_0.7/diamond/UsingDiamondOwner.sol b/solc_0.7/diamond/UsingDiamondOwner.sol
+deleted file mode 100644
+index 9bfc734ed63262dece5a054e988d03e3f8e28dee..0000000000000000000000000000000000000000
+diff --git a/solc_0.7/diamond/interfaces/IDiamondCut.sol b/solc_0.7/diamond/interfaces/IDiamondCut.sol
+deleted file mode 100644
+index f6fc6d0243c63a729bdaff9fb94ce2ba2373b101..0000000000000000000000000000000000000000
+diff --git a/solc_0.7/diamond/libraries/LibDiamond.sol b/solc_0.7/diamond/libraries/LibDiamond.sol
+deleted file mode 100644
+index e092ce07d5e0f3bb04538cd034306d915e0f4435..0000000000000000000000000000000000000000
+diff --git a/solc_0.7/proxy/Proxied.sol b/solc_0.7/proxy/Proxied.sol
+deleted file mode 100644
+index d1d4a0b37e1f4c99456bb3ceb0245012afa84458..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/diamond/Diamond.sol b/solc_0.8/diamond/Diamond.sol
+deleted file mode 100644
+index 5d00edc5b18351ef7393a106ac36faaecf94a24f..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/diamond/UsingDiamondOwner.sol b/solc_0.8/diamond/UsingDiamondOwner.sol
+deleted file mode 100644
+index 66bead4a88b2b980c864439420969a5b0c04103d..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/diamond/facets/DiamondCutFacet.sol b/solc_0.8/diamond/facets/DiamondCutFacet.sol
+deleted file mode 100644
+index bc0a69a9cc96dad2716625fea2efe9a3a12947ff..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/diamond/facets/DiamondLoupeFacet.sol b/solc_0.8/diamond/facets/DiamondLoupeFacet.sol
+deleted file mode 100644
+index 7bd9ce52c096bf7503934d897f647a24318f0f56..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/diamond/facets/DiamondLoupeFacetWithoutSupportsInterface.sol b/solc_0.8/diamond/facets/DiamondLoupeFacetWithoutSupportsInterface.sol
+deleted file mode 100644
+index ce4d626b01b9a9a945703d7d810b45cd4ad187c2..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/diamond/facets/OwnershipFacet.sol b/solc_0.8/diamond/facets/OwnershipFacet.sol
+deleted file mode 100644
+index 45cba09baa01d2358ec5b2bfdebe30952158c60a..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/diamond/initializers/DiamondERC165Init.sol b/solc_0.8/diamond/initializers/DiamondERC165Init.sol
+deleted file mode 100644
+index 09edb49e0eb48d552578bd3f2bb0a03af9227cee..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/diamond/interfaces/IDiamondCut.sol b/solc_0.8/diamond/interfaces/IDiamondCut.sol
+deleted file mode 100644
+index 2972f6954a6bb4f17f67355fe707ce2b3477a5de..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/diamond/interfaces/IDiamondLoupe.sol b/solc_0.8/diamond/interfaces/IDiamondLoupe.sol
+deleted file mode 100644
+index c3b2570fe17a5a5f271cdd1a570c293f4f83b878..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/diamond/interfaces/IERC165.sol b/solc_0.8/diamond/interfaces/IERC165.sol
+deleted file mode 100644
+index 04b7bcc9ab72348de014b6c1febce1db241d9a2d..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/diamond/interfaces/IERC173.sol b/solc_0.8/diamond/interfaces/IERC173.sol
+deleted file mode 100644
+index a708048457847cf7cad9af9309b6c6fb78cf9aad..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/diamond/libraries/LibDiamond.sol b/solc_0.8/diamond/libraries/LibDiamond.sol
+deleted file mode 100644
+index a58e69addfa50166d16a087cc5ed58dd208a1832..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/access/Ownable.sol b/solc_0.8/openzeppelin/access/Ownable.sol
+deleted file mode 100644
+index f23e9ed8e55dd1dcee1fd7c5a0b0226aedcec918..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/interfaces/draft-IERC1822.sol b/solc_0.8/openzeppelin/interfaces/draft-IERC1822.sol
+deleted file mode 100644
+index 51903ad5d5b8764310d08ab1d580d492a8dcb01d..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/proxy/Clones.sol b/solc_0.8/openzeppelin/proxy/Clones.sol
+deleted file mode 100644
+index 31ece8f813623a8e17c5cb8dd5930e1e8915fcef..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/proxy/ERC1967/ERC1967Proxy.sol b/solc_0.8/openzeppelin/proxy/ERC1967/ERC1967Proxy.sol
+deleted file mode 100644
+index 64e9d9f6f317c3bd1135a122822965508cbdd3fa..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/proxy/ERC1967/ERC1967Upgrade.sol b/solc_0.8/openzeppelin/proxy/ERC1967/ERC1967Upgrade.sol
+deleted file mode 100644
+index 51fff8f9422ba9c4e7d6630c1104175da4f8cc80..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/proxy/Proxy.sol b/solc_0.8/openzeppelin/proxy/Proxy.sol
+deleted file mode 100644
+index cf64d0847f4e7d4caf9bd06cf435452ca9c4b2cd..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/proxy/beacon/BeaconProxy.sol b/solc_0.8/openzeppelin/proxy/beacon/BeaconProxy.sol
+deleted file mode 100644
+index 32eaa8e674878a7ad5318def8fa7b33aada9a76d..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/proxy/beacon/IBeacon.sol b/solc_0.8/openzeppelin/proxy/beacon/IBeacon.sol
+deleted file mode 100644
+index fba3ee2ab4546832599b0498c4945c9f81d50791..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/proxy/beacon/UpgradeableBeacon.sol b/solc_0.8/openzeppelin/proxy/beacon/UpgradeableBeacon.sol
+deleted file mode 100644
+index a0910f1af850b139fa84934346319aa802186c3d..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/proxy/transparent/ProxyAdmin.sol b/solc_0.8/openzeppelin/proxy/transparent/ProxyAdmin.sol
+deleted file mode 100644
+index a1cdc35d5ffaec5099882b5c239333ec79787026..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/proxy/transparent/TransparentUpgradeableProxy.sol b/solc_0.8/openzeppelin/proxy/transparent/TransparentUpgradeableProxy.sol
+deleted file mode 100644
+index 10808d58d44139498d6da6c2c4e9461905ffd753..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/proxy/utils/Initializable.sol b/solc_0.8/openzeppelin/proxy/utils/Initializable.sol
+deleted file mode 100644
+index a57b422029e66bcb35e36b99b70c790eeb9a6d21..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/proxy/utils/UUPSUpgradeable.sol b/solc_0.8/openzeppelin/proxy/utils/UUPSUpgradeable.sol
+deleted file mode 100644
+index 48601325d7459cd1631280810e09cdc5c59bbb50..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/utils/Address.sol b/solc_0.8/openzeppelin/utils/Address.sol
+deleted file mode 100644
+index ccafe5a174d0906a4b7bfae9f8a4168c9845fbbd..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/utils/Context.sol b/solc_0.8/openzeppelin/utils/Context.sol
+deleted file mode 100644
+index f304065b46068cf2c19856506d063ef8f8585f1e..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/utils/StorageSlot.sol b/solc_0.8/openzeppelin/utils/StorageSlot.sol
+deleted file mode 100644
+index 28239dbc35a2c45a91958e1b654143a7690b2a2b..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/utils/introspection/ERC165.sol b/solc_0.8/openzeppelin/utils/introspection/ERC165.sol
+deleted file mode 100644
+index 3bf5613a6ccf0d76c8296a467dfab6be0c4e57a9..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/utils/introspection/ERC165Checker.sol b/solc_0.8/openzeppelin/utils/introspection/ERC165Checker.sol
+deleted file mode 100644
+index 6a240e155314a6af1337a4dbccaeecf29e5e59f1..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/utils/introspection/ERC165Storage.sol b/solc_0.8/openzeppelin/utils/introspection/ERC165Storage.sol
+deleted file mode 100644
+index c99d9f3fbad50d70ce79a452e61ccb4dde6ba261..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/openzeppelin/utils/introspection/IERC165.sol b/solc_0.8/openzeppelin/utils/introspection/IERC165.sol
+deleted file mode 100644
+index e8cdbdbf6099b22601175ecbc1bdb9467b3b0a26..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/proxy/EIP173Proxy.sol b/solc_0.8/proxy/EIP173Proxy.sol
+deleted file mode 100644
+index c00604c88e839b687baca1197f7471779613067a..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/proxy/EIP173ProxyWithReceive.sol b/solc_0.8/proxy/EIP173ProxyWithReceive.sol
+deleted file mode 100644
+index e2ba69567b64f0bce65f8c84611e0788517ed37a..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/proxy/OptimizedTransparentUpgradeableProxy.sol b/solc_0.8/proxy/OptimizedTransparentUpgradeableProxy.sol
+deleted file mode 100644
+index a2f76680a356e066d21c98bd2f76619ebc407e11..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/proxy/Proxied.sol b/solc_0.8/proxy/Proxied.sol
+deleted file mode 100644
+index 4370a2a038f2511c5a842bbc179f2e363d678487..0000000000000000000000000000000000000000
+diff --git a/solc_0.8/proxy/Proxy.sol b/solc_0.8/proxy/Proxy.sol
+deleted file mode 100644
+index f557879a4dfbf7b7291741c0543586505da683f2..0000000000000000000000000000000000000000

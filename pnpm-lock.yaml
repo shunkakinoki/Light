@@ -12,6 +12,9 @@ patchedDependencies:
   hardhat@2.10.2:
     hash: grhqrq6mdckvlolmcm223dttim
     path: patches/hardhat@2.10.2.patch
+  hardhat-deploy@0.11.14:
+    hash: pilfipbqnpocapzckerblf572q
+    path: patches/hardhat-deploy@0.11.14.patch
 
 importers:
 

@@ -909,6 +909,7 @@ importers:
     specifiers:
       '@ethersproject/abi': ^5.7.0
       '@ethersproject/providers': ^5.7.0
+      '@lightdotso/hardhat-config': workspace:*
       '@lightdotso/tsconfig': workspace:*
       '@nomiclabs/hardhat-ethers': ^2.1.1
       '@nomiclabs/hardhat-etherscan': ^3.1.0
@@ -933,6 +934,7 @@ importers:
     dependencies:
       '@ethersproject/abi': 5.7.0
       '@ethersproject/providers': 5.7.0
+      '@lightdotso/hardhat-config': link:../../configurations/hardhat
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
       '@nomiclabs/hardhat-ethers': 2.1.1_niamqnp2kmjo6tv45x3e7iqytu
       '@nomiclabs/hardhat-etherscan': 3.1.0_hardhat@2.11.1
@@ -7363,7 +7365,7 @@ packages:
   /axios/0.21.4_debug@4.3.4:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
     dependencies:
-      follow-redirects: 1.15.1_debug@4.3.4
+      follow-redirects: 1.15.1
     transitivePeerDependencies:
       - debug
     dev: false
@@ -13136,18 +13138,6 @@ packages:
     dependencies:
       debug: 4.3.2
     dev: true
-
-  /follow-redirects/1.15.1_debug@4.3.4:
-    resolution: {integrity: sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
-    dependencies:
-      debug: 4.3.4
-    dev: false
 
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}

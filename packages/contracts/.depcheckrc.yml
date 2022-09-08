@@ -1,6 +1,7 @@
 ignores:
   - "@ethersproject/abi"
   - "@ethersproject/providers"
+  - "@lightdotso/hardhat-config"
   - "@lightdotso/typechain"
   - "@lightdotso/tsconfig"
   - "@nomiclabs/hardhat-ethers"

@@ -47,7 +47,7 @@
     "hardhat-gas-reporter": "^1.0.9",
     "hardhat-preprocessor": "^0.1.5",
     "hardhat-watcher": "^2.5.0",
-    "solc": "^0.8.16",
+    "solc": "^0.8.17",
     "toml": "^3.0.0"
   },
   "devDependencies": {

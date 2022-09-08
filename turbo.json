@@ -93,6 +93,7 @@
       "inputs": [
         "apps/**/src/**/*.ts",
         "apps/**/src/**/*.tsx",
+        "contracts/**/spec/**/*.ts",
         "components/**/src/**/*.ts",
         "components/**/src/**/*.tsx",
         "configurations/**/src/**/*.ts",

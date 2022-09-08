@@ -1,0 +1,46 @@
+{
+  "name": "@lightdotso/hardhat",
+  "version": "1.0.0",
+  "private": false,
+  "homepage": "https://github.com/LightDotSo/LightDotSo",
+  "bugs": {
+    "url": "https://github.com/LightDotSo/LightDotSo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LightDotSo/LightDotSo.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Light, Inc.",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run compile",
+    "clean": "rimraf -rf ./dist",
+    "compile": "tsc",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "@lightdotso/hardhat-config": "workspace:*",
+    "@lightdotso/jest": "workspace:*",
+    "@lightdotso/tsconfig": "workspace:*",
+    "@lightdotso/typechain": "workspace:*",
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "chai": "^4.3.6",
+    "ethers": "^5.7.0",
+    "hardhat": "^2.11.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.3",
+    "@types/jest": "^29.0.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.7.16"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

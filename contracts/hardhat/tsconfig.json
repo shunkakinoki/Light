@@ -1,0 +1,5 @@
+{
+  "extends": "@lightdotso/tsconfig/hardhat.json",
+  "include": ["src"],
+  "files": ["hardhat.config.ts"]
+}

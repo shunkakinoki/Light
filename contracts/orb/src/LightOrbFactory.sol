@@ -5,8 +5,8 @@ pragma solidity ^0.8.16;
 import { ILightOrbFactory } from "@lightdotso/orb/ILightOrbFactory.sol";
 import { LightOperatable } from "@lightdotso/abstract/LightOperatable.sol";
 import { LightOrb } from "@lightdotso/orb/LightOrb.sol";
-import { LightOrbFactoryStorageV1 } from "@lightdotso/orb/LightOrbFactoryStorage.sol";
-// import { BeaconProxy } from "@openzeppelin/contracts-upgradeable/proxy/beacon/BeaconProxy.sol";
+import { LightOrbFactoryStorageV1, UpgradeableBeacon } from "@lightdotso/orb/LightOrbFactoryStorage.sol";
+import { BeaconProxy } from "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 
 /// @title Factory contract for generating Light Orbs.
@@ -34,7 +34,7 @@ contract LightOrbFactory is
   ) external override reinitializer(2) {
     __Ownable_init();
     __UUPSUpgradeable_init();
-    // upgradeableBeacon = new UpgradeableBeacon(_implementationAddress);
+    upgradeableBeacon = new UpgradeableBeacon(_implementationAddress);
 
     _setController(_controller);
     _setOperator(_operator);
@@ -50,17 +50,17 @@ contract LightOrbFactory is
     external
     returns (address)
   {
-    // BeaconProxy orb = new BeaconProxy(
-    //   address(upgradeableBeacon),
-    //   abi.encodeWithSelector(LightOrb.initialize.selector, _name, _symbol)
-    // );
-    // return address(orb);
+    BeaconProxy orb = new BeaconProxy(
+      address(upgradeableBeacon),
+      abi.encodeWithSelector(LightOrb.initialize.selector, _name, _symbol)
+    );
+    return address(orb);
   }
 
   function _upgradeBeaconProxy(address new_implementationAddress)
     external
     onlyOwner
   {
-    // upgradeableBeacon.upgradeTo(new_implementationAddress);
+    upgradeableBeacon.upgradeTo(new_implementationAddress);
   }
 }

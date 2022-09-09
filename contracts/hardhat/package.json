@@ -21,7 +21,10 @@
     "build": "pnpm run clean && pnpm run compile",
     "clean": "rimraf -rf ./dist",
     "compile": "tsc",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "pnpm run build",
+    "test": "hardhat test",
+    "test:coverage": "hardhat coverage",
+    "test:gas": "REPORT_GAS=true hardhat test"
   },
   "dependencies": {
     "@lightdotso/hardhat-config": "workspace:*",

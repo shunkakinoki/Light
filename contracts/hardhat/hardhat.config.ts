@@ -3,6 +3,10 @@ import type { HardhatUserConfig } from "hardhat/config";
 
 const config: HardhatUserConfig = {
   ...defaultConfig,
+  paths: {
+    root: "../..",
+    tests: "contracts/hardhat/spec",
+  },
 };
 
 export default config;

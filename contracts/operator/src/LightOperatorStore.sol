@@ -22,11 +22,6 @@ contract LightOperatorStore is
   /*                       UPGRADEABLE                          */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
-  //// @custom:oz-upgrades-unsafe-allow constructor
-  constructor() {
-    _disableInitializers();
-  }
-
   function initialize()
     external
     override(LightUpgradeable, ILightOperatorStore)
@@ -35,8 +30,6 @@ contract LightOperatorStore is
     __Ownable_init();
     __UUPSUpgradeable_init();
   }
-
-  function _authorizeUpgrade(address) internal override onlyOwner {}
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
   /*                      EXTERNAL VIEWS                        */

@@ -67,9 +67,9 @@ before(async () => {
     "EmptyUUPSBeacon",
   )) as EmptyUUPSBeacon;
 
-  const proxyLightCore = await deployUUPS();
-  const proxyLightController = await deployUUPS();
-  const proxyLightOperatorStore = await deployUUPS();
+  const proxyLightCore = (await deployUUPS()) as UUPSProxy;
+  const proxyLightController = (await deployUUPS()) as UUPSProxy;
+  const proxyLightOperatorStore = (await deployUUPS()) as UUPSProxy;
   const proxyLightOrb = (await deployUUPS()) as UUPSProxy;
   const proxyLightOrbFactory = (await deployUUPSBeacon([
     emptyUUPSBeacon.address,
@@ -98,10 +98,10 @@ before(async () => {
     proxyLightOrb.address,
     "LightOrb",
   )) as unknown as LightOrb;
-  wrappedLightOrbFactory = (await upgradeUUPS(
-    proxyLightOrbFactory.address,
-    "LightOrbFactory",
-  )) as unknown as LightOrbFactory;
+  // wrappedLightOrbFactory = (await upgradeUUPS(
+  //   proxyLightOrbFactory.address,
+  //   "LightOrbFactory",
+  // )) as unknown as LightOrbFactory;
   wrappedLightSpace = (await upgradeUUPS(
     proxyLightSpace.address,
     "LightSpace",

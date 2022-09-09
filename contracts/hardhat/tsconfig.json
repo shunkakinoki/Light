@@ -5,5 +5,5 @@
   "exclude": ["dist", "build", "node_modules"],
   "extends": "@lightdotso/tsconfig/node.json",
   "files": ["hardhat.config.ts"],
-  "include": ["src"]
+  "include": ["src", "spec"]
 }

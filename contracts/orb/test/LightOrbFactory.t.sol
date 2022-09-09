@@ -112,13 +112,12 @@ contract LightOrbFactoryTest is BaseTest {
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );
-    /// LightOperatable
-    _testArbitrarySlot(
-      address(proxyLightOrbFactory),
-      bytes32(uint256(201)),
-      bytes32(uint256(uint160(address(proxyLightOperatorStore))))
-    );
     /// LightOrbFactoryStorageV1 (LightManager)
+    _testArbitrarySlotNotEmpty(
+      address(proxyLightOrbFactory),
+      bytes32(uint256(201))
+    );
+    /// LightOrbFactoryStorageV1 (LightManager) LightManagerStorageV1
     _testArbitrarySlot(
       address(proxyLightOrbFactory),
       bytes32(uint256(251)),
@@ -163,10 +162,11 @@ contract LightOrbFactoryTest is BaseTest {
       ),
       bytes32(uint256(uint160(address(proxyLightSpace))))
     );
-    /// LightOrbFactoryStorageV1
-    _testArbitrarySlotNotEmpty(
+    /// LightOperatable
+    _testArbitrarySlot(
       address(proxyLightOrbFactory),
-      bytes32(uint256(301))
+      bytes32(uint256(301)),
+      bytes32(uint256(uint160(address(proxyLightOperatorStore))))
     );
   }
 
@@ -194,7 +194,7 @@ contract LightOrbFactoryTest is BaseTest {
       bytes32(uint256(101)),
       bytes32(uint256(0))
     );
-    /// LightOperatable (upgradeableBeacon in EmptyUUPSBeacon)
+    /// LightOrbFactoryStorageV1 (upgradeableBeacon in EmptyUUPSBeacon)
     _testArbitrarySlotNotEmpty(
       address(proxyLightOrbFactory),
       bytes32(uint256(201))
@@ -244,7 +244,7 @@ contract LightOrbFactoryTest is BaseTest {
       ),
       bytes32(uint256(0))
     );
-    /// LightOrbFactoryStorageV1
+    /// LightOperatable
     _testArbitrarySlot(
       address(proxyLightOrbFactory),
       bytes32(uint256(301)),

@@ -14,18 +14,13 @@ import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 /// @author Shun Kakinoki
 contract LightOrbFactory is
   LightUpgradeable,
-  LightOperatable,
   LightOrbFactoryStorageV1,
+  LightOperatable,
   ILightOrbFactory
 {
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                       UPGRADEABLE                          */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-
-  /// @custom:oz-upgrades-unsafe-allow constructor
-  constructor() {
-    _disableInitializers();
-  }
+  ///////////////////
+  /// UPGRADEABLE ///
+  ///////////////////
 
   function initialize(
     address _implementationAddress,
@@ -39,8 +34,6 @@ contract LightOrbFactory is
     _setController(_controller);
     _setOperator(_operator);
   }
-
-  function _authorizeUpgrade(address) internal override onlyOwner {}
 
   function implementation() external view returns (address) {
     return upgradeableBeacon.implementation();

@@ -22,11 +22,6 @@ contract LightOrbFactory is
   /// UPGRADEABLE ///
   ///////////////////
 
-  /// @custom:oz-upgrades-unsafe-allow constructor
-  constructor() {
-    _disableInitializers();
-  }
-
   function initialize(
     address _implementationAddress,
     address _controller,
@@ -39,8 +34,6 @@ contract LightOrbFactory is
     _setController(_controller);
     _setOperator(_operator);
   }
-
-  function _authorizeUpgrade(address) internal override onlyOwner {}
 
   function implementation() external view returns (address) {
     return upgradeableBeacon.implementation();

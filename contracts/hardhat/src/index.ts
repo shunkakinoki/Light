@@ -1,13 +1,24 @@
-import type { EmptyUUPS, LightCore, UUPSProxy } from "@lightdotso/typechain";
+import type {
+  EmptyUUPS,
+  EmptyUUPSBeacon,
+  LightCore,
+  LightController,
+  UUPSProxy,
+  LightOperatorStore,
+  LightOrb,
+  LightOrbFactory,
+  LightSpace,
+  LightXP,
+} from "@lightdotso/typechain";
 import { ethers, upgrades } from "hardhat";
 
 export let wrappedLightCore: LightCore;
-export let wrappedLightController: LightCore;
-export let wrappedLightOperatorStore: LightCore;
-export let wrappedLightOrb: LightCore;
-export let wrappedLightOrbFactory: LightCore;
-export let wrappedLightSpace: LightCore;
-export let wrappedLightXP: LightCore;
+export let wrappedLightController: LightController;
+export let wrappedLightOperatorStore: LightOperatorStore;
+export let wrappedLightOrb: LightOrb;
+export let wrappedLightOrbFactory: LightOrbFactory;
+export let wrappedLightSpace: LightSpace;
+export let wrappedLightXP: LightXP;
 
 before(async () => {
   // const emptyFactory = await ethers.getContractFactory("Empty");
@@ -40,21 +51,31 @@ before(async () => {
     return contract as EmptyUUPS;
   };
 
-  const deployUUPSBeacon = async () => {
-    const contract = await upgrades.deployProxy(emptyUUPSBeaconFactory, [], {
-      kind: "uups",
-    });
+  const deployUUPSBeacon = async (initParams: any[]) => {
+    const contract = await upgrades.deployProxy(
+      emptyUUPSBeaconFactory,
+      initParams,
+      {
+        kind: "uups",
+      },
+    );
     await contract.deployed();
     return contract as UUPSProxy;
   };
 
+  const emptyUUPSBeacon = (await deployContract(
+    "EmptyUUPSBeacon",
+  )) as EmptyUUPSBeacon;
+
   const proxyLightCore = await deployUUPS();
   const proxyLightController = await deployUUPS();
   const proxyLightOperatorStore = await deployUUPS();
-  // const proxyLightOrb = (await deployUUPS()) as UUPSProxy;
-  // const proxyLightOrbFactory = (await deployUUPSBeacon()) as UUPSProxy;
-  // const proxyLightSpace = (await deployUUPS()) as UUPSProxy;
-  // const proxyLightXP = (await deployUUPS()) as UUPSProxy;
+  const proxyLightOrb = (await deployUUPS()) as UUPSProxy;
+  const proxyLightOrbFactory = (await deployUUPSBeacon([
+    emptyUUPSBeacon.address,
+  ])) as UUPSProxy;
+  const proxyLightSpace = (await deployUUPS()) as UUPSProxy;
+  const proxyLightXP = (await deployUUPS()) as UUPSProxy;
 
   // const emptyProxyLightCore = proxyLightCore as EmptyUUPS;
   // await emptyProxyLightCore.initialize();
@@ -64,4 +85,29 @@ before(async () => {
     proxyLightCore.address,
     "LightCore",
   )) as unknown as LightCore;
+  await deployContract("LightCore");
+  wrappedLightController = (await upgradeUUPS(
+    proxyLightController.address,
+    "LightController",
+  )) as unknown as LightController;
+  wrappedLightOperatorStore = (await upgradeUUPS(
+    proxyLightOperatorStore.address,
+    "LightOperatorStore",
+  )) as unknown as LightOperatorStore;
+  wrappedLightOrb = (await upgradeUUPS(
+    proxyLightOrb.address,
+    "LightOrb",
+  )) as unknown as LightOrb;
+  wrappedLightOrbFactory = (await upgradeUUPS(
+    proxyLightOrbFactory.address,
+    "LightOrbFactory",
+  )) as unknown as LightOrbFactory;
+  wrappedLightSpace = (await upgradeUUPS(
+    proxyLightSpace.address,
+    "LightSpace",
+  )) as unknown as LightSpace;
+  wrappedLightXP = (await upgradeUUPS(
+    proxyLightXP.address,
+    "LightXP",
+  )) as unknown as LightXP;
 });

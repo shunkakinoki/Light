@@ -12,6 +12,12 @@ patchedDependencies:
   hardhat@2.10.2:
     hash: grhqrq6mdckvlolmcm223dttim
     path: patches/hardhat@2.10.2.patch
+  hardhat-deploy@0.11.14:
+    hash: pilfipbqnpocapzckerblf572q
+    path: patches/hardhat-deploy@0.11.14.patch
+  hardhat@2.11.1:
+    hash: 22w54ijq3seikrg2by46v3vlvu
+    path: patches/hardhat@2.11.1.patch
 
 importers:
 
@@ -242,7 +248,7 @@ importers:
       next-compose-plugins: ^2.2.1
       next-plausible: ^3.5.0
       next-seo: ^5.5.0
-      next-themes: ^0.2.0
+      next-themes: ^0.2.1
       next-transpile-modules: ^9.0.0
       nprogress: ^0.2.0
       nyc: ^15.1.0
@@ -290,7 +296,7 @@ importers:
       next-compose-plugins: 2.2.1
       next-plausible: 3.5.0_3xcjr4wz26biff45sz3jtokgje
       next-seo: 5.5.0_3xcjr4wz26biff45sz3jtokgje
-      next-themes: 0.2.0_3xcjr4wz26biff45sz3jtokgje
+      next-themes: 0.2.1_3xcjr4wz26biff45sz3jtokgje
       next-transpile-modules: 9.0.0
       nprogress: 0.2.0
       react: 18.2.0
@@ -360,7 +366,7 @@ importers:
       next: ^12.2.5
       next-compose-plugins: ^2.2.1
       next-plausible: ^3.5.0
-      next-themes: ^0.2.0
+      next-themes: ^0.2.1
       next-transpile-modules: ^9.0.0
       nyc: ^15.1.0
       react: ^18.2.0
@@ -379,7 +385,7 @@ importers:
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
       next-compose-plugins: 2.2.1
       next-plausible: 3.5.0_3xcjr4wz26biff45sz3jtokgje
-      next-themes: 0.2.0_3xcjr4wz26biff45sz3jtokgje
+      next-themes: 0.2.1_3xcjr4wz26biff45sz3jtokgje
       next-transpile-modules: 9.0.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -429,7 +435,7 @@ importers:
       next: ^12.2.5
       next-compose-plugins: ^2.2.1
       next-plausible: ^3.5.0
-      next-themes: ^0.2.0
+      next-themes: ^0.2.1
       next-transpile-modules: ^9.0.0
       nextra: ^2.0.0-beta.15
       nextra-theme-docs: ^2.0.0-beta.15
@@ -447,7 +453,7 @@ importers:
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
       next-compose-plugins: 2.2.1
       next-plausible: 3.5.0_3xcjr4wz26biff45sz3jtokgje
-      next-themes: 0.2.0_3xcjr4wz26biff45sz3jtokgje
+      next-themes: 0.2.1_3xcjr4wz26biff45sz3jtokgje
       next-transpile-modules: 9.0.0
       nextra: 2.0.0-beta.17_3xcjr4wz26biff45sz3jtokgje
       nextra-theme-docs: 2.0.0-beta.15_3xcjr4wz26biff45sz3jtokgje
@@ -503,7 +509,7 @@ importers:
       next-compose-plugins: ^2.2.1
       next-plausible: ^3.5.0
       next-seo: ^5.5.0
-      next-themes: ^0.2.0
+      next-themes: ^0.2.1
       next-transpile-modules: ^9.0.0
       nyc: ^15.1.0
       react: ^18.2.0
@@ -527,7 +533,7 @@ importers:
       next-compose-plugins: 2.2.1
       next-plausible: 3.5.0_3xcjr4wz26biff45sz3jtokgje
       next-seo: 5.5.0_3xcjr4wz26biff45sz3jtokgje
-      next-themes: 0.2.0_3xcjr4wz26biff45sz3jtokgje
+      next-themes: 0.2.1_3xcjr4wz26biff45sz3jtokgje
       next-transpile-modules: 9.0.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -585,7 +591,7 @@ importers:
       jest-environment-jsdom: ^29.0.2
       next: ^12.2.5
       next-compose-plugins: ^2.2.1
-      next-themes: ^0.2.0
+      next-themes: ^0.2.1
       next-transpile-modules: ^9.0.0
       nyc: ^15.1.0
       playwright-aws-lambda: ^0.9.0
@@ -603,7 +609,7 @@ importers:
       copy-to-clipboard: 3.3.2
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
       next-compose-plugins: 2.2.1
-      next-themes: 0.2.0_3xcjr4wz26biff45sz3jtokgje
+      next-themes: 0.2.1_3xcjr4wz26biff45sz3jtokgje
       next-transpile-modules: 9.0.0
       playwright-aws-lambda: 0.9.0_playwright-core@1.25.2
       playwright-core: 1.25.2
@@ -642,7 +648,7 @@ importers:
       next: ^12.2.5
       next-plausible: ^3.5.0
       next-seo: ^5.5.0
-      next-themes: ^0.2.0
+      next-themes: ^0.2.1
       react: ^18.2.0
       react-icons: ^4.4.0
     dependencies:
@@ -653,7 +659,7 @@ importers:
       next: 12.2.5_react@18.2.0
       next-plausible: 3.5.0_next@12.2.5+react@18.2.0
       next-seo: 5.5.0_next@12.2.5+react@18.2.0
-      next-themes: 0.2.0_next@12.2.5+react@18.2.0
+      next-themes: 0.2.1_next@12.2.5+react@18.2.0
       react: 18.2.0
       react-icons: 4.4.0_react@18.2.0
     devDependencies:
@@ -736,9 +742,9 @@ importers:
       chai: 4.3.6
       dotenv: 16.0.2
       ethers: 5.7.0
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
       hardhat-abi-exporter: 2.10.0_hardhat@2.11.1
-      hardhat-deploy: 0.11.14
+      hardhat-deploy: 0.11.14_pilfipbqnpocapzckerblf572q
       hardhat-gas-reporter: 1.0.9_hardhat@2.11.1
       hardhat-preprocessor: 0.1.5_hardhat@2.11.1
       hardhat-watcher: 2.5.0_hardhat@2.11.1
@@ -813,7 +819,34 @@ importers:
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
       '@lightdotso/typechain': link:../../packages/typechain
       chai: 4.3.6
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
+    devDependencies:
+      '@types/chai': 4.3.3
+      '@types/jest': 29.0.0
+      '@types/mocha': 9.1.1
+      '@types/node': 18.7.16
+
+  contracts/curation:
+    specifiers:
+      '@lightdotso/hardhat': workspace:*
+      '@lightdotso/hardhat-config': workspace:*
+      '@lightdotso/jest': workspace:*
+      '@lightdotso/tsconfig': workspace:*
+      '@lightdotso/typechain': workspace:*
+      '@types/chai': ^4.3.3
+      '@types/jest': ^29.0.0
+      '@types/mocha': ^9.1.1
+      '@types/node': ^18.7.16
+      chai: ^4.3.6
+      hardhat: ^2.11.1
+    dependencies:
+      '@lightdotso/hardhat': link:../hardhat
+      '@lightdotso/hardhat-config': link:../../configurations/hardhat
+      '@lightdotso/jest': link:../../configurations/jest
+      '@lightdotso/tsconfig': link:../../configurations/tsconfig
+      '@lightdotso/typechain': link:../../packages/typechain
+      chai: 4.3.6
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
     devDependencies:
       '@types/chai': 4.3.3
       '@types/jest': 29.0.0
@@ -828,6 +861,35 @@ importers:
 
   contracts/foundry:
     specifiers: {}
+
+  contracts/hardhat:
+    specifiers:
+      '@lightdotso/hardhat-config': workspace:*
+      '@lightdotso/jest': workspace:*
+      '@lightdotso/tsconfig': workspace:*
+      '@lightdotso/typechain': workspace:*
+      '@nomiclabs/hardhat-ethers': ^2.1.1
+      '@types/chai': ^4.3.3
+      '@types/jest': ^29.0.0
+      '@types/mocha': ^9.1.1
+      '@types/node': ^18.7.16
+      chai: ^4.3.6
+      ethers: ^5.7.0
+      hardhat: ^2.11.1
+    dependencies:
+      '@lightdotso/hardhat-config': link:../../configurations/hardhat
+      '@lightdotso/jest': link:../../configurations/jest
+      '@lightdotso/tsconfig': link:../../configurations/tsconfig
+      '@lightdotso/typechain': link:../../packages/typechain
+      '@nomiclabs/hardhat-ethers': 2.1.1_niamqnp2kmjo6tv45x3e7iqytu
+      chai: 4.3.6
+      ethers: 5.7.0
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
+    devDependencies:
+      '@types/chai': 4.3.3
+      '@types/jest': 29.0.0
+      '@types/mocha': 9.1.1
+      '@types/node': 18.7.16
 
   contracts/manager:
     specifiers: {}
@@ -891,7 +953,7 @@ importers:
       '@matterlabs/hardhat-zksync-deploy': 0.4.0_lbhowthwg7iyalmnphqopbwlgi_wltn25hbeo6vfo6z5ecehnzyia
       '@matterlabs/hardhat-zksync-solc': 0.3.7_hardhat@2.11.1
       ethers: 5.7.0
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
       toml: 3.0.0
       zksync-web3: 0.8.1_ethers@5.7.0
     devDependencies:
@@ -926,7 +988,7 @@ importers:
       hardhat-gas-reporter: ^1.0.9
       hardhat-preprocessor: ^0.1.5
       hardhat-watcher: ^2.5.0
-      solc: ^0.8.16
+      solc: ^0.8.17
       toml: ^3.0.0
       ts-node: ^10.9.1
       tsconfig-paths: ^4.1.0
@@ -943,13 +1005,13 @@ importers:
       '@typechain/ethers-v5': 10.1.0_grtvsajv4h6vd2pawneyo5plpi
       '@typechain/hardhat': 6.1.2_plihl2mrswx5psfkvbbtasoejy
       ethers: 5.7.0
-      hardhat: 2.11.1_ts-node@10.9.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu_ts-node@10.9.1
       hardhat-abi-exporter: 2.10.0_hardhat@2.11.1
-      hardhat-deploy: 0.11.14
+      hardhat-deploy: 0.11.14_pilfipbqnpocapzckerblf572q
       hardhat-gas-reporter: 1.0.9_hardhat@2.11.1
       hardhat-preprocessor: 0.1.5_hardhat@2.11.1
       hardhat-watcher: 2.5.0_hardhat@2.11.1
-      solc: 0.8.16
+      solc: 0.8.17
       toml: 3.0.0
     devDependencies:
       dotenv: 16.0.2
@@ -1048,14 +1110,12 @@ importers:
       '@ethersproject/abi': ^5.7.0
       '@ethersproject/providers': ^5.7.0
       '@lightdotso/contracts': workspace:*
-      '@lightdotso/protocol': workspace:*
       '@lightdotso/tsconfig': workspace:*
       ethers: ^5.7.0
     dependencies:
       '@ethersproject/abi': 5.7.0
       '@ethersproject/providers': 5.7.0
       '@lightdotso/contracts': link:../contracts
-      '@lightdotso/protocol': link:../../contracts/protocol
       '@lightdotso/tsconfig': link:../../configurations/tsconfig
       ethers: 5.7.0
 
@@ -3395,7 +3455,7 @@ packages:
     dependencies:
       ethers: 5.7.0
       glob: 8.0.3
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
       zksync-web3: 0.8.1_ethers@5.7.0
     dev: false
     patched: true
@@ -3407,7 +3467,7 @@ packages:
     dependencies:
       '@nomiclabs/hardhat-docker': 2.0.2
       dockerode: 3.3.4
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -4226,7 +4286,7 @@ packages:
       hardhat: ^2.0.0
     dependencies:
       ethers: 5.7.0
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
     dev: false
 
   /@nomiclabs/hardhat-etherscan/3.1.0_hardhat@2.11.1:
@@ -4240,7 +4300,7 @@ packages:
       chalk: 2.4.2
       debug: 4.3.4
       fs-extra: 7.0.1
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
       lodash: 4.17.21
       semver: 6.3.0
       table: 6.8.0
@@ -4261,7 +4321,7 @@ packages:
       '@types/sinon-chai': 3.2.8
       '@types/web3': 1.0.19
       ethers: 5.7.0
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
     dev: false
 
   /@nomiclabs/hardhat-waffle/2.0.3_cvxjstifqbmpk66twnkyqdv7bm:
@@ -4277,7 +4337,7 @@ packages:
       '@types/web3': 1.0.19
       ethereum-waffle: 3.4.4
       ethers: 5.7.0
-      hardhat: 2.11.1_ts-node@10.9.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu_ts-node@10.9.1
     dev: false
 
   /@notionhq/client/2.2.0:
@@ -4493,7 +4553,7 @@ packages:
       chalk: 4.1.2
       debug: 4.3.4
       ethers: 5.7.0
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
       proper-lockfile: 4.1.2
     transitivePeerDependencies:
       - supports-color
@@ -5339,7 +5399,7 @@ packages:
       '@typechain/ethers-v5': 10.1.0_a6ljzpsfjckm35mcawh36jfcxa
       ethers: 5.7.0
       fs-extra: 9.1.0
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
       lodash: 4.17.21
     dev: false
 
@@ -5358,7 +5418,7 @@ packages:
       '@typechain/ethers-v5': 10.1.0_grtvsajv4h6vd2pawneyo5plpi
       ethers: 5.7.0
       fs-extra: 9.1.0
-      hardhat: 2.11.1_ts-node@10.9.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu_ts-node@10.9.1
       lodash: 4.17.21
       typechain: 8.1.0
     dev: false
@@ -13964,10 +14024,10 @@ packages:
     dependencies:
       '@ethersproject/abi': 5.7.0
       delete-empty: 3.0.0
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
     dev: false
 
-  /hardhat-deploy/0.11.14:
+  /hardhat-deploy/0.11.14_pilfipbqnpocapzckerblf572q:
     resolution: {integrity: sha512-QL/ETKUj8a5QNZujXJCYFf7vwSvtKFmQhrSFe2S6x2TCHqhYt7heiR0H3YCxFGO8d1iF2QNL2wYtwvL+i5VvLQ==}
     dependencies:
       '@types/qs': 6.9.7
@@ -13988,6 +14048,7 @@ packages:
       - supports-color
       - utf-8-validate
     dev: false
+    patched: true
 
   /hardhat-gas-reporter/1.0.9_hardhat@2.11.1:
     resolution: {integrity: sha512-INN26G3EW43adGKBNzYWOlI3+rlLnasXTwW79YNnUhXPDa+yHESgt639dJEs37gCjhkbNKcRRJnomXEuMFBXJg==}
@@ -13996,7 +14057,7 @@ packages:
     dependencies:
       array-uniq: 1.0.3
       eth-gas-reporter: 0.2.25
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
       sha1: 1.1.1
     transitivePeerDependencies:
       - '@codechecks/client'
@@ -14007,7 +14068,7 @@ packages:
     peerDependencies:
       hardhat: ^2.0.5
     dependencies:
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
       murmur-128: 0.2.1
 
   /hardhat-watcher/2.5.0_hardhat@2.11.1:
@@ -14016,7 +14077,7 @@ packages:
       hardhat: ^2.0.0
     dependencies:
       chokidar: 3.5.3
-      hardhat: 2.11.1
+      hardhat: 2.11.1_22w54ijq3seikrg2by46v3vlvu
     dev: false
 
   /hardhat/2.10.2_grhqrq6mdckvlolmcm223dttim_typescript@4.7.4:
@@ -14088,7 +14149,7 @@ packages:
     dev: true
     patched: true
 
-  /hardhat/2.11.1:
+  /hardhat/2.11.1_22w54ijq3seikrg2by46v3vlvu:
     resolution: {integrity: sha512-7FoyfKjBs97GHNpQejHecJBBcRPOEhAE3VkjSWXB3GeeiXefWbw+zhRVOjI4eCsUUt7PyNFAdWje/lhnBT9fig==}
     engines: {node: ^14.0.0 || ^16.0.0 || ^18.0.0}
     hasBin: true
@@ -14155,8 +14216,9 @@ packages:
       - bufferutil
       - supports-color
       - utf-8-validate
+    patched: true
 
-  /hardhat/2.11.1_ts-node@10.9.1:
+  /hardhat/2.11.1_22w54ijq3seikrg2by46v3vlvu_ts-node@10.9.1:
     resolution: {integrity: sha512-7FoyfKjBs97GHNpQejHecJBBcRPOEhAE3VkjSWXB3GeeiXefWbw+zhRVOjI4eCsUUt7PyNFAdWje/lhnBT9fig==}
     engines: {node: ^14.0.0 || ^16.0.0 || ^18.0.0}
     hasBin: true
@@ -14225,6 +14287,7 @@ packages:
       - supports-color
       - utf-8-validate
     dev: false
+    patched: true
 
   /has-ansi/2.0.0:
     resolution: {integrity: sha512-C8vBJ8DwUCx19vhm7urhTuUsr4/IyP6l4VzNQDv+ryHQObW3TTTp9yB68WpYgRe2bbaGuZ/se74IqFeVnMnLZg==}
@@ -18915,8 +18978,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /next-themes/0.2.0_3xcjr4wz26biff45sz3jtokgje:
-    resolution: {integrity: sha512-myhpDL4vadBD9YDSHiewqvzorGzB03N84e+3LxCwHRlM/hiBOaW+UsKsQojQAzC7fdcJA0l2ppveXcYaVV+hxQ==}
+  /next-themes/0.2.1_3xcjr4wz26biff45sz3jtokgje:
+    resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
     peerDependencies:
       next: '*'
       react: '*'
@@ -18927,8 +18990,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /next-themes/0.2.0_next@12.2.5+react@18.2.0:
-    resolution: {integrity: sha512-myhpDL4vadBD9YDSHiewqvzorGzB03N84e+3LxCwHRlM/hiBOaW+UsKsQojQAzC7fdcJA0l2ppveXcYaVV+hxQ==}
+  /next-themes/0.2.1_next@12.2.5+react@18.2.0:
+    resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
     peerDependencies:
       next: '*'
       react: '*'
@@ -19097,7 +19160,7 @@ packages:
       intersection-observer: 0.12.2
       match-sorter: 4.2.1
       next: 12.2.5_biqbaboplfbrettd7655fr4n2y
-      next-themes: 0.2.0_3xcjr4wz26biff45sz3jtokgje
+      next-themes: 0.2.1_3xcjr4wz26biff45sz3jtokgje
       parse-git-url: 1.0.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -22598,6 +22661,23 @@ packages:
       tmp: 0.0.33
     transitivePeerDependencies:
       - debug
+    dev: true
+
+  /solc/0.8.17:
+    resolution: {integrity: sha512-Dtidk2XtTTmkB3IKdyeg6wLYopJnBVxdoykN8oP8VY3PQjN16BScYoUJTXFm2OP7P0hXNAqWiJNmmfuELtLf8g==}
+    engines: {node: '>=10.0.0'}
+    hasBin: true
+    dependencies:
+      command-exists: 1.2.9
+      commander: 8.3.0
+      follow-redirects: 1.15.1
+      js-sha3: 0.8.0
+      memorystream: 0.3.1
+      semver: 5.7.1
+      tmp: 0.0.33
+    transitivePeerDependencies:
+      - debug
+    dev: false
 
   /solhint/3.3.7:
     resolution: {integrity: sha512-NjjjVmXI3ehKkb3aNtRJWw55SUVJ8HMKKodwe0HnejA+k0d2kmhw7jvpa+MCTbcEgt8IWSwx0Hu6aCo/iYOZzQ==}

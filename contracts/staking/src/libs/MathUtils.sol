@@ -2,14 +2,14 @@
 
 pragma solidity ^0.8.16;
 
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
 
 /**
  * @title MathUtils Library
  * @notice A collection of functions to perform math operations
  */
 library MathUtils {
-  using SafeMath for uint256;
+  using SafeMathUpgradeable for uint256;
 
   /**
    * @dev Calculates the weighted average of two values pondering each of these

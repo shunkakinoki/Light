@@ -3,7 +3,7 @@
 pragma solidity ^0.8.16;
 pragma abicoder v2;
 
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
 
 import "./Cobbs.sol";
 
@@ -13,7 +13,7 @@ import "./Cobbs.sol";
  *        at the caller function scope.
  */
 library Rebates {
-  using SafeMath for uint256;
+  using SafeMathUpgradeable for uint256;
   using Rebates for Rebates.Pool;
 
   // Tracks stats for allocations closed on a particular epoch for claiming

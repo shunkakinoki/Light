@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.16;
 
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
 
 import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 import { LightEpochManagerStorageV1 } from "./LightEpochManagerStorage.sol";
@@ -18,7 +18,7 @@ contract EpochManager is
   LightEpochManagerStorageV1,
   ILightEpochManager
 {
-  using SafeMath for uint256;
+  using SafeMathUpgradeable for uint256;
 
   // -- Events --
 

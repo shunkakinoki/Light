@@ -7,7 +7,7 @@ import { IPaymasterFlow } from "@matterlabs/zksync-contracts/l2/system-contracts
 import { TransactionHelper, Transaction } from "@matterlabs/zksync-contracts/l2/system-contracts/TransactionHelper.sol";
 
 import "@matterlabs/zksync-contracts/l2/system-contracts/Constants.sol";
-import "@openzeppelin/contracts/interfaces/IERC20.sol";
+import "@openzeppelin/contracts-upgradeable/interfaces/IERC20Upgradeable.sol";
 
 contract MyPaymaster is IPaymaster {
   uint256 constant PRICE_FOR_PAYING_FEES = 1;
@@ -48,7 +48,7 @@ contract MyPaymaster is IPaymaster {
       address userAddress = address(uint160(_transaction.from));
       address thisAddress = address(this);
 
-      uint256 providedAllowance = IERC20(token).allowance(
+      uint256 providedAllowance = IERC20Upgradeable(token).allowance(
         userAddress,
         thisAddress
       );
@@ -62,7 +62,7 @@ contract MyPaymaster is IPaymaster {
       uint256 requiredETH = _transaction.ergsLimit * _transaction.maxFeePerErg;
 
       // Pulling all the tokens from the user
-      IERC20(token).transferFrom(userAddress, thisAddress, 1);
+      IERC20Upgradeable(token).transferFrom(userAddress, thisAddress, 1);
       // The bootloader never returns any data, so it can safely be ignored here.
       (bool success, ) = payable(BOOTLOADER_FORMAL_ADDRESS).call{
         value: requiredETH

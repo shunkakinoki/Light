@@ -3,7 +3,7 @@
 pragma solidity ^0.8.16;
 pragma abicoder v2;
 
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts-upgradeable/utils/math/SafeMathUpgradeable.sol";
 
 import "./MathUtils.sol";
 
@@ -13,7 +13,7 @@ import "./MathUtils.sol";
  *        at the caller function scope.
  */
 library Stakes {
-  using SafeMath for uint256;
+  using SafeMathUpgradeable for uint256;
   using Stakes for Stakes.Indexer;
 
   struct Indexer {

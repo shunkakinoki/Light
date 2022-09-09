@@ -1,5 +1,5 @@
 {
-  "name": "@lightdotso/typechain",
+  "name": "@lightdotso/curation",
   "version": "1.0.0",
   "private": false,
   "homepage": "https://github.com/LightDotSo/LightDotSo",
@@ -12,23 +12,28 @@
   },
   "license": "GPL-3.0",
   "author": "Light, Inc.",
-  "main": "dist/index",
-  "types": "dist/index",
   "files": [
-    "dist"
+    "src"
   ],
   "scripts": {
-    "build": "pnpm run clean && pnpm run compile",
-    "clean": "rimraf -rf ./dist",
-    "compile": "tsc",
-    "prepublishOnly": "pnpm run build"
+    "test": "hardhat test",
+    "test:coverage": "hardhat coverage",
+    "test:gas": "REPORT_GAS=true hardhat test"
   },
   "dependencies": {
-    "@ethersproject/abi": "^5.7.0",
-    "@ethersproject/providers": "^5.7.0",
-    "@lightdotso/contracts": "workspace:*",
+    "@lightdotso/hardhat": "workspace:*",
+    "@lightdotso/hardhat-config": "workspace:*",
+    "@lightdotso/jest": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
-    "ethers": "^5.7.0"
+    "@lightdotso/typechain": "workspace:*",
+    "chai": "^4.3.6",
+    "hardhat": "^2.11.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.3",
+    "@types/jest": "^29.0.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.7.16"
   },
   "publishConfig": {
     "access": "public",

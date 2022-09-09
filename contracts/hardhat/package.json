@@ -1,6 +1,6 @@
 {
-  "name": "@lightdotso/common",
-  "version": "1.0.1",
+  "name": "@lightdotso/hardhat",
+  "version": "1.0.0",
   "private": false,
   "homepage": "https://github.com/LightDotSo/LightDotSo",
   "bugs": {
@@ -12,8 +12,8 @@
   },
   "license": "GPL-3.0",
   "author": "Light, Inc.",
-  "main": "dist/index",
-  "types": "dist/index",
+  "main": "dist/src/index",
+  "types": "dist/src/index",
   "files": [
     "dist"
   ],
@@ -24,19 +24,20 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.0",
-    "@heroicons/react": "^2.0.10",
-    "@lightdotso/const": "workspace:*",
-    "clsx": "^1.2.1",
-    "next": "^12.2.5",
-    "next-plausible": "^3.5.0",
-    "next-seo": "^5.5.0",
-    "next-themes": "^0.2.1",
-    "react": "^18.2.0",
-    "react-icons": "^4.4.0"
+    "@lightdotso/hardhat-config": "workspace:*",
+    "@lightdotso/jest": "workspace:*",
+    "@lightdotso/tsconfig": "workspace:*",
+    "@lightdotso/typechain": "workspace:*",
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "chai": "^4.3.6",
+    "ethers": "^5.7.0",
+    "hardhat": "^2.11.1"
   },
   "devDependencies": {
-    "@lightdotso/tsconfig": "workspace:*"
+    "@types/chai": "^4.3.3",
+    "@types/jest": "^29.0.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.7.16"
   },
   "publishConfig": {
     "access": "public",

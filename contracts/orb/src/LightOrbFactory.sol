@@ -14,8 +14,8 @@ import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 /// @author Shun Kakinoki
 contract LightOrbFactory is
   LightUpgradeable,
-  LightOperatable,
   LightOrbFactoryStorageV1,
+  LightOperatable,
   ILightOrbFactory
 {
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/

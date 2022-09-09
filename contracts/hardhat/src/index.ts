@@ -1,6 +1,5 @@
 import type {
   EmptyUUPS,
-  EmptyUUPSBeacon,
   LightCore,
   LightController,
   UUPSProxy,
@@ -10,6 +9,7 @@ import type {
   LightSpace,
   LightXP,
 } from "@lightdotso/typechain";
+import type { Contract } from "ethers";
 import { ethers, upgrades } from "hardhat";
 
 export let wrappedLightCore: LightCore;
@@ -63,16 +63,14 @@ before(async () => {
     return contract as UUPSProxy;
   };
 
-  const emptyUUPSBeacon = (await deployContract(
-    "EmptyUUPSBeacon",
-  )) as EmptyUUPSBeacon;
+  const empty = (await deployContract("Empty")) as Contract;
 
   const proxyLightCore = (await deployUUPS()) as UUPSProxy;
   const proxyLightController = (await deployUUPS()) as UUPSProxy;
   const proxyLightOperatorStore = (await deployUUPS()) as UUPSProxy;
   const proxyLightOrb = (await deployUUPS()) as UUPSProxy;
   const proxyLightOrbFactory = (await deployUUPSBeacon([
-    emptyUUPSBeacon.address,
+    empty.address,
   ])) as UUPSProxy;
   const proxyLightSpace = (await deployUUPS()) as UUPSProxy;
   const proxyLightXP = (await deployUUPS()) as UUPSProxy;
@@ -98,10 +96,10 @@ before(async () => {
     proxyLightOrb.address,
     "LightOrb",
   )) as unknown as LightOrb;
-  // wrappedLightOrbFactory = (await upgradeUUPS(
-  //   proxyLightOrbFactory.address,
-  //   "LightOrbFactory",
-  // )) as unknown as LightOrbFactory;
+  wrappedLightOrbFactory = (await upgradeUUPS(
+    proxyLightOrbFactory.address,
+    "LightOrbFactory",
+  )) as unknown as LightOrbFactory;
   wrappedLightSpace = (await upgradeUUPS(
     proxyLightSpace.address,
     "LightSpace",

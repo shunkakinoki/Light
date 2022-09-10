@@ -13,6 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
       - run: |
           forge config
           echo foundry.toml
@@ -42,6 +44,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
       - run: |
           forge install
           forge test

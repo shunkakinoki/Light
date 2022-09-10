@@ -18,9 +18,9 @@ contract LightOrb is
   LightOrbStorageV1,
   ILightOrb
 {
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                       UPGRADEABLE                          */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  ///////////////////
+  /// UPGRADEABLE ///
+  ///////////////////
 
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {

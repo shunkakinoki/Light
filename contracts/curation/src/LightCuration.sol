@@ -20,9 +20,9 @@ import "@lightdotso/math/BancorFormula.sol";
 /// @notice This contract is a fork from Light Protocol's Curation (GPL-2.0-or-later)
 /// @notice Ref: https://github.com/lightprotocol/contracts/blob/dev/contracts/curation/Curation.sol
 contract LightCuration is LightPausableUpgradeable, LightCurationStorageV1 {
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+  ///
   /*                       UPGRADEABLE                          */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  ///
 
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {
@@ -54,9 +54,10 @@ contract LightCuration is LightPausableUpgradeable, LightCurationStorageV1 {
 
   function _authorizeUpgrade(address) internal override onlyOwner {}
 
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                   EXTERNAL TRANSACTIONS                    */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  /////////////////////////////
+  /// EXTERNAL TRANSACTIONS ///
+  /////////////////////////////
+
   using SafeMathUpgradeable for uint256;
 
   // 100% in parts per million
@@ -65,7 +66,9 @@ contract LightCuration is LightPausableUpgradeable, LightCurationStorageV1 {
   // Amount of signal you get with your minimum token deposit
   uint256 private constant SIGNAL_PER_MINIMUM_DEPOSIT = 1e18; // 1 signal as 18 decimal number
 
-  // -- Events --
+  //////////////
+  /// EVENTS ///
+  //////////////
 
   /**
    * @dev Emitted when `curator` deposited `tokens` on `spaceDeploymentID` as curation signal.

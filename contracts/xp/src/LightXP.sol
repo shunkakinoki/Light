@@ -19,9 +19,9 @@ contract LightXP is
   LightXPStorageV1,
   ILightXP
 {
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                       UPGRADEABLE                          */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  ///////////////////
+  /// UPGRADEABLE ///
+  ///////////////////
 
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {

@@ -27,9 +27,9 @@ contract LightSpace is
   LightSpaceStorageV1,
   ILightSpace
 {
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                       UPGRADEABLE                          */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  ///////////////////
+  /// UPGRADEABLE ///
+  ///////////////////
 
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {
@@ -51,9 +51,9 @@ contract LightSpace is
 
   function _authorizeUpgrade(address) internal override onlyOwner {}
 
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                      EXTERNAL VIEWS                        */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  //////////////////////
+  /// EXTERNAL VIEWS ///
+  //////////////////////
 
   /**
     @notice Indicates if this contract adheres to the specified interface.
@@ -95,9 +95,9 @@ contract LightSpace is
     return metadataContentOf[_spaceId][_domain];
   }
 
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                 EXTERNAL TRANSACTIONS                      */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  /////////////////////////////
+  /// EXTERNAL TRANSACTIONS ///
+  /////////////////////////////
 
   /**
     @notice Create a new space for the specified owner, which mints an NFT (ERC-721) into their wallet.

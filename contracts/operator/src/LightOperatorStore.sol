@@ -18,9 +18,9 @@ contract LightOperatorStore is
   LightOperatorStoreStorageV1,
   ILightOperatorStore
 {
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                       UPGRADEABLE                          */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  ///////////////////
+  /// UPGRADEABLE ///
+  ///////////////////
 
   function initialize()
     external
@@ -31,9 +31,9 @@ contract LightOperatorStore is
     __UUPSUpgradeable_init();
   }
 
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                      EXTERNAL VIEWS                        */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  //////////////////////
+  /// EXTERNAL VIEWS ///
+  //////////////////////
 
   /**
     @notice The permissions that an operator has been given to operate on a specific domain.
@@ -100,9 +100,9 @@ contract LightOperatorStore is
     return true;
   }
 
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                 EXTERNAL TRANSACTIONS                      */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  /////////////////////////////
+  /// EXTERNAL TRANSACTIONS ///
+  /////////////////////////////
 
   /**
     @notice Sets permissions for an operators.
@@ -158,9 +158,9 @@ contract LightOperatorStore is
     }
   }
 
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*               PRIVATE HELPER FUNCTIONS                     */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  ////////////////////////////////
+  /// PRIVATE HELPER FUNCTIONS ///
+  ////////////////////////////////
 
   /**
     @notice Converts an array of permission indexes to a packed `uint256`.

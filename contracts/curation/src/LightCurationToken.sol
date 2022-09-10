@@ -9,9 +9,9 @@ import { ERC20Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC2
 import { LightUpgradeable } from "@lightdotso/upgradeable/LightUpgradeable.sol";
 
 contract LightCurationToken is LightUpgradeable, ERC20Upgradeable {
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                       UPGRADEABLE                          */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  ///////////////////
+  /// UPGRADEABLE ///
+  ///////////////////
 
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {

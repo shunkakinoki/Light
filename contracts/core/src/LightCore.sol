@@ -21,9 +21,9 @@ contract LightCore is
   LightCoreStorageV1,
   ILightCore
 {
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                       UPGRADEABLE                          */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  ///////////////////
+  /// UPGRADEABLE ///
+  ///////////////////
 
   /// @custom:oz-upgrades-unsafe-allow constructor
   constructor() {
@@ -43,9 +43,9 @@ contract LightCore is
 
   function _authorizeUpgrade(address) internal override onlyOwner {}
 
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                 EXTERNAL TRANSACTIONS                      */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  /////////////////////////////
+  /// EXTERNAL TRANSACTIONS ///
+  /////////////////////////////
 
   /**
     @notice Creates a space. This will mint an ERC-721 into the specified owner's account.

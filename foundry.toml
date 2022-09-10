@@ -3,5 +3,8 @@ solc_version = "0.8.16"
 src = 'contracts'
 no_match_test = "testForkRun"
 
+[profile.ci]
+no_match_test = "testForkRun"
+
 [profile.fork]
 no_match_test = "fork"

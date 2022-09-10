@@ -10,8 +10,6 @@ jobs:
   forge:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    env:
-      GOERLI_RPC_URL: ${{ secrets.GOERLI_RPC_URL }}
     steps:
       - uses: actions/checkout@v3
       - uses: foundry-rs/foundry-toolchain@v1
@@ -38,3 +36,20 @@ jobs:
         with:
           delete: ${{ !steps.gas.outputs.markdown }}
           message: ${{ steps.gas.outputs.markdown }}
+  fork:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GOERLI_RPC_URL: ${{ secrets.GOERLI_RPC_URL }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+      - uses: actions/cache@v3
+        with:
+          path: "cache"
+          key: "foundry"
+      - run: |
+          forge install
+          FOUNDRY_PROFILE=fork forge test

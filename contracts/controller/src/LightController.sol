@@ -17,9 +17,9 @@ contract LightController is
   LightControllerStorageV1,
   ILightController
 {
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                       UPGRADEABLE                          */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  ///////////////////
+  /// UPGRADEABLE ///
+  ///////////////////
 
   function initialize()
     external
@@ -31,9 +31,9 @@ contract LightController is
     __Pausable_init();
   }
 
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                   EXTERNAL TRANSACTIONS                    */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  /////////////////////////////
+  /// EXTERNAL TRANSACTIONS ///
+  /////////////////////////////
 
   /**
    * @notice Register contract id and mapped address

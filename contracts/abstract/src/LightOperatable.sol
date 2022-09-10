@@ -13,9 +13,9 @@ abstract contract LightOperatable is
   LightOperatableStorageV1,
   ILightOperatable
 {
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                        MODIFIER                            */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  ////////////////
+  /// MODIFIER ///
+  ////////////////
 
   /**
     @notice Only allows the speficied account or an operator of the account to proceed.
@@ -54,9 +54,9 @@ abstract contract LightOperatable is
     _;
   }
 
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                        EXTERNAL                            */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  ////////////////
+  /// EXTERNAL ///
+  ////////////////
 
   /**
     @notice Get the operator of the current contract.
@@ -65,9 +65,9 @@ abstract contract LightOperatable is
     return operator;
   }
 
-  /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                        INTERNAL                            */
-  /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+  ////////////////
+  /// INTERNAL ///
+  ////////////////
 
   /**
    * @dev Set operator.

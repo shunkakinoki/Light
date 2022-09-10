@@ -17,10 +17,6 @@ jobs:
       - uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
-      - uses: actions/cache@v3
-        with:
-          path: "cache"
-          key: "foundry"
       - run: |
           forge install
           forge snapshot --check
@@ -49,10 +45,6 @@ jobs:
       - uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
-      - uses: actions/cache@v3
-        with:
-          path: "cache"
-          key: "foundry"
       - run: |
           forge install
           forge test

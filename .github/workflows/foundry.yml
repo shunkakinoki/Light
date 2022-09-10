@@ -10,6 +10,8 @@ jobs:
   default:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      FOUNDRY_PROFILE: default
     steps:
       - uses: actions/checkout@v3
       - uses: foundry-rs/foundry-toolchain@v1
@@ -21,10 +23,10 @@ jobs:
           key: "foundry"
       - run: |
           forge install
-          FOUNDRY_PROFILE=default forge snapshot --check
-          FOUNDRY_PROFILE=default forge test -vvvvv --gas-report
+          forge snapshot --check
+          forge test -vvvvv --gas-report
       - run: |
-          FOUNDRY_PROFILE=default forge test --gas-report --fuzz-seed 0 | tee gasreport.ansi
+          forge test --gas-report --fuzz-seed 0 | tee gasreport.ansi
       - id: gas
         uses: Rubilmax/foundry-gas-diff@v3.8
         with:
@@ -40,6 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
+      FOUNDRY_PROFILE: fork
       GOERLI_RPC_URL: ${{ secrets.GOERLI_RPC_URL }}
     steps:
       - uses: actions/checkout@v3
@@ -52,4 +55,4 @@ jobs:
           key: "foundry"
       - run: |
           forge install
-          FOUNDRY_PROFILE=fork forge test
+          forge test

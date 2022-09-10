@@ -6,26 +6,23 @@ on:
       - beta
       - main
   pull_request:
+env:
+  GOERLI_RPC_URL: ${{ secrets.GOERLI_RPC_URL }}
 jobs:
   default:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    env:
-      FOUNDRY_PROFILE: ci
     steps:
       - uses: actions/checkout@v3
       - uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
       - run: |
-          forge config
-          echo foundry.toml
+          forge install
+          forge snapshot --check
+          forge test -vvvvv --gas-report
       - run: |
-          FOUNDRY_PROFILE=ci forge install
-          FOUNDRY_PROFILE=ci forge snapshot --check
-          FOUNDRY_PROFILE=ci forge test -vvvvv --gas-report
-      - run: |
-          FOUNDRY_PROFILE=ci forge test --gas-report --fuzz-seed 0 | tee gasreport.ansi
+          forge test --gas-report --fuzz-seed 0 | tee gasreport.ansi
       - id: gas
         uses: Rubilmax/foundry-gas-diff@v3.8
         with:
@@ -42,7 +39,6 @@ jobs:
     timeout-minutes: 30
     env:
       FOUNDRY_PROFILE: fork
-      GOERLI_RPC_URL: ${{ secrets.GOERLI_RPC_URL }}
     steps:
       - uses: actions/checkout@v3
       - uses: foundry-rs/foundry-toolchain@v1

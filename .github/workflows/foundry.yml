@@ -6,6 +6,8 @@ on:
       - beta
       - main
   pull_request:
+env:
+  GOERLI_RPC_URL: ${{ secrets.GOERLI_RPC_URL }}
 jobs:
   default:
     runs-on: ubuntu-latest
@@ -15,10 +17,6 @@ jobs:
       - uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
-      - uses: actions/cache@v3
-        with:
-          path: "cache"
-          key: "foundry"
       - run: |
           forge install
           forge snapshot --check
@@ -40,16 +38,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      GOERLI_RPC_URL: ${{ secrets.GOERLI_RPC_URL }}
+      FOUNDRY_PROFILE: fork
     steps:
       - uses: actions/checkout@v3
       - uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
-      - uses: actions/cache@v3
-        with:
-          path: "cache"
-          key: "foundry"
       - run: |
           forge install
-          FOUNDRY_PROFILE=fork forge test
+          forge test

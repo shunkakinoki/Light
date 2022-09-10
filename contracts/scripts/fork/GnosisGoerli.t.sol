@@ -16,7 +16,7 @@ contract GnosisGoerliTest is Test {
     script = new GnosisScript();
   }
 
-  function testForkRun() public {
+  function testForkRunGnosisScript() public {
     vm.activeFork();
     script.run();
     assertEq(script.safeL2().getChainId(), 31337);

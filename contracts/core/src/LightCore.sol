@@ -25,11 +25,6 @@ contract LightCore is
   /// UPGRADEABLE ///
   ///////////////////
 
-  /// @custom:oz-upgrades-unsafe-allow constructor
-  constructor() {
-    _disableInitializers();
-  }
-
   function initialize(address _controller, address _operator)
     external
     reinitializer(2)
@@ -40,8 +35,6 @@ contract LightCore is
     _setController(_controller);
     _setOperator(_operator);
   }
-
-  function _authorizeUpgrade(address) internal override onlyOwner {}
 
   /////////////////////////////
   /// EXTERNAL TRANSACTIONS ///

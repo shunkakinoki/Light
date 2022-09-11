@@ -14,9 +14,9 @@ import { LightOrbFactory } from "@lightdotso/orb/LightOrbFactory.sol";
 import { LightSpace } from "@lightdotso/space/LightSpace.sol";
 import { LightXP } from "@lightdotso/xp/LightXP.sol";
 
-import { Empty } from "@lightdotso/proxies/utils/Empty.sol";
-import { EmptyUUPS } from "@lightdotso/proxies/utils/EmptyUUPS.sol";
-import { EmptyUUPSBeacon } from "@lightdotso/proxies/utils/EmptyUUPSBeacon.sol";
+import { Empty } from "@lightdotso/empty/Empty.sol";
+import { EmptyUUPS } from "@lightdotso/empty/EmptyUUPS.sol";
+import { EmptyUUPSBeacon } from "@lightdotso/empty/EmptyUUPSBeacon.sol";
 
 contract BaseTest is Test, SlotTest, Utils {
   Empty internal empty;

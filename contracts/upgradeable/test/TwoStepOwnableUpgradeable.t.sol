@@ -3,7 +3,7 @@
 pragma solidity ^0.8.16;
 
 import "@lightdotso/foundry/BaseTest.sol";
-import "@lightdotso/proxies/utils/EmptyUUPSTwoStep.sol";
+import "@lightdotso/empty/EmptyUUPSTwoStep.sol";
 
 contract TwoStepOwnableUpgradeableTest is BaseTest {
   UUPSProxy internal proxy;

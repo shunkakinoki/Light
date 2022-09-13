@@ -1,7 +1,6 @@
 import type { LightCore } from "@lightdotso/typechain/src/contracts/core/src/LightCore";
 import { expect } from "chai";
 import { ethers } from "hardhat";
-// eslint-disable-next-line import/no-unresolved
 import "@lightdotso/hardhat";
 
 describe("Core", () => {

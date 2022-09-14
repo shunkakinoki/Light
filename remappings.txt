@@ -2,6 +2,7 @@
 @lightdotso/controller/=contracts/controller/src/
 @lightdotso/curation/=contracts/curation/src/
 @lightdotso/core/=contracts/core/src/
+@lightdotso/credentials/=contracts/credentials/src/
 @lightdotso/empty/=contracts/empty/src/
 @lightdotso/epochs/=contracts/epochs/src/
 @lightdotso/ens/=contracts/ens/src/

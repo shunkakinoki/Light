@@ -17,5 +17,6 @@
   "thunder-client.saveToWorkspace": true,
   "thunder-client.showActivityFromCollection": true,
   "thunder-client.workspaceRelativePath": "apps/api",
-  "thunder-client.headersCaseSensitive": true
+  "thunder-client.headersCaseSensitive": true,
+  "cSpell.words": ["flexsearch", "nextra"]
 }

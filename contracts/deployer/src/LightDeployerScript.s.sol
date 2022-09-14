@@ -8,7 +8,7 @@ import { ILightOrb } from "@lightdotso/orb/ILightOrb.sol";
 import { LightOrb } from "@lightdotso/orb/LightOrb.sol";
 import { UUPSProxy } from "@lightdotso/proxies/UUPSProxy.sol";
 
-contract LightDeployer is Script {
+contract LightDeployerScript is Script {
   EmptyUUPS internal emptyUUPS;
   UUPSProxy internal proxyLightOrb;
   ILightOrb internal implementationLightOrb;

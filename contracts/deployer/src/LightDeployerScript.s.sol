@@ -9,10 +9,10 @@ import { LightOrb } from "@lightdotso/orb/LightOrb.sol";
 import { UUPSProxy } from "@lightdotso/proxies/UUPSProxy.sol";
 
 contract LightDeployerScript is Script {
-  EmptyUUPS internal emptyUUPS;
-  UUPSProxy internal proxyLightOrb;
-  ILightOrb internal implementationLightOrb;
-  LightOrb internal wrappedLightOrb;
+  EmptyUUPS public emptyUUPS;
+  UUPSProxy public proxyLightOrb;
+  ILightOrb public implementationLightOrb;
+  LightOrb public wrappedLightOrb;
 
   function run() external {
     vm.startBroadcast();

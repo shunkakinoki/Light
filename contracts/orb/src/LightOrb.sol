@@ -51,4 +51,11 @@ contract LightOrb is
   }
 
   function _authorizeUpgrade(address) internal override onlyOwner {}
+
+  function mint() public {
+    unchecked {
+      currentTokenId++;
+    }
+    super._mint(msg.sender, currentTokenId);
+  }
 }

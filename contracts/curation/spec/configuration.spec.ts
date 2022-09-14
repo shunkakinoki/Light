@@ -1,6 +1,7 @@
 import type { LightCore } from "@lightdotso/typechain/src/contracts/core/src/LightCore";
 import { expect } from "chai";
 import { ethers } from "hardhat";
+import "@lightdotso/hardhat";
 
 describe("Core", () => {
   it("Deploy Light Core", async () => {

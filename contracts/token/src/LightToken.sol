@@ -18,9 +18,10 @@ contract LightToken is
   LightTokenStorage,
   ILightToken
 {
-  /**************
-   * IMMUTABLES *
-   **************/
+  //////////////////
+  /// IMMUTABLES ///
+  //////////////////
+
   uint256 internal immutable INITIAL_CHAIN_ID;
   bytes32 internal immutable INITIAL_DOMAIN_SEPARATOR;
 
@@ -29,17 +30,19 @@ contract LightToken is
     INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
   }
 
-  /*************
-   * MODIFIERS *
-   *************/
+  /////////////////
+  /// MODIFIERS ///
+  /////////////////
+
   modifier onlyMinter() {
     require(isMinter(msg.sender), "Only minter can call");
     _;
   }
 
-  /*************
-   * EXTERNALS *
-   *************/
+  /////////////////
+  /// EXTERNALS ///
+  /////////////////
+
   function allowance(address owner, address spender)
     public
     view
@@ -89,9 +92,9 @@ contract LightToken is
     _mint(_to, _amount);
   }
 
-  /************
-   * EIP-2612 *
-   ************/
+  ////////////////
+  /// EIP-2612 ///
+  ////////////////
 
   /**
    * @dev Returns the domain separator based on the chainId it was initially deployed to.
@@ -183,9 +186,9 @@ contract LightToken is
       );
   }
 
-  /*************
-   * INTERNALS *
-   *************/
+  /////////////////
+  /// INTERNALS ///
+  /////////////////
 
   /**
    * @dev Return if the `_account` is a minter or not.

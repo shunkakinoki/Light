@@ -12,7 +12,16 @@ import { SeoLight } from "@lightdotso/app/components/SeoLight";
 import { Web3Provider } from "@lightdotso/app/components/Web3Provider";
 import { splitAddress } from "@lightdotso/app/utils/splitAddress";
 
-const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
+interface CustomAppProps extends AppProps {
+  pageProps: {
+    ens?: string;
+    name?: string;
+    id?: string;
+    address?: string;
+  };
+}
+
+const CustomApp: FC<CustomAppProps> = ({ Component, pageProps }) => {
   const [showChild, setShowChild] = useState(false);
 
   useEffect(() => {

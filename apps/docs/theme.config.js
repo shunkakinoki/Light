@@ -2,16 +2,16 @@ module.exports = {
   titleSuffix: " | Light",
   darkMode: true,
   unstable_flexsearch: true,
+  newNextLinkBehavior: true,
   docsRepositoryBase:
     "https://github.com/LightDotSo/LightDotSo/blob/main/apps/docs",
-
   editLink: {
-    footer: true,
-    footerText: `${new Date().getFullYear()} ©Light, Inc.`,
-    footerEditLink: null,
     nextLinks: true,
     prevLinks: true,
     projectLink: "https://github.com/LightDotSo",
+  },
+  footer: {
+    text: `${new Date().getFullYear()} ©Light, Inc.`,
   },
   chat: {
     link: "https://light.so/discord",

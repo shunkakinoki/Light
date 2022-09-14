@@ -30,7 +30,7 @@
     "@ethersproject/abstract-provider": "^5.7.0",
     "@lightdotso/prisma": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
-    "zod": "^3.19.0"
+    "zod": "^3.19.1"
   },
   "publishConfig": {
     "access": "public",

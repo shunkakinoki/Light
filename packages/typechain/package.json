@@ -25,10 +25,10 @@
   },
   "dependencies": {
     "@ethersproject/abi": "^5.7.0",
-    "@ethersproject/providers": "^5.7.0",
+    "@ethersproject/providers": "^5.7.1",
     "@lightdotso/contracts": "workspace:*",
     "@lightdotso/tsconfig": "workspace:*",
-    "ethers": "^5.7.0"
+    "ethers": "^5.7.1"
   },
   "publishConfig": {
     "access": "public",

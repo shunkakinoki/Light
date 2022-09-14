@@ -33,14 +33,14 @@
     "@lightdotso/typechain": "workspace:*",
     "@nomiclabs/hardhat-ethers": "^2.1.1",
     "chai": "^4.3.6",
-    "ethers": "^5.7.0",
+    "ethers": "^5.7.1",
     "hardhat": "^2.11.1"
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",
-    "@types/jest": "^29.0.0",
+    "@types/jest": "^29.0.2",
     "@types/mocha": "^9.1.1",
-    "@types/node": "^18.7.16"
+    "@types/node": "^18.7.18"
   },
   "publishConfig": {
     "access": "public",

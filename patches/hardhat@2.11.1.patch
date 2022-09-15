@@ -1,9 +1,0 @@
-diff --git a/console.sol b/console.sol
-deleted file mode 100644
-index f38d19a91318352d75d172af0c3ebc3bdedd3fac..0000000000000000000000000000000000000000
-diff --git a/sample-projects/javascript/contracts/Lock.sol b/sample-projects/javascript/contracts/Lock.sol
-deleted file mode 100644
-index 50935f61fd20d5999786ca4b0f59aff11d5ccdae..0000000000000000000000000000000000000000
-diff --git a/sample-projects/typescript/contracts/Lock.sol b/sample-projects/typescript/contracts/Lock.sol
-deleted file mode 100644
-index 50935f61fd20d5999786ca4b0f59aff11d5ccdae..0000000000000000000000000000000000000000

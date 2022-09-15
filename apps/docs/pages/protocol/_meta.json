@@ -1,6 +1,8 @@
 {
-  "index": "Overview",
-  "attention": "Attention Protocol",
-  "battle": "Team Battles",
-  "super": "Super Activities"
+  "index": "Getting Started",
+  "about": "About Light Protocol",
+  "network": "Light Network",
+  "spaces": "Light Space",
+  "orbs": "Light Orbs",
+  "registry": "Light Registry"
 }

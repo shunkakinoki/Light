@@ -34,7 +34,7 @@
     "@nomiclabs/hardhat-ethers": "^2.1.1",
     "chai": "^4.3.6",
     "ethers": "^5.7.1",
-    "hardhat": "^2.11.1"
+    "hardhat": "^2.11.2"
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",

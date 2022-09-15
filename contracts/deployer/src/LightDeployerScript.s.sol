@@ -16,9 +16,9 @@ contract LightDeployerScript is Script {
 
   function run() external {
     vm.startBroadcast();
+
     emptyUUPS = new EmptyUUPS();
     implementationLightOrb = new LightOrb();
-
     proxyLightOrb = new UUPSProxy(address(emptyUUPS), "");
 
     EmptyUUPS(address(proxyLightOrb)).initialize();

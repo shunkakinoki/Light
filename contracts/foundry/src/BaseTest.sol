@@ -193,6 +193,7 @@ contract BaseTest is Test, SlotTest, Utils {
     vm.label(address(wrappedLightXP), "Wrapped Light XP");
   }
 
+  /// LightControllerUpgradeScript.sol
   function setUpLightController() public {
     wrappedLightController.initialize();
     wrappedLightController.setContractProxy(

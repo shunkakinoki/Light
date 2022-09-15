@@ -120,7 +120,6 @@
   "packageManager": "pnpm@6.30.0",
   "pnpm": {
     "patchedDependencies": {
-      "hardhat@2.11.1": "patches/hardhat@2.11.1.patch",
       "hardhat-deploy@0.11.15": "patches/hardhat-deploy@0.11.15.patch",
       "hardhat@2.11.2": "patches/hardhat@2.11.2.patch"
     }

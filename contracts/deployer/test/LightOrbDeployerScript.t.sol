@@ -12,8 +12,20 @@ contract LightOrbDeployerScriptTest is BaseTest {
     script = new LightOrbDeployerScript();
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, false, false, true);
+    vm.expectEmit(false, false, false, false);
+    vm.expectEmit(true, false, false, false);
+    vm.expectEmit(true, false, false, true);
+    vm.expectEmit(false, false, false, false);
+    vm.expectEmit(false, false, false, false);
+    vm.expectEmit(true, false, false, true);
     emit Initialized(255);
     emit Initialized(255);
+    emit Upgraded(address(0xf00));
+    emit OwnershipTransferred(address(0), address(0xf00));
+    emit Initialized(1);
+    emit Upgraded(address(0xf00));
+    emit OwnershipTransferred(address(0xf00), address(0xf00));
+    emit Initialized(2);
     script.run();
   }
 

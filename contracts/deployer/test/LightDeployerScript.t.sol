@@ -19,4 +19,11 @@ contract LightDeployerScriptTest is BaseTest {
       address(script.implementationLightOrb())
     );
   }
+
+  function testMint() public {
+    assertEq(script.wrappedLightOrb().currentTokenId(), 1);
+
+    script.wrappedLightOrb().mint();
+    assertEq(script.wrappedLightOrb().currentTokenId(), 2);
+  }
 }

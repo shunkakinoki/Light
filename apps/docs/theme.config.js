@@ -1,23 +1,25 @@
 module.exports = {
   titleSuffix: " | Light",
-  nextLinks: true,
-  prevLinks: true,
-  search: true,
   darkMode: true,
-  footer: true,
-  footerText: `${new Date().getFullYear()} ©Light, Inc.`,
-  footerEditLink: null,
-  projectLink: "https://github.com/LightDotSo",
   unstable_flexsearch: true,
-  head: ({ title, meta }) => {
+  newNextLinkBehavior: true,
+  docsRepositoryBase:
+    "https://github.com/LightDotSo/LightDotSo/blob/main/apps/docs",
+  editLink: {
+    nextLinks: true,
+    prevLinks: true,
+    projectLink: "https://github.com/LightDotSo",
+  },
+  footer: {
+    text: `${new Date().getFullYear()} ©Light, Inc.`,
+  },
+  chat: {
+    link: "https://light.so/discord",
+  },
+  head: () => {
     return (
       <>
-        <title>{title}</title>
-        {meta.description && (
-          <meta name="description" content={meta.description} />
-        )}
-        {meta.tag && <meta name="keywords" content={meta.tag} />}
-        {meta.author && <meta name="author" content={meta.author} />}
+        <meta name="description" content="Light Whitepaper" />
       </>
     );
   },

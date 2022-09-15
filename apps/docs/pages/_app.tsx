@@ -5,6 +5,8 @@ import type { FC } from "react";
 // eslint-disable-next-line no-restricted-imports
 import "../styles/globals.css";
 import "nextra-theme-docs/style.css";
+// eslint-disable-next-line no-restricted-imports
+import "../styles/custom.css";
 
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
   const getLayout =

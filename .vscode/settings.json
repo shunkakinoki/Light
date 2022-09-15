@@ -18,5 +18,11 @@
   "thunder-client.showActivityFromCollection": true,
   "thunder-client.workspaceRelativePath": "apps/api",
   "thunder-client.headersCaseSensitive": true,
-  "cSpell.words": ["flexsearch", "lightdotso", "nextra", "tailwindcss"]
+  "cSpell.words": [
+    "flexsearch",
+    "lightdotso",
+    "nextra",
+    "tailwindcss",
+    "Tokenomics"
+  ]
 }

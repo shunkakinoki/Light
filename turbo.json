@@ -19,6 +19,7 @@
       "dependsOn": [
         "^build",
         "$NEXTAUTH_URL",
+        "$NEXTAUTH_SECRET",
         "$NEXT_PUBLIC_ALCHEMY_ID",
         "$NEXT_PUBLIC_ETHERSCAN_API_KEY",
         "$NEXT_PUBLIC_INFURA_ID",
@@ -30,7 +31,8 @@
         "$OPENSEA_API_KEY",
         "$POAP_API_KEY",
         "$SENTRY_DSN",
-        "$VERCEL_ENV"
+        "$VERCEL_ENV",
+        "$VERCEL_URL"
       ],
       "outputs": [".next/**"]
     },

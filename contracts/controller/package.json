@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",
-    "@types/jest": "^29.0.2",
+    "@types/jest": "^29.0.3",
     "@types/mocha": "^9.1.1",
     "@types/node": "^18.7.18"
   },

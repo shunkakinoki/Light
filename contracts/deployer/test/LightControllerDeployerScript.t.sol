@@ -42,4 +42,92 @@ contract LightControllerDeployerScriptTest is BaseTest {
       address(script.implementationLightController())
     );
   }
+
+  function testLightControllerDeployerScriptStorageSlot() public {
+    /// LightPausableUpgradeable (Initializable)
+    _testArbitrarySlot(
+      address(script.proxyLightController()),
+      bytes32(uint256(0)),
+      bytes32(uint256(2))
+    );
+    /// LightPausableUpgradeable (OwnableUpgradeable)
+    _testArbitrarySlotNotEmpty(
+      address(script.proxyLightController()),
+      bytes32(uint256(51))
+    );
+    /// LightPausableUpgradeable (UUPSUpgradeable)
+    _testArbitrarySlot(
+      address(script.proxyLightController()),
+      bytes32(uint256(101)),
+      bytes32(uint256(0))
+    );
+    /// LightPausableUpgradeable (PausableUpgradeable)
+    _testArbitrarySlot(
+      address(script.proxyLightController()),
+      bytes32(uint256(201)),
+      bytes32(uint256(0))
+    );
+    /// LightControllerStorageV1
+    _testArbitrarySlot(
+      address(script.proxyLightController()),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightCore")), uint256(251))
+        )
+      ),
+      bytes32(
+        uint256(uint160(address(0x4fd9D0eE6D6564E80A9Ee00c0163fC952d0A45Ed)))
+      )
+    );
+    _testArbitrarySlot(
+      address(script.proxyLightController()),
+      bytes32(
+        keccak256(
+          abi.encodePacked(
+            abi.encode(keccak256("LightOperatorStore")),
+            uint256(251)
+          )
+        )
+      ),
+      bytes32(
+        uint256(uint160(address(0x4fd9D0eE6D6564E80A9Ee00c0163fC952d0A45Ed)))
+      )
+    );
+    _testArbitrarySlot(
+      address(script.proxyLightController()),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightOrb")), uint256(251))
+        )
+      ),
+      bytes32(
+        uint256(uint160(address(0x4fd9D0eE6D6564E80A9Ee00c0163fC952d0A45Ed)))
+      )
+    );
+    _testArbitrarySlot(
+      address(script.proxyLightController()),
+      bytes32(
+        keccak256(
+          abi.encodePacked(
+            abi.encode(keccak256("LightOrbFactory")),
+            uint256(251)
+          )
+        )
+      ),
+      bytes32(
+        uint256(uint160(address(0x4fd9D0eE6D6564E80A9Ee00c0163fC952d0A45Ed)))
+      )
+    );
+    _testArbitrarySlot(
+      address(script.proxyLightController()),
+      bytes32(
+        keccak256(
+          abi.encodePacked(abi.encode(keccak256("LightSpace")), uint256(251))
+        )
+      ),
+      bytes32(
+        uint256(uint160(address(0x4fd9D0eE6D6564E80A9Ee00c0163fC952d0A45Ed)))
+      )
+    );
+  }
 }

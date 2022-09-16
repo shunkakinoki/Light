@@ -38,11 +38,8 @@ const CustomApp: FC<CustomAppProps> = ({ Component, pageProps }) => {
           pageProps?.ens ??
           pageProps?.name ??
           pageProps?.id ??
-          pageProps?.id.startsWith("0x")
-            ? splitAddress(pageProps?.id)
-            : pageProps?.id ??
-              (pageProps?.address && splitAddress(pageProps?.address)) ??
-              ""
+          (pageProps?.address && splitAddress(pageProps?.address)) ??
+          ""
         }
       />
     );

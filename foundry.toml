@@ -2,6 +2,9 @@
 solc_version = "0.8.16"
 src = 'contracts'
 no_match_test = "testForkRun"
+fs_permissions = [
+    { access = "read", path = "./contracts/config/mainnet.json" }
+]
 
 [profile.fork]
 no_match_test = "fork"

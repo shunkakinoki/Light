@@ -50,11 +50,15 @@ export const Wallet: FC<WalletProps> = ({ onClose }) => {
       </p>
       <div className="mt-8 grid grid-cols-1 gap-4">
         {connectors
-          .filter((item, pos) => {
-            if (item.id === "metaMask") {
+          .filter((v, i, a) => {
+            if (v.id === "metaMask") {
               return false;
             }
-            return connectors.indexOf(item) == pos;
+            return (
+              a.findIndex(v2 => {
+                return v2.id === v.id;
+              }) === i
+            );
           })
           .map(connector => {
             return (

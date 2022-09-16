@@ -29,14 +29,14 @@ contract LightOrbDeployerScriptTest is BaseTest {
     script.run();
   }
 
-  function testImplementationSlot() public {
+  function testLightOrbDeployerScriptImplementationSlot() public {
     _testProxyImplementationSlot(
       address(script.proxyLightOrb()),
       address(script.implementationLightOrb())
     );
   }
 
-  function testMint() public {
+  function testLightOrbDeployerScriptMint() public {
     assertEq(script.wrappedLightOrb().currentTokenId(), 1);
 
     vm.startPrank(address(3));

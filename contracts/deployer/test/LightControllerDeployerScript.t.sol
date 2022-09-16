@@ -36,7 +36,7 @@ contract LightControllerDeployerScriptTest is BaseTest {
     script.run();
   }
 
-  function testImplementationSlot() public {
+  function testLightControllerDeployerScriptImplementationSlot() public {
     _testProxyImplementationSlot(
       address(script.proxyLightController()),
       address(script.implementationLightController())

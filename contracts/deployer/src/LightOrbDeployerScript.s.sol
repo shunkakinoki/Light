@@ -8,7 +8,7 @@ import { ILightOrb } from "@lightdotso/orb/ILightOrb.sol";
 import { LightOrb } from "@lightdotso/orb/LightOrb.sol";
 import { UUPSProxy } from "@lightdotso/proxies/UUPSProxy.sol";
 
-contract LightDeployerScript is Script {
+contract LightOrbDeployerScript is Script {
   EmptyUUPS public emptyUUPS;
   UUPSProxy public proxyLightOrb;
   ILightOrb public implementationLightOrb;
@@ -16,9 +16,9 @@ contract LightDeployerScript is Script {
 
   function run() external {
     vm.startBroadcast();
+
     emptyUUPS = new EmptyUUPS();
     implementationLightOrb = new LightOrb();
-
     proxyLightOrb = new UUPSProxy(address(emptyUUPS), "");
 
     EmptyUUPS(address(proxyLightOrb)).initialize();

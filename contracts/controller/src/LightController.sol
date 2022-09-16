@@ -35,11 +35,9 @@ contract LightController is
   /// EXTERNAL TRANSACTIONS ///
   /////////////////////////////
 
-  /**
-   * @notice Register contract id and mapped address
-   * @param _id Contract id (keccak256 hash of contract name)
-   * @param _contractAddress Contract address
-   */
+  /// @notice Register contract id and mapped address
+  /// @param _id Contract id (keccak256 hash of contract name)
+  /// @param _contractAddress Contract address
   function setContractProxy(bytes32 _id, address _contractAddress)
     external
     override
@@ -50,10 +48,8 @@ contract LightController is
     emit SetContractProxy(_id, _contractAddress);
   }
 
-  /**
-   * @notice Unregister a contract address
-   * @param _id Contract id (keccak256 hash of contract name)
-   */
+  /// @notice Unregister a contract address
+  /// @param _id Contract id (keccak256 hash of contract name)
   function unsetContractProxy(bytes32 _id) external override onlyOwner {
     registry[_id] = address(0);
     emit SetContractProxy(_id, address(0));

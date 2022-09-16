@@ -57,6 +57,7 @@ contract BaseTest is Test, SlotTest, Utils {
   event Upgraded(address indexed implementation);
   event SetController(address controller);
   event SetOperator(address operator);
+  event SetContractProxy(bytes32 indexed id, address contractAddress);
 
   function setUpEmpties() public {
     empty = new Empty();
@@ -193,24 +194,45 @@ contract BaseTest is Test, SlotTest, Utils {
     vm.label(address(wrappedLightXP), "Wrapped Light XP");
   }
 
+  /// LightControllerUpgradeScript.sol
   function setUpLightController() public {
+    vm.expectEmit(true, true, false, true, address(wrappedLightController));
+    vm.expectEmit(true, false, false, true, address(wrappedLightController));
+    emit OwnershipTransferred(address(this), address(this));
+    emit Initialized(2);
     wrappedLightController.initialize();
+    vm.expectEmit(true, false, false, true, address(wrappedLightController));
+    emit SetContractProxy(keccak256("LightCore"), address(proxyLightCore));
     wrappedLightController.setContractProxy(
       keccak256("LightCore"),
       address(proxyLightCore)
+    );
+    vm.expectEmit(true, false, false, true, address(wrappedLightController));
+    emit SetContractProxy(
+      keccak256("LightOperatorStore"),
+      address(proxyLightOperatorStore)
     );
     wrappedLightController.setContractProxy(
       keccak256("LightOperatorStore"),
       address(proxyLightOperatorStore)
     );
+    vm.expectEmit(true, false, false, true, address(wrappedLightController));
+    emit SetContractProxy(keccak256("LightOrb"), address(proxyLightOrb));
     wrappedLightController.setContractProxy(
       keccak256("LightOrb"),
       address(proxyLightOrb)
+    );
+    vm.expectEmit(true, false, false, true, address(wrappedLightController));
+    emit SetContractProxy(
+      keccak256("LightOrbFactory"),
+      address(proxyLightOrbFactory)
     );
     wrappedLightController.setContractProxy(
       keccak256("LightOrbFactory"),
       address(proxyLightOrbFactory)
     );
+    vm.expectEmit(true, false, false, true, address(wrappedLightController));
+    emit SetContractProxy(keccak256("LightSpace"), address(proxyLightSpace));
     wrappedLightController.setContractProxy(
       keccak256("LightSpace"),
       address(proxyLightSpace)

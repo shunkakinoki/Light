@@ -1,14 +1,10 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
-import type { FC, MouseEventHandler } from "react";
+import type { FC } from "react";
 
 // import { PlaceholderBlur } from "@lightdotso/app/components/PlaceholderBlur";
 
-export interface HeaderPillConnectProps {
-  onClick: MouseEventHandler<HTMLButtonElement>;
-}
-
-export const HeaderPillConnect: FC<HeaderPillConnectProps> = ({ onClick }) => {
+export const HeaderPillConnect: FC = () => {
   return (
     <div className="group relative">
       {/* <PlaceholderBlur /> */}

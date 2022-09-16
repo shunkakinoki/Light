@@ -1,1 +1,0 @@
-export { ModalWallet } from "./ModalWallet";

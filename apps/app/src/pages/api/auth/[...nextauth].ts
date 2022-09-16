@@ -57,7 +57,7 @@ export const getAuthOptions = (req: IncomingMessage): NextAuthOptions => {
           });
 
           return user;
-        } catch (e) {
+        } catch (err) {
           return null;
         }
       },

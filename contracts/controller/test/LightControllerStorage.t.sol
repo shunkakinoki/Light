@@ -76,7 +76,7 @@ contract LightControllerStorageTest is LightControllerTest {
     _testArbitrarySlot(
       address(proxyLightController),
       bytes32(uint256(0)),
-      bytes32(uint256(1))
+      bytes32(uint256(2))
     );
     /// OwnableUpgradeable
     _testArbitrarySlot(

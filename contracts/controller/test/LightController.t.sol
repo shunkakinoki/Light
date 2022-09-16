@@ -10,20 +10,7 @@ contract LightControllerTest is BaseTest {
   LightController private lightController;
 
   function setUp() public {
-    setUpEmpties();
-    setUpEmptyProxies();
-    setUpLightImplementations();
-    setUpEmptyProxyInitializations();
-    setUpLightProxyUpgrades();
-    setUpWrappedLightProxies();
-  }
-
-  function testLightControllerProxyInitialize() public {
-    vm.expectEmit(true, true, false, true, address(wrappedLightController));
-    vm.expectEmit(true, false, false, true, address(wrappedLightController));
-    emit OwnershipTransferred(address(this), address(this));
-    emit Initialized(2);
-    wrappedLightController.initialize();
+    setUpLightProxies();
   }
 
   function testLightControllerDisableInitializersOnImplementation() public {
@@ -33,8 +20,6 @@ contract LightControllerTest is BaseTest {
   }
 
   function testLightControllerSetContractProxy() public {
-    testLightControllerProxyInitialize();
-
     wrappedLightController.setContractProxy(keccak256("one"), address(1));
     assertEq(
       wrappedLightController.getContractProxy(keccak256("one")),
@@ -58,8 +43,6 @@ contract LightControllerTest is BaseTest {
   }
 
   function testLightControllerUnsetContractProxy() public {
-    testLightControllerSetContractProxy();
-
     wrappedLightController.unsetContractProxy(keccak256("one"));
     assertEq(
       wrappedLightController.getContractProxy(keccak256("one")),

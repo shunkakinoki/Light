@@ -3,6 +3,7 @@ import {
   getDefaultWallets,
   connectorsForWallets,
   wallet,
+  lightTheme,
   darkTheme,
 } from "@rainbow-me/rainbowkit";
 import type { GetSiweMessageOptions } from "@rainbow-me/rainbowkit-siwe-next-auth";
@@ -67,7 +68,10 @@ export const Web3Provider: FC<Web3ProviderProps> = ({ children, session }) => {
           <RainbowKitProvider
             appInfo={{ appName: "Light" }}
             chains={chains}
-            theme={darkTheme()}
+            theme={{
+              lightMode: lightTheme(),
+              darkMode: darkTheme(),
+            }}
           >
             {children}
           </RainbowKitProvider>

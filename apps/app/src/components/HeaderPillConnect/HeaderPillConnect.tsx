@@ -32,7 +32,7 @@ export const HeaderPillConnect: FC = () => {
                 if (!mounted || !account || !chain) {
                   return (
                     <button
-                      className="relative flex items-center rounded-full border border-contrast-high bg-contrast-higher py-2 px-3 leading-none ring-offset-bg focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                      className="relative flex items-center rounded-full border border-contrast-high bg-contrast-higher py-2 px-3 text-sm leading-none ring-offset-bg focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                       type="button"
                       onClick={openConnectModal}
                     >
@@ -43,11 +43,7 @@ export const HeaderPillConnect: FC = () => {
 
                 if (chain.unsupported) {
                   return (
-                    <button
-                      className="relative flex items-center rounded-full border border-contrast-high bg-contrast-higher py-2 px-3 leading-none ring-offset-bg focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                      type="button"
-                      onClick={openChainModal}
-                    >
+                    <button type="button" onClick={openChainModal}>
                       Wrong network
                     </button>
                   );

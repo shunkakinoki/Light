@@ -3,3 +3,39 @@ title: Architecture
 ---
 
 # Architecture
+
+The protocol is made up of 3 abstract contracts, 11 core contracts, 1 interaction contracts, 2 library contracts, & 2 renderer contracts.
+
+## Abstract
+
+- `LightOperatable`: Abstract contract to keep track of permissions.
+- `LightManager`: Keeps track of reference addresses in the protocol.
+- `LightUpgradeable`: Base upgradeable contract for core contracts
+
+## Core
+
+- `LightController`: Responsible for management of registry of contracts
+- `LightCuration`: Signalize Light spaces
+- `LightDeployer`: Deployer scripts for the Light protocol
+- `LightEpochManager`: Manage epoch length of the protocol
+- `LightOperatorStore`: Keeps track of permissions and access rights
+- `LightOrb`: Logic for Light orbs
+- `LightRewardsManager`: Rewards manager for Light protocol
+- `LightSpace`: Logic for Light spaces
+- `LightStaking`: Implementation for staking
+- `LightToken`: $LIGHT token implementation
+- `LightXP`: $LXP token implementation
+
+## Interaction
+
+- `LightCore`: Core contract for the Light protocol
+
+## Libraries
+
+- `BancorFormula`: Fork of bancor formula for the bonding curve
+- `TokenUtils`: Common utils for tokens
+
+# Renderer
+
+- `LightENS`: Data source to stream ENS names on-chain
+- `LightRenderer`: On-chain renderer for Light orbs

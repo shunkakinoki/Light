@@ -1,10 +1,12 @@
 import { Analytics, Seo, ThemeScript, ThemeProvider } from "@lightdotso/common";
+import type { Session } from "next-auth";
 import type { AppProps } from "next/app";
 import type { FC } from "react";
 import { useEffect, useState } from "react";
 import { RecoilRoot } from "recoil";
 import { SWRConfig } from "swr";
 
+import "@rainbow-me/rainbowkit/styles.css";
 import "@lightdotso/app/styles/index.css";
 import { Layout } from "@lightdotso/app/components/Layout";
 import { NProgress } from "@lightdotso/app/components/NProgress";
@@ -18,6 +20,7 @@ interface CustomAppProps extends AppProps {
     name?: string;
     id?: string;
     address?: string;
+    session?: Session;
   };
 }
 
@@ -45,7 +48,7 @@ const CustomApp: FC<CustomAppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <ThemeScript />
-      <Web3Provider>
+      <Web3Provider session={pageProps?.session}>
         <RecoilRoot>
           <SWRConfig
             value={{

@@ -2,7 +2,6 @@ import { Analytics } from "@lightdotso/common";
 import dynamic from "next/dynamic";
 import type { FC } from "react";
 
-import { ModalWallet } from "@lightdotso/app/components/ModalWallet";
 import { isProduction } from "@lightdotso/app/utils/isProduction";
 
 const Breakpoint = dynamic(() => {
@@ -21,7 +20,6 @@ export const Layout: FC = ({ children }) => {
   return (
     <>
       <Analytics />
-      <ModalWallet />
       <Toaster position="top-center" toastOptions={{ duration: 3000 }} />
       {children}
       {!isProduction && <Breakpoint />}

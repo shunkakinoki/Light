@@ -6,14 +6,11 @@ import { HeaderPillAddress } from "@lightdotso/app/components/HeaderPillAddress"
 import { HeaderPillConnect } from "@lightdotso/app/components/HeaderPillConnect";
 import { PlaceholderBlur } from "@lightdotso/app/components/PlaceholderBlur";
 import { useEns } from "@lightdotso/app/hooks/useEns";
-import { useModalWallet } from "@lightdotso/app/hooks/useModalWallet";
 import { useWallet } from "@lightdotso/app/hooks/useWallet";
 
 export const HeaderPill: FC = () => {
   const { address, disconnect } = useWallet();
   const { ens } = useEns(address);
-
-  const { openModalWallet } = useModalWallet();
 
   return (
     <Menu as="div" className="relative ml-4 shrink-0">
@@ -22,7 +19,7 @@ export const HeaderPill: FC = () => {
         {address ? (
           <HeaderPillAddress address={address} ens={ens} />
         ) : (
-          <HeaderPillConnect onClick={openModalWallet} />
+          <HeaderPillConnect />
         )}
       </div>
       <HeaderMenu onDisconnect={disconnect} />

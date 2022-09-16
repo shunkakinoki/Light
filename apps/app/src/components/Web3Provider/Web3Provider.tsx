@@ -1,55 +1,82 @@
-import type { FC } from "react";
 import {
-  configureChains,
-  createClient,
-  defaultChains,
-  WagmiConfig,
-} from "wagmi";
-import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
-import { InjectedConnector } from "wagmi/connectors/injected";
-import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
+  RainbowKitProvider,
+  getDefaultWallets,
+  connectorsForWallets,
+  wallet,
+  lightTheme,
+  darkTheme,
+} from "@rainbow-me/rainbowkit";
+import type { GetSiweMessageOptions } from "@rainbow-me/rainbowkit-siwe-next-auth";
+import { RainbowKitSiweNextAuthProvider } from "@rainbow-me/rainbowkit-siwe-next-auth";
+import type { Session } from "next-auth";
+import { SessionProvider } from "next-auth/react";
+import type { FC } from "react";
+import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { infuraProvider } from "wagmi/providers/infura";
 import { publicProvider } from "wagmi/providers/public";
 
 const { chains, provider, webSocketProvider } = configureChains(
-  defaultChains,
+  [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum, chain.goerli],
   [
     infuraProvider({ apiKey: process.env.NEXT_PUBLIC_INFURA_ID }),
-    // eslint-disable-next-line turbo/no-undeclared-env-vars
-    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY }),
+    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID }),
     publicProvider(),
   ],
   { targetQuorum: 1, minQuorum: 1 },
 );
 
+const { wallets } = getDefaultWallets({
+  appName: "Light",
+  chains,
+});
+
+const connectors = connectorsForWallets([
+  ...wallets,
+  {
+    groupName: "Other",
+    wallets: [
+      wallet.argent({ chains }),
+      wallet.trust({ chains }),
+      wallet.ledger({ chains }),
+    ],
+  },
+]);
+
 const client = createClient({
   autoConnect: true,
-  connectors: [
-    new InjectedConnector({
-      chains,
-      options: {
-        name: "Injected",
-        shimDisconnect: true,
-      },
-    }),
-    new CoinbaseWalletConnector({
-      chains,
-      options: {
-        appName: "light",
-      },
-    }),
-    new WalletConnectConnector({
-      chains,
-      options: {
-        qrcode: true,
-      },
-    }),
-  ],
+  connectors,
   provider,
   webSocketProvider,
 });
 
-export const Web3Provider: FC = ({ children }) => {
-  return <WagmiConfig client={client}>{children}</WagmiConfig>;
+const getSiweMessageOptions: GetSiweMessageOptions = () => {
+  return {
+    statement: "Sign in to the Light",
+  };
+};
+
+export type Web3ProviderProps = { session: Session | null | undefined };
+
+export const Web3Provider: FC<Web3ProviderProps> = ({ children, session }) => {
+  return (
+    <SessionProvider refetchInterval={0} session={session}>
+      <WagmiConfig client={client}>
+        <RainbowKitSiweNextAuthProvider
+          getSiweMessageOptions={getSiweMessageOptions}
+        >
+          <RainbowKitProvider
+            appInfo={{ appName: "Light" }}
+            chains={chains}
+            theme={{
+              lightMode: lightTheme(),
+              darkMode: darkTheme(),
+            }}
+          >
+            {children}
+          </RainbowKitProvider>
+        </RainbowKitSiweNextAuthProvider>
+      </WagmiConfig>
+    </SessionProvider>
+  );
 };

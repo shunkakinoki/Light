@@ -55,7 +55,6 @@
     "critters": "^0.0.16",
     "ethers": "^5.7.1",
     "framer-motion": "^7.3.5",
-    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "next": "^12.3.0",
     "next-auth": "^4.10.3",

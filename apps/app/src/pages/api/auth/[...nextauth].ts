@@ -58,6 +58,7 @@ export const getAuthOptions = (req: IncomingMessage): NextAuthOptions => {
 
           return user;
         } catch (err) {
+          console.error(err);
           return null;
         }
       },

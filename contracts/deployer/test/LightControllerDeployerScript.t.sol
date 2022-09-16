@@ -3,12 +3,19 @@
 pragma solidity ^0.8.16;
 
 import "@lightdotso/foundry/BaseTest.sol";
+import "@lightdotso/deployer/LightOrbDeployerScript.s.sol";
 import "@lightdotso/deployer/LightControllerDeployerScript.s.sol";
+
+import "./LightOrbDeployerScript.t.sol";
 
 contract LightControllerDeployerScriptTest is BaseTest {
   LightControllerDeployerScript script;
+  LightOrbDeployerScript lightOrbScript;
 
   function setUp() public {
+    lightOrbScript = new LightOrbDeployerScript();
+    lightOrbScript.run();
+
     script = new LightControllerDeployerScript();
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, false, false, true);

@@ -8,7 +8,7 @@ import "@lightdotso/deployer/LightOrbDeployerScript.s.sol";
 contract LightOrbDeployerScriptTest is BaseTest {
   LightOrbDeployerScript script;
 
-  function setUp() public {
+  function setUp() public virtual {
     script = new LightOrbDeployerScript();
     vm.expectEmit(true, false, false, true);
     vm.expectEmit(true, false, false, true);

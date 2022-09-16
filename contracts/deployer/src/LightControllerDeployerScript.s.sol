@@ -31,7 +31,12 @@ contract LightControllerDeployerScript is Script {
     wrappedLightController.initialize();
 
     string memory root = vm.projectRoot();
-    string memory path = string.concat(root, "/contracts/config/mainnet.json");
+    string memory path = string.concat(
+      root,
+      "/contracts/config/",
+      vm.toString(block.chainid),
+      ".json"
+    );
     string memory json = vm.readFile(path);
 
     address proxyLightCore = stdJson.readAddress(json, ".LightCore");

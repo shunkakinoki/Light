@@ -3,7 +3,9 @@ solc_version = "0.8.16"
 src = 'contracts'
 no_match_test = "testForkRun"
 fs_permissions = [
-    { access = "read", path = "./contracts/config/mainnet.json" }
+    { access = "read", path = "./contracts/config/1.json" },
+    { access = "read", path = "./contracts/config/5.json" },
+    { access = "read", path = "./contracts/config/31337.json" }
 ]
 
 [profile.fork]

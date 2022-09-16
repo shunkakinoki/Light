@@ -47,7 +47,7 @@ export const ModalTwitterVerify = () => {
       setModalTwitterVerifyState({ ...modalTwitterVerifyState, sig: sig });
       return;
     }
-    if (isClient) {
+    if (!isClient) {
       return;
     }
     if (!modalTwitterVerifyState.hasTweeted) {

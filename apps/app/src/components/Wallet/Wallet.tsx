@@ -9,7 +9,6 @@ import { WalletBar } from "@lightdotso/app/components/WalletBar";
 import { Coinbase } from "@lightdotso/app/components/WalletLogo/Coinbase";
 import { Metamask } from "@lightdotso/app/components/WalletLogo/Metamask";
 import { WalletConnect } from "@lightdotso/app/components/WalletLogo/WalletConnect";
-import { useClientOnly } from "@lightdotso/app/hooks/useClientOnly";
 import { useWallet } from "@lightdotso/app/hooks/useWallet";
 
 export type WalletProps = {
@@ -20,7 +19,6 @@ export const Wallet: FC<WalletProps> = ({ onClose }) => {
   const plausible = usePlausible<PlausibleEvents>();
   const { address } = useWallet();
   const { connect, connectors } = useConnect();
-  const isClient = useClientOnly();
 
   return (
     <div className="flex w-full max-w-xl flex-col">
@@ -51,41 +49,36 @@ export const Wallet: FC<WalletProps> = ({ onClose }) => {
         </a>
       </p>
       <div className="mt-8 grid grid-cols-1 gap-4">
-        {connectors.map(connector => {
-          return (
-            <WalletBar
-              key={connector.id}
-              name={connector.id === "injected" ? "Metamask" : connector.name}
-              disabled={!!address}
-              onClick={() => {
-                if (address) {
-                  return;
-                }
-                if (!connector.ready && connector.id === "injected") {
-                  if (isClient) {
-                    return;
-                  }
-                  return window.open(
-                    `https://metamask.app.link/dapp/${window.location.href}`,
-                    "_blank",
-                  );
-                }
-                connect({ connector: connector });
-                plausible("ConnectWallet", { props: { id: connector.id } });
-              }}
-            >
-              {connector.id === "injected" && (
-                <Metamask className="h-5 w-5 rounded-full" />
-              )}
-              {connector.id === "walletConnect" && (
-                <WalletConnect className="h-5 w-5 rounded-full" />
-              )}
-              {connector.id === "coinbaseWallet" && (
-                <Coinbase className="h-5 w-5 rounded-full" />
-              )}
-            </WalletBar>
-          );
-        })}
+        {connectors
+          .filter((item, pos) => {
+            if (item.id === "metaMask") {
+              return false;
+            }
+            return connectors.indexOf(item) == pos;
+          })
+          .map(connector => {
+            return (
+              <WalletBar
+                key={connector.id}
+                name={connector.id === "injected" ? "Metamask" : connector.name}
+                disabled={!!address}
+                onClick={() => {
+                  connect({ connector: connector });
+                  plausible("ConnectWallet", { props: { id: connector.id } });
+                }}
+              >
+                {connector.id === "injected" && (
+                  <Metamask className="h-5 w-5 rounded-full" />
+                )}
+                {connector.id === "walletConnect" && (
+                  <WalletConnect className="h-5 w-5 rounded-full" />
+                )}
+                {connector.id === "coinbaseWallet" && (
+                  <Coinbase className="h-5 w-5 rounded-full" />
+                )}
+              </WalletBar>
+            );
+          })}
       </div>
     </div>
   );

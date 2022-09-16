@@ -10,6 +10,7 @@ import type {
   LightXP,
 } from "@lightdotso/typechain";
 import type { Contract } from "ethers";
+import { utils } from "ethers";
 import { ethers, upgrades } from "hardhat";
 
 export let wrappedLightCore: LightCore;
@@ -83,7 +84,6 @@ before(async () => {
     proxyLightCore.address,
     "LightCore",
   )) as unknown as LightCore;
-  await deployContract("LightCore");
   wrappedLightController = (await upgradeUUPS(
     proxyLightController.address,
     "LightController",
@@ -108,4 +108,34 @@ before(async () => {
     proxyLightXP.address,
     "LightXP",
   )) as unknown as LightXP;
+
+  wrappedLightController.initialize();
+  wrappedLightController.setContractProxy(
+    utils.id("LightCore"),
+    proxyLightCore.address,
+  );
+  wrappedLightController.setContractProxy(
+    utils.id("LightController"),
+    proxyLightController.address,
+  );
+  wrappedLightController.setContractProxy(
+    utils.id("LightOperatorStore"),
+    proxyLightOperatorStore.address,
+  );
+  wrappedLightController.setContractProxy(
+    utils.id("LightOrb"),
+    proxyLightOrb.address,
+  );
+  wrappedLightController.setContractProxy(
+    utils.id("LightOrbFactory"),
+    proxyLightOrbFactory.address,
+  );
+  wrappedLightController.setContractProxy(
+    utils.id("LightSpace"),
+    proxyLightSpace.address,
+  );
+  wrappedLightController.setContractProxy(
+    utils.id("LightXP"),
+    proxyLightXP.address,
+  );
 });

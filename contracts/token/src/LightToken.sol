@@ -92,9 +92,9 @@ contract LightToken is
     _mint(_to, _amount);
   }
 
-  ////////////////
-  /// EIP-2612 ///
-  ////////////////
+  //**********//
+  // EIP-2612 //
+  //**********//
 
   /**
    * @dev Returns the domain separator based on the chainId it was initially deployed to.

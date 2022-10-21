@@ -3,7 +3,7 @@ import type { FC } from "react";
 
 import { SeoBase } from "@lightdotso/app/components/SeoBase";
 import { SettingsTwitterVerify } from "@lightdotso/app/components/SettingsTwitterVerify";
-import { SettingsUsername } from "@lightdotso/app/components/SettingsUsername";
+// import { SettingsUsername } from "@lightdotso/app/components/SettingsUsername";
 
 const ModalTwitterVerify = dynamic(() => {
   return import("@lightdotso/app/components/ModalTwitterVerify").then(mod => {
@@ -21,7 +21,7 @@ export const Settings: FC = () => {
           </h1>
         </div>
         <div className="flex flex-col space-y-12 py-8">
-          <SettingsUsername />
+          {/* <SettingsUsername /> */}
           <SettingsTwitterVerify />
         </div>
       </div>

@@ -16,18 +16,15 @@ export const useNetworks = (address: string) => {
   const { mutate } = useSWRConfig();
 
   const networkFetcher = async (key, address) => {
-    const result = await safeFetchNetworksRaw(address)();
-    if (result.isErr()) {
-      const [actions, votes] = await Promise.all([
-        safeFetchPoapActions(address)(),
-        safeFetchSnapshotVotes(address)(),
-      ]);
-      return {
-        poap: actions.unwrapOr(null),
-        snapshot: { data: votes.unwrapOr(null) },
-      };
-    }
-    return result.value;
+    const [actions, votes] = await Promise.all([
+      safeFetchPoapActions(address)(),
+      safeFetchSnapshotVotes(address)(),
+    ]);
+    return {
+      poap: actions.unwrapOr(null),
+      snapshot: { data: votes.unwrapOr(null) },
+    };
+  }
   };
 
   const { data, error } = useSWR<NetworkRaw>(

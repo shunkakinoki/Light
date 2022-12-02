@@ -1,5 +1,4 @@
 import {
-  safeFetchNetworksRaw,
   safeFetchPoapActions,
   safeFetchSnapshotVotes,
 } from "@lightdotso/services";
@@ -24,7 +23,6 @@ export const useNetworks = (address: string) => {
       poap: actions.unwrapOr(null),
       snapshot: { data: votes.unwrapOr(null) },
     };
-  }
   };
 
   const { data, error } = useSWR<NetworkRaw>(

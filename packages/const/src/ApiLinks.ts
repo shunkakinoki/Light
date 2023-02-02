@@ -32,7 +32,7 @@ export const ApiLinks: {
   GALAXY: "https://graphigo.prd.galaxy.eco/query",
   OGP: "https://og.light.so/api/image?fileType=png&layoutName=Profile&Theme=Dark&Name",
   OPEN_SEA: "https://api.opensea.io/api/v1",
-  POAP: "https://api.poap.xyz",
+  POAP: "https://api.poap.tech",
   POAP_GRAPH: "https://api.thegraph.com/subgraphs/name/poap-xyz/poap-xdai",
   SNAPSHOT: "https://hub.snapshot.org/graphql",
   ZERION: "wss://api-v4.zerion.io/socket.io",

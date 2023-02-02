@@ -91,6 +91,12 @@ export const paymentTokenSchema = z.object({
   usd_price: z.string(),
 });
 
+const ownershipSchema = z.object({
+  created_date: z.string(),
+  owner: userSchema.nullable(),
+  quantity: z.string(),
+});
+
 export const transactionSchema = z.object({
   block_hash: z.string(),
   block_number: z.string(),
@@ -134,7 +140,6 @@ export const openseaAssetSchema = z.object({
   collection: collectionSchema,
   decimals: z.number().nullable(),
   token_metadata: z.string().nullable(),
-  owner: userSchema.nullable(),
   sell_orders: z.any().nullable(),
   creator: userSchema.nullable().optional(),
   traits: z.array(traitSchema).nullable().optional(),
@@ -142,6 +147,7 @@ export const openseaAssetSchema = z.object({
   top_bid: z.any().nullable(),
   listing_date: z.any().nullable(),
   is_presale: z.boolean().nullable().optional(),
+  top_ownerships: z.array(ownershipSchema).nullable().optional(),
   transfer_fee_payment_token: z.any().nullable(),
   transfer_fee: z.any().nullable(),
 });

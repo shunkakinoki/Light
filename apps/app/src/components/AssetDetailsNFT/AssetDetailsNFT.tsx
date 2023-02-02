@@ -25,14 +25,16 @@ export const AssetDetailsNFT: FC<AssetDetailsNFTProps> = ({
 }) => {
   return (
     <div className="px-3">
-      <AssetDetailsSegmentProfile address={top_ownerships[0]?.owner?.address} />
+      <AssetDetailsSegmentProfile
+        address={top_ownerships && top_ownerships[0]?.owner?.address}
+      />
       <AssetDetailsSegmentHero
         name={name}
         collectionName={collectionName}
         description={description}
       />
       <AssetDetailsSegmentMeta
-        address={top_ownerships[0]?.owner?.address}
+        address={top_ownerships && top_ownerships[0]?.owner?.address}
         contractAddress={contractAddress ?? creator?.address}
         tokenId={tokenId}
       />

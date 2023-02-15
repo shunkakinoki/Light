@@ -1,43 +1,38 @@
-# Code from: https://github.com/calcom/cal.com/blob/main/vercel.sh
+# Code from: https://github.com/smorimoto/vercel-private-submodule
+#!/bin/bash
 
-rm -r *
+set -Eeuo pipefail
 
-git init
-git remote add origin https://github.com/LightDotSo/LightDotSo
-git fetch --depth=1
-git checkout main -f
+GITMODULES=".gitmodules"
+FEXT=".bak"
+GITMODULES_BACKUP="${GITMODULES}${FEXT}"
 
-if [ "$BOT_TOKEN" == "" ]; then
-    echo "Error: BOT_TOKEN is empty"
+function cleanup {
+  echo "Cleaning the runner..."
+  rm -f "$GITMODULES" "$GITMODULES_BACKUP"
+  git restore "$GITMODULES"
+  echo "Done!"
+}
+
+trap cleanup EXIT
+
+function submodule_workaround {
+  if [ "$BOT_TOKEN" == "" ]; then
+    echo "BOT_TOKEN is empty!"
     exit 1
-fi
+  fi
 
-git config --global init.defaultBranch main
-git config --global advice.detachedHead false
+  echo "Monkey patching..."
+  sed -i"$FEXT" "s/git@github.com:/https:\/\/oauth2:${BOT_TOKEN}@github.com\//" "$GITMODULES"
+  echo "Done!"
 
-if [ "$VERCEL_GIT_REPO_SLUG" == "api" ]; then
-    SUBMODULE_PATH=apps/api
-    SUBMODULE_GITHUB=github.com/LightDotSo/api
-fi
+  echo "Synchronising submodules' remote URL configuration..."
+  git submodule sync
+  echo "Done!"
 
-if [ "$VERCEL_GIT_REPO_SLUG" == "home" ]; then
-    SUBMODULE_PATH=apps/home
-    SUBMODULE_GITHUB=github.com/LightDotSo/home
-fi
+  echo "Updating the registered submodules to match what the superproject expects..."
+  git submodule update --init --recursive --jobs "$(getconf _NPROCESSORS_ONLN)"
+  echo "Done!"
+}
 
-rm -rf tmp || true
-mkdir tmp
-cd tmp
-
-git init
-git remote add $SUBMODULE_PATH https://$BOT_TOKEN@$SUBMODULE_GITHUB
-git fetch --depth=1 $SUBMODULE_PATH $VERCEL_GIT_COMMIT_SHA
-git checkout $VERCEL_GIT_COMMIT_SHA
-
-cd ..
-rm -rf tmp/.git
-mv tmp/* $SUBMODULE_PATH/
-
-rm -rf tmp
-
-pnpm install --no-lockfile
+submodule_workaround

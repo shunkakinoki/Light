@@ -6,7 +6,7 @@ import { NextImage } from "@lightdotso/app/components/NextImage";
 export type BasePoapProps = { event: PoapBaseEvent };
 
 const poapImage = (eventId: number) => {
-  return `https://api.poap.xyz/token/${eventId}/image`;
+  return `https://api.poap.tech/token/${eventId}/image`;
 };
 
 export const BasePoap: FC<BasePoapProps> = ({
